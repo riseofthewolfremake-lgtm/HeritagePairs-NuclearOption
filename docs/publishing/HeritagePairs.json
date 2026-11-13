@@ -23,13 +23,13 @@
   "isAiAssisted": "True",
   "artifacts": [
     {
-      "fileName": "HeritagePairs_1.9.10.zip",
-      "version": "1.9.10",
+      "fileName": "HeritagePairs_1.9.11.zip",
+      "version": "1.9.11",
       "category": "release",
       "type": "addon",
       "gameVersion": "0.34.6",
-      "downloadUrl": "https://github.com/riseofthewolfremake-lgtm/HeritagePairs-NuclearOption/releases/download/v1.9.10/HeritagePairs_1.9.10.zip",
-      "hash": "sha256:1eda2cab98f8ea4d1ec9d58eb0ba6799b3d07bb0f8bd78bdba3fd93094fde8be",
+      "downloadUrl": "https://github.com/riseofthewolfremake-lgtm/HeritagePairs-NuclearOption/releases/download/v1.9.11/HeritagePairs_1.9.11.zip",
+      "hash": "sha256:ff1a332df7deee467f1ebee9346dd9ffc272c495e04efa4491e6abe7b391b064",
       "extends": {
         "id": "com.nikkorap.blueprinter",
         "version": "2.1.1"

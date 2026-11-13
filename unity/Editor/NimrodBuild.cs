@@ -123,6 +123,15 @@ namespace B25HTools
         // - threshold) x multiplier; at hitPoints <= structuralThreshold the part's joints go to 0 and it comes off. Fabric parts weaker
         // than the metal front (stock COIN fuselage 30 / 1).
         const bool CrashImpactDamage = true;
+        // 1.9.11 (user: on a carrier lift the FD-32's rudder gets damaged, sometimes it snaps off; the Mk I has the same low rudder, 0.45 m shorter): two stock lifts (hangar_R1 of the Annex and the Hyperion) carry an
+        // invisible 'backstop' box behind the spawn point; a low taildragger rudder that reaches back over it lands on it in the spawn drop while the lift starts rising.
+        // (a) spawn further forward with the game's own field spawnOffset.z (stock: CI-22 +0.42, helicopters +1.0), so the rudder's aft end is at least 0.3 m AHEAD of both
+        //     backstop faces in plan view (LiftSpawn1911.cs measures it against the stock carrier prefabs at build time);
+        // (b) the rudder takes no impact damage, exactly as every stock rudder is set (threshold 0, multiplier 0): a touch can no longer destroy a 5 kg part. It still comes
+        //     off in a crash through its joints (break force unchanged), through weapon damage, or together with the fin / rear fuselage, which keep their impact damage.
+        // false = the 1.9.10 values (spawnOffset.z 0, rudder impact damage as every other airframe part).
+        public const bool LiftSpawnFix1911 = true;
+        public const float SpawnForward1911 = 0.7f;   // m: at 0 the Mk I's rudder aft end is 0.36 m BEHIND the Annex backstop face and 0.13 m behind the Hyperion one (clear by 0.31 / 0.24 m in height only); +0.7 puts it 0.34 / 0.57 m ahead
         const float FabricImpactG = 20f, FabricImpactMult = 1.5f, MetalImpactG = 30f, MetalImpactMult = 1f;
 
         static readonly BindingFlags BF = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
@@ -511,6 +520,7 @@ namespace B25HTools
                 var id = System.Activator.CreateInstance(idf.FieldType);
                 bool metal = s.name == "NIMROD1" || s.name == "fus_engine";
                 S(id, "threshold", metal ? MetalImpactG : FabricImpactG); S(id, "multiplier", metal ? MetalImpactMult : FabricImpactMult);
+                if (LiftSpawnFix1911 && s.name == "rudder") { S(id, "threshold", 0f); S(id, "multiplier", 0f); }   // 1.9.11: as every stock rudder
                 idf.SetValue(ap, id);
             }
             MeshFilter own = s.name == "NIMROD1" ? Find("fus_center").GetComponent<MeshFilter>()
@@ -1264,7 +1274,7 @@ namespace B25HTools
             def.value = 6f; def.radarSize = 0.45f; def.visibleRange = 3500f; def.manpower = 1;
             def.roleIdentity.antiAir = 0.6f; def.roleIdentity.antiSurface = 0.3f;
             float contactH = (float)contract["level_wheel_contact_height"];
-            def.spawnOffset = new Vector3(0f, contactH + SpawnLift, 0f);
+            def.spawnOffset = new Vector3(0f, contactH + SpawnLift, LiftSpawnFix1911 ? SpawnForward1911 : 0f);   // 1.9.11: z forward of the hangar's spawn point (was 0)
             def.restRotation = new Vector3(-14f, 0f, 0f);
             def.aircraftParameters = prm;
             def.mapIcon = mapIconSprite; def.mapIconSize = 0.85f; def.mapOrient = true;
@@ -1437,7 +1447,7 @@ namespace B25HTools
                     $"aileron airfoils {G(parts["aileron_L"], "airfoil")}/{G(parts["aileron_R"], "airfoil")}");
                 R("1.4.2 gear: main 200 kN/m breaks at 0.50 m, tail 120 kN/m at 0.27 m", lg142.Length == 3 && lg142.All(GearOk),
                     string.Join(", ", lg142.Select(g => $"{g.name} steer {G(g, "steering")} k {G(g, "springRate")} max {G(g, "maxCompression")} ok {GearOk(g)}")));
-                R("crash impact damage (1.4.1): every airframe part has its own impactDamage (fabric 20 g x1.5, metal 30 g x1)", !CrashImpactDamage || parts.Where(kv => kv.Key != "prop").All(kv => { var d = G(kv.Value, "impactDamage"); return d != null && (float)G(d, "threshold") > 0f && (float)G(d, "multiplier") > 0f; }) && parts.Where(kv => kv.Key != "prop").Select(kv => G(kv.Value, "impactDamage")).Distinct().Count() == parts.Count - 1, "");
+                R("crash impact damage (1.4.1): every airframe part has its own impactDamage (fabric 20 g x1.5, metal 30 g x1; 1.9.11: the rudder's is switched off)", !CrashImpactDamage || parts.Where(kv => kv.Key != "prop" && !(LiftSpawnFix1911 && kv.Key == "rudder")).All(kv => { var d = G(kv.Value, "impactDamage"); return d != null && (float)G(d, "threshold") > 0f && (float)G(d, "multiplier") > 0f; }) && parts.Where(kv => kv.Key != "prop").Select(kv => G(kv.Value, "impactDamage")).Distinct().Count() == parts.Count - 1, "");
                 R("gear: 2 braked mains (fixed, friction MainGearFriction), 1 steerable tailwheel (lock -30: behind the CG); fold < 1 deg; extendedDrag = part dragArea", lgs.Length == 3 && lgs.Count(g => (bool)G(g, "braked")) == 2 && lgs.Count(g => IsTailW(g)) == 1 && lgs.All(g => (float)G(g, "foldDegrees") < 1f && Mathf.Abs((float)G(g, "extendedDrag") - ((AeroPart)G(g, "attachedPart")).dragArea) < 1e-4f)
                     && lgs.Where(g => IsTailW(g)).All(g => (float)G(g, "steeringLock") < 0f) && lgs.Where(g => (bool)G(g, "braked")).All(g => Mathf.Abs((float)G(g, "frictionCoef") - MainGearFriction) < 1e-4f),
                     string.Join(" | ", lgs.Select(g => $"{g.name} k {G(g, "springRate")} travel {G(g, "suspensionTravel")} part {((AeroPart)G(g, "attachedPart")).name}")));
@@ -1552,6 +1562,16 @@ namespace B25HTools
                 var def = (AircraftDefinition)ac.definition;
                 R("definition: NIMROD1, 10.26 x 8.18 x 3.0 m, spawn offset = level wheel contact, rest rotation -14", def.jsonKey == JsonKey && Mathf.Abs(def.width - 10.26f) < 0.01f && Mathf.Abs(def.spawnOffset.y - ((float)contract["level_wheel_contact_height"] + SpawnLift)) < 0.001f && def.restRotation.x < -10f,
                     $"spawnOffset {def.spawnOffset.ToString("F3")}, mass {((UnitDefinition)def).mass}");
+                {   // 1.9.11 carrier-lift spawn (LiftSpawn1911.cs)
+                    var rud = inst.GetComponentsInChildren<AeroPart>(true).FirstOrDefault(p => p.name == "rudder"); var rid = rud != null ? G(rud, "impactDamage") : null;
+                    var others = inst.GetComponentsInChildren<AeroPart>(true).Where(p => p.name != "rudder" && p.name != "prop").Select(p => G(p, "impactDamage")).ToList();
+                    R("1.9.11 rudder: impact damage off as on every stock rudder (threshold 0, multiplier 0, its own instance); every other airframe part keeps its impact damage; rudder joints unchanged",
+                        !LiftSpawnFix1911 || (rid != null && (float)G(rid, "threshold") == 0f && (float)G(rid, "multiplier") == 0f && others.All(o => o != null && !ReferenceEquals(o, rid) && (float)G(o, "threshold") > 0f)),
+                        rid != null ? $"rudder {G(rid, "threshold")} x {G(rid, "multiplier")}, mass {rud.mass}, joints {string.Join(" / ", ((PartJoint[])G(rud, "joints")).Select(j => j.breakForce))}; {others.Count} other parts on" : "no rudder");
+                    var ls = LiftSpawn1911.Check(inst.transform, rud != null ? rud.transform : null, def.spawnOffset, def.restRotation);
+                    R($"1.9.11 spawn: spawnOffset.z {SpawnForward1911} m forward; the rudder's aft end in the spawn pose is at least {LiftSpawn1911.MinMargin} m ahead of the nearest stock lift backstop face (Annex and Hyperion hangar_R1, measured on the stock prefabs)",
+                        !LiftSpawnFix1911 || (Mathf.Abs(def.spawnOffset.z - SpawnForward1911) < 1e-5f && def.spawnOffset.x == 0f && ls.Item1), ls.Item2);
+                }
                 var op = AssetDatabase.LoadAssetAtPath<Blueprinter.OpAddAircraftToHangars>(Folder + "/OpAddAircraftToHangars.asset");
                 R($"hangars: medium hangar, revetment, shelter, Cursor LFD, Annex R1-R3 + M, Hyperion {(HyperionR2Only ? "R2 (9" : "R1-R3 (11")} hangar names)", op != null && op.hangars.Sum(h => h.hangarNames.Count) == (AllHangarTypes ? (HyperionR2Only ? 9 : 11) : 2),
                     op != null ? string.Join("; ", op.hangars.Select(h => h.hangarUnitJsonKey + ":" + string.Join(",", h.hangarNames))) : "missing");

@@ -21,7 +21,7 @@ def T(name, ok):
 
 
 # ---- (1) C#
-T('plugin 1.5.3+ (1.5.5, 1.6.0)', re.search(r'BepInPlugin\("b25h.instruments", "(B-25H|Heritage Pairs) Instruments", "1\.(5\.[35]|6\.0|8\.([04679]|1[0125])|9.([02789]|10))"\)', plug) is not None)
+T('plugin 1.5.3+ (1.5.5, 1.6.0)', re.search(r'BepInPlugin\("b25h.instruments", "(B-25H|Heritage Pairs) Instruments", "1\.(5\.[35]|6\.0|8\.([04679]|1[0125])|9.([02789]|1[01]))"\)', plug) is not None)
 T('scanned in the 2 s scan block (1.8.10: its own frame step in Scan1810.cs)', re.search(r'ScanNimrod\(\);\s*FD32TacPanels\(\);', plug) is not None or 'case 3: FD32TacPanels(); break;' in open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Scan1810.cs'), encoding='utf-8').read())
 T('FD32 + GA25X (1.8.4: the GA-25X tac page had the same unbound panels)', 'IsTacFixKey(string k) => k == TacKeyFD32 || k == BoostJsonKey;' in cs and 'TacKeyFD32 = "FD32";' in cs and (cs.count('if (!IsTacFixKey(a.definition.jsonKey)) continue;') == 2 or cs.count('if (!IsTacFixKey(a.definition.jsonKey) && !(a.definition.jsonKey == MsbTacKey && MsbTacOn)) continue;') == 2))   # 1.9.0: + MSB1780 behind [Dials] MsbTac190 (default off)
 T('name map COIN -> turbine, propHub -> prop', 'engineName == "COIN" ? "turbine" : engineName == "propHub" ? "prop" : null' in cs)

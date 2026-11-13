@@ -2,6 +2,10 @@
 
   python tools/make_public_tree.py <out dir>          (the out dir must not exist or must be empty apart from .git)
 
+For a later version the public repository already has history: build the tree into an empty scratch folder, then make the repository's
+working copy equal to it (delete what is gone, copy what is new or changed), `git add -A` and add ONE commit on top. Never rewrite or
+amend a commit that has been pushed.
+
 Copies the files listed by INCLUDE minus EXCLUDE (tracked files only, plus the files named in EXTRA), writes a .gitignore and a
 .gitattributes, then scans the
 copy and prints a report: file count, size, largest files, and every finding of the checks below. Exit 1 on a finding marked BLOCK.
@@ -26,8 +30,8 @@ INCLUDE = ['README.md', 'LICENSE', 'LICENSE-ASSETS', 'CREDITS.md', 'CHANGELOG.md
            'assets/*',
            'tools/build_instruments.sh', 'tools/make_release_zip.py', 'tools/pack_asset_report.py', 'tools/pack_strings199.py', 'tools/atlas_pack_check1816.py',
            'tools/nomnom_schema_check.py', 'tools/make_public_tree.py', 'tools/paint_out_marks1910.py', 'tools/pack_texture_diff1910.py',
-           'docs/publishing/HeritagePairs.json', 'docs/publishing/pack_asset_report_1.9.10.txt',
-           'docs/publishing/RELEASE_NOTES_1.9.10.md', 'docs/publishing/HOW_TO_RELEASE.md']
+           'docs/publishing/HeritagePairs.json', 'docs/publishing/pack_asset_report_1.9.11.txt',      # the current release's report only
+           'docs/publishing/RELEASE_NOTES_*.md', 'docs/publishing/HOW_TO_RELEASE.md']
 EXCLUDE = ['*/__pycache__/*', '*.pyc', '*.blend1',
            'blender/*/study/*',                      # study scripts that read the user's game export
            'assets/*/renders/*', 'assets/*/previews/*', 'assets/*/drafts/*',      # review renders and drafts: not needed to rebuild

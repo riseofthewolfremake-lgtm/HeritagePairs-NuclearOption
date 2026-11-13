@@ -98,7 +98,7 @@ You need your own copy of the game; no game file is in this repository.
    the supported build. The `B25H.Instruments.csproj` beside the source is a convenience for IDEs; it has not been built with
    a .NET SDK and is not expected to give the same bytes.
    The build is deterministic: the same source, compiler and reference DLLs give the same DLL bytes. The released
-   `B25H.Instruments.dll` 1.9.10 has sha256 `2a7cda29cf2e10e734b100b2227f5b4634905fbabd9f4800bf121e324498bea5` and was built with:
+   `B25H.Instruments.dll` 1.9.11 has sha256 `c999b6199b390be38f9aded0bc588aa36ddeb0b29f5fc7d704bd538f9edcaef3` and was built with:
    - Nuclear Option 0.34.6, Steam build id 26327221 (`Assembly-CSharp.dll` sha256 `babdd626bbab...813c2bce`);
    - BepInEx 5.4.23.5 (`BepInEx.dll` sha256 `8255b2890288...ef14ce70`, `0Harmony.dll` sha256 `1a21cc03424f...285c1031`);
    - Unity 2022.3.62f2: its Roslyn `csc.dll` 4.3.1-3.22526.13 (41a5af9d), run by its bundled .NET runtime 6.0.21.

@@ -2,6 +2,16 @@
 
 Heritage Pairs, newest first. Versions before 1.9.10 were private test builds and were never released.
 
+## 1.9.11
+
+- Fixed: the FD-32's rudder was damaged, and sometimes torn off, when the aircraft came up on a carrier's lift. On the aft
+  lifts of the Annex and the Hyperion its tail was placed over a raised stop at the back of the lift. The FD-32 now appears
+  1.2 m further forward, clear of it. The Nimrod Mk I, whose tail was close to the same stop, appears 0.7 m further forward.
+  This applies to every hangar, shelter and deck spot; both aircraft still have plenty of room in front.
+- The rudders of the FD-32 and the Nimrod Mk I no longer take damage from light bumps, the same as the rudders of the
+  game's own aircraft. They can still be shot off or torn off in a crash.
+- Nothing else changed; the plugin only carries the new version number.
+
 ## 1.9.10 (first public release)
 
 - Two logo-like marks removed from cockpit placards: the winged emblem on the B-17G data plate and the triangle emblem on the
