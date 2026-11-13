@@ -1,0 +1,176 @@
+{
+ "usaaf_od": {
+  "texture": "b17g_livery_usaaf_od.png",
+  "metal": "b17g_skin_m_usaaf_od.png",
+  "name": "USAAF Olive Drab",
+  "faction": "BOTH",
+  "glossiness": 0.12,
+  "colors": [
+   {
+    "color": "#404020FF",
+    "count": 3119029
+   },
+   {
+    "color": "#606060FF",
+    "count": 2200870
+   },
+   {
+    "color": "#303020FF",
+    "count": 96995
+   },
+   {
+    "color": "#304020FF",
+    "count": 95983
+   },
+   {
+    "color": "#505050FF",
+    "count": 32957
+   }
+  ]
+ },
+ "usaaf_nm": {
+  "texture": "b17g_livery_usaaf_nm.png",
+  "metal": "b17g_skin_m_usaaf_nm.png",
+  "name": "USAAF Natural Metal",
+  "faction": "BOTH",
+  "glossiness": 0.55,
+  "colors": [
+   {
+    "color": "#909090FF",
+    "count": 3391012
+   },
+   {
+    "color": "#809090FF",
+    "count": 800861
+   },
+   {
+    "color": "#9090A0FF",
+    "count": 570710
+   },
+   {
+    "color": "#808090FF",
+    "count": 463832
+   },
+   {
+    "color": "#808080FF",
+    "count": 136576
+   }
+  ]
+ },
+ "bdf_od": {
+  "texture": "b17g_livery_bdf_od.png",
+  "metal": "b17g_skin_m_bdf_od.png",
+  "name": "BDF Olive Drab",
+  "faction": "BDF",
+  "glossiness": 0.12,
+  "colors": [
+   {
+    "color": "#404020FF",
+    "count": 3109986
+   },
+   {
+    "color": "#606060FF",
+    "count": 2174099
+   },
+   {
+    "color": "#303020FF",
+    "count": 97451
+   },
+   {
+    "color": "#304020FF",
+    "count": 95717
+   },
+   {
+    "color": "#505050FF",
+    "count": 33112
+   }
+  ]
+ },
+ "bdf_temperate": {
+  "texture": "b17g_livery_bdf_temperate.png",
+  "metal": "b17g_skin_m_bdf_temperate.png",
+  "name": "BDF Temperate Camo",
+  "faction": "BDF",
+  "glossiness": 0.05,
+  "colors": [
+   {
+    "color": "#304030FF",
+    "count": 2849604
+   },
+   {
+    "color": "#707070FF",
+    "count": 2157134
+   },
+   {
+    "color": "#304020FF",
+    "count": 130413
+   },
+   {
+    "color": "#606060FF",
+    "count": 94830
+   },
+   {
+    "color": "#506050FF",
+    "count": 48604
+   }
+  ]
+ },
+ "pala_desert": {
+  "texture": "b17g_livery_pala_desert.png",
+  "metal": "b17g_skin_m_pala_desert.png",
+  "name": "PALA Desert Camo",
+  "faction": "PALA",
+  "glossiness": 0.05,
+  "colors": [
+   {
+    "color": "#B0A070FF",
+    "count": 1523540
+   },
+   {
+    "color": "#8090A0FF",
+    "count": 1050568
+   },
+   {
+    "color": "#809090FF",
+    "count": 1025870
+   },
+   {
+    "color": "#604030FF",
+    "count": 878149
+   },
+   {
+    "color": "#908050FF",
+    "count": 712232
+   }
+  ]
+ },
+ "pala_matteblack": {
+  "texture": "b17g_livery_pala_matteblack.png",
+  "metal": "b17g_skin_m_pala_matteblack.png",
+  "name": "PALA Matte Black",
+  "faction": "PALA",
+  "glossiness": 0.08,
+  "colors": [
+   {
+    "color": "#101010FF",
+    "count": 5508187
+   },
+   {
+    "color": "#900000FF",
+    "count": 50302
+   },
+   {
+    "color": "#000000FF",
+    "count": 39482
+   },
+   {
+    "color": "#D0D0D0FF",
+    "count": 14159
+   },
+   {
+    "color": "#800000FF",
+    "count": 2443
+   }
+  ]
+ }
+}

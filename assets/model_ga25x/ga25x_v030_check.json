@@ -1,0 +1,133 @@
+{
+ "checks": {
+  "displays covered: bezel lip / backing around every face (no bare panel)": {
+   "ok": true,
+   "detail": "0 of 240 edge rays see bare panel: []"
+  },
+  "no cockpit_interior face coplanar with a display / ISIS face (z-fight)": {
+   "ok": true,
+   "detail": "0: []"
+  },
+  "tail cone closed: rays from behind hit front faces only": {
+   "ok": true,
+   "detail": "0 back-face hits of 549: []"
+  },
+  "tail top line: no tail-gunner hump (fus_tail top aft of y -7.5 <= 1.00 m)": {
+   "ok": true,
+   "detail": "max z 0.970"
+  },
+  "spinner meets the cowl: junction rays stop on the skirt / closed cowl front (no see-through)": {
+   "ok": true,
+   "detail": "0: []"
+  },
+  "dorsal turret ring faired over (skin, front-facing)": {
+   "ok": true,
+   "detail": "0: []"
+  },
+  "stock parts previewed (user placeholder meshes: 2 seats, 2 sticks)": {
+   "ok": true,
+   "detail": "[\"preview_seat_L\", \"preview_stick_L\", \"preview_seat_R\", \"preview_stick_R\"]"
+  },
+  "stock ejection seats stay inside the canopy (>= 5 mm under the shell, straight up)": {
+   "ok": true,
+   "detail": "{\"L\": [0.0082, [[-0.499, 3.176, 1.319], \"under\"]], \"R\": [0.0082, [[0.499, 3.176, 1.319], \"under\"]]}"
+  },
+  "ejection path: straight up from each stock seat headbox the first thing hit is its own jettison canopy panel": {
+   "ok": true,
+   "detail": "[]"
+  },
+  "stock seat / sticks / throttle do not cut into the cabin (sticks may only touch the footwell floor at their base)": {
+   "ok": true,
+   "detail": "{}"
+  },
+  "stock parts clear of each other (seats vs sticks / throttle)": {
+   "ok": true,
+   "detail": "[]"
+  },
+  "crew eyes see all corners of both main displays and the ISIS column (nothing in front of the screens)": {
+   "ok": true,
+   "detail": "[]"
+  },
+  "cabin objects use only ck_struct / ck_panel / ck_black / ck_art (panel art) / screen / gauges (no rubber crosshatch or tiles)": {
+   "ok": true,
+   "detail": "[]"
+  },
+  "no custom seat / stick / throttle geometry left (stick_L/R and cockpit_throttle are empties)": {
+   "ok": true,
+   "detail": "[]"
+  },
+  "split throttle lever: inside its slot at 0 / 26 / 52 deg, slot gap <= 5 mm, no intersection with housing / dial / panel": {
+   "ok": true,
+   "detail": "{\"0\": {\"in_slot\": true, \"slot_gap_mm\": 4.0, \"angles\": [-50.1, -42.0], \"intersects\": false}, \"26\": {\"in_slot\": true, \"slot_gap_mm\": 4.0, \"angles\": [-24.1, -16.0], \"intersects\": false}, \"52\": {\"in_slot\": true, \"slot_gap_mm\": 4.0, \"angles\": [1.9, 10.0], \"intersects\": false}}"
+  },
+  "stick bases touch their mounts (gap < 5 mm)": {
+   "ok": true,
+   "detail": "{\"L\": 0.8, \"R\": 0.8}"
+  },
+  "rudder pedals: face normal aft-up, within 40 deg of the knee direction, plane along the foot (heel->pedal 55..125 deg)": {
+   "ok": true,
+   "detail": "[{\"L\": \"L\", \"normal\": [0.0, -0.407, 0.914], \"knee_deg\": 12.8, \"heel_to_pedal_deg\": 100.4, \"ok\": true}, {\"L\": \"L\", \"normal\": [0.0, -0.407, 0.914], \"knee_deg\": 12.8, \"heel_to_pedal_deg\": 100.4, \"ok\": true}, {\"L\": \"R\", \"normal\": [0.0, -0.407, 0.914], \"knee_deg\": 12.8, \"heel_to_pedal_deg\": 100.4, \"ok\": true}, {\"L\": \"R\", \"normal\": [0.0, -0.407, 0.914], \"knee_deg\": 12.8, \"heel_to_pedal_deg\": 100.4, \"ok\""
+  },
+  "nothing intersects the crew figures' legs (COIN bone pose: thigh r 75 mm, shin r 55 mm, foot box 90 mm wide)": {
+   "ok": true,
+   "detail": "[]"
+  },
+  "no floating cabin part: every mesh island touches or overlaps another part (<= 3 mm)": {
+   "ok": true,
+   "detail": "{\"islands\": 6694, \"floating\": []}"
+  },
+  "panel art: >= 0.6 m2 of labelled switch-panel / bezel / annunciator / console art and >= 9 different art panels in the cabin": {
+   "ok": true,
+   "detail": "{\"labelled_m2\": 0.645, \"panels\": {\"placard_danger\": 0.0031, \"placard_canopy\": 0.0036, \"placard_nostep\": 0.0013, \"pedestal_gate\": 0.0507, \"pedestal_radio\": 0.045, \"console_left\": 0.0556, \"breakers\": 0.1112, \"subpanel\": 0.1168, \"placard_glimit\": 0.0005, \"console_right\": 0.0556, \"placard_fuel\": 0.0018, \"blank\": 0.6635, \"mfd_bezel\": 0.1584, \"annunciator\": 0.0388, \"placard_data\": 0.002}}"
+  },
+  "z-fight: no coplanar overlapping faces in the cabin (other part / island, same-facing, < 1 mm apart, >= 0.25 cm2)": {
+   "ok": true,
+   "detail": "{\"pairs\": 0, \"below_threshold\": 132, \"worst\": []}"
+  },
+  "laser envelope (el -2..-90, gear down, doors closed): only the extended gear and prop blades in the beam path (Turret linecast holds fire; gear up = clear)": {
+   "ok": true,
+   "detail": "{\"cells\": 3240, \"blocked\": 48, \"by_object\": {\"gear_nose\": {\"n\": 4, \"max_depression\": 8, \"az\": [0, \"..\", 0]}, \"prop_R\": {\"n\": 2, \"max_depression\": 4, \"az\": [30, \"..\", 30]}, \"gear_main\": {\"n\": 42, \"max_depression\": 16, \"az\": [45, 50, 55, \"..\", 305, 310, 315]}}}"
+  }
+ },
+ "laser": {
+  "el_pivot": [
+   0.0,
+   -2.4,
+   -1.2327
+  ],
+  "belly_skin_z": null,
+  "blocked": {
+   "gear_nose": {
+    "n": 4,
+    "max_depression": 8,
+    "az": [
+     0,
+     "..",
+     0
+    ]
+   },
+   "prop_R": {
+    "n": 2,
+    "max_depression": 4,
+    "az": [
+     30,
+     "..",
+     30
+    ]
+   },
+   "gear_main": {
+    "n": 42,
+    "max_depression": 16,
+    "az": [
+     45,
+     50,
+     55,
+     "..",
+     305,
+     310,
+     315
+    ]
+   }
+  }
+ }
+}

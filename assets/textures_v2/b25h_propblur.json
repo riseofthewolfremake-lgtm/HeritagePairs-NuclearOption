@@ -1,0 +1,40 @@
+{
+ "texture": "b25h_propblur.png",
+ "layout": "CI-22 COIN_propblur_b: v 0.5-1 = blurred blades (propdisc_blur), v 0-0.5 = translucent disc (propdisc_full); disc centre u 0.5, radius 0.485 uv (1.93 m), hub hole 0.17 m",
+ "import": {
+  "sRGB": true,
+  "alphaIsTransparency": true,
+  "wrap": "Clamp",
+  "filter": "Bilinear",
+  "mipmaps": true
+ },
+ "material": {
+  "note": "copy the stock COIN_propdisc1 material (URP Lit, transparent) and swap _BaseMap/_MainTex; values as stock",
+  "shader": "Universal Render Pipeline/Lit",
+  "renderQueue": 3000,
+  "RenderType": "Transparent",
+  "_Surface": 1,
+  "_Blend": 0,
+  "_SrcBlend": 5,
+  "_DstBlend": 10,
+  "_SrcBlendAlpha": 1,
+  "_DstBlendAlpha": 10,
+  "_ZWrite": 0,
+  "_Cull": 2,
+  "_AlphaClip": 0,
+  "_Metallic": 0,
+  "_Smoothness": 0.63,
+  "_SpecularHighlights": 1,
+  "_BaseColor": [
+   1,
+   1,
+   1,
+   0.102
+  ],
+  "disabledShaderPasses": [
+   "SHADOWCASTER",
+   "DepthOnly"
+  ],
+  "_OcclusionMap": "none (stock uses COIN_propblur_ao; not needed)"
+ }
+}

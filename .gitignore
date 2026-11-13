@@ -1,0 +1,38 @@
+# Python, Blender, .NET
+__pycache__/
+*.pyc
+*.blend1
+*.blend2
+bin/
+obj/
+*.pdb
+*.user
+*.suo
+# editors and OS
+.vs/
+.vscode/
+.idea/
+.claude/
+.DS_Store
+Thumbs.db
+desktop.ini
+# Unity project folders (the Blueprinter project is not part of this repository)
+Library/
+Temp/
+Logs/
+*.meta
+# build outputs and game-type files: never commit these
+build/
+dist/
+*.dll
+*.exe
+*.nobp
+*.zip
+*.unitypackage
+*.assets
+*.bundle
+*.log
+*.tmp
+# reference models and captures stay outside the repository
+*.obj
+*.mtl

@@ -1,0 +1,212 @@
+{
+ "tool": "tools/livery_compare1818.py",
+ "old": "C:\\Users\\User\\nuclearoption-ref\\study\\atlas_1816\\b17g_1817",
+ "new": "C:\\Users\\User\\nuclearoption-ref\\study\\atlas_1816\\b17g_1818",
+ "threshold": "any channel > 40",
+ "rows": [
+  {
+   "file": "bdf_od_front.png",
+   "pct": 0.0,
+   "px": 0
+  },
+  {
+   "file": "bdf_od_left.png",
+   "pct": 0.0,
+   "px": 0
+  },
+  {
+   "file": "bdf_od_rear.png",
+   "pct": 0.0,
+   "px": 0
+  },
+  {
+   "file": "bdf_od_right.png",
+   "pct": 0.0,
+   "px": 0
+  },
+  {
+   "file": "bdf_od_threequarter.png",
+   "pct": 0.0,
+   "px": 0
+  },
+  {
+   "file": "bdf_od_top.png",
+   "pct": 0.0,
+   "px": 0
+  },
+  {
+   "file": "bdf_temperate_front.png",
+   "pct": 0.0,
+   "px": 0
+  },
+  {
+   "file": "bdf_temperate_left.png",
+   "pct": 0.0,
+   "px": 0
+  },
+  {
+   "file": "bdf_temperate_rear.png",
+   "pct": 0.0,
+   "px": 0
+  },
+  {
+   "file": "bdf_temperate_right.png",
+   "pct": 0.0,
+   "px": 0
+  },
+  {
+   "file": "bdf_temperate_threequarter.png",
+   "pct": 0.0,
+   "px": 0
+  },
+  {
+   "file": "bdf_temperate_top.png",
+   "pct": 0.0,
+   "px": 0
+  },
+  {
+   "file": "pala_desert_front.png",
+   "pct": 0.0,
+   "px": 0
+  },
+  {
+   "file": "pala_desert_left.png",
+   "pct": 0.0,
+   "px": 0
+  },
+  {
+   "file": "pala_desert_rear.png",
+   "pct": 0.0,
+   "px": 0
+  },
+  {
+   "file": "pala_desert_right.png",
+   "pct": 0.0,
+   "px": 0
+  },
+  {
+   "file": "pala_desert_threequarter.png",
+   "pct": 0.0,
+   "px": 0
+  },
+  {
+   "file": "pala_desert_top.png",
+   "pct": 0.0,
+   "px": 0
+  },
+  {
+   "file": "pala_matteblack_front.png",
+   "pct": 0.0,
+   "px": 0
+  },
+  {
+   "file": "pala_matteblack_left.png",
+   "pct": 0.0,
+   "px": 0
+  },
+  {
+   "file": "pala_matteblack_rear.png",
+   "pct": 0.0,
+   "px": 0
+  },
+  {
+   "file": "pala_matteblack_right.png",
+   "pct": 0.0,
+   "px": 0
+  },
+  {
+   "file": "pala_matteblack_threequarter.png",
+   "pct": 0.0,
+   "px": 0
+  },
+  {
+   "file": "pala_matteblack_top.png",
+   "pct": 0.0,
+   "px": 0
+  },
+  {
+   "file": "usaaf_nm_front.png",
+   "pct": 0.0,
+   "px": 0,
+   "outside_edge_pct": 0.0,
+   "outside_edge_px": 0
+  },
+  {
+   "file": "usaaf_nm_left.png",
+   "pct": 0.0,
+   "px": 0,
+   "outside_edge_pct": 0.0,
+   "outside_edge_px": 0
+  },
+  {
+   "file": "usaaf_nm_rear.png",
+   "pct": 0.0,
+   "px": 0,
+   "outside_edge_pct": 0.0,
+   "outside_edge_px": 0
+  },
+  {
+   "file": "usaaf_nm_right.png",
+   "pct": 0.0,
+   "px": 0,
+   "outside_edge_pct": 0.0,
+   "outside_edge_px": 0
+  },
+  {
+   "file": "usaaf_nm_threequarter.png",
+   "pct": 0.0,
+   "px": 0,
+   "outside_edge_pct": 0.0,
+   "outside_edge_px": 0
+  },
+  {
+   "file": "usaaf_nm_top.png",
+   "pct": 0.0,
+   "px": 0,
+   "outside_edge_pct": 0.0,
+   "outside_edge_px": 0
+  },
+  {
+   "file": "usaaf_od_front.png",
+   "pct": 0.0,
+   "px": 0
+  },
+  {
+   "file": "usaaf_od_left.png",
+   "pct": 0.0,
+   "px": 0
+  },
+  {
+   "file": "usaaf_od_rear.png",
+   "pct": 0.0,
+   "px": 0
+  },
+  {
+   "file": "usaaf_od_right.png",
+   "pct": 0.0,
+   "px": 0
+  },
+  {
+   "file": "usaaf_od_threequarter.png",
+   "pct": 0.0,
+   "px": 0
+  },
+  {
+   "file": "usaaf_od_top.png",
+   "pct": 0.0,
+   "px": 0
+  }
+ ],
+ "others_max_pct": 0.0,
+ "nm_max_pct": 0.0,
+ "nm_outside_edge_pct": 0.0,
+ "n_images": 36,
+ "texels": {
+  "colour_changed": 28011,
+  "colour_changed_off_edge": 9842,
+  "metal_changed": 37753,
+  "metal_changed_off_edge": 13079,
+  "boundary_texels": 192127,
+  "rule": "changed = any channel > 2 / 255; edge = within 3 texels of the 1.8.17 olive / metal boundary"
+ }
+}

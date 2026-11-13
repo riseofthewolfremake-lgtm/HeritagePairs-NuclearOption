@@ -1,0 +1,30 @@
+{
+ "column base sits on its floor plate (gap < 5 mm)": {
+  "ok": true,
+  "detail": "column lowest z -0.1620 (plate top -0.162)"
+ },
+ "throttle levers: no intersection with the quadrant over 0 / mid / full travel, hub < 5 mm from the slot well": {
+  "ok": true,
+  "detail": "{\"L@0\": {\"intersects\": false, \"gap_mm\": 4.6}, \"L@20\": {\"intersects\": false, \"gap_mm\": 4.6}, \"L@40\": {\"intersects\": false, \"gap_mm\": 4.6}, \"R@0\": {\"intersects\": false, \"gap_mm\": 4.1}, \"R@20\": {\"intersects\": false, \"gap_mm\": 4.6}, \"R@40\": {\"intersects\": false, \"gap_mm\": 4.6}}"
+ },
+ "rudder pedal plates face aft and up (foot presses forward)": {
+  "ok": true,
+  "detail": "mean plate normal (-0.002, -0.902, 0.433)"
+ },
+ "crew legs (COIN bone pose, pilot + navigator) clear of every cabin part": {
+  "ok": true,
+  "detail": "[]"
+ },
+ "no floating cabin part (every mesh island within 3 mm of another part)": {
+  "ok": true,
+  "detail": "{\"islands\": 2667, \"floating\": []}"
+ },
+ "z-fight: no coplanar overlapping faces in the cabin (>= 0.25 cm2)": {
+  "ok": true,
+  "detail": "{\"pairs\": 0, \"below\": 32, \"worst\": []}"
+ },
+ "panel art: a dark hole under every real dial (centre pixel dark, >= 85 % dark within 0.8 r)": {
+  "ok": true,
+  "detail": "{\"bad\": [], \"dials\": [[\"airspeed\", 0, 1.0], [\"attitude\", 0, 1.0], [\"altimeter\", 0, 1.0], [\"fuel\", 0, 1.0], [\"heading\", 1, 1.0], [\"vsi\", 1, 1.0], [\"manifold_L\", 0, 1.0], [\"manifold_R\", 2, 1.0], [\"rpm_L\", 0, 1.0], [\"rpm_R\", 1, 1.0], [\"oil_press\", 1, 1.0], [\"oil_temp\", 0, 1.0], [\"cyl_temp\", 1, 1.0], [\"hydraulic\", 2, 1.0], [\"flaps_pos\", 1, 1.0], [\"gear_pos\", 0, 1.0]]}"
+ }
+}

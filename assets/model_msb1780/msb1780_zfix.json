@@ -1,0 +1,8531 @@
+{
+ "moved": [
+  {
+   "pass_": 1,
+   "part": "cockpit_interior",
+   "material": "ck_od",
+   "other_part": "MSB17",
+   "other_material": "paint",
+   "at": [
+    -1.028,
+    2.814,
+    1.443
+   ],
+   "area_m2": 0.007297,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "MSB17",
+   "material": "structure",
+   "other_part": "MSB17",
+   "other_material": "paint",
+   "at": [
+    0.762,
+    -2.398,
+    1.672
+   ],
+   "area_m2": 0.003804,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "MSB17",
+   "material": "structure",
+   "other_part": "MSB17",
+   "other_material": "interior",
+   "at": [
+    0.746,
+    2.75,
+    1.789
+   ],
+   "area_m2": 0.00298,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "cockpit_interior",
+   "material": "ck_od",
+   "other_part": "MSB17",
+   "other_material": "interior",
+   "at": [
+    -1.022,
+    2.814,
+    1.443
+   ],
+   "area_m2": 0.007297,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "MSB17",
+   "material": "interior",
+   "other_part": "top_race",
+   "other_material": "interior",
+   "at": [
+    -0.579,
+    2.208,
+    1.923
+   ],
+   "area_m2": 0.000995,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "MSB17",
+   "material": "interior",
+   "other_part": "top_race",
+   "other_material": "interior",
+   "at": [
+    -0.568,
+    2.227,
+    1.928
+   ],
+   "area_m2": 0.000996,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "MSB17",
+   "material": "interior",
+   "other_part": "top_race",
+   "other_material": "interior",
+   "at": [
+    -0.568,
+    2.172,
+    1.928
+   ],
+   "area_m2": 0.000999,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "cockpit_ewo_desk",
+   "material": "ck_black",
+   "other_part": "cockpit_ewo_desk",
+   "other_material": "ck_panel",
+   "at": [
+    0.724,
+    2.92,
+    1.114
+   ],
+   "area_m2": 0.000121,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "cockpit_ewo_desk",
+   "material": "ck_black",
+   "other_part": "cockpit_ewo_desk",
+   "other_material": "ck_panel",
+   "at": [
+    0.73,
+    2.92,
+    1.11
+   ],
+   "area_m2": 0.000121,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "cockpit_ewo_desk",
+   "material": "ck_black",
+   "other_part": "cockpit_ewo_desk",
+   "other_material": "ck_panel",
+   "at": [
+    0.734,
+    2.92,
+    1.104
+   ],
+   "area_m2": 0.000121,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "cockpit_ewo_desk",
+   "material": "ck_black",
+   "other_part": "cockpit_ewo_desk",
+   "other_material": "ck_panel",
+   "at": [
+    0.734,
+    2.92,
+    1.096
+   ],
+   "area_m2": 0.000121,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "cockpit_ewo_desk",
+   "material": "ck_black",
+   "other_part": "cockpit_ewo_desk",
+   "other_material": "ck_panel",
+   "at": [
+    0.73,
+    2.92,
+    1.09
+   ],
+   "area_m2": 0.000121,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "cockpit_ewo_desk",
+   "material": "ck_black",
+   "other_part": "cockpit_ewo_desk",
+   "other_material": "ck_panel",
+   "at": [
+    0.724,
+    2.92,
+    1.086
+   ],
+   "area_m2": 0.000121,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "fus_nose",
+   "material": "interior",
+   "other_part": "fus_nose",
+   "other_material": "glass",
+   "at": [
+    -0.066,
+    7.279,
+    0.327
+   ],
+   "area_m2": 0.000656,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "fus_nose",
+   "material": "interior",
+   "other_part": "fus_nose",
+   "other_material": "glass",
+   "at": [
+    -0.117,
+    6.979,
+    -0.008
+   ],
+   "area_m2": 0.001103,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "cockpit_wso_floor",
+   "material": "ck_wall",
+   "other_part": "fus_nose",
+   "other_material": "paint",
+   "at": [
+    0.813,
+    6.267,
+    0.333
+   ],
+   "area_m2": 0.005285,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "cockpit_wso_floor",
+   "material": "ck_wall",
+   "other_part": "fus_nose",
+   "other_material": "paint",
+   "at": [
+    0.926,
+    5.867,
+    0.233
+   ],
+   "area_m2": 0.005188,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "fus_nose",
+   "material": "structure",
+   "other_part": "fus_nose",
+   "other_material": "paint",
+   "at": [
+    -0.902,
+    6.007,
+    0.594
+   ],
+   "area_m2": 0.003726,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "fus_nose",
+   "material": "interior",
+   "other_part": "fus_nose",
+   "other_material": "paint",
+   "at": [
+    -0.139,
+    5.228,
+    1.49
+   ],
+   "area_m2": 0.000577,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "fus_nose",
+   "material": "glass",
+   "other_part": "fus_nose",
+   "other_material": "interior",
+   "at": [
+    0.776,
+    6.32,
+    0.754
+   ],
+   "area_m2": 0.002186,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "cockpit_wso_floor",
+   "material": "ck_wall",
+   "other_part": "fus_nose",
+   "other_material": "interior",
+   "at": [
+    0.92,
+    5.867,
+    0.233
+   ],
+   "area_m2": 0.005188,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "fus_nose",
+   "material": "paint",
+   "other_part": "fus_nose",
+   "other_material": "glass",
+   "at": [
+    -0.128,
+    7.017,
+    0.033
+   ],
+   "area_m2": 0.001103,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "cockpit_ewo_panel",
+   "material": "ck_bezel",
+   "other_part": "cockpit_ewo_panel",
+   "other_material": "ck_bezel",
+   "at": [
+    0.8,
+    2.63,
+    1.317
+   ],
+   "area_m2": 0.002142,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "cockpit_ewo_panel",
+   "material": "ck_bezel",
+   "other_part": "cockpit_ewo_panel",
+   "other_material": "ck_bezel",
+   "at": [
+    0.767,
+    2.63,
+    1.533
+   ],
+   "area_m2": 0.002142,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "cockpit_wso_floor",
+   "material": "ck_floor",
+   "other_part": "fus_nose",
+   "other_material": "interior",
+   "at": [
+    0.336,
+    5.433,
+    0.1
+   ],
+   "area_m2": 0.102212,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "cockpit_wso_floor",
+   "material": "ck_floor",
+   "other_part": "fus_nose",
+   "other_material": "interior",
+   "at": [
+    0.33,
+    5.533,
+    0.1
+   ],
+   "area_m2": 0.100677,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "cockpit_wso_floor",
+   "material": "ck_floor",
+   "other_part": "fus_nose",
+   "other_material": "interior",
+   "at": [
+    0.321,
+    5.633,
+    0.1
+   ],
+   "area_m2": 0.099142,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "cockpit_wso_floor",
+   "material": "ck_floor",
+   "other_part": "fus_nose",
+   "other_material": "interior",
+   "at": [
+    0.312,
+    5.733,
+    0.1
+   ],
+   "area_m2": 0.096394,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "cockpit_wso_floor",
+   "material": "ck_floor",
+   "other_part": "fus_nose",
+   "other_material": "interior",
+   "at": [
+    0.303,
+    5.833,
+    0.1
+   ],
+   "area_m2": 0.093634,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "cockpit_wso_floor",
+   "material": "ck_floor",
+   "other_part": "fus_nose",
+   "other_material": "interior",
+   "at": [
+    0.294,
+    5.933,
+    0.1
+   ],
+   "area_m2": 0.090862,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "cockpit_wso_floor",
+   "material": "ck_floor",
+   "other_part": "fus_nose",
+   "other_material": "interior",
+   "at": [
+    0.284,
+    6.033,
+    0.1
+   ],
+   "area_m2": 0.088078,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "cockpit_wso_floor",
+   "material": "ck_floor",
+   "other_part": "fus_nose",
+   "other_material": "interior",
+   "at": [
+    0.272,
+    6.133,
+    0.1
+   ],
+   "area_m2": 0.085281,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "cockpit_wso_floor",
+   "material": "ck_floor",
+   "other_part": "fus_nose",
+   "other_material": "interior",
+   "at": [
+    0.259,
+    6.233,
+    0.1
+   ],
+   "area_m2": 0.081553,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "cockpit_wso_floor",
+   "material": "ck_floor",
+   "other_part": "fus_nose",
+   "other_material": "interior",
+   "at": [
+    0.246,
+    6.333,
+    0.1
+   ],
+   "area_m2": 0.07777,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "cockpit_wso_floor",
+   "material": "ck_floor",
+   "other_part": "fus_nose",
+   "other_material": "interior",
+   "at": [
+    0.232,
+    6.433,
+    0.1
+   ],
+   "area_m2": 0.073923,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "cockpit_wso_floor",
+   "material": "ck_floor",
+   "other_part": "fus_nose",
+   "other_material": "interior",
+   "at": [
+    0.218,
+    6.533,
+    0.1
+   ],
+   "area_m2": 0.069705,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "cockpit_wso_floor",
+   "material": "ck_floor",
+   "other_part": "fus_nose",
+   "other_material": "interior",
+   "at": [
+    0.201,
+    6.633,
+    0.1
+   ],
+   "area_m2": 0.065374,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "cockpit_wso_floor",
+   "material": "ck_floor",
+   "other_part": "fus_nose",
+   "other_material": "interior",
+   "at": [
+    0.177,
+    6.733,
+    0.1
+   ],
+   "area_m2": 0.060277,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "cockpit_wso_floor",
+   "material": "ck_floor",
+   "other_part": "fus_nose",
+   "other_material": "interior",
+   "at": [
+    -0.341,
+    5.467,
+    0.094
+   ],
+   "area_m2": 0.100677,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "cockpit_wso_floor",
+   "material": "ck_floor",
+   "other_part": "fus_nose",
+   "other_material": "interior",
+   "at": [
+    -0.336,
+    5.567,
+    0.094
+   ],
+   "area_m2": 0.099142,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "cockpit_wso_floor",
+   "material": "ck_floor",
+   "other_part": "fus_nose",
+   "other_material": "interior",
+   "at": [
+    -0.33,
+    5.667,
+    0.094
+   ],
+   "area_m2": 0.096394,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "cockpit_wso_floor",
+   "material": "ck_floor",
+   "other_part": "fus_nose",
+   "other_material": "interior",
+   "at": [
+    -0.321,
+    5.767,
+    0.094
+   ],
+   "area_m2": 0.093634,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "cockpit_wso_floor",
+   "material": "ck_floor",
+   "other_part": "fus_nose",
+   "other_material": "interior",
+   "at": [
+    -0.312,
+    5.867,
+    0.094
+   ],
+   "area_m2": 0.090862,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "cockpit_wso_floor",
+   "material": "ck_floor",
+   "other_part": "fus_nose",
+   "other_material": "interior",
+   "at": [
+    -0.303,
+    5.967,
+    0.094
+   ],
+   "area_m2": 0.088078,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "cockpit_wso_floor",
+   "material": "ck_floor",
+   "other_part": "fus_nose",
+   "other_material": "interior",
+   "at": [
+    0.284,
+    6.033,
+    0.094
+   ],
+   "area_m2": 0.088078,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "cockpit_wso_floor",
+   "material": "ck_floor",
+   "other_part": "fus_nose",
+   "other_material": "interior",
+   "at": [
+    -0.284,
+    6.167,
+    0.094
+   ],
+   "area_m2": 0.081553,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "cockpit_wso_floor",
+   "material": "ck_floor",
+   "other_part": "fus_nose",
+   "other_material": "interior",
+   "at": [
+    -0.272,
+    6.267,
+    0.094
+   ],
+   "area_m2": 0.07777,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "cockpit_wso_floor",
+   "material": "ck_floor",
+   "other_part": "fus_nose",
+   "other_material": "interior",
+   "at": [
+    -0.259,
+    6.367,
+    0.094
+   ],
+   "area_m2": 0.073923,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "cockpit_wso_floor",
+   "material": "ck_floor",
+   "other_part": "fus_nose",
+   "other_material": "interior",
+   "at": [
+    -0.246,
+    6.467,
+    0.094
+   ],
+   "area_m2": 0.069705,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "cockpit_wso_floor",
+   "material": "ck_floor",
+   "other_part": "fus_nose",
+   "other_material": "interior",
+   "at": [
+    -0.232,
+    6.567,
+    0.094
+   ],
+   "area_m2": 0.065374,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "cockpit_wso_floor",
+   "material": "ck_floor",
+   "other_part": "fus_nose",
+   "other_material": "interior",
+   "at": [
+    -0.218,
+    6.667,
+    0.094
+   ],
+   "area_m2": 0.060277,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "cockpit_wso_floor",
+   "material": "ck_floor",
+   "other_part": "fus_nose",
+   "other_material": "interior",
+   "at": [
+    0.177,
+    6.733,
+    0.094
+   ],
+   "area_m2": 0.060277,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "fus_cockpit",
+   "material": "ck_wall",
+   "other_part": "fus_cockpit",
+   "other_material": "paint",
+   "at": [
+    -0.589,
+    3.786,
+    1.913
+   ],
+   "area_m2": 0.00317,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "fus_cockpit",
+   "material": "paint",
+   "other_part": "fus_cockpit",
+   "other_material": "glass",
+   "at": [
+    0.953,
+    3.012,
+    1.656
+   ],
+   "area_m2": 0.007373,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "ball_ring",
+   "material": "paint",
+   "other_part": "fus_waist",
+   "other_material": "paint",
+   "at": [
+    -0.161,
+    -5.121,
+    -0.441
+   ],
+   "area_m2": 0.01031,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "fus_waist",
+   "material": "structure",
+   "other_part": "fus_waist",
+   "other_material": "paint",
+   "at": [
+    0.939,
+    -8.355,
+    0.461
+   ],
+   "area_m2": 0.003919,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "interior",
+   "at": [
+    -6.41,
+    3.204,
+    -0.444
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "interior",
+   "at": [
+    6.443,
+    3.204,
+    -0.451
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "fus_tail",
+   "material": "structure",
+   "other_part": "fus_tail",
+   "other_material": "paint",
+   "at": [
+    -0.492,
+    -12.228,
+    0.107
+   ],
+   "area_m2": 0.003768,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "fus_tail",
+   "material": "structure",
+   "other_part": "fus_tail",
+   "other_material": "interior",
+   "at": [
+    -0.522,
+    -9.917,
+    0.116
+   ],
+   "area_m2": 0.000761,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "fus_tail",
+   "material": "structure",
+   "other_part": "fus_tail",
+   "other_material": "interior",
+   "at": [
+    -0.522,
+    -9.903,
+    0.116
+   ],
+   "area_m2": 0.000761,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "paint",
+   "at": [
+    6.312,
+    3.204,
+    -0.422
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "tail_gun",
+   "material": "paint",
+   "other_part": "tail_gun",
+   "other_material": "paint",
+   "at": [
+    0.303,
+    -14.887,
+    1.09
+   ],
+   "area_m2": 0.000105,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "tail_gun",
+   "material": "paint",
+   "other_part": "tail_gun",
+   "other_material": "paint",
+   "at": [
+    0.231,
+    -14.905,
+    1.169
+   ],
+   "area_m2": 0.000315,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "tail_gun",
+   "material": "paint",
+   "other_part": "tail_gun",
+   "other_material": "paint",
+   "at": [
+    0.233,
+    -14.916,
+    1.16
+   ],
+   "area_m2": 0.000315,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "carry_through",
+   "material": "structure",
+   "other_part": "carry_through",
+   "other_material": "structure",
+   "at": [
+    -1.092,
+    1.435,
+    0.803
+   ],
+   "area_m2": 0.0032,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "carry_through",
+   "material": "structure",
+   "other_part": "carry_through",
+   "other_material": "structure",
+   "at": [
+    -1.092,
+    1.435,
+    1.243
+   ],
+   "area_m2": 0.0032,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "carry_through",
+   "material": "structure",
+   "other_part": "carry_through",
+   "other_material": "structure",
+   "at": [
+    -1.092,
+    -1.127,
+    0.803
+   ],
+   "area_m2": 0.0032,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "carry_through",
+   "material": "structure",
+   "other_part": "carry_through",
+   "other_material": "structure",
+   "at": [
+    -1.092,
+    -1.127,
+    1.243
+   ],
+   "area_m2": 0.0032,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "carry_through",
+   "material": "structure",
+   "other_part": "carry_through",
+   "other_material": "structure",
+   "at": [
+    1.092,
+    1.488,
+    0.803
+   ],
+   "area_m2": 0.0032,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "carry_through",
+   "material": "structure",
+   "other_part": "carry_through",
+   "other_material": "structure",
+   "at": [
+    1.092,
+    1.488,
+    1.243
+   ],
+   "area_m2": 0.0032,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "carry_through",
+   "material": "structure",
+   "other_part": "carry_through",
+   "other_material": "structure",
+   "at": [
+    1.092,
+    -1.074,
+    0.803
+   ],
+   "area_m2": 0.0032,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "carry_through",
+   "material": "structure",
+   "other_part": "carry_through",
+   "other_material": "structure",
+   "at": [
+    1.092,
+    -1.074,
+    1.243
+   ],
+   "area_m2": 0.0032,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "carry_through",
+   "material": "structure",
+   "other_part": "carry_through",
+   "other_material": "structure",
+   "at": [
+    0.364,
+    1.453,
+    1.27
+   ],
+   "area_m2": 0.054624,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "carry_through",
+   "material": "structure",
+   "other_part": "carry_through",
+   "other_material": "structure",
+   "at": [
+    0.364,
+    -1.109,
+    1.27
+   ],
+   "area_m2": 0.054624,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "carry_through",
+   "material": "structure",
+   "other_part": "carry_through",
+   "other_material": "structure",
+   "at": [
+    0.364,
+    1.47,
+    0.79
+   ],
+   "area_m2": 0.054624,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "carry_through",
+   "material": "structure",
+   "other_part": "carry_through",
+   "other_material": "structure",
+   "at": [
+    0.364,
+    -1.092,
+    0.79
+   ],
+   "area_m2": 0.054624,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "paint",
+   "at": [
+    -2.504,
+    3.794,
+    0.55
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "cockpit_wso_console",
+   "material": "ck_bezel",
+   "other_part": "cockpit_wso_console",
+   "other_material": "ck_bezel",
+   "at": [
+    -0.313,
+    6.657,
+    0.1
+   ],
+   "area_m2": 0.0008,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "cockpit_wso_console",
+   "material": "ck_bezel",
+   "other_part": "cockpit_wso_console",
+   "other_material": "ck_bezel",
+   "at": [
+    0.327,
+    6.657,
+    0.1
+   ],
+   "area_m2": 0.0008,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "cockpit_interior",
+   "material": "ck_bezel",
+   "other_part": "cockpit_interior",
+   "other_material": "ck_black",
+   "at": [
+    -0.534,
+    3.697,
+    0.629
+   ],
+   "area_m2": 0.014,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "cockpit_interior",
+   "material": "ck_bezel",
+   "other_part": "cockpit_interior",
+   "other_material": "ck_black",
+   "at": [
+    -0.214,
+    3.697,
+    0.629
+   ],
+   "area_m2": 0.014,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "cockpit_interior",
+   "material": "ck_bezel",
+   "other_part": "cockpit_interior",
+   "other_material": "ck_black",
+   "at": [
+    0.226,
+    3.697,
+    0.629
+   ],
+   "area_m2": 0.014,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "cockpit_interior",
+   "material": "ck_bezel",
+   "other_part": "cockpit_interior",
+   "other_material": "ck_black",
+   "at": [
+    0.546,
+    3.697,
+    0.629
+   ],
+   "area_m2": 0.014,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "paint",
+   "at": [
+    -3.032,
+    3.792,
+    0.826
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "paint",
+   "at": [
+    -2.931,
+    3.794,
+    0.81
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "paint",
+   "at": [
+    -2.834,
+    3.794,
+    0.782
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "paint",
+   "at": [
+    -2.741,
+    3.794,
+    0.741
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "paint",
+   "at": [
+    -2.653,
+    3.794,
+    0.688
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "paint",
+   "at": [
+    -2.574,
+    3.794,
+    0.624
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "paint",
+   "at": [
+    -2.443,
+    3.794,
+    0.468
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "paint",
+   "at": [
+    -2.394,
+    3.794,
+    0.379
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "paint",
+   "at": [
+    -2.358,
+    3.794,
+    0.284
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "paint",
+   "at": [
+    -2.333,
+    3.794,
+    0.185
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "paint",
+   "at": [
+    -2.322,
+    3.794,
+    0.084
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "paint",
+   "at": [
+    -2.324,
+    3.794,
+    -0.018
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "paint",
+   "at": [
+    -2.34,
+    3.794,
+    -0.119
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "paint",
+   "at": [
+    -2.368,
+    3.794,
+    -0.216
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "paint",
+   "at": [
+    -2.409,
+    3.794,
+    -0.309
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "paint",
+   "at": [
+    -2.462,
+    3.794,
+    -0.397
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "paint",
+   "at": [
+    -2.526,
+    3.794,
+    -0.476
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "paint",
+   "at": [
+    -2.6,
+    3.794,
+    -0.546
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "paint",
+   "at": [
+    -2.682,
+    3.794,
+    -0.607
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "paint",
+   "at": [
+    -2.771,
+    3.794,
+    -0.656
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "paint",
+   "at": [
+    -2.866,
+    3.794,
+    -0.692
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "paint",
+   "at": [
+    -2.965,
+    3.794,
+    -0.717
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "paint",
+   "at": [
+    -3.066,
+    3.794,
+    -0.728
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "paint",
+   "at": [
+    -3.168,
+    3.794,
+    -0.726
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "paint",
+   "at": [
+    -3.269,
+    3.794,
+    -0.71
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "paint",
+   "at": [
+    -3.366,
+    3.794,
+    -0.682
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "paint",
+   "at": [
+    -3.459,
+    3.794,
+    -0.641
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "paint",
+   "at": [
+    -3.547,
+    3.794,
+    -0.588
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "paint",
+   "at": [
+    -3.626,
+    3.794,
+    -0.524
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "paint",
+   "at": [
+    -3.696,
+    3.794,
+    -0.45
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "paint",
+   "at": [
+    -3.757,
+    3.794,
+    -0.368
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "paint",
+   "at": [
+    -3.806,
+    3.794,
+    -0.279
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "paint",
+   "at": [
+    -3.842,
+    3.794,
+    -0.184
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "paint",
+   "at": [
+    -3.867,
+    3.794,
+    -0.085
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "paint",
+   "at": [
+    -3.878,
+    3.794,
+    0.016
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "paint",
+   "at": [
+    -3.876,
+    3.794,
+    0.118
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "paint",
+   "at": [
+    -3.86,
+    3.794,
+    0.219
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "paint",
+   "at": [
+    -3.832,
+    3.794,
+    0.316
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "paint",
+   "at": [
+    -3.791,
+    3.794,
+    0.409
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "paint",
+   "at": [
+    -3.738,
+    3.794,
+    0.497
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "paint",
+   "at": [
+    -3.674,
+    3.794,
+    0.576
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "paint",
+   "at": [
+    -3.6,
+    3.794,
+    0.646
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "paint",
+   "at": [
+    -3.518,
+    3.794,
+    0.707
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "paint",
+   "at": [
+    -3.429,
+    3.794,
+    0.756
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "paint",
+   "at": [
+    -3.334,
+    3.794,
+    0.792
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "paint",
+   "at": [
+    -3.235,
+    3.794,
+    0.817
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "paint",
+   "at": [
+    -6.508,
+    3.202,
+    1.066
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "interior",
+   "at": [
+    -3.066,
+    3.794,
+    0.822
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "interior",
+   "at": [
+    -2.966,
+    3.794,
+    0.811
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "interior",
+   "at": [
+    -2.868,
+    3.794,
+    0.787
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "interior",
+   "at": [
+    -2.774,
+    3.794,
+    0.75
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "interior",
+   "at": [
+    -2.685,
+    3.794,
+    0.702
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "interior",
+   "at": [
+    -2.603,
+    3.794,
+    0.642
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "interior",
+   "at": [
+    -2.53,
+    3.794,
+    0.572
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "interior",
+   "at": [
+    -2.467,
+    3.794,
+    0.493
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "interior",
+   "at": [
+    -2.415,
+    3.794,
+    0.407
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "interior",
+   "at": [
+    -2.374,
+    3.794,
+    0.314
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "interior",
+   "at": [
+    -2.346,
+    3.794,
+    0.217
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "interior",
+   "at": [
+    -2.33,
+    3.794,
+    0.117
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "interior",
+   "at": [
+    -2.328,
+    3.794,
+    0.016
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "interior",
+   "at": [
+    -2.339,
+    3.794,
+    -0.084
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "interior",
+   "at": [
+    -2.363,
+    3.794,
+    -0.182
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "interior",
+   "at": [
+    -2.4,
+    3.794,
+    -0.276
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "interior",
+   "at": [
+    -2.448,
+    3.794,
+    -0.365
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "interior",
+   "at": [
+    -2.508,
+    3.794,
+    -0.447
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "interior",
+   "at": [
+    -2.578,
+    3.794,
+    -0.52
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "interior",
+   "at": [
+    -2.657,
+    3.794,
+    -0.583
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "interior",
+   "at": [
+    -2.743,
+    3.794,
+    -0.635
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "interior",
+   "at": [
+    -2.836,
+    3.794,
+    -0.676
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "interior",
+   "at": [
+    -2.933,
+    3.794,
+    -0.704
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "interior",
+   "at": [
+    -3.033,
+    3.794,
+    -0.72
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "interior",
+   "at": [
+    -3.134,
+    3.794,
+    -0.722
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "interior",
+   "at": [
+    -3.234,
+    3.794,
+    -0.711
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "interior",
+   "at": [
+    -3.332,
+    3.794,
+    -0.687
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "interior",
+   "at": [
+    -3.426,
+    3.794,
+    -0.65
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "interior",
+   "at": [
+    -3.515,
+    3.794,
+    -0.602
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "interior",
+   "at": [
+    -3.597,
+    3.794,
+    -0.542
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "interior",
+   "at": [
+    -3.67,
+    3.794,
+    -0.472
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "interior",
+   "at": [
+    -3.733,
+    3.794,
+    -0.393
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "interior",
+   "at": [
+    -3.785,
+    3.794,
+    -0.307
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "interior",
+   "at": [
+    -3.826,
+    3.794,
+    -0.214
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "interior",
+   "at": [
+    -3.854,
+    3.794,
+    -0.117
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "interior",
+   "at": [
+    -3.87,
+    3.794,
+    -0.017
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "interior",
+   "at": [
+    -3.872,
+    3.794,
+    0.084
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "interior",
+   "at": [
+    -3.861,
+    3.794,
+    0.184
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "interior",
+   "at": [
+    -3.837,
+    3.794,
+    0.282
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "interior",
+   "at": [
+    -3.8,
+    3.794,
+    0.376
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "interior",
+   "at": [
+    -3.752,
+    3.794,
+    0.465
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "interior",
+   "at": [
+    -3.692,
+    3.794,
+    0.547
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "interior",
+   "at": [
+    -3.622,
+    3.794,
+    0.62
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "interior",
+   "at": [
+    -3.543,
+    3.794,
+    0.683
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "interior",
+   "at": [
+    -3.457,
+    3.794,
+    0.735
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "interior",
+   "at": [
+    -3.364,
+    3.794,
+    0.776
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "interior",
+   "at": [
+    -3.267,
+    3.794,
+    0.804
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_2",
+   "material": "structure",
+   "other_part": "nacelle_2",
+   "other_material": "interior",
+   "at": [
+    -3.167,
+    3.794,
+    0.82
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "interior",
+   "at": [
+    -6.542,
+    3.204,
+    1.062
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "gear_well_L",
+   "material": "paint",
+   "other_part": "gear_well_L",
+   "other_material": "well",
+   "at": [
+    -3.173,
+    3.72,
+    -0.72
+   ],
+   "area_m2": 0.0049,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "gear_well_R",
+   "material": "paint",
+   "other_part": "gear_well_R",
+   "other_material": "well",
+   "at": [
+    3.267,
+    3.72,
+    -0.71
+   ],
+   "area_m2": 0.0049,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "gear_well_L",
+   "material": "paint",
+   "other_part": "gear_well_L",
+   "other_material": "well",
+   "at": [
+    -3.53,
+    3.157,
+    -0.616
+   ],
+   "area_m2": 0.02065,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "gear_well_L",
+   "material": "paint",
+   "other_part": "gear_well_L",
+   "other_material": "well",
+   "at": [
+    -2.91,
+    2.763,
+    -0.702
+   ],
+   "area_m2": 0.02065,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "paint",
+   "at": [
+    -6.344,
+    3.204,
+    -0.433
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "paint",
+   "at": [
+    -6.409,
+    3.204,
+    1.05
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "paint",
+   "at": [
+    -6.312,
+    3.204,
+    1.022
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "paint",
+   "at": [
+    -6.22,
+    3.204,
+    0.982
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "paint",
+   "at": [
+    -6.134,
+    3.204,
+    0.93
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "paint",
+   "at": [
+    -6.056,
+    3.204,
+    0.867
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "paint",
+   "at": [
+    -5.986,
+    3.204,
+    0.794
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "paint",
+   "at": [
+    -5.927,
+    3.204,
+    0.713
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "paint",
+   "at": [
+    -5.878,
+    3.204,
+    0.625
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "paint",
+   "at": [
+    -5.842,
+    3.204,
+    0.531
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "paint",
+   "at": [
+    -5.818,
+    3.204,
+    0.433
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "paint",
+   "at": [
+    -5.807,
+    3.204,
+    0.334
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "paint",
+   "at": [
+    -5.809,
+    3.204,
+    0.233
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "paint",
+   "at": [
+    -5.825,
+    3.204,
+    0.134
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "paint",
+   "at": [
+    -5.853,
+    3.204,
+    0.037
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "paint",
+   "at": [
+    -5.893,
+    3.204,
+    -0.055
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "paint",
+   "at": [
+    -5.945,
+    3.204,
+    -0.141
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "paint",
+   "at": [
+    -6.008,
+    3.204,
+    -0.219
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "paint",
+   "at": [
+    -6.081,
+    3.204,
+    -0.289
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "paint",
+   "at": [
+    -6.162,
+    3.204,
+    -0.348
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "paint",
+   "at": [
+    -6.25,
+    3.204,
+    -0.397
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "paint",
+   "at": [
+    -6.442,
+    3.204,
+    -0.457
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "paint",
+   "at": [
+    -6.642,
+    3.202,
+    -0.466
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "paint",
+   "at": [
+    -6.741,
+    3.204,
+    -0.45
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "paint",
+   "at": [
+    -6.838,
+    3.204,
+    -0.422
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "paint",
+   "at": [
+    -6.93,
+    3.204,
+    -0.382
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "paint",
+   "at": [
+    -7.016,
+    3.204,
+    -0.33
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "paint",
+   "at": [
+    -7.094,
+    3.204,
+    -0.267
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "paint",
+   "at": [
+    -7.164,
+    3.204,
+    -0.194
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "paint",
+   "at": [
+    -7.223,
+    3.204,
+    -0.113
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "paint",
+   "at": [
+    -7.272,
+    3.204,
+    -0.025
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "paint",
+   "at": [
+    -7.308,
+    3.204,
+    0.069
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "paint",
+   "at": [
+    -7.332,
+    3.204,
+    0.167
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "paint",
+   "at": [
+    -7.343,
+    3.204,
+    0.266
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "paint",
+   "at": [
+    -7.341,
+    3.204,
+    0.367
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "paint",
+   "at": [
+    -7.325,
+    3.204,
+    0.466
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "paint",
+   "at": [
+    -7.297,
+    3.204,
+    0.563
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "paint",
+   "at": [
+    -7.257,
+    3.204,
+    0.655
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "paint",
+   "at": [
+    -7.205,
+    3.204,
+    0.741
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "paint",
+   "at": [
+    -7.142,
+    3.204,
+    0.819
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "paint",
+   "at": [
+    -7.069,
+    3.204,
+    0.889
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "paint",
+   "at": [
+    -6.988,
+    3.204,
+    0.948
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "paint",
+   "at": [
+    -6.9,
+    3.204,
+    0.997
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "paint",
+   "at": [
+    -6.806,
+    3.204,
+    1.033
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "paint",
+   "at": [
+    -6.708,
+    3.204,
+    1.057
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "interior",
+   "at": [
+    -6.443,
+    3.204,
+    1.051
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "interior",
+   "at": [
+    -6.346,
+    3.204,
+    1.027
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "interior",
+   "at": [
+    -6.253,
+    3.204,
+    0.991
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "interior",
+   "at": [
+    -6.165,
+    3.204,
+    0.943
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "interior",
+   "at": [
+    -6.085,
+    3.204,
+    0.884
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "interior",
+   "at": [
+    -6.013,
+    3.204,
+    0.815
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "interior",
+   "at": [
+    -5.95,
+    3.204,
+    0.737
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "interior",
+   "at": [
+    -5.899,
+    3.204,
+    0.652
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "interior",
+   "at": [
+    -5.858,
+    3.204,
+    0.561
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "interior",
+   "at": [
+    -5.831,
+    3.204,
+    0.465
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "interior",
+   "at": [
+    -5.815,
+    3.204,
+    0.366
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "interior",
+   "at": [
+    -5.813,
+    3.204,
+    0.267
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "interior",
+   "at": [
+    -5.824,
+    3.204,
+    0.168
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "interior",
+   "at": [
+    -5.848,
+    3.204,
+    0.071
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "interior",
+   "at": [
+    -5.884,
+    3.204,
+    -0.022
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "interior",
+   "at": [
+    -5.932,
+    3.204,
+    -0.11
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "interior",
+   "at": [
+    -5.991,
+    3.204,
+    -0.19
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "interior",
+   "at": [
+    -6.06,
+    3.204,
+    -0.262
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "interior",
+   "at": [
+    -6.138,
+    3.204,
+    -0.325
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "interior",
+   "at": [
+    -6.223,
+    3.204,
+    -0.376
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "interior",
+   "at": [
+    -6.314,
+    3.204,
+    -0.417
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "interior",
+   "at": [
+    -6.509,
+    3.204,
+    -0.46
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "interior",
+   "at": [
+    -6.608,
+    3.204,
+    -0.462
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "interior",
+   "at": [
+    -6.707,
+    3.204,
+    -0.451
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "interior",
+   "at": [
+    -6.804,
+    3.204,
+    -0.427
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "interior",
+   "at": [
+    -6.897,
+    3.204,
+    -0.391
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "interior",
+   "at": [
+    -6.985,
+    3.204,
+    -0.343
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "interior",
+   "at": [
+    -7.065,
+    3.204,
+    -0.284
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "interior",
+   "at": [
+    -7.137,
+    3.204,
+    -0.215
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "interior",
+   "at": [
+    -7.2,
+    3.204,
+    -0.137
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "interior",
+   "at": [
+    -7.251,
+    3.204,
+    -0.052
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "interior",
+   "at": [
+    -7.292,
+    3.204,
+    0.039
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "interior",
+   "at": [
+    -7.319,
+    3.204,
+    0.135
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "interior",
+   "at": [
+    -7.335,
+    3.204,
+    0.234
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "interior",
+   "at": [
+    -7.337,
+    3.204,
+    0.333
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "interior",
+   "at": [
+    -7.326,
+    3.204,
+    0.432
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "interior",
+   "at": [
+    -7.302,
+    3.204,
+    0.529
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "interior",
+   "at": [
+    -7.266,
+    3.204,
+    0.622
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "interior",
+   "at": [
+    -7.218,
+    3.204,
+    0.71
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "interior",
+   "at": [
+    -7.159,
+    3.204,
+    0.79
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "interior",
+   "at": [
+    -7.09,
+    3.204,
+    0.862
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "interior",
+   "at": [
+    -7.012,
+    3.204,
+    0.925
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "interior",
+   "at": [
+    -6.927,
+    3.204,
+    0.976
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "interior",
+   "at": [
+    -6.836,
+    3.204,
+    1.017
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "interior",
+   "at": [
+    -6.74,
+    3.204,
+    1.044
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "interior",
+   "at": [
+    -6.641,
+    3.204,
+    1.06
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "paint",
+   "other_part": "nacelle_1",
+   "other_material": "structure",
+   "at": [
+    -6.541,
+    3.2,
+    -0.466
+   ],
+   "area_m2": 0.000302,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "paint",
+   "at": [
+    -6.539,
+    -0.2,
+    0.543
+   ],
+   "area_m2": 0.001779,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_1",
+   "material": "structure",
+   "other_part": "nacelle_1",
+   "other_material": "paint",
+   "at": [
+    -6.611,
+    -0.2,
+    0.352
+   ],
+   "area_m2": 0.001767,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "paint",
+   "at": [
+    6.611,
+    -0.2,
+    0.548
+   ],
+   "area_m2": 0.001767,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "paint",
+   "at": [
+    6.539,
+    -0.2,
+    0.345
+   ],
+   "area_m2": 0.001779,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "engine_1",
+   "material": "engine",
+   "other_part": "nacelle_1",
+   "other_material": "structure",
+   "at": [
+    -6.398,
+    3.44,
+    0.323
+   ],
+   "area_m2": 0.009434,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "engine_1",
+   "material": "engine",
+   "other_part": "nacelle_1",
+   "other_material": "structure",
+   "at": [
+    -6.41,
+    3.44,
+    0.368
+   ],
+   "area_m2": 0.009434,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "engine_1",
+   "material": "engine",
+   "other_part": "nacelle_1",
+   "other_material": "structure",
+   "at": [
+    -6.433,
+    3.44,
+    0.409
+   ],
+   "area_m2": 0.009434,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "engine_1",
+   "material": "engine",
+   "other_part": "nacelle_1",
+   "other_material": "structure",
+   "at": [
+    -6.466,
+    3.44,
+    0.442
+   ],
+   "area_m2": 0.009434,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "engine_1",
+   "material": "engine",
+   "other_part": "nacelle_1",
+   "other_material": "structure",
+   "at": [
+    -6.507,
+    3.44,
+    0.465
+   ],
+   "area_m2": 0.009434,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "engine_1",
+   "material": "engine",
+   "other_part": "nacelle_1",
+   "other_material": "structure",
+   "at": [
+    -6.552,
+    3.44,
+    0.477
+   ],
+   "area_m2": 0.009434,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "engine_1",
+   "material": "engine",
+   "other_part": "nacelle_1",
+   "other_material": "structure",
+   "at": [
+    -6.598,
+    3.44,
+    0.477
+   ],
+   "area_m2": 0.009434,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "engine_1",
+   "material": "engine",
+   "other_part": "nacelle_1",
+   "other_material": "structure",
+   "at": [
+    -6.643,
+    3.44,
+    0.465
+   ],
+   "area_m2": 0.009434,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "engine_1",
+   "material": "engine",
+   "other_part": "nacelle_1",
+   "other_material": "structure",
+   "at": [
+    -6.684,
+    3.44,
+    0.442
+   ],
+   "area_m2": 0.009434,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "engine_1",
+   "material": "engine",
+   "other_part": "nacelle_1",
+   "other_material": "structure",
+   "at": [
+    -6.717,
+    3.44,
+    0.409
+   ],
+   "area_m2": 0.009434,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "engine_1",
+   "material": "engine",
+   "other_part": "nacelle_1",
+   "other_material": "structure",
+   "at": [
+    -6.74,
+    3.44,
+    0.368
+   ],
+   "area_m2": 0.009434,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "engine_1",
+   "material": "engine",
+   "other_part": "nacelle_1",
+   "other_material": "structure",
+   "at": [
+    -6.752,
+    3.44,
+    0.323
+   ],
+   "area_m2": 0.009434,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "engine_1",
+   "material": "engine",
+   "other_part": "nacelle_1",
+   "other_material": "structure",
+   "at": [
+    -6.752,
+    3.44,
+    0.277
+   ],
+   "area_m2": 0.009434,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "engine_1",
+   "material": "engine",
+   "other_part": "nacelle_1",
+   "other_material": "structure",
+   "at": [
+    -6.74,
+    3.44,
+    0.232
+   ],
+   "area_m2": 0.009434,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "engine_1",
+   "material": "engine",
+   "other_part": "nacelle_1",
+   "other_material": "structure",
+   "at": [
+    -6.717,
+    3.44,
+    0.191
+   ],
+   "area_m2": 0.009434,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "engine_1",
+   "material": "engine",
+   "other_part": "nacelle_1",
+   "other_material": "structure",
+   "at": [
+    -6.684,
+    3.44,
+    0.158
+   ],
+   "area_m2": 0.009434,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "engine_1",
+   "material": "engine",
+   "other_part": "nacelle_1",
+   "other_material": "structure",
+   "at": [
+    -6.643,
+    3.44,
+    0.135
+   ],
+   "area_m2": 0.009434,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "engine_1",
+   "material": "engine",
+   "other_part": "nacelle_1",
+   "other_material": "structure",
+   "at": [
+    -6.598,
+    3.44,
+    0.123
+   ],
+   "area_m2": 0.009434,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "engine_1",
+   "material": "engine",
+   "other_part": "nacelle_1",
+   "other_material": "structure",
+   "at": [
+    -6.552,
+    3.44,
+    0.123
+   ],
+   "area_m2": 0.009434,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "engine_1",
+   "material": "engine",
+   "other_part": "nacelle_1",
+   "other_material": "structure",
+   "at": [
+    -6.507,
+    3.44,
+    0.135
+   ],
+   "area_m2": 0.009434,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "engine_1",
+   "material": "engine",
+   "other_part": "nacelle_1",
+   "other_material": "structure",
+   "at": [
+    -6.466,
+    3.44,
+    0.158
+   ],
+   "area_m2": 0.009434,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "engine_1",
+   "material": "engine",
+   "other_part": "nacelle_1",
+   "other_material": "structure",
+   "at": [
+    -6.433,
+    3.44,
+    0.191
+   ],
+   "area_m2": 0.009434,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "engine_1",
+   "material": "engine",
+   "other_part": "nacelle_1",
+   "other_material": "structure",
+   "at": [
+    -6.41,
+    3.44,
+    0.232
+   ],
+   "area_m2": 0.009434,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "engine_1",
+   "material": "engine",
+   "other_part": "nacelle_1",
+   "other_material": "structure",
+   "at": [
+    -6.398,
+    3.44,
+    0.277
+   ],
+   "area_m2": 0.009434,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "engine_4",
+   "material": "engine",
+   "other_part": "nacelle_4",
+   "other_material": "structure",
+   "at": [
+    6.752,
+    3.44,
+    0.323
+   ],
+   "area_m2": 0.009434,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "engine_4",
+   "material": "engine",
+   "other_part": "nacelle_4",
+   "other_material": "structure",
+   "at": [
+    6.74,
+    3.44,
+    0.368
+   ],
+   "area_m2": 0.009434,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "engine_4",
+   "material": "engine",
+   "other_part": "nacelle_4",
+   "other_material": "structure",
+   "at": [
+    6.717,
+    3.44,
+    0.409
+   ],
+   "area_m2": 0.009434,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "engine_4",
+   "material": "engine",
+   "other_part": "nacelle_4",
+   "other_material": "structure",
+   "at": [
+    6.684,
+    3.44,
+    0.442
+   ],
+   "area_m2": 0.009434,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "engine_4",
+   "material": "engine",
+   "other_part": "nacelle_4",
+   "other_material": "structure",
+   "at": [
+    6.643,
+    3.44,
+    0.465
+   ],
+   "area_m2": 0.009434,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "engine_4",
+   "material": "engine",
+   "other_part": "nacelle_4",
+   "other_material": "structure",
+   "at": [
+    6.598,
+    3.44,
+    0.477
+   ],
+   "area_m2": 0.009434,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "engine_4",
+   "material": "engine",
+   "other_part": "nacelle_4",
+   "other_material": "structure",
+   "at": [
+    6.552,
+    3.44,
+    0.477
+   ],
+   "area_m2": 0.009434,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "engine_4",
+   "material": "engine",
+   "other_part": "nacelle_4",
+   "other_material": "structure",
+   "at": [
+    6.507,
+    3.44,
+    0.465
+   ],
+   "area_m2": 0.009434,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "engine_4",
+   "material": "engine",
+   "other_part": "nacelle_4",
+   "other_material": "structure",
+   "at": [
+    6.466,
+    3.44,
+    0.442
+   ],
+   "area_m2": 0.009434,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "engine_4",
+   "material": "engine",
+   "other_part": "nacelle_4",
+   "other_material": "structure",
+   "at": [
+    6.433,
+    3.44,
+    0.409
+   ],
+   "area_m2": 0.009434,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "engine_4",
+   "material": "engine",
+   "other_part": "nacelle_4",
+   "other_material": "structure",
+   "at": [
+    6.41,
+    3.44,
+    0.368
+   ],
+   "area_m2": 0.009434,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "engine_4",
+   "material": "engine",
+   "other_part": "nacelle_4",
+   "other_material": "structure",
+   "at": [
+    6.398,
+    3.44,
+    0.323
+   ],
+   "area_m2": 0.009434,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "engine_4",
+   "material": "engine",
+   "other_part": "nacelle_4",
+   "other_material": "structure",
+   "at": [
+    6.398,
+    3.44,
+    0.277
+   ],
+   "area_m2": 0.009434,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "engine_4",
+   "material": "engine",
+   "other_part": "nacelle_4",
+   "other_material": "structure",
+   "at": [
+    6.41,
+    3.44,
+    0.232
+   ],
+   "area_m2": 0.009434,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "engine_4",
+   "material": "engine",
+   "other_part": "nacelle_4",
+   "other_material": "structure",
+   "at": [
+    6.433,
+    3.44,
+    0.191
+   ],
+   "area_m2": 0.009434,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "engine_4",
+   "material": "engine",
+   "other_part": "nacelle_4",
+   "other_material": "structure",
+   "at": [
+    6.466,
+    3.44,
+    0.158
+   ],
+   "area_m2": 0.009434,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "engine_4",
+   "material": "engine",
+   "other_part": "nacelle_4",
+   "other_material": "structure",
+   "at": [
+    6.507,
+    3.44,
+    0.135
+   ],
+   "area_m2": 0.009434,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "engine_4",
+   "material": "engine",
+   "other_part": "nacelle_4",
+   "other_material": "structure",
+   "at": [
+    6.552,
+    3.44,
+    0.123
+   ],
+   "area_m2": 0.009434,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "engine_4",
+   "material": "engine",
+   "other_part": "nacelle_4",
+   "other_material": "structure",
+   "at": [
+    6.598,
+    3.44,
+    0.123
+   ],
+   "area_m2": 0.009434,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "engine_4",
+   "material": "engine",
+   "other_part": "nacelle_4",
+   "other_material": "structure",
+   "at": [
+    6.643,
+    3.44,
+    0.135
+   ],
+   "area_m2": 0.009434,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "engine_4",
+   "material": "engine",
+   "other_part": "nacelle_4",
+   "other_material": "structure",
+   "at": [
+    6.684,
+    3.44,
+    0.158
+   ],
+   "area_m2": 0.009434,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "engine_4",
+   "material": "engine",
+   "other_part": "nacelle_4",
+   "other_material": "structure",
+   "at": [
+    6.717,
+    3.44,
+    0.191
+   ],
+   "area_m2": 0.009434,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "engine_4",
+   "material": "engine",
+   "other_part": "nacelle_4",
+   "other_material": "structure",
+   "at": [
+    6.74,
+    3.44,
+    0.232
+   ],
+   "area_m2": 0.009434,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "engine_4",
+   "material": "engine",
+   "other_part": "nacelle_4",
+   "other_material": "structure",
+   "at": [
+    6.752,
+    3.44,
+    0.277
+   ],
+   "area_m2": 0.009434,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "paint",
+   "at": [
+    2.526,
+    3.794,
+    0.576
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "paint",
+   "at": [
+    3.168,
+    3.792,
+    0.826
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "paint",
+   "at": [
+    3.269,
+    3.794,
+    0.81
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "paint",
+   "at": [
+    3.366,
+    3.794,
+    0.782
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "paint",
+   "at": [
+    3.459,
+    3.794,
+    0.741
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "paint",
+   "at": [
+    3.547,
+    3.794,
+    0.688
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "paint",
+   "at": [
+    3.626,
+    3.794,
+    0.624
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "paint",
+   "at": [
+    3.696,
+    3.794,
+    0.55
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "paint",
+   "at": [
+    3.757,
+    3.794,
+    0.468
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "paint",
+   "at": [
+    3.806,
+    3.794,
+    0.379
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "paint",
+   "at": [
+    3.842,
+    3.794,
+    0.284
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "paint",
+   "at": [
+    3.867,
+    3.794,
+    0.185
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "paint",
+   "at": [
+    3.878,
+    3.794,
+    0.084
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "paint",
+   "at": [
+    3.876,
+    3.794,
+    -0.018
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "paint",
+   "at": [
+    3.86,
+    3.794,
+    -0.119
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "paint",
+   "at": [
+    3.832,
+    3.794,
+    -0.216
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "paint",
+   "at": [
+    3.791,
+    3.794,
+    -0.309
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "paint",
+   "at": [
+    3.738,
+    3.794,
+    -0.397
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "paint",
+   "at": [
+    3.674,
+    3.794,
+    -0.476
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "paint",
+   "at": [
+    3.6,
+    3.794,
+    -0.546
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "paint",
+   "at": [
+    3.518,
+    3.794,
+    -0.607
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "paint",
+   "at": [
+    3.429,
+    3.794,
+    -0.656
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "paint",
+   "at": [
+    3.334,
+    3.794,
+    -0.692
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "paint",
+   "at": [
+    3.235,
+    3.794,
+    -0.717
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "paint",
+   "at": [
+    3.134,
+    3.794,
+    -0.728
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "paint",
+   "at": [
+    3.032,
+    3.794,
+    -0.726
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "paint",
+   "at": [
+    2.931,
+    3.794,
+    -0.71
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "paint",
+   "at": [
+    2.834,
+    3.794,
+    -0.682
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "paint",
+   "at": [
+    2.741,
+    3.794,
+    -0.641
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "paint",
+   "at": [
+    2.653,
+    3.794,
+    -0.588
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "paint",
+   "at": [
+    2.574,
+    3.794,
+    -0.524
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "paint",
+   "at": [
+    2.504,
+    3.794,
+    -0.45
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "paint",
+   "at": [
+    2.443,
+    3.794,
+    -0.368
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "paint",
+   "at": [
+    2.394,
+    3.794,
+    -0.279
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "paint",
+   "at": [
+    2.358,
+    3.794,
+    -0.184
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "paint",
+   "at": [
+    2.333,
+    3.794,
+    -0.085
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "paint",
+   "at": [
+    2.322,
+    3.794,
+    0.016
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "paint",
+   "at": [
+    2.324,
+    3.794,
+    0.118
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "paint",
+   "at": [
+    2.34,
+    3.794,
+    0.219
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "paint",
+   "at": [
+    2.368,
+    3.794,
+    0.316
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "paint",
+   "at": [
+    2.409,
+    3.794,
+    0.409
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "paint",
+   "at": [
+    2.462,
+    3.794,
+    0.497
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "paint",
+   "at": [
+    2.6,
+    3.794,
+    0.646
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "paint",
+   "at": [
+    2.682,
+    3.794,
+    0.707
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "paint",
+   "at": [
+    2.771,
+    3.794,
+    0.756
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "paint",
+   "at": [
+    2.866,
+    3.794,
+    0.792
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "paint",
+   "at": [
+    2.965,
+    3.794,
+    0.817
+   ],
+   "area_m2": 0.000306,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "interior",
+   "at": [
+    3.134,
+    3.794,
+    0.822
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "interior",
+   "at": [
+    3.234,
+    3.794,
+    0.811
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "interior",
+   "at": [
+    3.332,
+    3.794,
+    0.787
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "interior",
+   "at": [
+    3.426,
+    3.794,
+    0.75
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "interior",
+   "at": [
+    3.515,
+    3.794,
+    0.702
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "interior",
+   "at": [
+    3.597,
+    3.794,
+    0.642
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "interior",
+   "at": [
+    3.67,
+    3.794,
+    0.572
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "interior",
+   "at": [
+    3.733,
+    3.794,
+    0.493
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "interior",
+   "at": [
+    3.785,
+    3.794,
+    0.407
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "interior",
+   "at": [
+    3.826,
+    3.794,
+    0.314
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "interior",
+   "at": [
+    3.854,
+    3.794,
+    0.217
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "interior",
+   "at": [
+    3.87,
+    3.794,
+    0.117
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "interior",
+   "at": [
+    3.872,
+    3.794,
+    0.016
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "interior",
+   "at": [
+    3.861,
+    3.794,
+    -0.084
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "interior",
+   "at": [
+    3.837,
+    3.794,
+    -0.182
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "interior",
+   "at": [
+    3.8,
+    3.794,
+    -0.276
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "interior",
+   "at": [
+    3.752,
+    3.794,
+    -0.365
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "interior",
+   "at": [
+    3.692,
+    3.794,
+    -0.447
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "interior",
+   "at": [
+    3.622,
+    3.794,
+    -0.52
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "interior",
+   "at": [
+    3.543,
+    3.794,
+    -0.583
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "interior",
+   "at": [
+    3.457,
+    3.794,
+    -0.635
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "interior",
+   "at": [
+    3.364,
+    3.794,
+    -0.676
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "interior",
+   "at": [
+    3.267,
+    3.794,
+    -0.704
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "interior",
+   "at": [
+    3.167,
+    3.794,
+    -0.72
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "interior",
+   "at": [
+    3.066,
+    3.794,
+    -0.722
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "interior",
+   "at": [
+    2.966,
+    3.794,
+    -0.711
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "interior",
+   "at": [
+    2.868,
+    3.794,
+    -0.687
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "interior",
+   "at": [
+    2.774,
+    3.794,
+    -0.65
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "interior",
+   "at": [
+    2.685,
+    3.794,
+    -0.602
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "interior",
+   "at": [
+    2.603,
+    3.794,
+    -0.542
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "interior",
+   "at": [
+    2.53,
+    3.794,
+    -0.472
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "interior",
+   "at": [
+    2.467,
+    3.794,
+    -0.393
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "interior",
+   "at": [
+    2.415,
+    3.794,
+    -0.307
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "interior",
+   "at": [
+    2.374,
+    3.794,
+    -0.214
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "interior",
+   "at": [
+    2.346,
+    3.794,
+    -0.117
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "interior",
+   "at": [
+    2.33,
+    3.794,
+    -0.017
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "interior",
+   "at": [
+    2.328,
+    3.794,
+    0.084
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "interior",
+   "at": [
+    2.339,
+    3.794,
+    0.184
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "interior",
+   "at": [
+    2.363,
+    3.794,
+    0.282
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "interior",
+   "at": [
+    2.4,
+    3.794,
+    0.376
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "interior",
+   "at": [
+    2.448,
+    3.794,
+    0.465
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "interior",
+   "at": [
+    2.508,
+    3.794,
+    0.547
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "interior",
+   "at": [
+    2.578,
+    3.794,
+    0.62
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "interior",
+   "at": [
+    2.657,
+    3.794,
+    0.683
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "interior",
+   "at": [
+    2.743,
+    3.794,
+    0.735
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "interior",
+   "at": [
+    2.836,
+    3.794,
+    0.776
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "interior",
+   "at": [
+    2.933,
+    3.794,
+    0.804
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_3",
+   "material": "structure",
+   "other_part": "nacelle_3",
+   "other_material": "interior",
+   "at": [
+    3.033,
+    3.794,
+    0.82
+   ],
+   "area_m2": 0.000304,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "interior",
+   "at": [
+    6.509,
+    3.204,
+    1.06
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "gear_well_R",
+   "material": "paint",
+   "other_part": "gear_well_R",
+   "other_material": "well",
+   "at": [
+    2.91,
+    3.157,
+    -0.708
+   ],
+   "area_m2": 0.02065,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "gear_well_R",
+   "material": "paint",
+   "other_part": "gear_well_R",
+   "other_material": "well",
+   "at": [
+    3.041,
+    2.137,
+    -0.732
+   ],
+   "area_m2": 0.001636,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "gear_well_R",
+   "material": "paint",
+   "other_part": "gear_well_R",
+   "other_material": "well",
+   "at": [
+    3.53,
+    2.763,
+    -0.604
+   ],
+   "area_m2": 0.02065,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "paint",
+   "at": [
+    6.642,
+    3.202,
+    1.066
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "paint",
+   "at": [
+    6.741,
+    3.204,
+    1.05
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "paint",
+   "at": [
+    6.838,
+    3.204,
+    1.022
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "paint",
+   "at": [
+    6.93,
+    3.204,
+    0.982
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "paint",
+   "at": [
+    7.016,
+    3.204,
+    0.93
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "paint",
+   "at": [
+    7.094,
+    3.204,
+    0.867
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "paint",
+   "at": [
+    7.164,
+    3.204,
+    0.794
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "paint",
+   "at": [
+    7.223,
+    3.204,
+    0.713
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "paint",
+   "at": [
+    7.272,
+    3.204,
+    0.625
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "paint",
+   "at": [
+    7.308,
+    3.204,
+    0.531
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "paint",
+   "at": [
+    7.332,
+    3.204,
+    0.433
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "paint",
+   "at": [
+    7.343,
+    3.204,
+    0.334
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "paint",
+   "at": [
+    7.341,
+    3.204,
+    0.233
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "paint",
+   "at": [
+    7.325,
+    3.204,
+    0.134
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "paint",
+   "at": [
+    7.297,
+    3.204,
+    0.037
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "paint",
+   "at": [
+    7.257,
+    3.204,
+    -0.055
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "paint",
+   "at": [
+    7.205,
+    3.204,
+    -0.141
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "paint",
+   "at": [
+    7.142,
+    3.204,
+    -0.219
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "paint",
+   "at": [
+    7.069,
+    3.204,
+    -0.289
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "paint",
+   "at": [
+    6.988,
+    3.204,
+    -0.348
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "paint",
+   "at": [
+    6.9,
+    3.204,
+    -0.397
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "paint",
+   "at": [
+    6.806,
+    3.204,
+    -0.433
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "paint",
+   "at": [
+    6.708,
+    3.204,
+    -0.457
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "paint",
+   "at": [
+    6.508,
+    3.202,
+    -0.466
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "paint",
+   "at": [
+    6.409,
+    3.204,
+    -0.45
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "paint",
+   "at": [
+    6.22,
+    3.204,
+    -0.382
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "paint",
+   "at": [
+    6.134,
+    3.204,
+    -0.33
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "paint",
+   "at": [
+    6.056,
+    3.204,
+    -0.267
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "paint",
+   "at": [
+    5.986,
+    3.204,
+    -0.194
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "paint",
+   "at": [
+    5.927,
+    3.204,
+    -0.113
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "paint",
+   "at": [
+    5.878,
+    3.204,
+    -0.025
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "paint",
+   "at": [
+    5.842,
+    3.204,
+    0.069
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "paint",
+   "at": [
+    5.818,
+    3.204,
+    0.167
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "paint",
+   "at": [
+    5.807,
+    3.204,
+    0.266
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "paint",
+   "at": [
+    5.809,
+    3.204,
+    0.367
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "paint",
+   "at": [
+    5.825,
+    3.204,
+    0.466
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "paint",
+   "at": [
+    5.853,
+    3.204,
+    0.563
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "paint",
+   "at": [
+    5.893,
+    3.204,
+    0.655
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "paint",
+   "at": [
+    5.945,
+    3.204,
+    0.741
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "paint",
+   "at": [
+    6.008,
+    3.204,
+    0.819
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "paint",
+   "at": [
+    6.081,
+    3.204,
+    0.889
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "paint",
+   "at": [
+    6.162,
+    3.204,
+    0.948
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "paint",
+   "at": [
+    6.25,
+    3.204,
+    0.997
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "paint",
+   "at": [
+    6.344,
+    3.204,
+    1.033
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "paint",
+   "at": [
+    6.442,
+    3.204,
+    1.057
+   ],
+   "area_m2": 0.000302,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "interior",
+   "at": [
+    6.608,
+    3.204,
+    1.062
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "interior",
+   "at": [
+    6.707,
+    3.204,
+    1.051
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "interior",
+   "at": [
+    6.804,
+    3.204,
+    1.027
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "interior",
+   "at": [
+    6.897,
+    3.204,
+    0.991
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "interior",
+   "at": [
+    6.985,
+    3.204,
+    0.943
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "interior",
+   "at": [
+    7.065,
+    3.204,
+    0.884
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "interior",
+   "at": [
+    7.137,
+    3.204,
+    0.815
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "interior",
+   "at": [
+    7.2,
+    3.204,
+    0.737
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "interior",
+   "at": [
+    7.251,
+    3.204,
+    0.652
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "interior",
+   "at": [
+    7.292,
+    3.204,
+    0.561
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "interior",
+   "at": [
+    7.319,
+    3.204,
+    0.465
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "interior",
+   "at": [
+    7.335,
+    3.204,
+    0.366
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "interior",
+   "at": [
+    7.337,
+    3.204,
+    0.267
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "interior",
+   "at": [
+    7.326,
+    3.204,
+    0.168
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "interior",
+   "at": [
+    7.302,
+    3.204,
+    0.071
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "interior",
+   "at": [
+    7.266,
+    3.204,
+    -0.022
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "interior",
+   "at": [
+    7.218,
+    3.204,
+    -0.11
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "interior",
+   "at": [
+    7.159,
+    3.204,
+    -0.19
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "interior",
+   "at": [
+    7.09,
+    3.204,
+    -0.262
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "interior",
+   "at": [
+    7.012,
+    3.204,
+    -0.325
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "interior",
+   "at": [
+    6.927,
+    3.204,
+    -0.376
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "interior",
+   "at": [
+    6.836,
+    3.204,
+    -0.417
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "interior",
+   "at": [
+    6.74,
+    3.204,
+    -0.444
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "interior",
+   "at": [
+    6.641,
+    3.204,
+    -0.46
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "interior",
+   "at": [
+    6.542,
+    3.204,
+    -0.462
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "interior",
+   "at": [
+    6.346,
+    3.204,
+    -0.427
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "interior",
+   "at": [
+    6.253,
+    3.204,
+    -0.391
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "interior",
+   "at": [
+    6.165,
+    3.204,
+    -0.343
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "interior",
+   "at": [
+    6.085,
+    3.204,
+    -0.284
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "interior",
+   "at": [
+    6.013,
+    3.204,
+    -0.215
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "interior",
+   "at": [
+    5.95,
+    3.204,
+    -0.137
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "interior",
+   "at": [
+    5.899,
+    3.204,
+    -0.052
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "interior",
+   "at": [
+    5.858,
+    3.204,
+    0.039
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "interior",
+   "at": [
+    5.831,
+    3.204,
+    0.135
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "interior",
+   "at": [
+    5.815,
+    3.204,
+    0.234
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "interior",
+   "at": [
+    5.813,
+    3.204,
+    0.333
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "interior",
+   "at": [
+    5.824,
+    3.204,
+    0.432
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "interior",
+   "at": [
+    5.848,
+    3.204,
+    0.529
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "interior",
+   "at": [
+    5.884,
+    3.204,
+    0.622
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "interior",
+   "at": [
+    5.932,
+    3.204,
+    0.71
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "interior",
+   "at": [
+    5.991,
+    3.204,
+    0.79
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "interior",
+   "at": [
+    6.06,
+    3.204,
+    0.862
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "interior",
+   "at": [
+    6.138,
+    3.204,
+    0.925
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "interior",
+   "at": [
+    6.223,
+    3.204,
+    0.976
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "interior",
+   "at": [
+    6.314,
+    3.204,
+    1.017
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "nacelle_4",
+   "material": "structure",
+   "other_part": "nacelle_4",
+   "other_material": "interior",
+   "at": [
+    6.41,
+    3.204,
+    1.044
+   ],
+   "area_m2": 0.0003,
+   "action": "forward 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "fin",
+   "material": "structure",
+   "other_part": "fin",
+   "other_material": "structure",
+   "at": [
+    -0.304,
+    -10.533,
+    1.45
+   ],
+   "area_m2": 0.001068,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "chin_gun0",
+   "material": "gear",
+   "other_part": "chin_gun0",
+   "other_material": "gear",
+   "at": [
+    -0.183,
+    6.322,
+    -0.859
+   ],
+   "area_m2": 0.00069,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "chin_gun0",
+   "material": "gear",
+   "other_part": "chin_gun0",
+   "other_material": "gear",
+   "at": [
+    -0.183,
+    6.422,
+    -0.859
+   ],
+   "area_m2": 0.00069,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "tail_gun0",
+   "material": "gear",
+   "other_part": "tail_gun0",
+   "other_material": "gear",
+   "at": [
+    -0.183,
+    -14.778,
+    0.681
+   ],
+   "area_m2": 0.00069,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "tail_gun0",
+   "material": "gear",
+   "other_part": "tail_gun0",
+   "other_material": "gear",
+   "at": [
+    -0.183,
+    -14.878,
+    0.681
+   ],
+   "area_m2": 0.00069,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "chin_gun0",
+   "material": "gear",
+   "other_part": "chin_gun0",
+   "other_material": "engine",
+   "at": [
+    -0.127,
+    6.52,
+    -0.879
+   ],
+   "area_m2": 6.6e-05,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "chin_gun0",
+   "material": "gear",
+   "other_part": "chin_gun0",
+   "other_material": "engine",
+   "at": [
+    -0.133,
+    6.52,
+    -0.879
+   ],
+   "area_m2": 6.6e-05,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "chin_gun0",
+   "material": "gear",
+   "other_part": "chin_gun0",
+   "other_material": "engine",
+   "at": [
+    0.133,
+    6.52,
+    -0.879
+   ],
+   "area_m2": 6.6e-05,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "chin_gun0",
+   "material": "gear",
+   "other_part": "chin_gun0",
+   "other_material": "engine",
+   "at": [
+    0.127,
+    6.52,
+    -0.879
+   ],
+   "area_m2": 6.6e-05,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "chin_gun0",
+   "material": "gear",
+   "other_part": "chin_gun0",
+   "other_material": "gear",
+   "at": [
+    0.183,
+    6.318,
+    -0.859
+   ],
+   "area_m2": 0.00069,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "chin_gun0",
+   "material": "gear",
+   "other_part": "chin_gun0",
+   "other_material": "gear",
+   "at": [
+    0.183,
+    6.418,
+    -0.859
+   ],
+   "area_m2": 0.00069,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "tail_gun0",
+   "material": "gear",
+   "other_part": "tail_gun0",
+   "other_material": "gear",
+   "at": [
+    0.183,
+    -14.782,
+    0.681
+   ],
+   "area_m2": 0.00069,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "tail_gun0",
+   "material": "gear",
+   "other_part": "tail_gun0",
+   "other_material": "gear",
+   "at": [
+    0.183,
+    -14.882,
+    0.681
+   ],
+   "area_m2": 0.00069,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "chin_gun0",
+   "material": "gear",
+   "other_part": "chin_gun0",
+   "other_material": "gear",
+   "at": [
+    0.126,
+    6.925,
+    -0.859
+   ],
+   "area_m2": 0.000195,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "chin_gun0",
+   "material": "gear",
+   "other_part": "chin_gun0",
+   "other_material": "gear",
+   "at": [
+    0.118,
+    6.925,
+    -0.855
+   ],
+   "area_m2": 0.000195,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "chin_gun0",
+   "material": "gear",
+   "other_part": "chin_gun0",
+   "other_material": "gear",
+   "at": [
+    0.112,
+    6.925,
+    -0.848
+   ],
+   "area_m2": 0.000195,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "chin_gun0",
+   "material": "gear",
+   "other_part": "chin_gun0",
+   "other_material": "gear",
+   "at": [
+    0.111,
+    6.925,
+    -0.84
+   ],
+   "area_m2": 0.000195,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "chin_gun0",
+   "material": "gear",
+   "other_part": "chin_gun0",
+   "other_material": "gear",
+   "at": [
+    0.112,
+    6.925,
+    -0.832
+   ],
+   "area_m2": 0.000195,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "chin_gun0",
+   "material": "gear",
+   "other_part": "chin_gun0",
+   "other_material": "gear",
+   "at": [
+    0.118,
+    6.925,
+    -0.825
+   ],
+   "area_m2": 0.000195,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "chin_gun0",
+   "material": "gear",
+   "other_part": "chin_gun0",
+   "other_material": "gear",
+   "at": [
+    0.126,
+    6.925,
+    -0.821
+   ],
+   "area_m2": 0.000195,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "chin_gun0",
+   "material": "gear",
+   "other_part": "chin_gun0",
+   "other_material": "gear",
+   "at": [
+    -0.126,
+    6.925,
+    -0.821
+   ],
+   "area_m2": 0.000195,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "chin_gun0",
+   "material": "gear",
+   "other_part": "chin_gun0",
+   "other_material": "gear",
+   "at": [
+    -0.118,
+    6.925,
+    -0.825
+   ],
+   "area_m2": 0.000195,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "chin_gun0",
+   "material": "gear",
+   "other_part": "chin_gun0",
+   "other_material": "gear",
+   "at": [
+    -0.112,
+    6.925,
+    -0.832
+   ],
+   "area_m2": 0.000195,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "chin_gun0",
+   "material": "gear",
+   "other_part": "chin_gun0",
+   "other_material": "gear",
+   "at": [
+    -0.111,
+    6.925,
+    -0.84
+   ],
+   "area_m2": 0.000195,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "chin_gun0",
+   "material": "gear",
+   "other_part": "chin_gun0",
+   "other_material": "gear",
+   "at": [
+    -0.112,
+    6.925,
+    -0.848
+   ],
+   "area_m2": 0.000195,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "chin_gun0",
+   "material": "gear",
+   "other_part": "chin_gun0",
+   "other_material": "gear",
+   "at": [
+    -0.118,
+    6.925,
+    -0.855
+   ],
+   "area_m2": 0.000195,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "chin_gun0",
+   "material": "gear",
+   "other_part": "chin_gun0",
+   "other_material": "gear",
+   "at": [
+    -0.126,
+    6.925,
+    -0.859
+   ],
+   "area_m2": 0.000195,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "chin_gun0",
+   "material": "gear",
+   "other_part": "chin_gun0",
+   "other_material": "gear",
+   "at": [
+    -0.126,
+    6.955,
+    -0.821
+   ],
+   "area_m2": 0.000195,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "chin_gun0",
+   "material": "gear",
+   "other_part": "chin_gun0",
+   "other_material": "gear",
+   "at": [
+    -0.118,
+    6.955,
+    -0.825
+   ],
+   "area_m2": 0.000195,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "chin_gun0",
+   "material": "gear",
+   "other_part": "chin_gun0",
+   "other_material": "gear",
+   "at": [
+    -0.112,
+    6.955,
+    -0.832
+   ],
+   "area_m2": 0.000195,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "chin_gun0",
+   "material": "gear",
+   "other_part": "chin_gun0",
+   "other_material": "gear",
+   "at": [
+    -0.111,
+    6.955,
+    -0.84
+   ],
+   "area_m2": 0.000195,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "chin_gun0",
+   "material": "gear",
+   "other_part": "chin_gun0",
+   "other_material": "gear",
+   "at": [
+    -0.112,
+    6.955,
+    -0.848
+   ],
+   "area_m2": 0.000195,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "chin_gun0",
+   "material": "gear",
+   "other_part": "chin_gun0",
+   "other_material": "gear",
+   "at": [
+    -0.118,
+    6.955,
+    -0.855
+   ],
+   "area_m2": 0.000195,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "chin_gun0",
+   "material": "gear",
+   "other_part": "chin_gun0",
+   "other_material": "gear",
+   "at": [
+    -0.126,
+    6.955,
+    -0.859
+   ],
+   "area_m2": 0.000195,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "chin_gun0",
+   "material": "gear",
+   "other_part": "chin_gun0",
+   "other_material": "gear",
+   "at": [
+    0.126,
+    6.955,
+    -0.859
+   ],
+   "area_m2": 0.000195,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "chin_gun0",
+   "material": "gear",
+   "other_part": "chin_gun0",
+   "other_material": "gear",
+   "at": [
+    0.118,
+    6.955,
+    -0.855
+   ],
+   "area_m2": 0.000195,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "chin_gun0",
+   "material": "gear",
+   "other_part": "chin_gun0",
+   "other_material": "gear",
+   "at": [
+    0.112,
+    6.955,
+    -0.848
+   ],
+   "area_m2": 0.000195,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "chin_gun0",
+   "material": "gear",
+   "other_part": "chin_gun0",
+   "other_material": "gear",
+   "at": [
+    0.111,
+    6.955,
+    -0.84
+   ],
+   "area_m2": 0.000195,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "chin_gun0",
+   "material": "gear",
+   "other_part": "chin_gun0",
+   "other_material": "gear",
+   "at": [
+    0.112,
+    6.955,
+    -0.832
+   ],
+   "area_m2": 0.000195,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "chin_gun0",
+   "material": "gear",
+   "other_part": "chin_gun0",
+   "other_material": "gear",
+   "at": [
+    0.118,
+    6.955,
+    -0.825
+   ],
+   "area_m2": 0.000195,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "chin_gun0",
+   "material": "gear",
+   "other_part": "chin_gun0",
+   "other_material": "gear",
+   "at": [
+    0.126,
+    6.955,
+    -0.821
+   ],
+   "area_m2": 0.000195,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "tail_gun0",
+   "material": "gear",
+   "other_part": "tail_gun0",
+   "other_material": "engine",
+   "at": [
+    0.127,
+    -14.98,
+    0.661
+   ],
+   "area_m2": 6.6e-05,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "tail_gun0",
+   "material": "gear",
+   "other_part": "tail_gun0",
+   "other_material": "engine",
+   "at": [
+    0.133,
+    -14.98,
+    0.661
+   ],
+   "area_m2": 6.6e-05,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "tail_gun0",
+   "material": "gear",
+   "other_part": "tail_gun0",
+   "other_material": "engine",
+   "at": [
+    -0.133,
+    -14.98,
+    0.661
+   ],
+   "area_m2": 6.6e-05,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "tail_gun0",
+   "material": "gear",
+   "other_part": "tail_gun0",
+   "other_material": "engine",
+   "at": [
+    -0.127,
+    -14.98,
+    0.661
+   ],
+   "area_m2": 6.6e-05,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "tail_gun0",
+   "material": "gear",
+   "other_part": "tail_gun0",
+   "other_material": "gear",
+   "at": [
+    -0.126,
+    -15.385,
+    0.681
+   ],
+   "area_m2": 0.000195,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "tail_gun0",
+   "material": "gear",
+   "other_part": "tail_gun0",
+   "other_material": "gear",
+   "at": [
+    -0.118,
+    -15.385,
+    0.685
+   ],
+   "area_m2": 0.000195,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "tail_gun0",
+   "material": "gear",
+   "other_part": "tail_gun0",
+   "other_material": "gear",
+   "at": [
+    -0.112,
+    -15.385,
+    0.692
+   ],
+   "area_m2": 0.000195,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "tail_gun0",
+   "material": "gear",
+   "other_part": "tail_gun0",
+   "other_material": "gear",
+   "at": [
+    -0.111,
+    -15.385,
+    0.7
+   ],
+   "area_m2": 0.000195,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "tail_gun0",
+   "material": "gear",
+   "other_part": "tail_gun0",
+   "other_material": "gear",
+   "at": [
+    -0.112,
+    -15.385,
+    0.708
+   ],
+   "area_m2": 0.000195,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "tail_gun0",
+   "material": "gear",
+   "other_part": "tail_gun0",
+   "other_material": "gear",
+   "at": [
+    -0.118,
+    -15.385,
+    0.715
+   ],
+   "area_m2": 0.000195,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "tail_gun0",
+   "material": "gear",
+   "other_part": "tail_gun0",
+   "other_material": "gear",
+   "at": [
+    -0.126,
+    -15.385,
+    0.719
+   ],
+   "area_m2": 0.000195,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "tail_gun0",
+   "material": "gear",
+   "other_part": "tail_gun0",
+   "other_material": "gear",
+   "at": [
+    0.126,
+    -15.385,
+    0.719
+   ],
+   "area_m2": 0.000195,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "tail_gun0",
+   "material": "gear",
+   "other_part": "tail_gun0",
+   "other_material": "gear",
+   "at": [
+    0.118,
+    -15.385,
+    0.715
+   ],
+   "area_m2": 0.000195,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "tail_gun0",
+   "material": "gear",
+   "other_part": "tail_gun0",
+   "other_material": "gear",
+   "at": [
+    0.112,
+    -15.385,
+    0.708
+   ],
+   "area_m2": 0.000195,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "tail_gun0",
+   "material": "gear",
+   "other_part": "tail_gun0",
+   "other_material": "gear",
+   "at": [
+    0.111,
+    -15.385,
+    0.7
+   ],
+   "area_m2": 0.000195,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "tail_gun0",
+   "material": "gear",
+   "other_part": "tail_gun0",
+   "other_material": "gear",
+   "at": [
+    0.112,
+    -15.385,
+    0.692
+   ],
+   "area_m2": 0.000195,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "tail_gun0",
+   "material": "gear",
+   "other_part": "tail_gun0",
+   "other_material": "gear",
+   "at": [
+    0.118,
+    -15.385,
+    0.685
+   ],
+   "area_m2": 0.000195,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "tail_gun0",
+   "material": "gear",
+   "other_part": "tail_gun0",
+   "other_material": "gear",
+   "at": [
+    0.126,
+    -15.385,
+    0.681
+   ],
+   "area_m2": 0.000195,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "tail_gun0",
+   "material": "gear",
+   "other_part": "tail_gun0",
+   "other_material": "gear",
+   "at": [
+    0.126,
+    -15.415,
+    0.719
+   ],
+   "area_m2": 0.000195,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "tail_gun0",
+   "material": "gear",
+   "other_part": "tail_gun0",
+   "other_material": "gear",
+   "at": [
+    0.118,
+    -15.415,
+    0.715
+   ],
+   "area_m2": 0.000195,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "tail_gun0",
+   "material": "gear",
+   "other_part": "tail_gun0",
+   "other_material": "gear",
+   "at": [
+    0.112,
+    -15.415,
+    0.708
+   ],
+   "area_m2": 0.000195,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "tail_gun0",
+   "material": "gear",
+   "other_part": "tail_gun0",
+   "other_material": "gear",
+   "at": [
+    0.111,
+    -15.415,
+    0.7
+   ],
+   "area_m2": 0.000195,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "tail_gun0",
+   "material": "gear",
+   "other_part": "tail_gun0",
+   "other_material": "gear",
+   "at": [
+    0.112,
+    -15.415,
+    0.692
+   ],
+   "area_m2": 0.000195,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "tail_gun0",
+   "material": "gear",
+   "other_part": "tail_gun0",
+   "other_material": "gear",
+   "at": [
+    0.118,
+    -15.415,
+    0.685
+   ],
+   "area_m2": 0.000195,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "tail_gun0",
+   "material": "gear",
+   "other_part": "tail_gun0",
+   "other_material": "gear",
+   "at": [
+    0.126,
+    -15.415,
+    0.681
+   ],
+   "area_m2": 0.000195,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "tail_gun0",
+   "material": "gear",
+   "other_part": "tail_gun0",
+   "other_material": "gear",
+   "at": [
+    -0.126,
+    -15.415,
+    0.681
+   ],
+   "area_m2": 0.000195,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "tail_gun0",
+   "material": "gear",
+   "other_part": "tail_gun0",
+   "other_material": "gear",
+   "at": [
+    -0.118,
+    -15.415,
+    0.685
+   ],
+   "area_m2": 0.000195,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "tail_gun0",
+   "material": "gear",
+   "other_part": "tail_gun0",
+   "other_material": "gear",
+   "at": [
+    -0.112,
+    -15.415,
+    0.692
+   ],
+   "area_m2": 0.000195,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "tail_gun0",
+   "material": "gear",
+   "other_part": "tail_gun0",
+   "other_material": "gear",
+   "at": [
+    -0.111,
+    -15.415,
+    0.7
+   ],
+   "area_m2": 0.000195,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "tail_gun0",
+   "material": "gear",
+   "other_part": "tail_gun0",
+   "other_material": "gear",
+   "at": [
+    -0.112,
+    -15.415,
+    0.708
+   ],
+   "area_m2": 0.000195,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "tail_gun0",
+   "material": "gear",
+   "other_part": "tail_gun0",
+   "other_material": "gear",
+   "at": [
+    -0.118,
+    -15.415,
+    0.715
+   ],
+   "area_m2": 0.000195,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "tail_gun0",
+   "material": "gear",
+   "other_part": "tail_gun0",
+   "other_material": "gear",
+   "at": [
+    -0.126,
+    -15.415,
+    0.719
+   ],
+   "area_m2": 0.000195,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "cockpit_panel",
+   "material": "ck_od",
+   "other_part": "cockpit_panel",
+   "other_material": "ck_black",
+   "at": [
+    -0.587,
+    4.273,
+    1.009
+   ],
+   "area_m2": 0.000917,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "cockpit_panel",
+   "material": "ck_od",
+   "other_part": "cockpit_panel",
+   "other_material": "ck_black",
+   "at": [
+    0.587,
+    4.269,
+    0.995
+   ],
+   "area_m2": 0.000917,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "cockpit_ewo_desk",
+   "material": "ck_black",
+   "other_part": "cockpit_ewo_desk",
+   "other_material": "ck_panel",
+   "at": [
+    0.724,
+    2.44,
+    1.114
+   ],
+   "area_m2": 0.000121,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "cockpit_ewo_desk",
+   "material": "ck_black",
+   "other_part": "cockpit_ewo_desk",
+   "other_material": "ck_panel",
+   "at": [
+    0.73,
+    2.44,
+    1.11
+   ],
+   "area_m2": 0.000121,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "cockpit_ewo_desk",
+   "material": "ck_black",
+   "other_part": "cockpit_ewo_desk",
+   "other_material": "ck_panel",
+   "at": [
+    0.734,
+    2.44,
+    1.104
+   ],
+   "area_m2": 0.000121,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "cockpit_ewo_desk",
+   "material": "ck_black",
+   "other_part": "cockpit_ewo_desk",
+   "other_material": "ck_panel",
+   "at": [
+    0.734,
+    2.44,
+    1.096
+   ],
+   "area_m2": 0.000121,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "cockpit_ewo_desk",
+   "material": "ck_black",
+   "other_part": "cockpit_ewo_desk",
+   "other_material": "ck_panel",
+   "at": [
+    0.73,
+    2.44,
+    1.09
+   ],
+   "area_m2": 0.000121,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "cockpit_ewo_desk",
+   "material": "ck_black",
+   "other_part": "cockpit_ewo_desk",
+   "other_material": "ck_panel",
+   "at": [
+    0.724,
+    2.44,
+    1.086
+   ],
+   "area_m2": 0.000121,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "cockpit_ewo_panel",
+   "material": "ck_bezel",
+   "other_part": "cockpit_ewo_panel",
+   "other_material": "ck_bezel",
+   "at": [
+    0.783,
+    2.676,
+    1.292
+   ],
+   "area_m2": 7.2e-05,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "cockpit_ewo_panel",
+   "material": "ck_bezel",
+   "other_part": "cockpit_ewo_panel",
+   "other_material": "ck_bezel",
+   "at": [
+    0.787,
+    2.63,
+    1.321
+   ],
+   "area_m2": 0.002142,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "cockpit_ewo_panel",
+   "material": "ck_bezel",
+   "other_part": "cockpit_ewo_panel",
+   "other_material": "ck_bezel",
+   "at": [
+    0.755,
+    2.63,
+    1.537
+   ],
+   "area_m2": 0.002142,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "cockpit_ewo_panel",
+   "material": "ck_bezel",
+   "other_part": "cockpit_ewo_panel",
+   "other_material": "ck_bezel",
+   "at": [
+    0.792,
+    2.63,
+    1.31
+   ],
+   "area_m2": 0.001428,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "cockpit_ewo_panel",
+   "material": "ck_bezel",
+   "other_part": "cockpit_ewo_panel",
+   "other_material": "ck_bezel",
+   "at": [
+    0.794,
+    2.63,
+    1.329
+   ],
+   "area_m2": 0.001428,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "cockpit_ewo_panel",
+   "material": "ck_bezel",
+   "other_part": "cockpit_ewo_panel",
+   "other_material": "ck_bezel",
+   "at": [
+    0.762,
+    2.63,
+    1.544
+   ],
+   "area_m2": 0.001428,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "cockpit_ewo_panel",
+   "material": "ck_bezel",
+   "other_part": "cockpit_ewo_panel",
+   "other_material": "ck_bezel",
+   "at": [
+    0.76,
+    2.63,
+    1.526
+   ],
+   "area_m2": 0.001428,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "cockpit_ewo_panel",
+   "material": "ck_bezel",
+   "other_part": "cockpit_ewo_panel",
+   "other_material": "ck_bezel",
+   "at": [
+    0.807,
+    2.68,
+    1.292
+   ],
+   "area_m2": 7.2e-05,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "cockpit_ewo_panel",
+   "material": "ck_bezel",
+   "other_part": "cockpit_ewo_panel",
+   "other_material": "ck_bezel",
+   "at": [
+    0.799,
+    2.676,
+    1.3
+   ],
+   "area_m2": 0.000144,
+   "action": "back 3 mm"
+  },
+  {
+   "pass_": 1,
+   "part": "cockpit_ewo_panel",
+   "material": "ck_bezel",
+   "other_part": "cockpit_ewo_panel",
+   "other_material": "ck_bezel",
+   "at": [
+    0.799,
+    2.68,
+    1.288
+   ],
+   "area_m2": 0.000144,
+   "action": "back 3 mm"
+  }
+ ],
+ "left": []
+}

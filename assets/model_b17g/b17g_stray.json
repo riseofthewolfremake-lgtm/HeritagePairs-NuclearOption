@@ -1,0 +1,97 @@
+{
+ "source": "assets/model_b17g/b17g.fbx",
+ "spikes": [],
+ "degenerate": [],
+ "far_vertices": [],
+ "far_islands": [
+  {
+   "obj": "B17G",
+   "verts": 24,
+   "gap": 0.467,
+   "at": [
+    -0.45,
+    0.39,
+    0.841
+   ]
+  },
+  {
+   "obj": "B17G",
+   "verts": 24,
+   "gap": 0.467,
+   "at": [
+    0.45,
+    0.39,
+    0.841
+   ]
+  },
+  {
+   "obj": "engine_1",
+   "verts": 42,
+   "gap": 0.372,
+   "at": [
+    6.575,
+    -3.055,
+    -0.097
+   ]
+  },
+  {
+   "obj": "engine_2",
+   "verts": 42,
+   "gap": 0.36,
+   "at": [
+    3.1,
+    -3.65,
+    -0.347
+   ]
+  },
+  {
+   "obj": "engine_3",
+   "verts": 42,
+   "gap": 0.36,
+   "at": [
+    -3.1,
+    -3.65,
+    -0.347
+   ]
+  },
+  {
+   "obj": "engine_4",
+   "verts": 42,
+   "gap": 0.372,
+   "at": [
+    -6.575,
+    -3.055,
+    -0.097
+   ]
+  },
+  {
+   "obj": "nacelle_1",
+   "verts": 30,
+   "gap": 0.357,
+   "at": [
+    6.575,
+    -1.655,
+    0.023
+   ]
+  },
+  {
+   "obj": "nacelle_4",
+   "verts": 30,
+   "gap": 0.357,
+   "at": [
+    -6.575,
+    -1.655,
+    0.023
+   ]
+  }
+ ],
+ "tri_mismatch": [],
+ "meshes": 143,
+ "tris": 254107,
+ "missing_in_fbx": [],
+ "spikes_ok": true,
+ "degenerate_ok": true,
+ "far_vertices_ok": true,
+ "far_islands_ok": false,
+ "tri_mismatch_ok": true
+}

@@ -1,0 +1,206 @@
+{
+ "1.8.16 livery atlas == texture manifest (skin / liveries / damage painted on this atlas; re-bake the textures when it fails)": {
+  "ok": true,
+  "detail": "atlas 136d9b5f8b7ede89 == manifest (40 paint parts, 10 textures) fd32_atlas_manifest.json"
+ },
+ "span within 3 % of 10.29 m": {
+  "ok": true,
+  "detail": "10.320 m"
+ },
+ "length 8.7-9.2 m (Mk I 8.18 + rudder +15 % chord, fal spinner, round 3 fuselage +0.40 m)": {
+  "ok": true,
+  "detail": "8.974 m"
+ },
+ "propeller diameter 2.9-3.1 m (4 blades)": {
+  "ok": true,
+  "detail": "3.000 m, 4 blades"
+ },
+ "prop tip clears the ground: level > 0.12 m, 3-point > 0.30 m": {
+  "ok": true,
+  "detail": "level 0.505 m, 3-point 0.876 m"
+ },
+ "bullet origins ahead of the prop plane (> 0.12 m) and outside the spinner": {
+  "ok": true,
+  "detail": "[[-0.165, 2.66, 0.455], [0.165, 2.66, 0.455]]"
+ },
+ "CG aft of the main axle and ahead of the tailwheel (taildragger)": {
+  "ok": true,
+  "detail": "CG y 0.302, main axle 0.85, tail -4.550000000000001"
+ },
+ "3-point angle 12-17 deg": {
+  "ok": true,
+  "detail": "13.79 deg"
+ },
+ "hook: deployed tip below the 3-point deck line, stowed tip under the fuselage and above the ground": {
+  "ok": true,
+  "detail": "deployed tip z -2.074 vs deck -1.114; stowed tip z -0.240"
+ },
+ "hook tip below the wheel-contact plane at 0 / 2 / 4 / 6 / 8 deg pitch (mm above the plane, must be < 0)": {
+  "ok": true,
+  "detail": "[-69, -196, -322, -448, -574]"
+ },
+ "hook hinge inside fus_rear (>= 0.10 m behind the split, 0.10 m inside top/bottom) and the stowed bar inside the fuselage": {
+  "ok": true,
+  "detail": "hinge (0.0, -2.05, 0.17) section [0.387, 0.514, -0.596]; stowed tip (0.0, -4.374, -0.24)"
+ },
+ "line of pull (hinge) vs CG: >= -0.25 m at 0 / 7.5 deg (wheel landing), >= -0.50 m at 15.3 deg (3-point; 1.2.1: -0.59 / -0.86 / -1.13 m nosed it over)": {
+  "ok": true,
+  "detail": "[0.097, -0.211, -0.467]"
+ },
+ "no rudder bar / pedals in the cockpit, floor closed under where they stood (35 rays)": {
+  "ok": true,
+  "detail": "{\"objects\": [], \"holes\": []}"
+ },
+ "spinner / fairing faces outward (no inside-out hub)": {
+  "ok": true,
+  "detail": "{\"faces\": 440, \"inward\": 0}"
+ },
+ "nothing between the eye and any display: every MFD corner / centre seen from the eye (cockpit parts, canopy frame)": {
+  "ok": true,
+  "detail": "[]"
+ },
+ "pilot legs (stock COIN figure pose) clear of every cabin part": {
+  "ok": true,
+  "detail": "[]"
+ },
+ "no floating cabin part (every mesh island within 4 mm of another part)": {
+  "ok": true,
+  "detail": "{\"islands\": 182, \"n\": 0, \"floating\": []}"
+ },
+ "zero z-fight pairs in the cockpit (coplanar overlapping faces < 0.3 mm apart, between objects AND between islands of one object; 1.2.3 had 141 in cockpit_panel / cockpit_floor)": {
+  "ok": true,
+  "detail": "[]"
+ },
+ "cockpit triangle budget (< 26k tris, welded; 1.2.3: 25k)": {
+  "ok": true,
+  "detail": "12 objects, tris 2212, verts 1622"
+ },
+ "CI-22 throttle (round 10): slides 0..0.22 m forward clear of the consoles / panel / lining / seat, sits on the console top (<= 5 mm), front moves forward": {
+  "ok": true,
+  "detail": "{\"contact_at\": [], \"bottom_above_console\": [0.0021, 0.0021, 0.0021], \"front_y\": [-0.651, -0.541, -0.431]}"
+ },
+ "closed cockpit from the eye: every downward ray (elev -15..-85) meets a front face (no ground through the floor)": {
+  "ok": true,
+  "detail": "{\"rays\": 900, \"holes\": 0, \"first\": []}"
+ },
+ "view centre clear: no cockpit part within +-2 deg of the eye line (Aldis offset right)": {
+  "ok": true,
+  "detail": "[]"
+ },
+ "nothing inside the 0.2 m camera near plane ahead of the eye (CameraCockpitState nearClipPlane 0.2)": {
+  "ok": true,
+  "detail": "0 verts []; nearest behind the head: cockpit_interior 0.390 m (only seen when looking back)"
+ },
+ "vertex/triangle budget: welded verts < 48k, tris < 75k (Mk I 1.4.2: 45k / 72k; B-25H: 117k tris)": {
+  "ok": true,
+  "detail": "verts 41002, tris 74979"
+ },
+ "connectivity: all 54 strut / cabane / wire / gear-leg / stab-strut ends within 10 mm of (or inside) their target surface": {
+  "ok": true,
+  "detail": "{\"ends\": 54, \"bad\": []}"
+ },
+ "joints: lower-wing and stabiliser root fillets on the fuselage skin (<= 10 mm), fillet = part root section (<= 2 mm), fin root embedded, hook hinge inside": {
+  "ok": true,
+  "detail": "[]"
+ },
+ "no floating exterior parts: every mesh island of every exterior object within 10 mm of another island / object": {
+  "ok": true,
+  "detail": "{\"islands\": 369, \"floating\": []}"
+ },
+ "see-through (backface culling ON): zero holes from 42 directions and from inside every break, for every part as it falls away": {
+  "ok": true,
+  "detail": "{\"fus_center\": 55392, \"fus_engine\": 55152, \"fus_rear\": 55392, \"wing_upper_C\": 55392, \"wing_upper_L\": 54912, \"wing_upper_R\": 54912, \"wing_lower_L\": 54432, \"wing_lower_R\": 54432, \"aileron_L\": 54432, \"aileron_R\": 54432, \"flaperon_L\": 54432, \"flaperon_R\": 54432, \"stab_L\": 54432, \"stab_R\": 54432, \"elevator_L\": 54432, \"elevator_R\": 54432, \"fin\": 54432, \"rudder\": 54432}"
+ },
+ "control surfaces clear their parent over the full deflection range (aileron / flaperon 18 + 20 droop / elevator 26 / rudder 25 deg): no intersecting triangles": {
+  "ok": true,
+  "detail": "{\"intersecting_tri_pairs\": {\"aileron_L\": 0, \"aileron_R\": 0, \"flaperon_L\": 0, \"flaperon_R\": 0, \"elevator_L\": 0, \"elevator_R\": 0, \"rudder\": 0}, \"at\": {}, \"min_gap_mm\": {\"aileron_L\": 6.0, \"aileron_R\": 6.0, \"flaperon_L\": 6.0, \"flaperon_R\": 6.0, \"elevator_L\": 5.0, \"elevator_R\": 5.0, \"rudder\": 6.6}}"
+ },
+ "stores: every option on every pylon clears the prop disc (radius + 0.08), gear, struts, wires, wings, fuselage, other pylon stores (>= 50 mm) and the ground in the 3-point attitude (>= 0.10 m)": {
+  "ok": true,
+  "detail": "{\"bad\": [], \"options\": {\"hp_inner_L\": 7, \"hp_inner_R\": 7, \"hp_outer_L\": 6, \"hp_outer_R\": 6}, \"min_pair_gap_m\": 0.225, \"min_ground_3pt_m\": 0.293}"
+ },
+ "store check positive controls: a box on the left wheel and a box at x -1.0..-1.2 (inside the disc) are both flagged": {
+  "ok": true,
+  "detail": "{\"wheel\": true, \"disc\": true}"
+ },
+ "ejection path: a 0.62 m seat column from the sill straight up (3.5 m) meets no airframe part (upper wing, cabane, wires; hood jettisoned)": {
+  "ok": true,
+  "detail": "{\"hits\": [], \"fwd_edge_y\": -0.61, \"upper_wing_te_y\": 0.755}"
+ },
+ "canopy: the hood tilts up 30.0 deg about its rear hinge, front lifted >= 0.30 m, clear of the fuselage / windscreen / upper wing": {
+  "ok": true,
+  "detail": "{\"sign\": 1, \"front_lift_m\": 0.513, \"clash\": []}"
+ },
+ "sensor ball: inside the bay radius, clear of the gear legs stowed and deployed, bottom deployed above the 3-point ground by > 0.5 m": {
+  "ok": true,
+  "detail": "{\"half_width\": 0.165, \"bay_r\": 0.205, \"deployed_bottom_3pt\": 0.915}"
+ },
+ "sensor bay (round 11): ball clear of the skin / inner skin and the gear legs at stowed / mid / deployed along the arm arc; stowed fully inside the cut-open, closed well (80 rays from below meet the ball or the dark well)": {
+  "ok": true,
+  "detail": "{\"poses\": {\"stowed\": {\"skin_hit\": false, \"gear_hit\": false, \"bottom\": -0.59, \"drift\": 0.0}, \"mid\": {\"skin_hit\": false, \"gear_hit\": false, \"bottom\": -0.777, \"drift\": 0.006}, \"deployed\": {\"skin_hit\": false, \"gear_hit\": false, \"bottom\": -0.963, \"drift\": 0.023}}, \"open_bad\": [], \"n_bad\": 0}"
+ },
+ "face orientation: every non-skin mesh (fal / imported, gear, prop, hook, lights, canopy frame) faces outward from every side; cockpit parts from the eye; glass points out": {
+  "ok": true,
+  "detail": "{\"bad\": {}, \"tested_alone\": 14}"
+ },
+ "prop blades: 4, each closed (0 boundary, 0 non-manifold edges) and on the fal gunmetal tile (no fal-atlas UVs)": {
+  "ok": true,
+  "detail": "{\"prop_blade_1\": {\"boundary\": 0, \"nonmanifold\": 0, \"mats\": [\"metal_dark\"]}, \"prop_blade_2\": {\"boundary\": 0, \"nonmanifold\": 0, \"mats\": [\"metal_dark\"]}, \"prop_blade_3\": {\"boundary\": 0, \"nonmanifold\": 0, \"mats\": [\"metal_dark\"]}, \"prop_blade_4\": {\"boundary\": 0, \"nonmanifold\": 0, \"mats\": [\"metal_dark\"]}}"
+ },
+ "screens from the eye and from an eye 4 cm lower / 3 cm forward (round 8): every screen >= 95 % visible (stock stick neutral, throttle, frames, coaming)": {
+  "ok": true,
+  "detail": "{\"mfd_engine (eye)\": 1.0, \"mfd_flight (eye)\": 1.0, \"mfd_map (eye)\": 1.0, \"mfd_power (eye)\": 1.0, \"mfd_engine (eye-4cm+3cm)\": 1.0, \"mfd_flight (eye-4cm+3cm)\": 1.0, \"mfd_map (eye-4cm+3cm)\": 1.0, \"mfd_power (eye-4cm+3cm)\": 1.0}"
+ },
+ "stick base: ends within 10 mm above the stock stick pivot, footprint <= 0.20 m (no gaiter column)": {
+  "ok": true,
+  "detail": "{\"top\": -0.386, \"pivot_z\": -0.39, \"footprint\": 0.18}"
+ },
+ "stock seat vs stock stick (+-12 deg pitch / roll sweep) and vs every cockpit part + the closed canopy: no contact": {
+  "ok": true,
+  "detail": "{\"-12,-12\": 116, \"-12,0\": 164, \"-12,12\": 116, \"0,-12\": 86, \"0,0\": 126, \"0,12\": 86, \"12,-12\": 13, \"12,0\": 78, \"12,12\": 13, \"stick_hits\": [], \"clash\": [], \"seat_top\": 1.014, \"canopy_gap_mm\": 20}"
+ },
+ "gear swing (24 steps, aft about the tilted axis): leg + wheel clear of every mesh AND every allowed store box on both pylons at every step; stowed wheel flat, 0.05-0.16 m under the skin, lowest point above z -0.95; track 1.7-1.9 m; CoM 0.45-0.70 m aft of the axle (round 9: axle 0.15 m forward, tail-up CoM angle ~16.5 deg); tailwheel fixed": {
+  "ok": true,
+  "detail": "{\"L\": {\"clash\": [], \"wheel_stowed\": [-0.848, -0.785, -0.78], \"skin_gap_m\": 0.133, \"lowest_z\": -0.857, \"axle_z\": 1.0, \"pivot\": [-0.77, 0.34, -0.644], \"fold\": [-0.656, -0.372, -0.656, 139.2]}, \"R\": {\"clash\": [], \"wheel_stowed\": [0.848, -0.785, -0.78], \"skin_gap_m\": 0.133, \"lowest_z\": -0.857, \"axle_z\": -1.0, \"pivot\": [0.77, 0.34, -0.644], \"fold\": [-0.656, 0.372, 0.656, 139.2]}, \"track_m\": 1.81, \"com_aft_of_axle_m\": 0.548, \"tail_fold_deg\": 0.0}"
+ },
+ "hook swing (24 steps, stowed -10.0 -> deployed -72.0 deg): no contact with any mesh at any step (belly slot + channel from its swept envelope)": {
+  "ok": true,
+  "detail": "{\"clash\": [], \"n\": 0, \"hinge\": [0.0, -2.05, 0.17]}"
+ },
+ "prop attached: no waist between the cowl ring and the spinner cone (288 radial rays meet the hub at r >= 0.27), hub ring <= 5 mm ahead of the cowl ring, radius within 10 mm": {
+  "ok": true,
+  "detail": "{\"waist\": [], \"n_waist\": 0, \"cowl_front_y\": 2.38, \"cowl_r\": 0.3326, \"hub_back_y\": 2.383, \"hub_back_r\": 0.33, \"axial_gap_mm\": 3.0}"
+ },
+ "canopy encloses (round 7: dense 0.5 deg fan, elevation -35..+60, all azimuths): every ray from the eye meets canopy / windscreen glass or frame, cockpit or fuselage (no unglazed slot)": {
+  "ok": true,
+  "detail": "{\"rays\": 137520, \"escaped\": 0, \"first\": []}"
+ },
+ "screens: mfd_map / power / flight / engine are separate quads on material screen with their tac-page UV regions (livery UV0)": {
+  "ok": true,
+  "detail": "{\"map\": {\"ok\": true, \"mats\": [\"screen\"], \"u\": [0.001, 0.786], \"v\": [0.0, 1.0]}, \"flight\": {\"ok\": true, \"mats\": [\"screen\"], \"u\": [0.789, 0.983], \"v\": [0.025, 0.341]}, \"power\": {\"ok\": true, \"mats\": [\"screen\"], \"u\": [0.802, 0.983], \"v\": [0.718, 0.979]}, \"engine\": {\"ok\": true, \"mats\": [\"screen\"], \"u\": [0.801, 0.985], \"v\": [0.39, 0.697]}}"
+ },
+ "ejection: seat column clear above the cockpit (canopy jettisoned first); the canopy jettisoned 1.5 m up clears the upper wing / cabane": {
+  "ok": true,
+  "detail": "{\"column_hits\": [], \"canopy_hits\": []}"
+ },
+ "1.8.3 no cockpit part pokes through the skin or sits < 1 mm under it (dark specks on the skin)": {
+  "ok": true,
+  "detail": "{}"
+ },
+ "1.8.3 internals: motor + turbogenerator + batteries + fuel tank in fus_engine_struct (structure = stock aircraft_structure in Unity), inside the cowl skin": {
+  "ok": true,
+  "detail": "{\"structure_faces\": 1536, \"outside\": []}"
+ },
+ "1.8.3 canopy shape: hood top 1.03-1.09 over the eye (head top ~0.92), sill rail smooth in side view (2nd difference < 4 mm), windscreen rake 28-40 deg (polish: ~33), spine runs to the fin leading edge": {
+  "ok": true,
+  "detail": "{\"top_over_eye\": 1.064, \"rail_second_diff_mm\": 0.3, \"rail_mesh_vs_line_mm\": 0.0, \"rake_deg\": 33.1, \"spine_end_y\": -4.08, \"fin_le_y\": -4.0}"
+ },
+ "1.8.3 cockpit opening rebuilt on the stretched skin: no skin inside the hole outline, edge on the designed outline, no steps along it (z 2nd difference < 6 mm), coaming wall down from the edge": {
+  "ok": true,
+  "detail": "{\"skin_faces_in_hole\": 0, \"edge_pts\": 30, \"edge_z_second_diff_mm\": 2.51, \"wall_verts\": 340}"
+ },
+ "1.8.3 root collider: contract carries the convex hull of the 1.8.2 fus_center skin (FD32Build bakes the FD32 collider from it: same CoM / inertia)": {
+  "ok": true,
+  "detail": "{\"verts\": 451, \"tris\": 898}"
+ }
+}

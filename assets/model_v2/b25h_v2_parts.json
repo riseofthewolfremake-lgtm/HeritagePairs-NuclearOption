@@ -1,0 +1,8256 @@
+[
+ {
+  "name": "B25H_root",
+  "parent": null,
+  "type": "EMPTY",
+  "pivot_unity": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "note": "CG at 27% MAC: MAC=2.927 m, LE(MAC) y=1.036 at |x|=4.40"
+  }
+ },
+ {
+  "name": "aileron_L",
+  "parent": "wing_tip_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -7.8647,
+   0.3032,
+   -1.1198
+  ],
+  "tris": 140,
+  "local_axes_unity": {
+   "x": [
+    0.9969,
+    -0.0132,
+    -0.0779
+   ],
+   "y": [
+    0.0132,
+    0.9999,
+    -0.001
+   ],
+   "z": [
+    0.0779,
+    -0.0,
+    0.997
+   ]
+  },
+  "info": {
+   "hinge_axis_local": "+X",
+   "hinge_axis_world": [
+    0.9968772530555725,
+    -0.07785690575838089,
+    -0.013192382641136646
+   ],
+   "note": "aileron",
+   "hinge_axis_world_unity": [
+    0.9969,
+    -0.0132,
+    -0.0779
+   ]
+  }
+ },
+ {
+  "name": "aileron_R",
+  "parent": "wing_tip_R",
+  "type": "MESH",
+  "pivot_unity": [
+   7.8647,
+   0.3032,
+   -1.1198
+  ],
+  "tris": 140,
+  "local_axes_unity": {
+   "x": [
+    0.9969,
+    0.0132,
+    0.0779
+   ],
+   "y": [
+    -0.0132,
+    0.9999,
+    -0.001
+   ],
+   "z": [
+    -0.0779,
+    -0.0,
+    0.997
+   ]
+  },
+  "info": {
+   "hinge_axis_local": "+X",
+   "hinge_axis_world": [
+    0.9968772530555725,
+    0.07785690575838089,
+    0.013192382641136646
+   ],
+   "note": "aileron",
+   "hinge_axis_world_unity": [
+    0.9969,
+    0.0132,
+    0.0779
+   ]
+  }
+ },
+ {
+  "name": "bomb_door_L",
+  "parent": "fus_center",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.5941,
+   -1.0694,
+   -0.3711
+  ],
+  "tris": 236,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "hinge_axis": [
+    -0.0009117686422541738,
+    0.9999972581863403,
+    -0.002116881310939789
+   ],
+   "open_deg": 92.0,
+   "note": "bomb bay door, closed in file; open = rotate open_deg about hinge axis (swings down/outward)",
+   "hinge_axis_unity": [
+    -0.0009,
+    -0.0021,
+    1.0
+   ],
+   "open_unity": "rotate -92.0 deg (Unity AngleAxis) about (-0.0009, -0.0021, 1.0) (parent space) from the CLOSED pose"
+  }
+ },
+ {
+  "name": "bomb_door_R",
+  "parent": "fus_center",
+  "type": "MESH",
+  "pivot_unity": [
+   0.5941,
+   -1.0694,
+   -0.3711
+  ],
+  "tris": 236,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "hinge_axis": [
+    0.0009117686422541738,
+    0.9999972581863403,
+    -0.002116881310939789
+   ],
+   "open_deg": -92.0,
+   "note": "bomb bay door, closed in file; open = rotate open_deg about hinge axis (swings down/outward)",
+   "hinge_axis_unity": [
+    0.0009,
+    -0.0021,
+    1.0
+   ],
+   "open_unity": "rotate 92.0 deg (Unity AngleAxis) about (0.0009, -0.0021, 1.0) (parent space) from the CLOSED pose"
+  }
+ },
+ {
+  "name": "cannon",
+  "parent": "fus_nose",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.4,
+   -0.55,
+   3.1539
+  ],
+  "tris": 412,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "note": "75 mm T13E1 (lightweight M5 derivative, concentric recoil sleeve), lower left"
+  }
+ },
+ {
+  "name": "canopy_frame",
+  "parent": "fus_cockpit",
+  "type": "MESH",
+  "pivot_unity": [
+   0.0,
+   0.95,
+   3.3539
+  ],
+  "tris": 5676,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "note": "swept smooth frame bars"
+  }
+ },
+ {
+  "name": "canopy_glass",
+  "parent": "fus_cockpit",
+  "type": "MESH",
+  "pivot_unity": [
+   0.0,
+   0.95,
+   3.3539
+  ],
+  "tris": 6272,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "note": "smooth glazing grid (shared vertices, 2 surfaces 8 mm apart); roof hatch cut out"
+  }
+ },
+ {
+  "name": "cockpit_column_L",
+  "parent": "fus_cockpit",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.36,
+   -0.375,
+   3.7389
+  ],
+  "tris": 1397,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "control_column",
+   "axis_local": "+X (Unity) = right (lateral)",
+   "range_deg": 12,
+   "drive": "ControlSurface.pitchRange (or Cockpit.Joystick: its X term)",
+   "sign": "Unity +angle about local +X moves the column top FORWARD (push); pull = negative",
+   "note": "fal-generated B-25 control column (tripo)"
+  }
+ },
+ {
+  "name": "cockpit_eye",
+  "parent": "fus_cockpit",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -0.36,
+   0.85,
+   3.1739
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "crew_eye",
+   "crew": "pilot"
+  }
+ },
+ {
+  "name": "cockpit_gauges",
+  "parent": "fus_cockpit",
+  "type": "MESH",
+  "pivot_unity": [
+   0.0,
+   0.45,
+   4.0139
+  ],
+  "tris": 720,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "note": "real dial faces (8x8 b25h_gauges atlas)"
+  }
+ },
+ {
+  "name": "cockpit_interior",
+  "parent": "fus_cockpit",
+  "type": "MESH",
+  "pivot_unity": [
+   0.0,
+   -0.15,
+   3.2039
+  ],
+  "tris": 15100,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "note": "B-25H cockpit rebuild (2026-11-01, v3): fal art + fal 3D props; historical H layout"
+  }
+ },
+ {
+  "name": "cockpit_rudder_pedals_L",
+  "parent": "fus_cockpit",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.36,
+   -0.42,
+   4.1389
+  ],
+  "tris": 1028,
+  "local_axes_unity": {
+   "x": [
+    -0.0,
+    1.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "z": [
+    1.0,
+    0.0,
+    -0.0
+   ]
+  },
+  "info": {
+   "kind": "rudder_pedals",
+   "axis_local": "+X (Unity) = up",
+   "range_deg": 15,
+   "drive": "ControlSurface.yawRange",
+   "sign": "Unity +angle about local +X (up) moves the RIGHT pedal AFT; right rudder = negative",
+   "note": "fal-generated pedals (tripo) on the yaw bar, ahead of the pilot's toes in the footwell"
+  }
+ },
+ {
+  "name": "cockpit_seat_L",
+  "parent": "fus_cockpit",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.36,
+   -0.15,
+   3.0339
+  ],
+  "tris": 1599,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "crew_seat",
+   "crew": "pilot",
+   "note": "fal-generated WWII bucket seat (tripo)"
+  }
+ },
+ {
+  "name": "cockpit_seat_R",
+  "parent": "fus_cockpit",
+  "type": "MESH",
+  "pivot_unity": [
+   0.36,
+   -0.15,
+   3.0339
+  ],
+  "tris": 1599,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "crew_seat",
+   "crew": "navigator",
+   "note": "fal-generated WWII bucket seat (tripo)"
+  }
+ },
+ {
+  "name": "cockpit_yoke_L",
+  "parent": "cockpit_column_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.36,
+   0.45,
+   3.5882
+  ],
+  "tris": 1392,
+  "local_axes_unity": {
+   "x": [
+    -0.0,
+    0.2873,
+    -0.9578
+   ],
+   "y": [
+    -0.0,
+    0.9578,
+    0.2873
+   ],
+   "z": [
+    1.0,
+    0.0,
+    -0.0
+   ]
+  },
+  "info": {
+   "kind": "control_wheel",
+   "axis_local": "+X (Unity) = hub axis, toward the pilot",
+   "range_deg": 45,
+   "drive": "ControlSurface.rollRange",
+   "sign": "Unity +angle about local +X turns the wheel top to the RIGHT (= right roll)",
+   "note": "fal-generated ram's-horn wheel (tripo)"
+  }
+ },
+ {
+  "name": "cowl_flap_L_01",
+  "parent": "engine_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -2.7782,
+   0.5026,
+   1.5539
+  ],
+  "tris": 28,
+  "local_axes_unity": {
+   "x": [
+    0.9749,
+    -0.2225,
+    0.0
+   ],
+   "y": [
+    0.2225,
+    0.9749,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "hinge_axis_local": "+X",
+   "open_deg": -18,
+   "note": "hinge tangent to cowl rim; open = TE outward"
+  }
+ },
+ {
+  "name": "cowl_flap_L_02",
+  "parent": "engine_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -2.4687,
+   0.3536,
+   1.5539
+  ],
+  "tris": 28,
+  "local_axes_unity": {
+   "x": [
+    0.7818,
+    -0.6235,
+    0.0
+   ],
+   "y": [
+    0.6235,
+    0.7818,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "hinge_axis_local": "+X",
+   "open_deg": -18,
+   "note": "hinge tangent to cowl rim; open = TE outward"
+  }
+ },
+ {
+  "name": "cowl_flap_L_03",
+  "parent": "engine_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -2.2545,
+   0.085,
+   1.5539
+  ],
+  "tris": 28,
+  "local_axes_unity": {
+   "x": [
+    0.4339,
+    -0.901,
+    0.0
+   ],
+   "y": [
+    0.901,
+    0.4339,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "hinge_axis_local": "+X",
+   "open_deg": -18,
+   "note": "hinge tangent to cowl rim; open = TE outward"
+  }
+ },
+ {
+  "name": "cowl_flap_L_04",
+  "parent": "engine_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -2.178,
+   -0.25,
+   1.5539
+  ],
+  "tris": 28,
+  "local_axes_unity": {
+   "x": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "y": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "hinge_axis_local": "+X",
+   "open_deg": -18,
+   "note": "hinge tangent to cowl rim; open = TE outward"
+  }
+ },
+ {
+  "name": "cowl_flap_L_05",
+  "parent": "engine_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -2.2545,
+   -0.585,
+   1.5539
+  ],
+  "tris": 28,
+  "local_axes_unity": {
+   "x": [
+    -0.4339,
+    -0.901,
+    0.0
+   ],
+   "y": [
+    0.901,
+    -0.4339,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "hinge_axis_local": "+X",
+   "open_deg": -18,
+   "note": "hinge tangent to cowl rim; open = TE outward"
+  }
+ },
+ {
+  "name": "cowl_flap_L_06",
+  "parent": "engine_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -2.4687,
+   -0.8536,
+   1.5539
+  ],
+  "tris": 28,
+  "local_axes_unity": {
+   "x": [
+    -0.7818,
+    -0.6235,
+    0.0
+   ],
+   "y": [
+    0.6235,
+    -0.7818,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "hinge_axis_local": "+X",
+   "open_deg": -18,
+   "note": "hinge tangent to cowl rim; open = TE outward"
+  }
+ },
+ {
+  "name": "cowl_flap_L_07",
+  "parent": "engine_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -2.7782,
+   -1.0026,
+   1.5539
+  ],
+  "tris": 28,
+  "local_axes_unity": {
+   "x": [
+    -0.9749,
+    -0.2225,
+    0.0
+   ],
+   "y": [
+    0.2225,
+    -0.9749,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "hinge_axis_local": "+X",
+   "open_deg": -18,
+   "note": "hinge tangent to cowl rim; open = TE outward"
+  }
+ },
+ {
+  "name": "cowl_flap_L_08",
+  "parent": "engine_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -3.1218,
+   -1.0026,
+   1.5539
+  ],
+  "tris": 28,
+  "local_axes_unity": {
+   "x": [
+    -0.9749,
+    0.2225,
+    0.0
+   ],
+   "y": [
+    -0.2225,
+    -0.9749,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "hinge_axis_local": "+X",
+   "open_deg": -18,
+   "note": "hinge tangent to cowl rim; open = TE outward"
+  }
+ },
+ {
+  "name": "cowl_flap_L_09",
+  "parent": "engine_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -3.4313,
+   -0.8536,
+   1.5539
+  ],
+  "tris": 28,
+  "local_axes_unity": {
+   "x": [
+    -0.7818,
+    0.6235,
+    0.0
+   ],
+   "y": [
+    -0.6235,
+    -0.7818,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "hinge_axis_local": "+X",
+   "open_deg": -18,
+   "note": "hinge tangent to cowl rim; open = TE outward"
+  }
+ },
+ {
+  "name": "cowl_flap_L_10",
+  "parent": "engine_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -3.6455,
+   -0.585,
+   1.5539
+  ],
+  "tris": 28,
+  "local_axes_unity": {
+   "x": [
+    -0.4339,
+    0.901,
+    0.0
+   ],
+   "y": [
+    -0.901,
+    -0.4339,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "hinge_axis_local": "+X",
+   "open_deg": -18,
+   "note": "hinge tangent to cowl rim; open = TE outward"
+  }
+ },
+ {
+  "name": "cowl_flap_L_11",
+  "parent": "engine_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -3.722,
+   -0.25,
+   1.5539
+  ],
+  "tris": 28,
+  "local_axes_unity": {
+   "x": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "y": [
+    -1.0,
+    0.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "hinge_axis_local": "+X",
+   "open_deg": -18,
+   "note": "hinge tangent to cowl rim; open = TE outward"
+  }
+ },
+ {
+  "name": "cowl_flap_L_12",
+  "parent": "engine_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -3.6455,
+   0.085,
+   1.5539
+  ],
+  "tris": 28,
+  "local_axes_unity": {
+   "x": [
+    0.4339,
+    0.901,
+    0.0
+   ],
+   "y": [
+    -0.901,
+    0.4339,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "hinge_axis_local": "+X",
+   "open_deg": -18,
+   "note": "hinge tangent to cowl rim; open = TE outward"
+  }
+ },
+ {
+  "name": "cowl_flap_L_13",
+  "parent": "engine_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -3.4313,
+   0.3536,
+   1.5539
+  ],
+  "tris": 28,
+  "local_axes_unity": {
+   "x": [
+    0.7818,
+    0.6235,
+    0.0
+   ],
+   "y": [
+    -0.6235,
+    0.7818,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "hinge_axis_local": "+X",
+   "open_deg": -18,
+   "note": "hinge tangent to cowl rim; open = TE outward"
+  }
+ },
+ {
+  "name": "cowl_flap_L_14",
+  "parent": "engine_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -3.1218,
+   0.5026,
+   1.5539
+  ],
+  "tris": 28,
+  "local_axes_unity": {
+   "x": [
+    0.9749,
+    0.2225,
+    0.0
+   ],
+   "y": [
+    -0.2225,
+    0.9749,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "hinge_axis_local": "+X",
+   "open_deg": -18,
+   "note": "hinge tangent to cowl rim; open = TE outward"
+  }
+ },
+ {
+  "name": "cowl_flap_R_01",
+  "parent": "engine_R",
+  "type": "MESH",
+  "pivot_unity": [
+   3.1218,
+   0.5026,
+   1.5539
+  ],
+  "tris": 28,
+  "local_axes_unity": {
+   "x": [
+    0.9749,
+    -0.2225,
+    0.0
+   ],
+   "y": [
+    0.2225,
+    0.9749,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "hinge_axis_local": "+X",
+   "open_deg": -18,
+   "note": "hinge tangent to cowl rim; open = TE outward"
+  }
+ },
+ {
+  "name": "cowl_flap_R_02",
+  "parent": "engine_R",
+  "type": "MESH",
+  "pivot_unity": [
+   3.4313,
+   0.3536,
+   1.5539
+  ],
+  "tris": 28,
+  "local_axes_unity": {
+   "x": [
+    0.7818,
+    -0.6235,
+    0.0
+   ],
+   "y": [
+    0.6235,
+    0.7818,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "hinge_axis_local": "+X",
+   "open_deg": -18,
+   "note": "hinge tangent to cowl rim; open = TE outward"
+  }
+ },
+ {
+  "name": "cowl_flap_R_03",
+  "parent": "engine_R",
+  "type": "MESH",
+  "pivot_unity": [
+   3.6455,
+   0.085,
+   1.5539
+  ],
+  "tris": 28,
+  "local_axes_unity": {
+   "x": [
+    0.4339,
+    -0.901,
+    0.0
+   ],
+   "y": [
+    0.901,
+    0.4339,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "hinge_axis_local": "+X",
+   "open_deg": -18,
+   "note": "hinge tangent to cowl rim; open = TE outward"
+  }
+ },
+ {
+  "name": "cowl_flap_R_04",
+  "parent": "engine_R",
+  "type": "MESH",
+  "pivot_unity": [
+   3.722,
+   -0.25,
+   1.5539
+  ],
+  "tris": 28,
+  "local_axes_unity": {
+   "x": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "y": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "hinge_axis_local": "+X",
+   "open_deg": -18,
+   "note": "hinge tangent to cowl rim; open = TE outward"
+  }
+ },
+ {
+  "name": "cowl_flap_R_05",
+  "parent": "engine_R",
+  "type": "MESH",
+  "pivot_unity": [
+   3.6455,
+   -0.585,
+   1.5539
+  ],
+  "tris": 28,
+  "local_axes_unity": {
+   "x": [
+    -0.4339,
+    -0.901,
+    0.0
+   ],
+   "y": [
+    0.901,
+    -0.4339,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "hinge_axis_local": "+X",
+   "open_deg": -18,
+   "note": "hinge tangent to cowl rim; open = TE outward"
+  }
+ },
+ {
+  "name": "cowl_flap_R_06",
+  "parent": "engine_R",
+  "type": "MESH",
+  "pivot_unity": [
+   3.4313,
+   -0.8536,
+   1.5539
+  ],
+  "tris": 28,
+  "local_axes_unity": {
+   "x": [
+    -0.7818,
+    -0.6235,
+    0.0
+   ],
+   "y": [
+    0.6235,
+    -0.7818,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "hinge_axis_local": "+X",
+   "open_deg": -18,
+   "note": "hinge tangent to cowl rim; open = TE outward"
+  }
+ },
+ {
+  "name": "cowl_flap_R_07",
+  "parent": "engine_R",
+  "type": "MESH",
+  "pivot_unity": [
+   3.1218,
+   -1.0026,
+   1.5539
+  ],
+  "tris": 28,
+  "local_axes_unity": {
+   "x": [
+    -0.9749,
+    -0.2225,
+    0.0
+   ],
+   "y": [
+    0.2225,
+    -0.9749,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "hinge_axis_local": "+X",
+   "open_deg": -18,
+   "note": "hinge tangent to cowl rim; open = TE outward"
+  }
+ },
+ {
+  "name": "cowl_flap_R_08",
+  "parent": "engine_R",
+  "type": "MESH",
+  "pivot_unity": [
+   2.7782,
+   -1.0026,
+   1.5539
+  ],
+  "tris": 28,
+  "local_axes_unity": {
+   "x": [
+    -0.9749,
+    0.2225,
+    0.0
+   ],
+   "y": [
+    -0.2225,
+    -0.9749,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "hinge_axis_local": "+X",
+   "open_deg": -18,
+   "note": "hinge tangent to cowl rim; open = TE outward"
+  }
+ },
+ {
+  "name": "cowl_flap_R_09",
+  "parent": "engine_R",
+  "type": "MESH",
+  "pivot_unity": [
+   2.4687,
+   -0.8536,
+   1.5539
+  ],
+  "tris": 28,
+  "local_axes_unity": {
+   "x": [
+    -0.7818,
+    0.6235,
+    0.0
+   ],
+   "y": [
+    -0.6235,
+    -0.7818,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "hinge_axis_local": "+X",
+   "open_deg": -18,
+   "note": "hinge tangent to cowl rim; open = TE outward"
+  }
+ },
+ {
+  "name": "cowl_flap_R_10",
+  "parent": "engine_R",
+  "type": "MESH",
+  "pivot_unity": [
+   2.2545,
+   -0.585,
+   1.5539
+  ],
+  "tris": 28,
+  "local_axes_unity": {
+   "x": [
+    -0.4339,
+    0.901,
+    0.0
+   ],
+   "y": [
+    -0.901,
+    -0.4339,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "hinge_axis_local": "+X",
+   "open_deg": -18,
+   "note": "hinge tangent to cowl rim; open = TE outward"
+  }
+ },
+ {
+  "name": "cowl_flap_R_11",
+  "parent": "engine_R",
+  "type": "MESH",
+  "pivot_unity": [
+   2.178,
+   -0.25,
+   1.5539
+  ],
+  "tris": 28,
+  "local_axes_unity": {
+   "x": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "y": [
+    -1.0,
+    0.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "hinge_axis_local": "+X",
+   "open_deg": -18,
+   "note": "hinge tangent to cowl rim; open = TE outward"
+  }
+ },
+ {
+  "name": "cowl_flap_R_12",
+  "parent": "engine_R",
+  "type": "MESH",
+  "pivot_unity": [
+   2.2545,
+   0.085,
+   1.5539
+  ],
+  "tris": 28,
+  "local_axes_unity": {
+   "x": [
+    0.4339,
+    0.901,
+    0.0
+   ],
+   "y": [
+    -0.901,
+    0.4339,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "hinge_axis_local": "+X",
+   "open_deg": -18,
+   "note": "hinge tangent to cowl rim; open = TE outward"
+  }
+ },
+ {
+  "name": "cowl_flap_R_13",
+  "parent": "engine_R",
+  "type": "MESH",
+  "pivot_unity": [
+   2.4687,
+   0.3536,
+   1.5539
+  ],
+  "tris": 28,
+  "local_axes_unity": {
+   "x": [
+    0.7818,
+    0.6235,
+    0.0
+   ],
+   "y": [
+    -0.6235,
+    0.7818,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "hinge_axis_local": "+X",
+   "open_deg": -18,
+   "note": "hinge tangent to cowl rim; open = TE outward"
+  }
+ },
+ {
+  "name": "cowl_flap_R_14",
+  "parent": "engine_R",
+  "type": "MESH",
+  "pivot_unity": [
+   2.7782,
+   0.5026,
+   1.5539
+  ],
+  "tris": 28,
+  "local_axes_unity": {
+   "x": [
+    0.9749,
+    0.2225,
+    0.0
+   ],
+   "y": [
+    -0.2225,
+    0.9749,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "hinge_axis_local": "+X",
+   "open_deg": -18,
+   "note": "hinge tangent to cowl rim; open = TE outward"
+  }
+ },
+ {
+  "name": "crew_engineer_eye",
+  "parent": "turret_dorsal",
+  "type": "EMPTY",
+  "pivot_unity": [
+   0.0,
+   1.25,
+   1.3739
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "crew_eye",
+   "crew": "engineer",
+   "look": "+Z (Unity), turns with the turret"
+  }
+ },
+ {
+  "name": "crew_navigator_eye",
+  "parent": "fus_cockpit",
+  "type": "EMPTY",
+  "pivot_unity": [
+   0.36,
+   0.83,
+   3.1739
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "crew_eye",
+   "crew": "navigator",
+   "look": "+Z (Unity) forward"
+  }
+ },
+ {
+  "name": "crew_radio_eye",
+  "parent": "fus_rear",
+  "type": "EMPTY",
+  "pivot_unity": [
+   0.0,
+   0.53,
+   -2.3661
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "crew_eye",
+   "crew": "radio",
+   "look": "+Z (Unity)"
+  }
+ },
+ {
+  "name": "crew_seat_radio",
+  "parent": "fus_rear",
+  "type": "MESH",
+  "pivot_unity": [
+   0.0,
+   -0.24,
+   -2.4961
+  ],
+  "tris": 36,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "crew_seat",
+   "crew": "radio"
+  }
+ },
+ {
+  "name": "crew_seat_tail",
+  "parent": "fus_tail",
+  "type": "MESH",
+  "pivot_unity": [
+   0.0,
+   0.0,
+   -9.0661
+  ],
+  "tris": 36,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "crew_seat",
+   "crew": "tail"
+  }
+ },
+ {
+  "name": "crew_tail_eye",
+  "parent": "fus_tail",
+  "type": "EMPTY",
+  "pivot_unity": [
+   0.0,
+   0.61,
+   -9.1661
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    -1.0,
+    0.0,
+    -0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    -1.0
+   ]
+  },
+  "info": {
+   "kind": "crew_eye",
+   "crew": "tail",
+   "look": "+Z (Unity) = aft"
+  }
+ },
+ {
+  "name": "elevator_L",
+  "parent": "stab_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.47,
+   0.59,
+   -8.3561
+  ],
+  "tris": 188,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "hinge_axis_local": "+X",
+   "note": "elevator hinge y=-8.11"
+  }
+ },
+ {
+  "name": "elevator_R",
+  "parent": "stab_R",
+  "type": "MESH",
+  "pivot_unity": [
+   0.47,
+   0.59,
+   -8.3561
+  ],
+  "tris": 188,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "hinge_axis_local": "+X",
+   "note": "elevator hinge y=-8.11"
+  }
+ },
+ {
+  "name": "engine_L",
+  "parent": "nacelle_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -2.95,
+   -0.25,
+   1.3739
+  ],
+  "tris": 4764,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "note": "Wright R-2600: cowl + 2x7 finned cylinders + crankcase + nose case"
+  }
+ },
+ {
+  "name": "engine_R",
+  "parent": "nacelle_R",
+  "type": "MESH",
+  "pivot_unity": [
+   2.95,
+   -0.25,
+   1.3739
+  ],
+  "tris": 4764,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "note": "Wright R-2600: cowl + 2x7 finned cylinders + crankcase + nose case"
+  }
+ },
+ {
+  "name": "exhaust_L",
+  "parent": "engine_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -2.95,
+   -0.75,
+   1.5039
+  ],
+  "tris": 504,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {}
+ },
+ {
+  "name": "exhaust_R",
+  "parent": "engine_R",
+  "type": "MESH",
+  "pivot_unity": [
+   2.95,
+   -0.75,
+   1.5039
+  ],
+  "tris": 504,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {}
+ },
+ {
+  "name": "fin_L",
+  "parent": "stab_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -3.35,
+   0.59,
+   -7.8461
+  ],
+  "tris": 542,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {}
+ },
+ {
+  "name": "fin_R",
+  "parent": "stab_R",
+  "type": "MESH",
+  "pivot_unity": [
+   3.35,
+   0.59,
+   -7.8461
+  ],
+  "tris": 542,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {}
+ },
+ {
+  "name": "flap_inner_L",
+  "parent": "wing_inner_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -1.5716,
+   0.1131,
+   -1.6096
+  ],
+  "tris": 116,
+  "local_axes_unity": {
+   "x": [
+    0.9937,
+    -0.0815,
+    -0.077
+   ],
+   "y": [
+    0.0813,
+    0.9967,
+    -0.0063
+   ],
+   "z": [
+    0.0773,
+    0.0,
+    0.997
+   ]
+  },
+  "info": {
+   "hinge_axis_local": "+X",
+   "hinge_axis_world": [
+    0.993690013885498,
+    -0.07702969014644623,
+    -0.08152712881565094
+   ],
+   "note": "split/plain flap; positive local-X rotation = see table",
+   "hinge_axis_world_unity": [
+    0.9937,
+    -0.0815,
+    -0.077
+   ]
+  }
+ },
+ {
+  "name": "flap_inner_R",
+  "parent": "wing_inner_R",
+  "type": "MESH",
+  "pivot_unity": [
+   1.5716,
+   0.1131,
+   -1.6096
+  ],
+  "tris": 116,
+  "local_axes_unity": {
+   "x": [
+    0.9937,
+    0.0815,
+    0.077
+   ],
+   "y": [
+    -0.0813,
+    0.9967,
+    -0.0063
+   ],
+   "z": [
+    -0.0773,
+    0.0,
+    0.997
+   ]
+  },
+  "info": {
+   "hinge_axis_local": "+X",
+   "hinge_axis_world": [
+    0.993690013885498,
+    0.07702969014644623,
+    0.08152712881565094
+   ],
+   "note": "split/plain flap; positive local-X rotation = see table",
+   "hinge_axis_world_unity": [
+    0.9937,
+    0.0815,
+    0.077
+   ]
+  }
+ },
+ {
+  "name": "flap_outer_L",
+  "parent": "wing_outer_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -4.7747,
+   0.2572,
+   -1.3608
+  ],
+  "tris": 140,
+  "local_axes_unity": {
+   "x": [
+    0.9968,
+    -0.0169,
+    -0.0777
+   ],
+   "y": [
+    0.0169,
+    0.9999,
+    -0.0013
+   ],
+   "z": [
+    0.0777,
+    0.0,
+    0.997
+   ]
+  },
+  "info": {
+   "hinge_axis_local": "+X",
+   "hinge_axis_world": [
+    0.9968366622924805,
+    -0.07765476405620575,
+    -0.016924887895584106
+   ],
+   "note": "flap",
+   "hinge_axis_world_unity": [
+    0.9968,
+    -0.0169,
+    -0.0777
+   ]
+  }
+ },
+ {
+  "name": "flap_outer_R",
+  "parent": "wing_outer_R",
+  "type": "MESH",
+  "pivot_unity": [
+   4.7747,
+   0.2572,
+   -1.3608
+  ],
+  "tris": 140,
+  "local_axes_unity": {
+   "x": [
+    0.9968,
+    0.0169,
+    0.0777
+   ],
+   "y": [
+    -0.0169,
+    0.9999,
+    -0.0013
+   ],
+   "z": [
+    -0.0777,
+    0.0,
+    0.997
+   ]
+  },
+  "info": {
+   "hinge_axis_local": "+X",
+   "hinge_axis_world": [
+    0.9968366622924805,
+    0.07765476405620575,
+    0.016924887895584106
+   ],
+   "note": "flap",
+   "hinge_axis_world_unity": [
+    0.9968,
+    0.0169,
+    0.0777
+   ]
+  }
+ },
+ {
+  "name": "fus_center",
+  "parent": "B25H_root",
+  "type": "MESH",
+  "pivot_unity": [
+   0.0,
+   -0.25,
+   -0.2461
+  ],
+  "tris": 6224,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {}
+ },
+ {
+  "name": "fus_cockpit",
+  "parent": "fus_forward",
+  "type": "MESH",
+  "pivot_unity": [
+   0.0,
+   0.0,
+   4.3039
+  ],
+  "tris": 3052,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {}
+ },
+ {
+  "name": "fus_forward",
+  "parent": "fus_center",
+  "type": "MESH",
+  "pivot_unity": [
+   0.0,
+   0.0,
+   2.3739
+  ],
+  "tris": 5186,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {}
+ },
+ {
+  "name": "fus_nose",
+  "parent": "fus_cockpit",
+  "type": "MESH",
+  "pivot_unity": [
+   0.0,
+   0.0,
+   5.6939
+  ],
+  "tris": 2970,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {}
+ },
+ {
+  "name": "fus_rear",
+  "parent": "fus_center",
+  "type": "MESH",
+  "pivot_unity": [
+   0.0,
+   0.0,
+   -2.0461
+  ],
+  "tris": 9882,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {}
+ },
+ {
+  "name": "fus_tail",
+  "parent": "fus_rear",
+  "type": "MESH",
+  "pivot_unity": [
+   0.0,
+   0.0,
+   -6.3461
+  ],
+  "tris": 7932,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {}
+ },
+ {
+  "name": "gauge_airspeed",
+  "parent": "cockpit_gauges",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -0.465,
+   0.572,
+   4.0108
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    -0.0,
+    0.1392,
+    -0.9903
+   ],
+   "y": [
+    -0.0,
+    0.9903,
+    0.1392
+   ],
+   "z": [
+    1.0,
+    0.0,
+    -0.0
+   ]
+  },
+  "info": {
+   "kind": "gauge",
+   "face_cell": 0,
+   "radius": 0.038
+  }
+ },
+ {
+  "name": "gauge_airspeed_needle",
+  "parent": "gauge_airspeed",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.465,
+   0.572,
+   4.0108
+  ],
+  "tris": 13,
+  "local_axes_unity": {
+   "x": [
+    -0.0,
+    0.1392,
+    -0.9903
+   ],
+   "y": [
+    0.0,
+    0.9903,
+    0.1392
+   ],
+   "z": [
+    1.0,
+    0.0,
+    -0.0
+   ]
+  },
+  "info": {
+   "kind": "gauge_needle",
+   "axis_local": "+X (Unity) = toward the pilot",
+   "rest": "12 o'clock (local +Y Unity = panel up)",
+   "cell": 62,
+   "sign": "Unity +angle about local +X = clockwise as seen by the pilot",
+   "value": "indicated airspeed",
+   "unit": "mph",
+   "v0": 0,
+   "v1": 400,
+   "sweep": 320,
+   "deg_per_unit": 0.8
+  }
+ },
+ {
+  "name": "gauge_altimeter",
+  "parent": "cockpit_gauges",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -0.255,
+   0.572,
+   4.0108
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    -0.0,
+    0.1392,
+    -0.9903
+   ],
+   "y": [
+    -0.0,
+    0.9903,
+    0.1392
+   ],
+   "z": [
+    1.0,
+    0.0,
+    -0.0
+   ]
+  },
+  "info": {
+   "kind": "gauge",
+   "face_cell": 2,
+   "radius": 0.04
+  }
+ },
+ {
+  "name": "gauge_altimeter_needle",
+  "parent": "gauge_altimeter",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.255,
+   0.572,
+   4.0108
+  ],
+  "tris": 13,
+  "local_axes_unity": {
+   "x": [
+    -0.0,
+    0.1392,
+    -0.9903
+   ],
+   "y": [
+    0.0,
+    0.9903,
+    0.1392
+   ],
+   "z": [
+    1.0,
+    0.0,
+    -0.0
+   ]
+  },
+  "info": {
+   "kind": "gauge_needle",
+   "axis_local": "+X (Unity) = toward the pilot",
+   "rest": "12 o'clock (local +Y Unity = panel up)",
+   "cell": 62,
+   "sign": "Unity +angle about local +X = clockwise as seen by the pilot",
+   "value": "altitude, long needle (1000 ft per turn)",
+   "unit": "ft",
+   "v0": 0,
+   "v1": 1000,
+   "sweep": 360,
+   "deg_per_unit": 0.36
+  }
+ },
+ {
+  "name": "gauge_altimeter_needle_short",
+  "parent": "gauge_altimeter",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.255,
+   0.572,
+   4.0108
+  ],
+  "tris": 13,
+  "local_axes_unity": {
+   "x": [
+    -0.0,
+    0.1392,
+    -0.9903
+   ],
+   "y": [
+    0.0,
+    0.9903,
+    0.1392
+   ],
+   "z": [
+    1.0,
+    0.0,
+    -0.0
+   ]
+  },
+  "info": {
+   "kind": "gauge_short",
+   "axis_local": "+X (Unity) = toward the pilot",
+   "rest": "12 o'clock (local +Y Unity = panel up)",
+   "cell": 63,
+   "sign": "Unity +angle about local +X = clockwise as seen by the pilot",
+   "value": "altitude, short needle (10000 ft per turn)",
+   "unit": "ft",
+   "v0": 0,
+   "v1": 10000,
+   "sweep": 360,
+   "deg_per_unit": 0.036
+  }
+ },
+ {
+  "name": "gauge_ammeter",
+  "parent": "cockpit_gauges",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -0.02,
+   0.55,
+   4.0077
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    -0.0,
+    0.1392,
+    -0.9903
+   ],
+   "y": [
+    -0.0,
+    0.9903,
+    0.1392
+   ],
+   "z": [
+    1.0,
+    0.0,
+    -0.0
+   ]
+  },
+  "info": {
+   "kind": "gauge",
+   "face_cell": 20,
+   "radius": 0.022
+  }
+ },
+ {
+  "name": "gauge_ammeter_needle",
+  "parent": "gauge_ammeter",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.02,
+   0.55,
+   4.0077
+  ],
+  "tris": 13,
+  "local_axes_unity": {
+   "x": [
+    -0.0,
+    0.1392,
+    -0.9903
+   ],
+   "y": [
+    0.0,
+    0.9903,
+    0.1392
+   ],
+   "z": [
+    1.0,
+    0.0,
+    -0.0
+   ]
+  },
+  "info": {
+   "kind": "gauge_needle",
+   "axis_local": "+X (Unity) = toward the pilot",
+   "rest": "12 o'clock (local +Y Unity = panel up)",
+   "cell": 62,
+   "sign": "Unity +angle about local +X = clockwise as seen by the pilot",
+   "value": "generator load A: 30 + 25 sqrt(powerRatio) + ripple, 0 engines stopped",
+   "v0": 0,
+   "v1": 150,
+   "a0": -135,
+   "sweep": 270,
+   "angle": "a0 + clamp01((v - v0) / (v1 - v0)) * sweep",
+   "driver": "B25H.Instruments 1.8.4 Dials184.cs",
+   "deg_per_unit": 1.8
+  }
+ },
+ {
+  "name": "gauge_attitude",
+  "parent": "cockpit_gauges",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -0.36,
+   0.582,
+   4.0122
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    -0.0,
+    0.1392,
+    -0.9903
+   ],
+   "y": [
+    -0.0,
+    0.9903,
+    0.1392
+   ],
+   "z": [
+    1.0,
+    0.0,
+    -0.0
+   ]
+  },
+  "info": {
+   "kind": "gauge",
+   "face_cell": 1,
+   "radius": 0.042
+  }
+ },
+ {
+  "name": "gauge_attitude_card",
+  "parent": "gauge_attitude",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.36,
+   0.582,
+   4.0122
+  ],
+  "tris": 32,
+  "local_axes_unity": {
+   "x": [
+    -0.0,
+    0.1392,
+    -0.9903
+   ],
+   "y": [
+    0.0,
+    0.9903,
+    0.1392
+   ],
+   "z": [
+    1.0,
+    0.0,
+    -0.0
+   ]
+  },
+  "info": {
+   "kind": "gauge_card",
+   "axis_local": "+X (Unity) = toward the pilot",
+   "rest": "12 o'clock (local +Y Unity = panel up)",
+   "cell": 10,
+   "sign": "Unity +angle about local +X = clockwise as seen by the pilot",
+   "value": "bank (card roll) and pitch (card offset)",
+   "unit": "deg",
+   "note": "card angle = -bank; card local +Y (Unity) offset = -0.0015 m per deg of pitch up"
+  }
+ },
+ {
+  "name": "gauge_brake_press",
+  "parent": "cockpit_gauges",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -0.115,
+   0.63,
+   4.019
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    -0.0,
+    0.1392,
+    -0.9903
+   ],
+   "y": [
+    -0.0,
+    0.9903,
+    0.1392
+   ],
+   "z": [
+    1.0,
+    0.0,
+    -0.0
+   ]
+  },
+  "info": {
+   "kind": "gauge",
+   "face_cell": 25,
+   "radius": 0.02
+  }
+ },
+ {
+  "name": "gauge_brake_press_needle",
+  "parent": "gauge_brake_press",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.115,
+   0.63,
+   4.019
+  ],
+  "tris": 13,
+  "local_axes_unity": {
+   "x": [
+    -0.0,
+    0.1392,
+    -0.9903
+   ],
+   "y": [
+    0.0,
+    0.9903,
+    0.1392
+   ],
+   "z": [
+    1.0,
+    0.0,
+    -0.0
+   ]
+  },
+  "info": {
+   "kind": "gauge_needle",
+   "axis_local": "+X (Unity) = toward the pilot",
+   "rest": "12 o'clock (local +Y Unity = panel up)",
+   "cell": 62,
+   "sign": "Unity +angle about local +X = clockwise as seen by the pilot",
+   "value": "brake accumulator psi: 1000 - 300 x brake input with engines running",
+   "v0": 0,
+   "v1": 1500,
+   "a0": -135,
+   "sweep": 270,
+   "angle": "a0 + clamp01((v - v0) / (v1 - v0)) * sweep",
+   "driver": "B25H.Instruments 1.8.4 Dials184.cs",
+   "deg_per_unit": 0.18
+  }
+ },
+ {
+  "name": "gauge_carb_temp_L",
+  "parent": "cockpit_gauges",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -0.43,
+   0.37,
+   3.9824
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    -0.0,
+    0.1392,
+    -0.9903
+   ],
+   "y": [
+    -0.0,
+    0.9903,
+    0.1392
+   ],
+   "z": [
+    1.0,
+    0.0,
+    -0.0
+   ]
+  },
+  "info": {
+   "kind": "gauge",
+   "face_cell": 21,
+   "radius": 0.022
+  }
+ },
+ {
+  "name": "gauge_carb_temp_L_needle",
+  "parent": "gauge_carb_temp_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.43,
+   0.37,
+   3.9824
+  ],
+  "tris": 13,
+  "local_axes_unity": {
+   "x": [
+    -0.0,
+    0.1392,
+    -0.9903
+   ],
+   "y": [
+    0.0,
+    0.9903,
+    0.1392
+   ],
+   "z": [
+    1.0,
+    0.0,
+    -0.0
+   ]
+  },
+  "info": {
+   "kind": "gauge_needle",
+   "axis_local": "+X (Unity) = toward the pilot",
+   "rest": "12 o'clock (local +Y Unity = panel up)",
+   "cell": 62,
+   "sign": "Unity +angle about local +X = clockwise as seen by the pilot",
+   "value": "carburettor air C: free-air + 12 + 18 sqrt(powerRatio), lag 20 s",
+   "v0": -50,
+   "v1": 50,
+   "a0": -135,
+   "sweep": 270,
+   "angle": "a0 + clamp01((v - v0) / (v1 - v0)) * sweep",
+   "driver": "B25H.Instruments 1.8.4 Dials184.cs",
+   "deg_per_unit": 2.7
+  }
+ },
+ {
+  "name": "gauge_carb_temp_R",
+  "parent": "cockpit_gauges",
+  "type": "EMPTY",
+  "pivot_unity": [
+   0.48,
+   0.56,
+   4.0091
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    -0.0,
+    0.1392,
+    -0.9903
+   ],
+   "y": [
+    -0.0,
+    0.9903,
+    0.1392
+   ],
+   "z": [
+    1.0,
+    0.0,
+    -0.0
+   ]
+  },
+  "info": {
+   "kind": "gauge",
+   "face_cell": 21,
+   "radius": 0.026
+  }
+ },
+ {
+  "name": "gauge_carb_temp_R_needle",
+  "parent": "gauge_carb_temp_R",
+  "type": "MESH",
+  "pivot_unity": [
+   0.48,
+   0.56,
+   4.0091
+  ],
+  "tris": 13,
+  "local_axes_unity": {
+   "x": [
+    -0.0,
+    0.1392,
+    -0.9903
+   ],
+   "y": [
+    0.0,
+    0.9903,
+    0.1392
+   ],
+   "z": [
+    1.0,
+    0.0,
+    -0.0
+   ]
+  },
+  "info": {
+   "kind": "gauge_needle",
+   "axis_local": "+X (Unity) = toward the pilot",
+   "rest": "12 o'clock (local +Y Unity = panel up)",
+   "cell": 62,
+   "sign": "Unity +angle about local +X = clockwise as seen by the pilot",
+   "value": "carburettor air C: free-air + 12 + 18 sqrt(powerRatio), lag 20 s",
+   "v0": -50,
+   "v1": 50,
+   "a0": -135,
+   "sweep": 270,
+   "angle": "a0 + clamp01((v - v0) / (v1 - v0)) * sweep",
+   "driver": "B25H.Instruments 1.8.4 Dials184.cs",
+   "deg_per_unit": 2.7
+  }
+ },
+ {
+  "name": "gauge_clock",
+  "parent": "cockpit_gauges",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -0.575,
+   0.52,
+   4.0035
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    -0.0,
+    0.1392,
+    -0.9903
+   ],
+   "y": [
+    -0.0,
+    0.9903,
+    0.1392
+   ],
+   "z": [
+    1.0,
+    0.0,
+    -0.0
+   ]
+  },
+  "info": {
+   "kind": "gauge",
+   "face_cell": 18,
+   "radius": 0.025
+  }
+ },
+ {
+  "name": "gauge_clock_needle",
+  "parent": "gauge_clock",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.575,
+   0.52,
+   4.0035
+  ],
+  "tris": 13,
+  "local_axes_unity": {
+   "x": [
+    -0.0,
+    0.1392,
+    -0.9903
+   ],
+   "y": [
+    0.0,
+    0.9903,
+    0.1392
+   ],
+   "z": [
+    1.0,
+    0.0,
+    -0.0
+   ]
+  },
+  "info": {
+   "kind": "gauge_needle",
+   "axis_local": "+X (Unity) = toward the pilot",
+   "rest": "12 o'clock (local +Y Unity = panel up)",
+   "cell": 62,
+   "sign": "Unity +angle about local +X = clockwise as seen by the pilot",
+   "value": "game time of day (LevelInfo.timeOfDay): long = minutes (360 deg / h), short = hours (30 deg / h)",
+   "driver": "B25H.Instruments 1.8.4"
+  }
+ },
+ {
+  "name": "gauge_clock_needle_short",
+  "parent": "gauge_clock",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.575,
+   0.52,
+   4.0035
+  ],
+  "tris": 13,
+  "local_axes_unity": {
+   "x": [
+    -0.0,
+    0.1392,
+    -0.9903
+   ],
+   "y": [
+    0.0,
+    0.9903,
+    0.1392
+   ],
+   "z": [
+    1.0,
+    0.0,
+    -0.0
+   ]
+  },
+  "info": {
+   "kind": "gauge_short",
+   "axis_local": "+X (Unity) = toward the pilot",
+   "rest": "12 o'clock (local +Y Unity = panel up)",
+   "cell": 63,
+   "sign": "Unity +angle about local +X = clockwise as seen by the pilot",
+   "value": "game time of day (LevelInfo.timeOfDay): long = minutes (360 deg / h), short = hours (30 deg / h)",
+   "driver": "B25H.Instruments 1.8.4"
+  }
+ },
+ {
+  "name": "gauge_compass",
+  "parent": "cockpit_gauges",
+  "type": "EMPTY",
+  "pivot_unity": [
+   0.155,
+   0.385,
+   3.9845
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    -0.0,
+    0.1392,
+    -0.9903
+   ],
+   "y": [
+    -0.0,
+    0.9903,
+    0.1392
+   ],
+   "z": [
+    1.0,
+    0.0,
+    -0.0
+   ]
+  },
+  "info": {
+   "kind": "gauge",
+   "face_cell": 3,
+   "radius": 0.024
+  }
+ },
+ {
+  "name": "gauge_compass_card",
+  "parent": "gauge_compass",
+  "type": "MESH",
+  "pivot_unity": [
+   0.155,
+   0.385,
+   3.9845
+  ],
+  "tris": 32,
+  "local_axes_unity": {
+   "x": [
+    -0.0,
+    0.1392,
+    -0.9903
+   ],
+   "y": [
+    0.0,
+    0.9903,
+    0.1392
+   ],
+   "z": [
+    1.0,
+    0.0,
+    -0.0
+   ]
+  },
+  "info": {
+   "kind": "gauge_card",
+   "axis_local": "+X (Unity) = toward the pilot",
+   "rest": "12 o'clock (local +Y Unity = panel up)",
+   "cell": 11,
+   "sign": "Unity +angle about local +X = clockwise as seen by the pilot",
+   "value": "standby magnetic compass: card angle = -heading, lag 1.5 s",
+   "driver": "B25H.Instruments 1.8.4"
+  }
+ },
+ {
+  "name": "gauge_cyl_temp",
+  "parent": "cockpit_gauges",
+  "type": "EMPTY",
+  "pivot_unity": [
+   0.31,
+   0.46,
+   3.9951
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    -0.0,
+    0.1392,
+    -0.9903
+   ],
+   "y": [
+    -0.0,
+    0.9903,
+    0.1392
+   ],
+   "z": [
+    1.0,
+    0.0,
+    -0.0
+   ]
+  },
+  "info": {
+   "kind": "gauge",
+   "face_cell": 14,
+   "radius": 0.025
+  }
+ },
+ {
+  "name": "gauge_cyl_temp_needle",
+  "parent": "gauge_cyl_temp",
+  "type": "MESH",
+  "pivot_unity": [
+   0.31,
+   0.46,
+   3.9951
+  ],
+  "tris": 13,
+  "local_axes_unity": {
+   "x": [
+    -0.0,
+    0.1392,
+    -0.9903
+   ],
+   "y": [
+    0.0,
+    0.9903,
+    0.1392
+   ],
+   "z": [
+    1.0,
+    0.0,
+    -0.0
+   ]
+  },
+  "info": {
+   "kind": "gauge_needle",
+   "axis_local": "+X (Unity) = toward the pilot",
+   "rest": "12 o'clock (local +Y Unity = panel up)",
+   "cell": 62,
+   "sign": "Unity +angle about local +X = clockwise as seen by the pilot",
+   "value": "cylinder-head temperature C, lag 50 s to 120 + 110 sqrt(powerRatio)",
+   "v0": 0,
+   "v1": 350,
+   "a0": -135,
+   "sweep": 270,
+   "angle": "a0 + clamp01((v - v0) / (v1 - v0)) * sweep",
+   "driver": "B25H.Instruments 1.8.4 Dials184.cs",
+   "deg_per_unit": 0.771429
+  }
+ },
+ {
+  "name": "gauge_deicer_L",
+  "parent": "cockpit_gauges",
+  "type": "EMPTY",
+  "pivot_unity": [
+   0.275,
+   0.385,
+   3.9845
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    -0.0,
+    0.1392,
+    -0.9903
+   ],
+   "y": [
+    -0.0,
+    0.9903,
+    0.1392
+   ],
+   "z": [
+    1.0,
+    0.0,
+    -0.0
+   ]
+  },
+  "info": {
+   "kind": "gauge",
+   "face_cell": 23,
+   "radius": 0.022
+  }
+ },
+ {
+  "name": "gauge_deicer_L_needle",
+  "parent": "gauge_deicer_L",
+  "type": "MESH",
+  "pivot_unity": [
+   0.275,
+   0.385,
+   3.9845
+  ],
+  "tris": 13,
+  "local_axes_unity": {
+   "x": [
+    -0.0,
+    0.1392,
+    -0.9903
+   ],
+   "y": [
+    0.0,
+    0.9903,
+    0.1392
+   ],
+   "z": [
+    1.0,
+    0.0,
+    -0.0
+   ]
+  },
+  "info": {
+   "kind": "gauge_needle",
+   "axis_local": "+X (Unity) = toward the pilot",
+   "rest": "12 o'clock (local +Y Unity = panel up)",
+   "cell": 62,
+   "sign": "Unity +angle about local +X = clockwise as seen by the pilot",
+   "value": "de-icer pressure psi: 8 x clamp01(rpm ratio / 0.6) with engines running",
+   "v0": 0,
+   "v1": 20,
+   "a0": -135,
+   "sweep": 270,
+   "angle": "a0 + clamp01((v - v0) / (v1 - v0)) * sweep",
+   "driver": "B25H.Instruments 1.8.4 Dials184.cs",
+   "deg_per_unit": 13.5
+  }
+ },
+ {
+  "name": "gauge_deicer_R",
+  "parent": "cockpit_gauges",
+  "type": "EMPTY",
+  "pivot_unity": [
+   0.567,
+   0.445,
+   3.993
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    -0.0,
+    0.1392,
+    -0.9903
+   ],
+   "y": [
+    -0.0,
+    0.9903,
+    0.1392
+   ],
+   "z": [
+    1.0,
+    0.0,
+    -0.0
+   ]
+  },
+  "info": {
+   "kind": "gauge",
+   "face_cell": 23,
+   "radius": 0.022
+  }
+ },
+ {
+  "name": "gauge_deicer_R_needle",
+  "parent": "gauge_deicer_R",
+  "type": "MESH",
+  "pivot_unity": [
+   0.567,
+   0.445,
+   3.993
+  ],
+  "tris": 13,
+  "local_axes_unity": {
+   "x": [
+    -0.0,
+    0.1392,
+    -0.9903
+   ],
+   "y": [
+    0.0,
+    0.9903,
+    0.1392
+   ],
+   "z": [
+    1.0,
+    0.0,
+    -0.0
+   ]
+  },
+  "info": {
+   "kind": "gauge_needle",
+   "axis_local": "+X (Unity) = toward the pilot",
+   "rest": "12 o'clock (local +Y Unity = panel up)",
+   "cell": 62,
+   "sign": "Unity +angle about local +X = clockwise as seen by the pilot",
+   "value": "de-icer pressure psi: 8 x clamp01(rpm ratio / 0.6) with engines running",
+   "v0": 0,
+   "v1": 20,
+   "a0": -135,
+   "sweep": 270,
+   "angle": "a0 + clamp01((v - v0) / (v1 - v0)) * sweep",
+   "driver": "B25H.Instruments 1.8.4 Dials184.cs",
+   "deg_per_unit": 13.5
+  }
+ },
+ {
+  "name": "gauge_flaps_pos",
+  "parent": "cockpit_gauges",
+  "type": "EMPTY",
+  "pivot_unity": [
+   0.39,
+   0.515,
+   4.0028
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    -0.0,
+    0.1392,
+    -0.9903
+   ],
+   "y": [
+    -0.0,
+    0.9903,
+    0.1392
+   ],
+   "z": [
+    1.0,
+    0.0,
+    -0.0
+   ]
+  },
+  "info": {
+   "kind": "gauge",
+   "face_cell": 16,
+   "radius": 0.025
+  }
+ },
+ {
+  "name": "gauge_flaps_pos_needle",
+  "parent": "gauge_flaps_pos",
+  "type": "MESH",
+  "pivot_unity": [
+   0.39,
+   0.515,
+   4.0028
+  ],
+  "tris": 13,
+  "local_axes_unity": {
+   "x": [
+    -0.0,
+    0.1392,
+    -0.9903
+   ],
+   "y": [
+    0.0,
+    0.9903,
+    0.1392
+   ],
+   "z": [
+    1.0,
+    0.0,
+    -0.0
+   ]
+  },
+  "info": {
+   "kind": "gauge_needle",
+   "axis_local": "+X (Unity) = toward the pilot",
+   "rest": "12 o'clock (local +Y Unity = panel up)",
+   "cell": 62,
+   "sign": "Unity +angle about local +X = clockwise as seen by the pilot",
+   "value": "flap position 0 up .. 1 down (max HighLiftDevice.position of the real flap devices)",
+   "v0": 0,
+   "v1": 1,
+   "a0": -90,
+   "sweep": 180,
+   "angle": "a0 + clamp01((v - v0) / (v1 - v0)) * sweep",
+   "driver": "B25H.Instruments 1.8.4 Dials184.cs",
+   "deg_per_unit": 180.0
+  }
+ },
+ {
+  "name": "gauge_free_air_L",
+  "parent": "cockpit_gauges",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -0.3,
+   0.37,
+   3.9824
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    -0.0,
+    0.1392,
+    -0.9903
+   ],
+   "y": [
+    -0.0,
+    0.9903,
+    0.1392
+   ],
+   "z": [
+    1.0,
+    0.0,
+    -0.0
+   ]
+  },
+  "info": {
+   "kind": "gauge",
+   "face_cell": 22,
+   "radius": 0.022
+  }
+ },
+ {
+  "name": "gauge_free_air_L_needle",
+  "parent": "gauge_free_air_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.3,
+   0.37,
+   3.9824
+  ],
+  "tris": 13,
+  "local_axes_unity": {
+   "x": [
+    -0.0,
+    0.1392,
+    -0.9903
+   ],
+   "y": [
+    0.0,
+    0.9903,
+    0.1392
+   ],
+   "z": [
+    1.0,
+    0.0,
+    -0.0
+   ]
+  },
+  "info": {
+   "kind": "gauge_needle",
+   "axis_local": "+X (Unity) = toward the pilot",
+   "rest": "12 o'clock (local +Y Unity = panel up)",
+   "cell": 62,
+   "sign": "Unity +angle about local +X = clockwise as seen by the pilot",
+   "value": "free-air C: ISA(altitude) + 0.9 v^2 / 2010 (no air-temperature model in the game)",
+   "v0": -50,
+   "v1": 50,
+   "a0": -135,
+   "sweep": 270,
+   "angle": "a0 + clamp01((v - v0) / (v1 - v0)) * sweep",
+   "driver": "B25H.Instruments 1.8.4 Dials184.cs",
+   "deg_per_unit": 2.7
+  }
+ },
+ {
+  "name": "gauge_free_air_R",
+  "parent": "cockpit_gauges",
+  "type": "EMPTY",
+  "pivot_unity": [
+   0.48,
+   0.485,
+   3.9986
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    -0.0,
+    0.1392,
+    -0.9903
+   ],
+   "y": [
+    -0.0,
+    0.9903,
+    0.1392
+   ],
+   "z": [
+    1.0,
+    0.0,
+    -0.0
+   ]
+  },
+  "info": {
+   "kind": "gauge",
+   "face_cell": 22,
+   "radius": 0.026
+  }
+ },
+ {
+  "name": "gauge_free_air_R_needle",
+  "parent": "gauge_free_air_R",
+  "type": "MESH",
+  "pivot_unity": [
+   0.48,
+   0.485,
+   3.9986
+  ],
+  "tris": 13,
+  "local_axes_unity": {
+   "x": [
+    -0.0,
+    0.1392,
+    -0.9903
+   ],
+   "y": [
+    0.0,
+    0.9903,
+    0.1392
+   ],
+   "z": [
+    1.0,
+    0.0,
+    -0.0
+   ]
+  },
+  "info": {
+   "kind": "gauge_needle",
+   "axis_local": "+X (Unity) = toward the pilot",
+   "rest": "12 o'clock (local +Y Unity = panel up)",
+   "cell": 62,
+   "sign": "Unity +angle about local +X = clockwise as seen by the pilot",
+   "value": "free-air C: ISA(altitude) + 0.9 v^2 / 2010 (no air-temperature model in the game)",
+   "v0": -50,
+   "v1": 50,
+   "a0": -135,
+   "sweep": 270,
+   "angle": "a0 + clamp01((v - v0) / (v1 - v0)) * sweep",
+   "driver": "B25H.Instruments 1.8.4 Dials184.cs",
+   "deg_per_unit": 2.7
+  }
+ },
+ {
+  "name": "gauge_fuel",
+  "parent": "cockpit_gauges",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -0.465,
+   0.468,
+   3.9962
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    -0.0,
+    0.1392,
+    -0.9903
+   ],
+   "y": [
+    -0.0,
+    0.9903,
+    0.1392
+   ],
+   "z": [
+    1.0,
+    0.0,
+    -0.0
+   ]
+  },
+  "info": {
+   "kind": "gauge",
+   "face_cell": 5,
+   "radius": 0.032
+  }
+ },
+ {
+  "name": "gauge_fuel_needle",
+  "parent": "gauge_fuel",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.465,
+   0.468,
+   3.9962
+  ],
+  "tris": 13,
+  "local_axes_unity": {
+   "x": [
+    -0.0,
+    0.1392,
+    -0.9903
+   ],
+   "y": [
+    0.0,
+    0.9903,
+    0.1392
+   ],
+   "z": [
+    1.0,
+    0.0,
+    -0.0
+   ]
+  },
+  "info": {
+   "kind": "gauge_needle",
+   "axis_local": "+X (Unity) = toward the pilot",
+   "rest": "12 o'clock (local +Y Unity = panel up)",
+   "cell": 62,
+   "sign": "Unity +angle about local +X = clockwise as seen by the pilot",
+   "value": "fuel remaining",
+   "unit": "%",
+   "v0": 0,
+   "v1": 100,
+   "sweep": 270,
+   "deg_per_unit": 2.7
+  }
+ },
+ {
+  "name": "gauge_gear_pos",
+  "parent": "cockpit_gauges",
+  "type": "EMPTY",
+  "pivot_unity": [
+   0.39,
+   0.445,
+   3.993
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    -0.0,
+    0.1392,
+    -0.9903
+   ],
+   "y": [
+    -0.0,
+    0.9903,
+    0.1392
+   ],
+   "z": [
+    1.0,
+    0.0,
+    -0.0
+   ]
+  },
+  "info": {
+   "kind": "gauge",
+   "face_cell": 17,
+   "radius": 0.025
+  }
+ },
+ {
+  "name": "gauge_gear_pos_needle",
+  "parent": "gauge_gear_pos",
+  "type": "MESH",
+  "pivot_unity": [
+   0.39,
+   0.445,
+   3.993
+  ],
+  "tris": 13,
+  "local_axes_unity": {
+   "x": [
+    -0.0,
+    0.1392,
+    -0.9903
+   ],
+   "y": [
+    0.0,
+    0.9903,
+    0.1392
+   ],
+   "z": [
+    1.0,
+    0.0,
+    -0.0
+   ]
+  },
+  "info": {
+   "kind": "gauge_needle",
+   "axis_local": "+X (Unity) = toward the pilot",
+   "rest": "12 o'clock (local +Y Unity = panel up)",
+   "cell": 62,
+   "sign": "Unity +angle about local +X = clockwise as seen by the pilot",
+   "value": "gear position 0 up .. 1 down (gear state, 6 s travel)",
+   "v0": 0,
+   "v1": 1,
+   "a0": -90,
+   "sweep": 180,
+   "angle": "a0 + clamp01((v - v0) / (v1 - v0)) * sweep",
+   "driver": "B25H.Instruments 1.8.4 Dials184.cs",
+   "deg_per_unit": 180.0
+  }
+ },
+ {
+  "name": "gauge_heading",
+  "parent": "cockpit_gauges",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -0.36,
+   0.472,
+   3.9968
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    -0.0,
+    0.1392,
+    -0.9903
+   ],
+   "y": [
+    -0.0,
+    0.9903,
+    0.1392
+   ],
+   "z": [
+    1.0,
+    0.0,
+    -0.0
+   ]
+  },
+  "info": {
+   "kind": "gauge",
+   "face_cell": 3,
+   "radius": 0.04
+  }
+ },
+ {
+  "name": "gauge_heading_card",
+  "parent": "gauge_heading",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.36,
+   0.472,
+   3.9968
+  ],
+  "tris": 32,
+  "local_axes_unity": {
+   "x": [
+    -0.0,
+    0.1392,
+    -0.9903
+   ],
+   "y": [
+    0.0,
+    0.9903,
+    0.1392
+   ],
+   "z": [
+    1.0,
+    0.0,
+    -0.0
+   ]
+  },
+  "info": {
+   "kind": "gauge_card",
+   "axis_local": "+X (Unity) = toward the pilot",
+   "rest": "12 o'clock (local +Y Unity = panel up)",
+   "cell": 11,
+   "sign": "Unity +angle about local +X = clockwise as seen by the pilot",
+   "value": "heading (compass card)",
+   "unit": "deg",
+   "note": "card angle = -heading (current heading at 12 o'clock)"
+  }
+ },
+ {
+  "name": "gauge_hydraulic",
+  "parent": "cockpit_gauges",
+  "type": "EMPTY",
+  "pivot_unity": [
+   0.39,
+   0.585,
+   4.0126
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    -0.0,
+    0.1392,
+    -0.9903
+   ],
+   "y": [
+    -0.0,
+    0.9903,
+    0.1392
+   ],
+   "z": [
+    1.0,
+    0.0,
+    -0.0
+   ]
+  },
+  "info": {
+   "kind": "gauge",
+   "face_cell": 15,
+   "radius": 0.025
+  }
+ },
+ {
+  "name": "gauge_hydraulic_needle",
+  "parent": "gauge_hydraulic",
+  "type": "MESH",
+  "pivot_unity": [
+   0.39,
+   0.585,
+   4.0126
+  ],
+  "tris": 13,
+  "local_axes_unity": {
+   "x": [
+    -0.0,
+    0.1392,
+    -0.9903
+   ],
+   "y": [
+    0.0,
+    0.9903,
+    0.1392
+   ],
+   "z": [
+    1.0,
+    0.0,
+    -0.0
+   ]
+  },
+  "info": {
+   "kind": "gauge_needle",
+   "axis_local": "+X (Unity) = toward the pilot",
+   "rest": "12 o'clock (local +Y Unity = panel up)",
+   "cell": 62,
+   "sign": "Unity +angle about local +X = clockwise as seen by the pilot",
+   "value": "hydraulic pressure psi: 1050 engines running, 800 while the gear moves, lag 3 s",
+   "v0": 0,
+   "v1": 2000,
+   "a0": -135,
+   "sweep": 270,
+   "angle": "a0 + clamp01((v - v0) / (v1 - v0)) * sweep",
+   "driver": "B25H.Instruments 1.8.4 Dials184.cs",
+   "deg_per_unit": 0.135
+  }
+ },
+ {
+  "name": "gauge_manifold_L",
+  "parent": "cockpit_gauges",
+  "type": "EMPTY",
+  "pivot_unity": [
+   0.12,
+   0.585,
+   4.0126
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    -0.0,
+    0.1392,
+    -0.9903
+   ],
+   "y": [
+    -0.0,
+    0.9903,
+    0.1392
+   ],
+   "z": [
+    1.0,
+    0.0,
+    -0.0
+   ]
+  },
+  "info": {
+   "kind": "gauge",
+   "face_cell": 6,
+   "radius": 0.036
+  }
+ },
+ {
+  "name": "gauge_manifold_L_needle",
+  "parent": "gauge_manifold_L",
+  "type": "MESH",
+  "pivot_unity": [
+   0.12,
+   0.585,
+   4.0126
+  ],
+  "tris": 13,
+  "local_axes_unity": {
+   "x": [
+    -0.0,
+    0.1392,
+    -0.9903
+   ],
+   "y": [
+    0.0,
+    0.9903,
+    0.1392
+   ],
+   "z": [
+    1.0,
+    0.0,
+    -0.0
+   ]
+  },
+  "info": {
+   "kind": "gauge_needle",
+   "axis_local": "+X (Unity) = toward the pilot",
+   "rest": "12 o'clock (local +Y Unity = panel up)",
+   "cell": 62,
+   "sign": "Unity +angle about local +X = clockwise as seen by the pilot",
+   "value": "manifold pressure, left engine",
+   "unit": "inHg",
+   "v0": 10,
+   "v1": 75,
+   "sweep": 300,
+   "deg_per_unit": 4.615385
+  }
+ },
+ {
+  "name": "gauge_manifold_R",
+  "parent": "cockpit_gauges",
+  "type": "EMPTY",
+  "pivot_unity": [
+   0.215,
+   0.585,
+   4.0126
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    -0.0,
+    0.1392,
+    -0.9903
+   ],
+   "y": [
+    -0.0,
+    0.9903,
+    0.1392
+   ],
+   "z": [
+    1.0,
+    0.0,
+    -0.0
+   ]
+  },
+  "info": {
+   "kind": "gauge",
+   "face_cell": 7,
+   "radius": 0.036
+  }
+ },
+ {
+  "name": "gauge_manifold_R_needle",
+  "parent": "gauge_manifold_R",
+  "type": "MESH",
+  "pivot_unity": [
+   0.215,
+   0.585,
+   4.0126
+  ],
+  "tris": 13,
+  "local_axes_unity": {
+   "x": [
+    -0.0,
+    0.1392,
+    -0.9903
+   ],
+   "y": [
+    0.0,
+    0.9903,
+    0.1392
+   ],
+   "z": [
+    1.0,
+    0.0,
+    -0.0
+   ]
+  },
+  "info": {
+   "kind": "gauge_needle",
+   "axis_local": "+X (Unity) = toward the pilot",
+   "rest": "12 o'clock (local +Y Unity = panel up)",
+   "cell": 62,
+   "sign": "Unity +angle about local +X = clockwise as seen by the pilot",
+   "value": "manifold pressure, right engine",
+   "unit": "inHg",
+   "v0": 10,
+   "v1": 75,
+   "sweep": 300,
+   "deg_per_unit": 4.615385
+  }
+ },
+ {
+  "name": "gauge_oil_press",
+  "parent": "cockpit_gauges",
+  "type": "EMPTY",
+  "pivot_unity": [
+   0.31,
+   0.6,
+   4.0148
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    -0.0,
+    0.1392,
+    -0.9903
+   ],
+   "y": [
+    -0.0,
+    0.9903,
+    0.1392
+   ],
+   "z": [
+    1.0,
+    0.0,
+    -0.0
+   ]
+  },
+  "info": {
+   "kind": "gauge",
+   "face_cell": 12,
+   "radius": 0.025
+  }
+ },
+ {
+  "name": "gauge_oil_press_needle",
+  "parent": "gauge_oil_press",
+  "type": "MESH",
+  "pivot_unity": [
+   0.31,
+   0.6,
+   4.0148
+  ],
+  "tris": 13,
+  "local_axes_unity": {
+   "x": [
+    -0.0,
+    0.1392,
+    -0.9903
+   ],
+   "y": [
+    0.0,
+    0.9903,
+    0.1392
+   ],
+   "z": [
+    1.0,
+    0.0,
+    -0.0
+   ]
+  },
+  "info": {
+   "kind": "gauge_needle",
+   "axis_local": "+X (Unity) = toward the pilot",
+   "rest": "12 o'clock (local +Y Unity = panel up)",
+   "cell": 62,
+   "sign": "Unity +angle about local +X = clockwise as seen by the pilot",
+   "value": "oil pressure psi, mean of the props: 40 at idle ratio 0 .. 82 at governed rpm, 0 engines stopped",
+   "v0": 0,
+   "v1": 200,
+   "a0": -135,
+   "sweep": 270,
+   "angle": "a0 + clamp01((v - v0) / (v1 - v0)) * sweep",
+   "driver": "B25H.Instruments 1.8.4 Dials184.cs",
+   "deg_per_unit": 1.35
+  }
+ },
+ {
+  "name": "gauge_oil_temp",
+  "parent": "cockpit_gauges",
+  "type": "EMPTY",
+  "pivot_unity": [
+   0.31,
+   0.53,
+   4.0049
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    -0.0,
+    0.1392,
+    -0.9903
+   ],
+   "y": [
+    -0.0,
+    0.9903,
+    0.1392
+   ],
+   "z": [
+    1.0,
+    0.0,
+    -0.0
+   ]
+  },
+  "info": {
+   "kind": "gauge",
+   "face_cell": 13,
+   "radius": 0.025
+  }
+ },
+ {
+  "name": "gauge_oil_temp_needle",
+  "parent": "gauge_oil_temp",
+  "type": "MESH",
+  "pivot_unity": [
+   0.31,
+   0.53,
+   4.0049
+  ],
+  "tris": 13,
+  "local_axes_unity": {
+   "x": [
+    -0.0,
+    0.1392,
+    -0.9903
+   ],
+   "y": [
+    0.0,
+    0.9903,
+    0.1392
+   ],
+   "z": [
+    1.0,
+    0.0,
+    -0.0
+   ]
+  },
+  "info": {
+   "kind": "gauge_needle",
+   "axis_local": "+X (Unity) = toward the pilot",
+   "rest": "12 o'clock (local +Y Unity = panel up)",
+   "cell": 62,
+   "sign": "Unity +angle about local +X = clockwise as seen by the pilot",
+   "value": "oil temperature C, lag 60 s to 55 + 25 sqrt(powerRatio), free-air when stopped",
+   "v0": -50,
+   "v1": 150,
+   "a0": -135,
+   "sweep": 270,
+   "angle": "a0 + clamp01((v - v0) / (v1 - v0)) * sweep",
+   "driver": "B25H.Instruments 1.8.4 Dials184.cs",
+   "deg_per_unit": 1.35
+  }
+ },
+ {
+  "name": "gauge_oxygen",
+  "parent": "cockpit_gauges",
+  "type": "EMPTY",
+  "pivot_unity": [
+   0.565,
+   0.525,
+   4.0042
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    -0.0,
+    0.1392,
+    -0.9903
+   ],
+   "y": [
+    -0.0,
+    0.9903,
+    0.1392
+   ],
+   "z": [
+    1.0,
+    0.0,
+    -0.0
+   ]
+  },
+  "info": {
+   "kind": "gauge",
+   "face_cell": 24,
+   "radius": 0.022
+  }
+ },
+ {
+  "name": "gauge_oxygen_needle",
+  "parent": "gauge_oxygen",
+  "type": "MESH",
+  "pivot_unity": [
+   0.565,
+   0.525,
+   4.0042
+  ],
+  "tris": 13,
+  "local_axes_unity": {
+   "x": [
+    -0.0,
+    0.1392,
+    -0.9903
+   ],
+   "y": [
+    0.0,
+    0.9903,
+    0.1392
+   ],
+   "z": [
+    1.0,
+    0.0,
+    -0.0
+   ]
+  },
+  "info": {
+   "kind": "gauge_needle",
+   "axis_local": "+X (Unity) = toward the pilot",
+   "rest": "12 o'clock (local +Y Unity = panel up)",
+   "cell": 62,
+   "sign": "Unity +angle about local +X = clockwise as seen by the pilot",
+   "value": "oxygen psi: 425, -1 psi/min above 3,000 m",
+   "v0": 0,
+   "v1": 500,
+   "a0": -135,
+   "sweep": 270,
+   "angle": "a0 + clamp01((v - v0) / (v1 - v0)) * sweep",
+   "driver": "B25H.Instruments 1.8.4 Dials184.cs",
+   "deg_per_unit": 0.54
+  }
+ },
+ {
+  "name": "gauge_rpm_L",
+  "parent": "cockpit_gauges",
+  "type": "EMPTY",
+  "pivot_unity": [
+   0.12,
+   0.485,
+   3.9986
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    -0.0,
+    0.1392,
+    -0.9903
+   ],
+   "y": [
+    -0.0,
+    0.9903,
+    0.1392
+   ],
+   "z": [
+    1.0,
+    0.0,
+    -0.0
+   ]
+  },
+  "info": {
+   "kind": "gauge",
+   "face_cell": 8,
+   "radius": 0.036
+  }
+ },
+ {
+  "name": "gauge_rpm_L_needle",
+  "parent": "gauge_rpm_L",
+  "type": "MESH",
+  "pivot_unity": [
+   0.12,
+   0.485,
+   3.9986
+  ],
+  "tris": 13,
+  "local_axes_unity": {
+   "x": [
+    -0.0,
+    0.1392,
+    -0.9903
+   ],
+   "y": [
+    0.0,
+    0.9903,
+    0.1392
+   ],
+   "z": [
+    1.0,
+    0.0,
+    -0.0
+   ]
+  },
+  "info": {
+   "kind": "gauge_needle",
+   "axis_local": "+X (Unity) = toward the pilot",
+   "rest": "12 o'clock (local +Y Unity = panel up)",
+   "cell": 62,
+   "sign": "Unity +angle about local +X = clockwise as seen by the pilot",
+   "value": "engine rpm, left",
+   "unit": "rpm",
+   "v0": 0,
+   "v1": 3500,
+   "sweep": 300,
+   "deg_per_unit": 0.085714
+  }
+ },
+ {
+  "name": "gauge_rpm_R",
+  "parent": "cockpit_gauges",
+  "type": "EMPTY",
+  "pivot_unity": [
+   0.215,
+   0.485,
+   3.9986
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    -0.0,
+    0.1392,
+    -0.9903
+   ],
+   "y": [
+    -0.0,
+    0.9903,
+    0.1392
+   ],
+   "z": [
+    1.0,
+    0.0,
+    -0.0
+   ]
+  },
+  "info": {
+   "kind": "gauge",
+   "face_cell": 9,
+   "radius": 0.036
+  }
+ },
+ {
+  "name": "gauge_rpm_R_needle",
+  "parent": "gauge_rpm_R",
+  "type": "MESH",
+  "pivot_unity": [
+   0.215,
+   0.485,
+   3.9986
+  ],
+  "tris": 13,
+  "local_axes_unity": {
+   "x": [
+    -0.0,
+    0.1392,
+    -0.9903
+   ],
+   "y": [
+    0.0,
+    0.9903,
+    0.1392
+   ],
+   "z": [
+    1.0,
+    0.0,
+    -0.0
+   ]
+  },
+  "info": {
+   "kind": "gauge_needle",
+   "axis_local": "+X (Unity) = toward the pilot",
+   "rest": "12 o'clock (local +Y Unity = panel up)",
+   "cell": 62,
+   "sign": "Unity +angle about local +X = clockwise as seen by the pilot",
+   "value": "engine rpm, right",
+   "unit": "rpm",
+   "v0": 0,
+   "v1": 3500,
+   "sweep": 300,
+   "deg_per_unit": 0.085714
+  }
+ },
+ {
+  "name": "gauge_suction_C",
+  "parent": "cockpit_gauges",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -0.115,
+   0.55,
+   4.0077
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    -0.0,
+    0.1392,
+    -0.9903
+   ],
+   "y": [
+    -0.0,
+    0.9903,
+    0.1392
+   ],
+   "z": [
+    1.0,
+    0.0,
+    -0.0
+   ]
+  },
+  "info": {
+   "kind": "gauge",
+   "face_cell": 19,
+   "radius": 0.022
+  }
+ },
+ {
+  "name": "gauge_suction_C_needle",
+  "parent": "gauge_suction_C",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.115,
+   0.55,
+   4.0077
+  ],
+  "tris": 13,
+  "local_axes_unity": {
+   "x": [
+    -0.0,
+    0.1392,
+    -0.9903
+   ],
+   "y": [
+    0.0,
+    0.9903,
+    0.1392
+   ],
+   "z": [
+    1.0,
+    0.0,
+    -0.0
+   ]
+  },
+  "info": {
+   "kind": "gauge_needle",
+   "axis_local": "+X (Unity) = toward the pilot",
+   "rest": "12 o'clock (local +Y Unity = panel up)",
+   "cell": 62,
+   "sign": "Unity +angle about local +X = clockwise as seen by the pilot",
+   "value": "vacuum inHg: 4.8 x clamp01(prop rpm ratio / 0.6)",
+   "v0": 0,
+   "v1": 10,
+   "a0": -135,
+   "sweep": 270,
+   "angle": "a0 + clamp01((v - v0) / (v1 - v0)) * sweep",
+   "driver": "B25H.Instruments 1.8.4 Dials184.cs",
+   "deg_per_unit": 27.0
+  }
+ },
+ {
+  "name": "gauge_suction_L",
+  "parent": "cockpit_gauges",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -0.575,
+   0.44,
+   3.9923
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    -0.0,
+    0.1392,
+    -0.9903
+   ],
+   "y": [
+    -0.0,
+    0.9903,
+    0.1392
+   ],
+   "z": [
+    1.0,
+    0.0,
+    -0.0
+   ]
+  },
+  "info": {
+   "kind": "gauge",
+   "face_cell": 19,
+   "radius": 0.024
+  }
+ },
+ {
+  "name": "gauge_suction_L_needle",
+  "parent": "gauge_suction_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.575,
+   0.44,
+   3.9923
+  ],
+  "tris": 13,
+  "local_axes_unity": {
+   "x": [
+    -0.0,
+    0.1392,
+    -0.9903
+   ],
+   "y": [
+    0.0,
+    0.9903,
+    0.1392
+   ],
+   "z": [
+    1.0,
+    0.0,
+    -0.0
+   ]
+  },
+  "info": {
+   "kind": "gauge_needle",
+   "axis_local": "+X (Unity) = toward the pilot",
+   "rest": "12 o'clock (local +Y Unity = panel up)",
+   "cell": 62,
+   "sign": "Unity +angle about local +X = clockwise as seen by the pilot",
+   "value": "vacuum inHg: 4.8 x clamp01(prop rpm ratio / 0.6)",
+   "v0": 0,
+   "v1": 10,
+   "a0": -135,
+   "sweep": 270,
+   "angle": "a0 + clamp01((v - v0) / (v1 - v0)) * sweep",
+   "driver": "B25H.Instruments 1.8.4 Dials184.cs",
+   "deg_per_unit": 27.0
+  }
+ },
+ {
+  "name": "gauge_volts",
+  "parent": "cockpit_gauges",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -0.02,
+   0.63,
+   4.019
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    -0.0,
+    0.1392,
+    -0.9903
+   ],
+   "y": [
+    -0.0,
+    0.9903,
+    0.1392
+   ],
+   "z": [
+    1.0,
+    0.0,
+    -0.0
+   ]
+  },
+  "info": {
+   "kind": "gauge",
+   "face_cell": 26,
+   "radius": 0.02
+  }
+ },
+ {
+  "name": "gauge_volts_needle",
+  "parent": "gauge_volts",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.02,
+   0.63,
+   4.019
+  ],
+  "tris": 13,
+  "local_axes_unity": {
+   "x": [
+    -0.0,
+    0.1392,
+    -0.9903
+   ],
+   "y": [
+    0.0,
+    0.9903,
+    0.1392
+   ],
+   "z": [
+    1.0,
+    0.0,
+    -0.0
+   ]
+  },
+  "info": {
+   "kind": "gauge_needle",
+   "axis_local": "+X (Unity) = toward the pilot",
+   "rest": "12 o'clock (local +Y Unity = panel up)",
+   "cell": 62,
+   "sign": "Unity +angle about local +X = clockwise as seen by the pilot",
+   "value": "bus volts: 28.2 - 0.01 x A running, 24 battery",
+   "v0": 0,
+   "v1": 30,
+   "a0": -135,
+   "sweep": 270,
+   "angle": "a0 + clamp01((v - v0) / (v1 - v0)) * sweep",
+   "driver": "B25H.Instruments 1.8.4 Dials184.cs",
+   "deg_per_unit": 9.0
+  }
+ },
+ {
+  "name": "gauge_vsi",
+  "parent": "cockpit_gauges",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -0.255,
+   0.468,
+   3.9962
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    -0.0,
+    0.1392,
+    -0.9903
+   ],
+   "y": [
+    -0.0,
+    0.9903,
+    0.1392
+   ],
+   "z": [
+    1.0,
+    0.0,
+    -0.0
+   ]
+  },
+  "info": {
+   "kind": "gauge",
+   "face_cell": 4,
+   "radius": 0.034
+  }
+ },
+ {
+  "name": "gauge_vsi_needle",
+  "parent": "gauge_vsi",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.255,
+   0.468,
+   3.9962
+  ],
+  "tris": 13,
+  "local_axes_unity": {
+   "x": [
+    -0.0,
+    0.1392,
+    -0.9903
+   ],
+   "y": [
+    0.0,
+    0.9903,
+    0.1392
+   ],
+   "z": [
+    1.0,
+    0.0,
+    -0.0
+   ]
+  },
+  "info": {
+   "kind": "gauge_needle",
+   "axis_local": "+X (Unity) = toward the pilot",
+   "rest": "12 o'clock (local +Y Unity = panel up)",
+   "cell": 62,
+   "sign": "Unity +angle about local +X = clockwise as seen by the pilot",
+   "value": "vertical speed",
+   "unit": "ft/min",
+   "v0": 0,
+   "v1": 6000,
+   "sweep": 170,
+   "note": "descent = anticlockwise (negative)",
+   "deg_per_unit": 0.028333
+  }
+ },
+ {
+  "name": "gear_door_main_L_a",
+  "parent": "nacelle_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -2.5971,
+   -0.8315,
+   -1.2461
+  ],
+  "tris": 228,
+  "local_axes_unity": {
+   "x": [
+    -0.0867,
+    0.9903,
+    0.1086
+   ],
+   "y": [
+    -0.994,
+    -0.0788,
+    -0.0756
+   ],
+   "z": [
+    -0.0663,
+    -0.1145,
+    0.9912
+   ]
+  },
+  "info": {
+   "hinge_axis": [
+    0.01954091712832451,
+    0.9959480166435242,
+    -0.0877825990319252
+   ],
+   "open_deg": -95.0,
+   "note": "main gear door; hinge on well edge",
+   "hinge_axis_unity": [
+    0.0195,
+    -0.0878,
+    0.9959
+   ],
+   "open_unity": "rotate 95.0 deg (Unity AngleAxis) about (0.0195, -0.0878, 0.9959) (parent space) from the CLOSED pose"
+  }
+ },
+ {
+  "name": "gear_door_main_L_b",
+  "parent": "nacelle_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -3.3029,
+   -0.8315,
+   -1.2461
+  ],
+  "tris": 228,
+  "local_axes_unity": {
+   "x": [
+    -0.0867,
+    -0.9903,
+    -0.1086
+   ],
+   "y": [
+    0.994,
+    -0.0788,
+    -0.0756
+   ],
+   "z": [
+    0.0663,
+    -0.1145,
+    0.9912
+   ]
+  },
+  "info": {
+   "hinge_axis": [
+    -0.01954091712832451,
+    0.9959480166435242,
+    -0.0877825990319252
+   ],
+   "open_deg": 95.0,
+   "note": "main gear door; hinge on well edge",
+   "hinge_axis_unity": [
+    -0.0195,
+    -0.0878,
+    0.9959
+   ],
+   "open_unity": "rotate -95.0 deg (Unity AngleAxis) about (-0.0195, -0.0878, 0.9959) (parent space) from the CLOSED pose"
+  }
+ },
+ {
+  "name": "gear_door_main_R_a",
+  "parent": "nacelle_R",
+  "type": "MESH",
+  "pivot_unity": [
+   2.5971,
+   -0.8315,
+   -1.2461
+  ],
+  "tris": 228,
+  "local_axes_unity": {
+   "x": [
+    -0.0867,
+    -0.9903,
+    -0.1086
+   ],
+   "y": [
+    0.994,
+    -0.0788,
+    -0.0756
+   ],
+   "z": [
+    0.0663,
+    -0.1145,
+    0.9912
+   ]
+  },
+  "info": {
+   "hinge_axis": [
+    -0.01954091712832451,
+    0.9959480166435242,
+    -0.0877825990319252
+   ],
+   "open_deg": 95.0,
+   "note": "main gear door; hinge on well edge",
+   "hinge_axis_unity": [
+    -0.0195,
+    -0.0878,
+    0.9959
+   ],
+   "open_unity": "rotate -95.0 deg (Unity AngleAxis) about (-0.0195, -0.0878, 0.9959) (parent space) from the CLOSED pose"
+  }
+ },
+ {
+  "name": "gear_door_main_R_b",
+  "parent": "nacelle_R",
+  "type": "MESH",
+  "pivot_unity": [
+   3.3029,
+   -0.8315,
+   -1.2461
+  ],
+  "tris": 228,
+  "local_axes_unity": {
+   "x": [
+    -0.0867,
+    0.9903,
+    0.1086
+   ],
+   "y": [
+    -0.994,
+    -0.0788,
+    -0.0756
+   ],
+   "z": [
+    -0.0663,
+    -0.1145,
+    0.9912
+   ]
+  },
+  "info": {
+   "hinge_axis": [
+    0.01954091712832451,
+    0.9959480166435242,
+    -0.0877825990319252
+   ],
+   "open_deg": -95.0,
+   "note": "main gear door; hinge on well edge",
+   "hinge_axis_unity": [
+    0.0195,
+    -0.0878,
+    0.9959
+   ],
+   "open_unity": "rotate 95.0 deg (Unity AngleAxis) about (0.0195, -0.0878, 0.9959) (parent space) from the CLOSED pose"
+  }
+ },
+ {
+  "name": "gear_door_nose_L",
+  "parent": "fus_cockpit",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.2801,
+   -1.121,
+   2.6289
+  ],
+  "tris": 140,
+  "local_axes_unity": {
+   "x": [
+    -0.0872,
+    -0.9962,
+    0.0081
+   ],
+   "y": [
+    0.9962,
+    -0.0871,
+    0.0093
+   ],
+   "z": [
+    -0.0086,
+    0.0089,
+    0.9999
+   ]
+  },
+  "info": {
+   "hinge_axis": [
+    -0.00022479865583591163,
+    0.9999649524688721,
+    0.008371802046895027
+   ],
+   "open_deg": 95.0,
+   "note": "nose gear door, OPEN in file (gear down); closed = identity",
+   "hinge_axis_unity": [
+    -0.0002,
+    0.0084,
+    1.0
+   ],
+   "open_unity": "rotate -95.0 deg (Unity AngleAxis) about (-0.0002, 0.0084, 1.0) (parent space) from the CLOSED pose"
+  }
+ },
+ {
+  "name": "gear_door_nose_R",
+  "parent": "fus_cockpit",
+  "type": "MESH",
+  "pivot_unity": [
+   0.2801,
+   -1.121,
+   2.6289
+  ],
+  "tris": 140,
+  "local_axes_unity": {
+   "x": [
+    -0.0872,
+    0.9962,
+    -0.0081
+   ],
+   "y": [
+    -0.9962,
+    -0.0871,
+    0.0093
+   ],
+   "z": [
+    0.0086,
+    0.0089,
+    0.9999
+   ]
+  },
+  "info": {
+   "hinge_axis": [
+    0.00022479865583591163,
+    0.9999649524688721,
+    0.008371802046895027
+   ],
+   "open_deg": -95.0,
+   "note": "nose gear door, OPEN in file (gear down); closed = identity",
+   "hinge_axis_unity": [
+    0.0002,
+    0.0084,
+    1.0
+   ],
+   "open_unity": "rotate 95.0 deg (Unity AngleAxis) about (0.0002, 0.0084, 1.0) (parent space) from the CLOSED pose"
+  }
+ },
+ {
+  "name": "gear_main_L_strut",
+  "parent": "nacelle_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -2.95,
+   -0.4,
+   -0.1961
+  ],
+  "tris": 340,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "hinge_axis_local": "+X (Blender) = +X (Unity)",
+   "retract_deg_blender": -88.0,
+   "note": "retracts aft/up into nacelle well",
+   "retract_unity": "localRotation = Quaternion.AngleAxis(88.0f, Vector3.right) (from the extended pose, identity)"
+  }
+ },
+ {
+  "name": "gear_main_L_wheel",
+  "parent": "gear_main_L_strut",
+  "type": "MESH",
+  "pivot_unity": [
+   -2.95,
+   -1.993,
+   -0.3461
+  ],
+  "tris": 992,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "spin_axis_local": "+X",
+   "note": "pivot = axle centre"
+  }
+ },
+ {
+  "name": "gear_main_R_strut",
+  "parent": "nacelle_R",
+  "type": "MESH",
+  "pivot_unity": [
+   2.95,
+   -0.4,
+   -0.1961
+  ],
+  "tris": 340,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "hinge_axis_local": "+X (Blender) = +X (Unity)",
+   "retract_deg_blender": -88.0,
+   "note": "retracts aft/up into nacelle well",
+   "retract_unity": "localRotation = Quaternion.AngleAxis(88.0f, Vector3.right) (from the extended pose, identity)"
+  }
+ },
+ {
+  "name": "gear_main_R_wheel",
+  "parent": "gear_main_R_strut",
+  "type": "MESH",
+  "pivot_unity": [
+   2.95,
+   -1.993,
+   -0.3461
+  ],
+  "tris": 992,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "spin_axis_local": "+X",
+   "note": "pivot = axle centre"
+  }
+ },
+ {
+  "name": "gear_nose_strut",
+  "parent": "fus_cockpit",
+  "type": "MESH",
+  "pivot_unity": [
+   0.0,
+   -0.7,
+   3.6039
+  ],
+  "tris": 276,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "hinge_axis_local": "+X",
+   "retract_deg_blender": -110.0,
+   "note": "retracts aft into nose well",
+   "retract_unity": "localRotation = Quaternion.AngleAxis(110.0f, Vector3.right) (from the extended pose, identity)"
+  }
+ },
+ {
+  "name": "gear_nose_wheel",
+  "parent": "gear_nose_strut",
+  "type": "MESH",
+  "pivot_unity": [
+   0.0,
+   -2.21,
+   4.0539
+  ],
+  "tris": 992,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "spin_axis_local": "+X",
+   "note": "pivot = axle centre"
+  }
+ },
+ {
+  "name": "gun_tail_L",
+  "parent": "tail_guns",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.085,
+   0.104,
+   -9.7961
+  ],
+  "tris": 262,
+  "local_axes_unity": {
+   "x": [
+    -1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    -1.0
+   ]
+  },
+  "info": {
+   "kind": "gun_body",
+   "swap": "stock 50cal_doorGun_barrel mesh fits this transform 1:1 (origin, +Z fwd, +Y up)",
+   "note": "tail M2"
+  }
+ },
+ {
+  "name": "gun_tail_R",
+  "parent": "tail_guns",
+  "type": "MESH",
+  "pivot_unity": [
+   0.085,
+   0.104,
+   -9.7961
+  ],
+  "tris": 262,
+  "local_axes_unity": {
+   "x": [
+    -1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    -1.0
+   ]
+  },
+  "info": {
+   "kind": "gun_body",
+   "swap": "stock 50cal_doorGun_barrel mesh fits this transform 1:1 (origin, +Z fwd, +Y up)",
+   "note": "tail M2"
+  }
+ },
+ {
+  "name": "gun_turret_L",
+  "parent": "turret_dorsal_guns",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.13,
+   1.164,
+   1.5539
+  ],
+  "tris": 262,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "gun_body",
+   "swap": "stock 50cal_doorGun_barrel mesh fits this transform 1:1 (origin, +Z fwd, +Y up)",
+   "note": "top turret M2"
+  }
+ },
+ {
+  "name": "gun_turret_R",
+  "parent": "turret_dorsal_guns",
+  "type": "MESH",
+  "pivot_unity": [
+   0.13,
+   1.164,
+   1.5539
+  ],
+  "tris": 262,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "gun_body",
+   "swap": "stock 50cal_doorGun_barrel mesh fits this transform 1:1 (origin, +Z fwd, +Y up)",
+   "note": "top turret M2"
+  }
+ },
+ {
+  "name": "gun_waist_L",
+  "parent": "waist_gun_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.4295,
+   -0.0541,
+   -3.3711
+  ],
+  "tris": 262,
+  "local_axes_unity": {
+   "x": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    -1.0,
+    0.0,
+    0.0
+   ]
+  },
+  "info": {
+   "kind": "gun_body",
+   "swap": "stock 50cal_doorGun_barrel mesh fits this transform 1:1 (origin, +Z fwd, +Y up)",
+   "note": "waist M2"
+  }
+ },
+ {
+  "name": "gun_waist_R",
+  "parent": "waist_gun_R",
+  "type": "MESH",
+  "pivot_unity": [
+   0.4111,
+   -0.0561,
+   -3.9211
+  ],
+  "tris": 262,
+  "local_axes_unity": {
+   "x": [
+    0.0,
+    0.0,
+    -1.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    1.0,
+    0.0,
+    0.0
+   ]
+  },
+  "info": {
+   "kind": "gun_body",
+   "swap": "stock 50cal_doorGun_barrel mesh fits this transform 1:1 (origin, +Z fwd, +Y up)",
+   "note": "waist M2"
+  }
+ },
+ {
+  "name": "gunsight_combiner",
+  "parent": "gunsight_pilot",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.36,
+   0.8123,
+   3.9839
+  ],
+  "tris": 4,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "combiner",
+   "note": "glass quad; reticle material slot"
+  }
+ },
+ {
+  "name": "gunsight_pilot",
+  "parent": "fus_cockpit",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.36,
+   0.7053,
+   4.0539
+  ],
+  "tris": 24,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "note": "N-3B style reflector sight"
+  }
+ },
+ {
+  "name": "hatch_cockpit_top",
+  "parent": "hatch_cockpit_top_hinge",
+  "type": "MESH",
+  "pivot_unity": [
+   0.0,
+   1.1007,
+   3.4839
+  ],
+  "tris": 1876,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "hatch",
+   "open_deg_blender": -100.0,
+   "note": "glazed roof escape hatch, hinged at its front edge, opens upward; jettison = Canopy.ejectionTransform"
+  }
+ },
+ {
+  "name": "hatch_cockpit_top_hinge",
+  "parent": "fus_cockpit",
+  "type": "EMPTY",
+  "pivot_unity": [
+   0.0,
+   1.1007,
+   3.4839
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "hatch_hinge",
+   "hinge_axis": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "hinge_axis_unity": [
+    1.0,
+    0.0,
+    0.0
+   ]
+  }
+ },
+ {
+  "name": "hatch_entry_fwd",
+  "parent": "hatch_entry_fwd_hinge",
+  "type": "MESH",
+  "pivot_unity": [
+   0.0,
+   -1.13,
+   1.5339
+  ],
+  "tris": 56,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "hatch",
+   "open_deg_blender": 100.0,
+   "note": "forward crew entrance hatch (under the navigator/turret compartment, aft of the nose wheel well); hinged at its front edge, drops down; jettison = Canopy.ejectionTransform"
+  }
+ },
+ {
+  "name": "hatch_entry_fwd_hinge",
+  "parent": "fus_forward",
+  "type": "EMPTY",
+  "pivot_unity": [
+   0.0,
+   -1.13,
+   1.5339
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "hatch_hinge",
+   "hinge_axis": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "hinge_axis_unity": [
+    1.0,
+    0.0,
+    0.0
+   ]
+  }
+ },
+ {
+  "name": "hatch_entry_rear",
+  "parent": "hatch_entry_rear_hinge",
+  "type": "MESH",
+  "pivot_unity": [
+   0.0,
+   -0.9269,
+   -4.9461
+  ],
+  "tris": 76,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "hatch",
+   "open_deg_blender": 100.0,
+   "note": "rear entrance hatch under the aft fuselage; hinged at its front edge, drops down"
+  }
+ },
+ {
+  "name": "hatch_entry_rear_hinge",
+  "parent": "fus_rear",
+  "type": "EMPTY",
+  "pivot_unity": [
+   0.0,
+   -0.9269,
+   -4.9461
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "hatch_hinge",
+   "hinge_axis": [
+    0.9999999403953552,
+    0.0,
+    0.0
+   ],
+   "hinge_axis_unity": [
+    1.0,
+    0.0,
+    0.0
+   ]
+  }
+ },
+ {
+  "name": "hatch_waist_L",
+  "parent": "hatch_waist_L_hinge",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.7095,
+   0.3211,
+   -3.3711
+  ],
+  "tris": 712,
+  "local_axes_unity": {
+   "x": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    -1.0,
+    0.0,
+    0.0
+   ]
+  },
+  "info": {
+   "kind": "hatch",
+   "open_deg_blender": 95.0,
+   "note": "waist window hatch (glazed, ball socket for the waist gun), hinged at its top edge, free edge swings outward; jettison = Canopy.ejectionTransform"
+  }
+ },
+ {
+  "name": "hatch_waist_L_hinge",
+  "parent": "fus_rear",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -0.7095,
+   0.3211,
+   -3.3711
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    -1.0,
+    0.0,
+    0.0
+   ]
+  },
+  "info": {
+   "kind": "hatch_hinge",
+   "hinge_axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "hinge_axis_unity": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  }
+ },
+ {
+  "name": "hatch_waist_R",
+  "parent": "hatch_waist_R_hinge",
+  "type": "MESH",
+  "pivot_unity": [
+   0.6911,
+   0.308,
+   -3.9211
+  ],
+  "tris": 712,
+  "local_axes_unity": {
+   "x": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    -1.0,
+    0.0,
+    0.0
+   ]
+  },
+  "info": {
+   "kind": "hatch",
+   "open_deg_blender": -95.0,
+   "note": "waist window hatch (glazed, ball socket for the waist gun), hinged at its top edge, free edge swings outward; jettison = Canopy.ejectionTransform"
+  }
+ },
+ {
+  "name": "hatch_waist_R_hinge",
+  "parent": "fus_rear",
+  "type": "EMPTY",
+  "pivot_unity": [
+   0.6911,
+   0.308,
+   -3.9211
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    -1.0,
+    0.0,
+    0.0
+   ]
+  },
+  "info": {
+   "kind": "hatch_hinge",
+   "hinge_axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "hinge_axis_unity": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  }
+ },
+ {
+  "name": "hp_bombbay",
+  "parent": "fus_center",
+  "type": "EMPTY",
+  "pivot_unity": [
+   0.0,
+   -0.43,
+   -0.3261
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "hardpoint",
+   "note": "v3: lowered 0.23 m so stock internal mounts (bombs 0.15 m below the hardpoint) clear the bay roof; carrier beam above"
+  }
+ },
+ {
+  "name": "hp_rail_L1",
+  "parent": "wing_outer_L",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -4.1,
+   0.0142,
+   -0.1479
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "hardpoint",
+   "note": "at the pylon bottom face (stock CAS1 pattern: hardpoint = pylon origin at its bottom)"
+  }
+ },
+ {
+  "name": "hp_rail_L2",
+  "parent": "wing_outer_L",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -4.6,
+   0.0311,
+   -0.1539
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "hardpoint",
+   "note": "at the pylon bottom face (stock CAS1 pattern: hardpoint = pylon origin at its bottom)"
+  }
+ },
+ {
+  "name": "hp_rail_L3",
+  "parent": "wing_outer_L",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -5.1,
+   0.0475,
+   -0.1599
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "hardpoint",
+   "note": "at the pylon bottom face (stock CAS1 pattern: hardpoint = pylon origin at its bottom)"
+  }
+ },
+ {
+  "name": "hp_rail_L4",
+  "parent": "wing_outer_L",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -5.6,
+   0.0632,
+   -0.1658
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "hardpoint",
+   "note": "at the pylon bottom face (stock CAS1 pattern: hardpoint = pylon origin at its bottom)"
+  }
+ },
+ {
+  "name": "hp_rail_R1",
+  "parent": "wing_outer_R",
+  "type": "EMPTY",
+  "pivot_unity": [
+   4.1,
+   0.0142,
+   -0.1479
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "hardpoint",
+   "note": "at the pylon bottom face (stock CAS1 pattern: hardpoint = pylon origin at its bottom)"
+  }
+ },
+ {
+  "name": "hp_rail_R2",
+  "parent": "wing_outer_R",
+  "type": "EMPTY",
+  "pivot_unity": [
+   4.6,
+   0.0311,
+   -0.1539
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "hardpoint",
+   "note": "at the pylon bottom face (stock CAS1 pattern: hardpoint = pylon origin at its bottom)"
+  }
+ },
+ {
+  "name": "hp_rail_R3",
+  "parent": "wing_outer_R",
+  "type": "EMPTY",
+  "pivot_unity": [
+   5.1,
+   0.0475,
+   -0.1599
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "hardpoint",
+   "note": "at the pylon bottom face (stock CAS1 pattern: hardpoint = pylon origin at its bottom)"
+  }
+ },
+ {
+  "name": "hp_rail_R4",
+  "parent": "wing_outer_R",
+  "type": "EMPTY",
+  "pivot_unity": [
+   5.6,
+   0.0632,
+   -0.1658
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "hardpoint",
+   "note": "at the pylon bottom face (stock CAS1 pattern: hardpoint = pylon origin at its bottom)"
+  }
+ },
+ {
+  "name": "hp_wingrack_L",
+  "parent": "wing_inner_L",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -1.75,
+   -0.1851,
+   -0.2214
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "hardpoint",
+   "note": "at the pylon bottom face (stock CAS1 pattern: hardpoint = pylon origin at its bottom)"
+  }
+ },
+ {
+  "name": "hp_wingrack_R",
+  "parent": "wing_inner_R",
+  "type": "EMPTY",
+  "pivot_unity": [
+   1.75,
+   -0.1851,
+   -0.2214
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "hardpoint",
+   "note": "at the pylon bottom face (stock CAS1 pattern: hardpoint = pylon origin at its bottom)"
+  }
+ },
+ {
+  "name": "mfd_center",
+  "parent": "fus_cockpit",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0651,
+   0.3778,
+   3.9734
+  ],
+  "tris": 2,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "mfd",
+   "size_m": [
+    0.15,
+    0.11
+   ],
+   "normal_unity": [
+    0.0,
+    0.1392,
+    -0.9903
+   ],
+   "uv": "0-1; u -> pilot right, v -> panel up",
+   "note": "retrofit tac unit in the lower centre stack (Cockpit.tacScreenRender) (2082 retrofit unit, fal bezel art)"
+  }
+ },
+ {
+  "name": "mfd_left",
+  "parent": "fus_cockpit",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.5551,
+   0.3368,
+   3.9677
+  ],
+  "tris": 2,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "mfd",
+   "size_m": [
+    0.12,
+    0.1
+   ],
+   "normal_unity": [
+    0.0,
+    0.1392,
+    -0.9903
+   ],
+   "uv": "0-1; u -> pilot right, v -> panel up",
+   "note": "retrofit pilot tac unit, outboard lower left (2082 retrofit unit, fal bezel art)"
+  }
+ },
+ {
+  "name": "mfd_right",
+  "parent": "fus_cockpit",
+  "type": "MESH",
+  "pivot_unity": [
+   0.5399,
+   0.3518,
+   3.9698
+  ],
+  "tris": 2,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "mfd",
+   "size_m": [
+    0.12,
+    0.1
+   ],
+   "normal_unity": [
+    0.0,
+    0.1392,
+    -0.9903
+   ],
+   "uv": "0-1; u -> pilot right, v -> panel up",
+   "note": "retrofit navigator tac unit, outboard lower right (2082 retrofit unit, fal bezel art)"
+  }
+ },
+ {
+  "name": "muzzle_cannon",
+  "parent": "cannon",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -0.4,
+   -0.55,
+   5.5589
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {}
+ },
+ {
+  "name": "muzzle_nose_1",
+  "parent": "nose_guns",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -0.1,
+   0.31,
+   5.6839
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {}
+ },
+ {
+  "name": "muzzle_nose_2",
+  "parent": "nose_guns",
+  "type": "EMPTY",
+  "pivot_unity": [
+   0.1,
+   0.31,
+   5.6839
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {}
+ },
+ {
+  "name": "muzzle_nose_3",
+  "parent": "nose_guns",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -0.27,
+   0.17,
+   5.7289
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {}
+ },
+ {
+  "name": "muzzle_nose_4",
+  "parent": "nose_guns",
+  "type": "EMPTY",
+  "pivot_unity": [
+   0.27,
+   0.17,
+   5.7289
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {}
+ },
+ {
+  "name": "muzzle_package_L1",
+  "parent": "package_guns_L",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -0.845,
+   -0.24,
+   3.8739
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {}
+ },
+ {
+  "name": "muzzle_package_L2",
+  "parent": "package_guns_L",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -0.845,
+   -0.5,
+   3.8739
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {}
+ },
+ {
+  "name": "muzzle_package_R1",
+  "parent": "package_guns_R",
+  "type": "EMPTY",
+  "pivot_unity": [
+   0.845,
+   -0.24,
+   3.8739
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {}
+ },
+ {
+  "name": "muzzle_package_R2",
+  "parent": "package_guns_R",
+  "type": "EMPTY",
+  "pivot_unity": [
+   0.845,
+   -0.5,
+   3.8739
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {}
+ },
+ {
+  "name": "muzzle_tail_L",
+  "parent": "gun_tail_L",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -0.085,
+   0.15,
+   -10.9961
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    -1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    -1.0
+   ]
+  },
+  "info": {
+   "kind": "muzzle"
+  }
+ },
+ {
+  "name": "muzzle_tail_R",
+  "parent": "gun_tail_R",
+  "type": "EMPTY",
+  "pivot_unity": [
+   0.085,
+   0.15,
+   -10.9961
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    -1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    -1.0
+   ]
+  },
+  "info": {
+   "kind": "muzzle"
+  }
+ },
+ {
+  "name": "muzzle_turret_L",
+  "parent": "gun_turret_L",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -0.13,
+   1.21,
+   2.7539
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "muzzle"
+  }
+ },
+ {
+  "name": "muzzle_turret_R",
+  "parent": "gun_turret_R",
+  "type": "EMPTY",
+  "pivot_unity": [
+   0.13,
+   1.21,
+   2.7539
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "muzzle"
+  }
+ },
+ {
+  "name": "muzzle_waist_L",
+  "parent": "gun_waist_L",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -1.6295,
+   -0.0081,
+   -3.3711
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    -1.0,
+    0.0,
+    0.0
+   ]
+  },
+  "info": {
+   "kind": "muzzle"
+  }
+ },
+ {
+  "name": "muzzle_waist_R",
+  "parent": "gun_waist_R",
+  "type": "EMPTY",
+  "pivot_unity": [
+   1.6111,
+   -0.0101,
+   -3.9211
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    0.0,
+    0.0,
+    -1.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    1.0,
+    0.0,
+    0.0
+   ]
+  },
+  "info": {
+   "kind": "muzzle"
+  }
+ },
+ {
+  "name": "nacelle_L",
+  "parent": "wing_inner_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -2.95,
+   -0.25,
+   1.3739
+  ],
+  "tris": 3492,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "note": "firewall cap at y=1.62; main gear well open at bottom"
+  }
+ },
+ {
+  "name": "nacelle_R",
+  "parent": "wing_inner_R",
+  "type": "MESH",
+  "pivot_unity": [
+   2.95,
+   -0.25,
+   1.3739
+  ],
+  "tris": 3492,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "note": "firewall cap at y=1.62; main gear well open at bottom"
+  }
+ },
+ {
+  "name": "nose_guns",
+  "parent": "fus_nose",
+  "type": "MESH",
+  "pivot_unity": [
+   0.0,
+   0.25,
+   4.7539
+  ],
+  "tris": 712,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "note": "4x .50 cal, fixed"
+  }
+ },
+ {
+  "name": "package_guns_L",
+  "parent": "fus_cockpit",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.8,
+   -0.37,
+   2.5539
+  ],
+  "tris": 428,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {}
+ },
+ {
+  "name": "package_guns_R",
+  "parent": "fus_cockpit",
+  "type": "MESH",
+  "pivot_unity": [
+   0.8,
+   -0.37,
+   2.5539
+  ],
+  "tris": 428,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {}
+ },
+ {
+  "name": "prop_L_blade1",
+  "parent": "prop_hub_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -2.95,
+   -0.25,
+   2.7339
+  ],
+  "tris": 208,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "pitch_axis_local": "+Z (Blender) = +Y (Unity), radial"
+  }
+ },
+ {
+  "name": "prop_L_blade2",
+  "parent": "prop_hub_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -2.95,
+   -0.25,
+   2.7339
+  ],
+  "tris": 208,
+  "local_axes_unity": {
+   "x": [
+    -0.5,
+    -0.866,
+    0.0
+   ],
+   "y": [
+    0.866,
+    -0.5,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "pitch_axis_local": "+Z (Blender) = +Y (Unity), radial"
+  }
+ },
+ {
+  "name": "prop_L_blade3",
+  "parent": "prop_hub_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -2.95,
+   -0.25,
+   2.7339
+  ],
+  "tris": 208,
+  "local_axes_unity": {
+   "x": [
+    -0.5,
+    0.866,
+    0.0
+   ],
+   "y": [
+    -0.866,
+    -0.5,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "pitch_axis_local": "+Z (Blender) = +Y (Unity), radial"
+  }
+ },
+ {
+  "name": "prop_R_blade1",
+  "parent": "prop_hub_R",
+  "type": "MESH",
+  "pivot_unity": [
+   2.95,
+   -0.25,
+   2.7339
+  ],
+  "tris": 208,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "pitch_axis_local": "+Z (Blender) = +Y (Unity), radial"
+  }
+ },
+ {
+  "name": "prop_R_blade2",
+  "parent": "prop_hub_R",
+  "type": "MESH",
+  "pivot_unity": [
+   2.95,
+   -0.25,
+   2.7339
+  ],
+  "tris": 208,
+  "local_axes_unity": {
+   "x": [
+    -0.5,
+    -0.866,
+    0.0
+   ],
+   "y": [
+    0.866,
+    -0.5,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "pitch_axis_local": "+Z (Blender) = +Y (Unity), radial"
+  }
+ },
+ {
+  "name": "prop_R_blade3",
+  "parent": "prop_hub_R",
+  "type": "MESH",
+  "pivot_unity": [
+   2.95,
+   -0.25,
+   2.7339
+  ],
+  "tris": 208,
+  "local_axes_unity": {
+   "x": [
+    -0.5,
+    0.866,
+    0.0
+   ],
+   "y": [
+    -0.866,
+    -0.5,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "pitch_axis_local": "+Z (Blender) = +Y (Unity), radial"
+  }
+ },
+ {
+  "name": "prop_disc_L",
+  "parent": "prop_hub_L",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -2.95,
+   -0.25,
+   2.7339
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "prop_disc",
+   "note": "MeshFilter slot for ConstantSpeedProp.propDisc; meshes in b25h_v2_propdisc.fbx (propdisc_blur, propdisc_full); local +Z (Unity) = spin axis"
+  }
+ },
+ {
+  "name": "prop_disc_R",
+  "parent": "prop_hub_R",
+  "type": "EMPTY",
+  "pivot_unity": [
+   2.95,
+   -0.25,
+   2.7339
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "prop_disc",
+   "note": "MeshFilter slot for ConstantSpeedProp.propDisc; meshes in b25h_v2_propdisc.fbx (propdisc_blur, propdisc_full); local +Z (Unity) = spin axis"
+  }
+ },
+ {
+  "name": "prop_hub_L",
+  "parent": "engine_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -2.95,
+   -0.25,
+   2.7339
+  ],
+  "tris": 384,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "spin_axis_local": "+Y (Blender) = +Z (Unity) forward",
+   "note": "clockwise seen from behind (both engines)"
+  }
+ },
+ {
+  "name": "prop_hub_R",
+  "parent": "engine_R",
+  "type": "MESH",
+  "pivot_unity": [
+   2.95,
+   -0.25,
+   2.7339
+  ],
+  "tris": 384,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "spin_axis_local": "+Y (Blender) = +Z (Unity) forward",
+   "note": "clockwise seen from behind (both engines)"
+  }
+ },
+ {
+  "name": "propdisc_blur",
+  "parent": null,
+  "type": "MESH",
+  "pivot_unity": [
+   0.0,
+   -0.25,
+   -0.2461
+  ],
+  "tris": 1536,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "prop_disc_mesh",
+   "note": "hub frame; Unity +Z = spin axis; UV: blur = v 0.5-1, full disc = v 0-0.5"
+  }
+ },
+ {
+  "name": "propdisc_full",
+  "parent": null,
+  "type": "MESH",
+  "pivot_unity": [
+   0.0,
+   -0.25,
+   -0.2461
+  ],
+  "tris": 1536,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "prop_disc_mesh",
+   "note": "hub frame; Unity +Z = spin axis; UV: blur = v 0.5-1, full disc = v 0-0.5"
+  }
+ },
+ {
+  "name": "pylon_rail_L1",
+  "parent": "wing_outer_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -4.1,
+   0.0142,
+   -0.1479
+  ],
+  "tris": 112,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "pylon",
+   "bottom_z": 0.2642,
+   "depth_below_skin": 0.07,
+   "note": "HVAR zero-length launcher post; RocketPod1_single hangs from it"
+  }
+ },
+ {
+  "name": "pylon_rail_L2",
+  "parent": "wing_outer_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -4.6,
+   0.0311,
+   -0.1539
+  ],
+  "tris": 112,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "pylon",
+   "bottom_z": 0.2811,
+   "depth_below_skin": 0.07,
+   "note": "HVAR zero-length launcher post; RocketPod1_single hangs from it"
+  }
+ },
+ {
+  "name": "pylon_rail_L3",
+  "parent": "wing_outer_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -5.1,
+   0.0475,
+   -0.1599
+  ],
+  "tris": 112,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "pylon",
+   "bottom_z": 0.2975,
+   "depth_below_skin": 0.07,
+   "note": "HVAR zero-length launcher post; RocketPod1_single hangs from it"
+  }
+ },
+ {
+  "name": "pylon_rail_L4",
+  "parent": "wing_outer_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -5.6,
+   0.0632,
+   -0.1658
+  ],
+  "tris": 112,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "pylon",
+   "bottom_z": 0.3132,
+   "depth_below_skin": 0.07,
+   "note": "HVAR zero-length launcher post; RocketPod1_single hangs from it"
+  }
+ },
+ {
+  "name": "pylon_rail_R1",
+  "parent": "wing_outer_R",
+  "type": "MESH",
+  "pivot_unity": [
+   4.1,
+   0.0142,
+   -0.1479
+  ],
+  "tris": 112,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "pylon",
+   "bottom_z": 0.2642,
+   "depth_below_skin": 0.07,
+   "note": "HVAR zero-length launcher post; RocketPod1_single hangs from it"
+  }
+ },
+ {
+  "name": "pylon_rail_R2",
+  "parent": "wing_outer_R",
+  "type": "MESH",
+  "pivot_unity": [
+   4.6,
+   0.0311,
+   -0.1539
+  ],
+  "tris": 112,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "pylon",
+   "bottom_z": 0.2811,
+   "depth_below_skin": 0.07,
+   "note": "HVAR zero-length launcher post; RocketPod1_single hangs from it"
+  }
+ },
+ {
+  "name": "pylon_rail_R3",
+  "parent": "wing_outer_R",
+  "type": "MESH",
+  "pivot_unity": [
+   5.1,
+   0.0475,
+   -0.1599
+  ],
+  "tris": 112,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "pylon",
+   "bottom_z": 0.2975,
+   "depth_below_skin": 0.07,
+   "note": "HVAR zero-length launcher post; RocketPod1_single hangs from it"
+  }
+ },
+ {
+  "name": "pylon_rail_R4",
+  "parent": "wing_outer_R",
+  "type": "MESH",
+  "pivot_unity": [
+   5.6,
+   0.0632,
+   -0.1658
+  ],
+  "tris": 112,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "pylon",
+   "bottom_z": 0.3132,
+   "depth_below_skin": 0.07,
+   "note": "HVAR zero-length launcher post; RocketPod1_single hangs from it"
+  }
+ },
+ {
+  "name": "pylon_wingrack_L",
+  "parent": "wing_inner_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -1.75,
+   -0.1851,
+   -0.2214
+  ],
+  "tris": 112,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "pylon",
+   "bottom_z": 0.0649,
+   "depth_below_skin": 0.11,
+   "note": "wing bomb rack; launchpylon1-based bomb mounts hang from it"
+  }
+ },
+ {
+  "name": "pylon_wingrack_R",
+  "parent": "wing_inner_R",
+  "type": "MESH",
+  "pivot_unity": [
+   1.75,
+   -0.1851,
+   -0.2214
+  ],
+  "tris": 112,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "pylon",
+   "bottom_z": 0.0649,
+   "depth_below_skin": 0.11,
+   "note": "wing bomb rack; launchpylon1-based bomb mounts hang from it"
+  }
+ },
+ {
+  "name": "quadrant_throttle_L",
+  "parent": "fus_cockpit",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.014,
+   0.2209,
+   3.8011
+  ],
+  "tris": 262,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "throttle_lever",
+   "axis_local": "+X (Unity) = right (lateral)",
+   "rest_deg": 6.0,
+   "range_deg": 40.0,
+   "drive": "Cockpit.throttles[] rotation",
+   "sign": "Unity +angle about local +X moves the lever top FORWARD (as the column); idle at rest",
+   "note": "fal-generated throttle lever (tripo3d image-to-3D + remesh) in its slot"
+  }
+ },
+ {
+  "name": "quadrant_throttle_R",
+  "parent": "fus_cockpit",
+  "type": "MESH",
+  "pivot_unity": [
+   0.014,
+   0.2209,
+   3.8011
+  ],
+  "tris": 262,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "throttle_lever",
+   "axis_local": "+X (Unity) = right (lateral)",
+   "rest_deg": 6.0,
+   "range_deg": 40.0,
+   "drive": "Cockpit.throttles[] rotation",
+   "sign": "Unity +angle about local +X moves the lever top FORWARD (as the column); idle at rest",
+   "note": "fal-generated throttle lever (tripo3d image-to-3D + remesh) in its slot"
+  }
+ },
+ {
+  "name": "rudder_L",
+  "parent": "fin_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -3.35,
+   0.59,
+   -8.3661
+  ],
+  "tris": 260,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "hinge_axis_local": "+Z (Blender) = +Y (Unity)",
+   "note": "rudder hinge y=-8.12"
+  }
+ },
+ {
+  "name": "rudder_R",
+  "parent": "fin_R",
+  "type": "MESH",
+  "pivot_unity": [
+   3.35,
+   0.59,
+   -8.3661
+  ],
+  "tris": 260,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "hinge_axis_local": "+Z (Blender) = +Y (Unity)",
+   "note": "rudder hinge y=-8.12"
+  }
+ },
+ {
+  "name": "stab_L",
+  "parent": "fus_tail",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.4,
+   0.59,
+   -7.8461
+  ],
+  "tris": 410,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {}
+ },
+ {
+  "name": "stab_R",
+  "parent": "fus_tail",
+  "type": "MESH",
+  "pivot_unity": [
+   0.4,
+   0.59,
+   -7.8461
+  ],
+  "tris": 410,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {}
+ },
+ {
+  "name": "tail_guns",
+  "parent": "tail_turret_az",
+  "type": "MESH",
+  "pivot_unity": [
+   0.0,
+   0.15,
+   -9.7961
+  ],
+  "tris": 60,
+  "local_axes_unity": {
+   "x": [
+    -1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    -1.0
+   ]
+  },
+  "info": {
+   "kind": "turret_el",
+   "axis_local": "+X (Unity) = gunner right (aircraft left)",
+   "minElevation": -25,
+   "maxElevation": 25,
+   "elevationRate": 35,
+   "note": "twin M2 cradle, rests identity under tail_turret_az"
+  }
+ },
+ {
+  "name": "tail_turret_az",
+  "parent": "tail_turret_mount",
+  "type": "MESH",
+  "pivot_unity": [
+   0.0,
+   -0.03,
+   -9.7961
+  ],
+  "tris": 100,
+  "local_axes_unity": {
+   "x": [
+    -1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    -1.0
+   ]
+  },
+  "info": {
+   "kind": "turret_az",
+   "axis_local": "+Y (Unity) = up",
+   "traverseRange": 20,
+   "traverseRate": 40,
+   "note": "H tail position yoke; rests identity under tail_turret_mount"
+  }
+ },
+ {
+  "name": "tail_turret_mount",
+  "parent": "fus_tail",
+  "type": "EMPTY",
+  "pivot_unity": [
+   0.0,
+   -0.03,
+   -9.7961
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    -1.0,
+    0.0,
+    -0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    -1.0
+   ]
+  },
+  "info": {
+   "kind": "turret_mount",
+   "note": "Unity +Z = aft"
+  }
+ },
+ {
+  "name": "turret_dorsal",
+  "parent": "turret_dorsal_mount",
+  "type": "MESH",
+  "pivot_unity": [
+   0.0,
+   0.98,
+   1.5739
+  ],
+  "tris": 4588,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "turret_az",
+   "axis_local": "+Y (Unity) = up",
+   "traverseRange": 360,
+   "traverseRate": 45,
+   "note": "Bendix top turret: drum, dome, frames, cradle supports, gunner seat; rests identity"
+  }
+ },
+ {
+  "name": "turret_dorsal_guns",
+  "parent": "turret_dorsal",
+  "type": "MESH",
+  "pivot_unity": [
+   0.0,
+   1.21,
+   1.5739
+  ],
+  "tris": 72,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "turret_el",
+   "axis_local": "+X (Unity) = right",
+   "minElevation": -5,
+   "maxElevation": 85,
+   "elevationRate": 40,
+   "note": "twin M2 cradle; rests identity under turret_dorsal"
+  }
+ },
+ {
+  "name": "turret_dorsal_mount",
+  "parent": "fus_forward",
+  "type": "EMPTY",
+  "pivot_unity": [
+   0.0,
+   0.98,
+   1.5739
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "turret_mount",
+   "note": "identity (fwd = +Z)"
+  }
+ },
+ {
+  "name": "waist_gun_L",
+  "parent": "waist_gun_L_az",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.7095,
+   -0.0081,
+   -3.3711
+  ],
+  "tris": 360,
+  "local_axes_unity": {
+   "x": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    -1.0,
+    0.0,
+    0.0
+   ]
+  },
+  "info": {
+   "kind": "turret_el",
+   "axis_local": "+X (Unity) (horizontal, along the fuselage)",
+   "minElevation": -30,
+   "maxElevation": 40,
+   "elevationRate": 60,
+   "note": "single M2 on the ball mount; rests identity under the az"
+  }
+ },
+ {
+  "name": "waist_gun_L_az",
+  "parent": "waist_gun_L_mount",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.7095,
+   -0.0081,
+   -3.3711
+  ],
+  "tris": 40,
+  "local_axes_unity": {
+   "x": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    -1.0,
+    0.0,
+    0.0
+   ]
+  },
+  "info": {
+   "kind": "turret_az",
+   "axis_local": "+Y (Unity) = up",
+   "traverseRange": 40,
+   "traverseRate": 60,
+   "note": "ball socket in the waist hatch glass; rests identity under the mount"
+  }
+ },
+ {
+  "name": "waist_gun_L_mount",
+  "parent": "fus_rear",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -0.7095,
+   -0.0081,
+   -3.3711
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    -1.0,
+    0.0,
+    0.0
+   ]
+  },
+  "info": {
+   "kind": "turret_mount",
+   "note": "Unity +Z = outboard"
+  }
+ },
+ {
+  "name": "waist_gun_R",
+  "parent": "waist_gun_R_az",
+  "type": "MESH",
+  "pivot_unity": [
+   0.6911,
+   -0.0101,
+   -3.9211
+  ],
+  "tris": 360,
+  "local_axes_unity": {
+   "x": [
+    0.0,
+    0.0,
+    -1.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    1.0,
+    0.0,
+    0.0
+   ]
+  },
+  "info": {
+   "kind": "turret_el",
+   "axis_local": "+X (Unity) (horizontal, along the fuselage)",
+   "minElevation": -30,
+   "maxElevation": 40,
+   "elevationRate": 60,
+   "note": "single M2 on the ball mount; rests identity under the az"
+  }
+ },
+ {
+  "name": "waist_gun_R_az",
+  "parent": "waist_gun_R_mount",
+  "type": "MESH",
+  "pivot_unity": [
+   0.6911,
+   -0.0101,
+   -3.9211
+  ],
+  "tris": 40,
+  "local_axes_unity": {
+   "x": [
+    0.0,
+    0.0,
+    -1.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    1.0,
+    0.0,
+    0.0
+   ]
+  },
+  "info": {
+   "kind": "turret_az",
+   "axis_local": "+Y (Unity) = up",
+   "traverseRange": 40,
+   "traverseRate": 60,
+   "note": "ball socket in the waist hatch glass; rests identity under the mount"
+  }
+ },
+ {
+  "name": "waist_gun_R_mount",
+  "parent": "fus_rear",
+  "type": "EMPTY",
+  "pivot_unity": [
+   0.6911,
+   -0.0101,
+   -3.9211
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    0.0,
+    0.0,
+    -1.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    1.0,
+    0.0,
+    0.0
+   ]
+  },
+  "info": {
+   "kind": "turret_mount",
+   "note": "Unity +Z = outboard"
+  }
+ },
+ {
+  "name": "wing_inner_L",
+  "parent": "fus_center",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.62,
+   0.08,
+   -0.2461
+  ],
+  "tris": 1114,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "note": "root rib at x=0.62 (inside fuselage side)"
+  }
+ },
+ {
+  "name": "wing_inner_R",
+  "parent": "fus_center",
+  "type": "MESH",
+  "pivot_unity": [
+   0.62,
+   0.08,
+   -0.2461
+  ],
+  "tris": 1114,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "note": "root rib at x=0.62 (inside fuselage side)"
+  }
+ },
+ {
+  "name": "wing_outer_L",
+  "parent": "wing_inner_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -2.9495,
+   0.2976,
+   -0.0733
+  ],
+  "tris": 1030,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {}
+ },
+ {
+  "name": "wing_outer_R",
+  "parent": "wing_inner_R",
+  "type": "MESH",
+  "pivot_unity": [
+   2.9495,
+   0.2976,
+   -0.0733
+  ],
+  "tris": 1030,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {}
+ },
+ {
+  "name": "wing_tip_L",
+  "parent": "wing_outer_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -6.1496,
+   0.3166,
+   -0.1206
+  ],
+  "tris": 1575,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {}
+ },
+ {
+  "name": "wing_tip_R",
+  "parent": "wing_outer_R",
+  "type": "MESH",
+  "pivot_unity": [
+   6.1496,
+   0.3166,
+   -0.1206
+  ],
+  "tris": 1575,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {}
+ }
+]

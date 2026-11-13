@@ -1,0 +1,697 @@
+{
+ "aircraft": "B17G",
+ "frame": "blender: x right, y forward, z up; metres; gear down",
+ "cg": [
+  0.00013848971866536885,
+  0.7153460383415222,
+  0.39707520604133606
+ ],
+ "mac": {
+  "length": 4.370383612216314,
+  "le_y": 1.6736718750000001,
+  "x": 7.490625
+ },
+ "cg_pct_mac": 21.927728128480936,
+ "mass_kg": 24895.0,
+ "prop": {
+  "radius": 1.765,
+  "blades": 3,
+  "engines": {
+   "1": [
+    -1,
+    "outer"
+   ],
+   "2": [
+    -1,
+    "inner"
+   ],
+   "3": [
+    1,
+    "inner"
+   ],
+   "4": [
+    1,
+    "outer"
+   ]
+  }
+ },
+ "gear": {
+  "main_pivot": [
+   1.6,
+   -0.52
+  ],
+  "main_leg": 1.38,
+  "main_fold_deg": 79.73169420198975,
+  "main_fold_sense": "forward-up",
+  "wheel_r": 0.711,
+  "tail_pivot": [
+   -9.05,
+   0.1
+  ],
+  "tail_axle_down": [
+   -9.95,
+   -0.52
+  ],
+  "tail_fold_deg": 27.0,
+  "tail_fold_sense": "aft-up"
+ },
+ "bay": {
+  "y": [
+   -1.15,
+   1.8
+  ],
+  "hardpoint": [
+   0.0,
+   0.33,
+   0.62
+  ],
+  "stores": {
+   "bomb_250_internalx8 (8 x PAB-250)": [
+    -0.75,
+    0.75,
+    -1.125,
+    1.125,
+    -0.47,
+    0.17
+   ],
+   "bomb_500_internalx4_stack (4 x GPO-500)": [
+    -0.5,
+    0.5,
+    -1.35,
+    1.35,
+    -0.605,
+    0.295
+   ],
+   "bomb_cluster1_dual_internal (2 x CBO-400)": [
+    -0.4,
+    0.4,
+    -1.35,
+    1.35,
+    -0.4,
+    0.05
+   ],
+   "nuclearBomb1_internal (GPO-N)": [
+    -0.25,
+    0.25,
+    -1.35,
+    1.35,
+    -0.4,
+    0.1
+   ]
+  },
+  "door_open_deg": 92
+ },
+ "turrets": [
+  {
+   "mount": {
+    "name": "chin_mount"
+   },
+   "az": {
+    "name": "chin_az"
+   },
+   "el": {
+    "name": "chin_el"
+   },
+   "station": "Chin",
+   "guns": [
+    {
+     "gun": {
+      "name": "chin_gun0"
+     },
+     "muzzle": {
+      "name": "chin_muzzle0"
+     }
+    },
+    {
+     "gun": {
+      "name": "chin_gun1"
+     },
+     "muzzle": {
+      "name": "chin_muzzle1"
+     }
+    }
+   ],
+   "Turret": {
+    "traverseRange": 86.0,
+    "traverseRate": 45,
+    "minElevation": -26.0,
+    "maxElevation": 20.0,
+    "elevationRate": 40
+   }
+  },
+  {
+   "mount": {
+    "name": "top_mount"
+   },
+   "az": {
+    "name": "top_az"
+   },
+   "el": {
+    "name": "top_el"
+   },
+   "station": "Top",
+   "guns": [
+    {
+     "gun": {
+      "name": "top_gun0"
+     },
+     "muzzle": {
+      "name": "top_muzzle0"
+     }
+    },
+    {
+     "gun": {
+      "name": "top_gun1"
+     },
+     "muzzle": {
+      "name": "top_muzzle1"
+     }
+    }
+   ],
+   "Turret": {
+    "traverseRange": 360.0,
+    "traverseRate": 45,
+    "minElevation": 0.0,
+    "maxElevation": 85.0,
+    "elevationRate": 40
+   }
+  },
+  {
+   "mount": {
+    "name": "ball_mount"
+   },
+   "az": {
+    "name": "ball_az"
+   },
+   "el": {
+    "name": "ball_el"
+   },
+   "station": "Ball",
+   "guns": [
+    {
+     "gun": {
+      "name": "ball_gun0"
+     },
+     "muzzle": {
+      "name": "ball_muzzle0"
+     }
+    },
+    {
+     "gun": {
+      "name": "ball_gun1"
+     },
+     "muzzle": {
+      "name": "ball_muzzle1"
+     }
+    }
+   ],
+   "Turret": {
+    "traverseRange": 360.0,
+    "traverseRate": 45,
+    "minElevation": -90.0,
+    "maxElevation": 0.0,
+    "elevationRate": 40
+   }
+  },
+  {
+   "mount": {
+    "name": "tail_mount"
+   },
+   "az": {
+    "name": "tail_az"
+   },
+   "el": {
+    "name": "tail_el"
+   },
+   "station": "Tail",
+   "guns": [
+    {
+     "gun": {
+      "name": "tail_gun0"
+     },
+     "muzzle": {
+      "name": "tail_muzzle0"
+     }
+    },
+    {
+     "gun": {
+      "name": "tail_gun1"
+     },
+     "muzzle": {
+      "name": "tail_muzzle1"
+     }
+    }
+   ],
+   "Turret": {
+    "traverseRange": 30.0,
+    "traverseRate": 45,
+    "minElevation": -30.0,
+    "maxElevation": 30.0,
+    "elevationRate": 40
+   }
+  },
+  {
+   "mount": {
+    "name": "cheek_R_mount"
+   },
+   "az": {
+    "name": "cheek_R_az"
+   },
+   "el": {
+    "name": "cheek_R_el"
+   },
+   "station": "Flexible",
+   "guns": [
+    {
+     "gun": {
+      "name": "cheek_R_gun0"
+     },
+     "muzzle": {
+      "name": "cheek_R_muzzle0"
+     }
+    }
+   ],
+   "Turret": {
+    "traverseRange": 20.0,
+    "traverseRate": 45,
+    "minElevation": -20.0,
+    "maxElevation": 20.0,
+    "elevationRate": 40
+   }
+  },
+  {
+   "mount": {
+    "name": "cheek_L_mount"
+   },
+   "az": {
+    "name": "cheek_L_az"
+   },
+   "el": {
+    "name": "cheek_L_el"
+   },
+   "station": "Flexible",
+   "guns": [
+    {
+     "gun": {
+      "name": "cheek_L_gun0"
+     },
+     "muzzle": {
+      "name": "cheek_L_muzzle0"
+     }
+    }
+   ],
+   "Turret": {
+    "traverseRange": 20.0,
+    "traverseRate": 45,
+    "minElevation": -20.0,
+    "maxElevation": 20.0,
+    "elevationRate": 40
+   }
+  },
+  {
+   "mount": {
+    "name": "waist_R_mount"
+   },
+   "az": {
+    "name": "waist_R_az"
+   },
+   "el": {
+    "name": "waist_R_el"
+   },
+   "station": "Flexible",
+   "guns": [
+    {
+     "gun": {
+      "name": "waist_R_gun0"
+     },
+     "muzzle": {
+      "name": "waist_R_muzzle0"
+     }
+    }
+   ],
+   "Turret": {
+    "traverseRange": 55.0,
+    "traverseRate": 45,
+    "minElevation": -40.0,
+    "maxElevation": 50.0,
+    "elevationRate": 40
+   }
+  },
+  {
+   "mount": {
+    "name": "waist_L_mount"
+   },
+   "az": {
+    "name": "waist_L_az"
+   },
+   "el": {
+    "name": "waist_L_el"
+   },
+   "station": "Flexible",
+   "guns": [
+    {
+     "gun": {
+      "name": "waist_L_gun0"
+     },
+     "muzzle": {
+      "name": "waist_L_muzzle0"
+     }
+    }
+   ],
+   "Turret": {
+    "traverseRange": 55.0,
+    "traverseRate": 45,
+    "minElevation": -40.0,
+    "maxElevation": 50.0,
+    "elevationRate": 40
+   }
+  },
+  {
+   "mount": {
+    "name": "radio_mount"
+   },
+   "az": {
+    "name": "radio_az"
+   },
+   "el": {
+    "name": "radio_el"
+   },
+   "station": "Flexible",
+   "guns": [
+    {
+     "gun": {
+      "name": "radio_gun0"
+     },
+     "muzzle": {
+      "name": "radio_muzzle0"
+     }
+    }
+   ],
+   "Turret": {
+    "traverseRange": 30.0,
+    "traverseRate": 45,
+    "minElevation": -25.0,
+    "maxElevation": 25.0,
+    "elevationRate": 40
+   }
+  }
+ ],
+ "tris": 254123,
+ "metres_per_uv": 42.78746805503952,
+ "props_log": [
+  "r1820: axis x, front +, diameter 0.994",
+  "mainwheel: axle x, clipped axis y (0.992 vs 0.994) -> mirrored lower half at 0.000",
+  "tailwheel: axle x, up z, wheel radius 0.414, wheel trails toward -y",
+  "cockpit_seat_L_mesh: 9 zero-area sliver faces dissolved",
+  "cockpit_column_L_mesh: 56 zero-area sliver faces dissolved",
+  "cockpit_yoke_L_mesh: 42 zero-area sliver faces dissolved",
+  "cockpit_seat_R_mesh: 9 zero-area sliver faces dissolved",
+  "cockpit_column_R_mesh: 56 zero-area sliver faces dissolved",
+  "cockpit_yoke_R_mesh: 42 zero-area sliver faces dissolved",
+  "cockpit_quadrant_mesh: 59 zero-area sliver faces dissolved",
+  "cockpit_c1_mesh: 73 zero-area sliver faces dissolved",
+  "cockpit props placed: ['ck_c1', 'ck_column', 'ck_quadrant2', 'ck_seat', 'ck_yoke2']"
+ ],
+ "eyes": {
+  "pilot": [
+   -0.44999998807907104,
+   3.319999933242798,
+   1.7000000476837158
+  ],
+  "copilot": [
+   0.44999998807907104,
+   3.319999933242798,
+   1.7000000476837158
+  ]
+ },
+ "controls": {
+  "objects": [
+   {
+    "name": "cockpit_column_L",
+    "drive": {
+     "field": "pitchRange",
+     "value": 12.0,
+     "servoSpeed": 90
+    }
+   },
+   {
+    "name": "cockpit_yoke_L",
+    "drive": {
+     "field": "rollRange",
+     "value": 45.0,
+     "servoSpeed": 120
+    }
+   },
+   {
+    "name": "cockpit_column_R",
+    "drive": {
+     "field": "pitchRange",
+     "value": 12.0,
+     "servoSpeed": 90
+    }
+   },
+   {
+    "name": "cockpit_yoke_R",
+    "drive": {
+     "field": "rollRange",
+     "value": 45.0,
+     "servoSpeed": 120
+    }
+   }
+  ]
+ },
+ "levers": {
+  "movers": [
+   {
+    "name": "cockpit_throttle_1",
+    "stock_driver": {
+     "component": "Cockpit.throttles",
+     "range": 40.0
+    },
+    "rest_deg": 20.0
+   },
+   {
+    "name": "cockpit_throttle_2",
+    "stock_driver": {
+     "component": "Cockpit.throttles",
+     "range": 40.0
+    },
+    "rest_deg": 20.0
+   },
+   {
+    "name": "cockpit_throttle_3",
+    "stock_driver": {
+     "component": "Cockpit.throttles",
+     "range": 40.0
+    },
+    "rest_deg": 20.0
+   },
+   {
+    "name": "cockpit_throttle_4",
+    "stock_driver": {
+     "component": "Cockpit.throttles",
+     "range": 40.0
+    },
+    "rest_deg": 20.0
+   }
+  ]
+ },
+ "gauges": {
+  "movers": [
+   {
+    "name": "gauge_dg_card"
+   },
+   {
+    "name": "gauge_att_card"
+   },
+   {
+    "name": "gauge_suction_needle"
+   },
+   {
+    "name": "gauge_asi_needle"
+   },
+   {
+    "name": "gauge_alt_needle"
+   },
+   {
+    "name": "gauge_alt_needle_short"
+   },
+   {
+    "name": "gauge_turn_needle"
+   },
+   {
+    "name": "gauge_vsi_needle"
+   },
+   {
+    "name": "gauge_clock_needle"
+   },
+   {
+    "name": "gauge_clock_needle_short"
+   },
+   {
+    "name": "gauge_clock_sec_needle"
+   },
+   {
+    "name": "gauge_mp_1_needle"
+   },
+   {
+    "name": "gauge_mp_2_needle"
+   },
+   {
+    "name": "gauge_mp_3_needle"
+   },
+   {
+    "name": "gauge_mp_4_needle"
+   },
+   {
+    "name": "gauge_rpm_1_needle"
+   },
+   {
+    "name": "gauge_rpm_2_needle"
+   },
+   {
+    "name": "gauge_rpm_3_needle"
+   },
+   {
+    "name": "gauge_rpm_4_needle"
+   },
+   {
+    "name": "gauge_egu_1_fuel_needle"
+   },
+   {
+    "name": "gauge_egu_1_oilp_needle"
+   },
+   {
+    "name": "gauge_egu_1_oilt_needle"
+   },
+   {
+    "name": "gauge_egu_2_fuel_needle"
+   },
+   {
+    "name": "gauge_egu_2_oilp_needle"
+   },
+   {
+    "name": "gauge_egu_2_oilt_needle"
+   },
+   {
+    "name": "gauge_egu_3_fuel_needle"
+   },
+   {
+    "name": "gauge_egu_3_oilp_needle"
+   },
+   {
+    "name": "gauge_egu_3_oilt_needle"
+   },
+   {
+    "name": "gauge_egu_4_fuel_needle"
+   },
+   {
+    "name": "gauge_egu_4_oilp_needle"
+   },
+   {
+    "name": "gauge_egu_4_oilt_needle"
+   },
+   {
+    "name": "gauge_cht_1_needle"
+   },
+   {
+    "name": "gauge_cht_2_needle"
+   },
+   {
+    "name": "gauge_cht_3_needle"
+   },
+   {
+    "name": "gauge_cht_4_needle"
+   },
+   {
+    "name": "gauge_oilt_1_needle"
+   },
+   {
+    "name": "gauge_oilt_2_needle"
+   },
+   {
+    "name": "gauge_oilt_3_needle"
+   },
+   {
+    "name": "gauge_oilt_4_needle"
+   },
+   {
+    "name": "gauge_hyd_needle"
+   }
+  ]
+ },
+ "crew": {
+  "stations": [
+   {
+    "role": "pilot",
+    "part": "fus_cockpit",
+    "eye": {
+     "name": "crew_eye_pilot"
+    }
+   },
+   {
+    "role": "copilot",
+    "part": "fus_cockpit",
+    "eye": {
+     "name": "crew_eye_copilot"
+    }
+   },
+   {
+    "role": "bombardier",
+    "part": "fus_nose",
+    "eye": {
+     "name": "crew_eye_bombardier"
+    }
+   },
+   {
+    "role": "navigator",
+    "part": "fus_nose",
+    "eye": {
+     "name": "crew_eye_navigator"
+    }
+   },
+   {
+    "role": "engineer",
+    "part": "B17G",
+    "eye": {
+     "name": "crew_eye_engineer"
+    }
+   },
+   {
+    "role": "radio",
+    "part": "fus_radio",
+    "eye": {
+     "name": "crew_eye_radio"
+    }
+   },
+   {
+    "role": "ball",
+    "part": "fus_waist",
+    "eye": {
+     "name": "crew_eye_ball"
+    }
+   },
+   {
+    "role": "waist_R",
+    "part": "fus_waist",
+    "eye": {
+     "name": "crew_eye_waist_R"
+    }
+   },
+   {
+    "role": "waist_L",
+    "part": "fus_waist",
+    "eye": {
+     "name": "crew_eye_waist_L"
+    }
+   },
+   {
+    "role": "tail",
+    "part": "tail_gun",
+    "eye": {
+     "name": "crew_eye_tail"
+    }
+   }
+  ]
+ }
+}

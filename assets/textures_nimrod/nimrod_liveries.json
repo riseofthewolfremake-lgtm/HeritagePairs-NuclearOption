@@ -1,0 +1,152 @@
+{
+ "faa_silver": {
+  "texture": "nimrod_livery_faa_silver.png",
+  "name": "FAA Silver (1934)",
+  "label": "FAA Silver (1934)",
+  "faction": "BDF",
+  "both": true,
+  "glossiness": 0.45,
+  "colors": [
+   {
+    "color": "#A0A0A0FF",
+    "count": 2005053
+   },
+   {
+    "color": "#B0B0B0FF",
+    "count": 185677
+   },
+   {
+    "color": "#90A0A0FF",
+    "count": 141556
+   },
+   {
+    "color": "#A0A0B0FF",
+    "count": 141285
+   },
+   {
+    "color": "#909090FF",
+    "count": 111566
+   }
+  ]
+ },
+ "bdf_mattegrey": {
+  "texture": "nimrod_livery_bdf_mattegrey.png",
+  "name": "BDF Matte Gray",
+  "label": "BDF Matte Gray",
+  "faction": "BDF",
+  "both": false,
+  "glossiness": 0.15,
+  "colors": [
+   {
+    "color": "#506060FF",
+    "count": 2020614
+   },
+   {
+    "color": "#505060FF",
+    "count": 733319
+   },
+   {
+    "color": "#505050FF",
+    "count": 166807
+   },
+   {
+    "color": "#606060FF",
+    "count": 117650
+   },
+   {
+    "color": "#000000FF",
+    "count": 19035
+   }
+  ]
+ },
+ "bdf_temperate": {
+  "texture": "nimrod_livery_bdf_temperate.png",
+  "name": "BDF Temperate Camo",
+  "label": "BDF Temperate Camo",
+  "faction": "BDF",
+  "both": false,
+  "glossiness": 0.15,
+  "colors": [
+   {
+    "color": "#506050FF",
+    "count": 754376
+   },
+   {
+    "color": "#304020FF",
+    "count": 659660
+   },
+   {
+    "color": "#809090FF",
+    "count": 452247
+   },
+   {
+    "color": "#9090A0FF",
+    "count": 413368
+   },
+   {
+    "color": "#909090FF",
+    "count": 257086
+   }
+  ]
+ },
+ "pala_matteblack": {
+  "texture": "nimrod_livery_pala_matteblack.png",
+  "name": "PALA Matte Black",
+  "label": "PALA Matte Black",
+  "faction": "PALA",
+  "both": false,
+  "glossiness": 0.15,
+  "colors": [
+   {
+    "color": "#101010FF",
+    "count": 3026293
+   },
+   {
+    "color": "#000000FF",
+    "count": 26941
+   },
+   {
+    "color": "#900000FF",
+    "count": 20635
+   },
+   {
+    "color": "#800000FF",
+    "count": 17190
+   },
+   {
+    "color": "#D0D0D0FF",
+    "count": 6568
+   }
+  ]
+ },
+ "pala_desert": {
+  "texture": "nimrod_livery_pala_desert.png",
+  "name": "PALA Desert Camo",
+  "label": "PALA Desert Camo",
+  "faction": "PALA",
+  "both": false,
+  "glossiness": 0.15,
+  "colors": [
+   {
+    "color": "#90A0B0FF",
+    "count": 1009568
+   },
+   {
+    "color": "#504020FF",
+    "count": 605857
+   },
+   {
+    "color": "#908050FF",
+    "count": 592430
+   },
+   {
+    "color": "#503020FF",
+    "count": 257686
+   },
+   {
+    "color": "#907050FF",
+    "count": 127997
+   }
+  ]
+ }
+}

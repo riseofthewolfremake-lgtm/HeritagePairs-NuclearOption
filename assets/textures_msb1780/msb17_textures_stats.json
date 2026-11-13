@@ -1,0 +1,19 @@
+{
+ "paint_tris": 57124,
+ "coverage": 0.3351,
+ "glare_aa_halfwidth_mm": 13.33,
+ "skin_open_hp90": 0.0156,
+ "skin_open_hp80": 0.0894,
+ "skin_open_hp50": 0.1815,
+ "skin_open_hp0": 0.243,
+ "skin_open_hp-100": 0.2574,
+ "hole_footprint": 0.2669,
+ "density": 1.558,
+ "bullets": 0.0798,
+ "shells": 0.0524,
+ "tears": 0.1584,
+ "dmg_soot_mean": 0.514,
+ "res": 4096,
+ "metres_per_uv": 43.67784160562891,
+ "texel_mm": 10.66
+}

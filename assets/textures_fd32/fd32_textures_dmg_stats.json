@@ -1,0 +1,14 @@
+{
+ "paint_tris": 27578,
+ "coverage": 0.686,
+ "skin_open_hp90": 0.0156,
+ "skin_open_hp80": 0.0894,
+ "skin_open_hp50": 0.1815,
+ "skin_open_hp0": 0.243,
+ "skin_open_hp-100": 0.2593,
+ "hole_footprint": 0.2763,
+ "density": 1.497,
+ "bullets": 0.0976,
+ "shells": 0.0437,
+ "tears": 0.158
+}

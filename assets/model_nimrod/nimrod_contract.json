@@ -1,0 +1,433 @@
+{
+ "meta": {
+  "generator": "blender/nimrod/build_nimrod.py",
+  "aircraft": "Hawker Nimrod Mk I",
+  "jsonKey": "NIMROD1",
+  "frame": "Unity: x right, y up, z forward; origin = NIMROD1_root = CG at 50 % fuel"
+ },
+ "cg_blender": [
+  0.0,
+  0.3222,
+  -0.023
+ ],
+ "parts_mass_kg": 1649.5,
+ "mass_rows": [
+  [
+   "NIMROD1",
+   300,
+   [
+    0.0,
+    -0.75,
+    0.05
+   ]
+  ],
+  [
+   "fus_engine",
+   850,
+   [
+    0.0,
+    0.99,
+    -0.206
+   ]
+  ],
+  [
+   "prop",
+   50,
+   [
+    0.0,
+    2.622,
+    0.0
+   ]
+  ],
+  [
+   "fus_rear",
+   50,
+   [
+    0.0,
+    -3.0,
+    -0.03
+   ]
+  ],
+  [
+   "wing_upper_C",
+   30,
+   [
+    0.0,
+    0.54,
+    0.985
+   ]
+  ],
+  [
+   "wing_upper_L",
+   60,
+   [
+    -2.965,
+    0.54,
+    1.017
+   ]
+  ],
+  [
+   "wing_upper_R",
+   60,
+   [
+    2.965,
+    0.54,
+    1.017
+   ]
+  ],
+  [
+   "aileron_L",
+   5,
+   [
+    -3.395,
+    0.061,
+    1.003
+   ]
+  ],
+  [
+   "aileron_R",
+   5,
+   [
+    3.395,
+    0.061,
+    1.003
+   ]
+  ],
+  [
+   "wing_lower_L",
+   55,
+   [
+    -2.45,
+    -0.299,
+    -0.454
+   ]
+  ],
+  [
+   "wing_lower_R",
+   55,
+   [
+    2.45,
+    -0.299,
+    -0.454
+   ]
+  ],
+  [
+   "stab_L",
+   12,
+   [
+    -0.863,
+    -4.036,
+    0.16
+   ]
+  ],
+  [
+   "stab_R",
+   12,
+   [
+    0.863,
+    -4.036,
+    0.16
+   ]
+  ],
+  [
+   "elevator_L",
+   5,
+   [
+    -0.85,
+    -4.537,
+    0.16
+   ]
+  ],
+  [
+   "elevator_R",
+   5,
+   [
+    0.85,
+    -4.537,
+    0.16
+   ]
+  ],
+  [
+   "fin",
+   8,
+   [
+    0.0,
+    -4.035,
+    0.692
+   ]
+  ],
+  [
+   "rudder",
+   5,
+   [
+    0.0,
+    -4.848,
+    0.417
+   ]
+  ]
+ ],
+ "three_point_deg": 14.84,
+ "level_wheel_contact_height": 1.982,
+ "gear": {
+  "main_axle_L": [
+   -0.905,
+   -1.627,
+   0.5278
+  ],
+  "main_axle_R": [
+   0.905,
+   -1.627,
+   0.5278
+  ],
+  "wheel_r": 0.355,
+  "tail_axle": [
+   0.0,
+   -0.547,
+   -4.4722
+  ],
+  "tail_r": 0.11
+ },
+ "tailhook": {
+  "name": "tailhook",
+  "pivot": [
+   0.0,
+   0.103,
+   -2.0022
+  ],
+  "length": 2.37,
+  "stowed_up_deg": 2.0,
+  "deployed_deg": -65.0
+ },
+ "hook_visual": {
+  "name": "hook_visual",
+  "pivot": [
+   0.0,
+   -0.577,
+   -2.1122
+  ],
+  "pivot_blender": [
+   0.0,
+   -1.79,
+   -0.6
+  ],
+  "length": 1.718,
+  "stowed_up_deg": 2.0,
+  "deployed_deg": -58.7,
+  "hook_pivot_blender": [
+   0.0,
+   -1.68,
+   0.08
+  ],
+  "note": "1.4.0 visible A-frame, driven by B25H.Instruments"
+ },
+ "tail_skid": {
+  "contact_radius": 0.11,
+  "note": "1.4.0 skid: gear_tail_wheel is an empty, radius from here"
+ },
+ "prop": {
+  "radius": 1.65,
+  "plane": [
+   0.0,
+   0.023,
+   2.1478
+  ],
+  "blades": 2
+ },
+ "guns": {
+  "muzzles": [
+   "muzzle_gun_L",
+   "muzzle_gun_R"
+  ],
+  "flashes": [
+   "flash_gun_L",
+   "flash_gun_R"
+  ],
+  "muzzle_y": 2.3378
+ },
+ "cockpit_only": [
+  "cockpit_breech_L",
+  "cockpit_breech_R",
+  "cockpit_coaming",
+  "cockpit_compass",
+  "cockpit_floor",
+  "cockpit_frame",
+  "cockpit_interior",
+  "cockpit_panel",
+  "cockpit_quadrant",
+  "cockpit_rudderbar",
+  "cockpit_seat",
+  "cockpit_sight",
+  "cockpit_stick",
+  "cockpit_throttle",
+  "cockpit_trimwheel",
+  "cockpit_wall_L",
+  "cockpit_wall_R",
+  "mfd_center",
+  "windscreen"
+ ],
+ "eye": [
+  0.0,
+  0.768,
+  -1.2422
+ ],
+ "controls": {
+  "stick": {
+   "name": "cockpit_stick",
+   "component": "Cockpit.Joystick",
+   "range": 14.0
+  },
+  "rudderbar": {
+   "name": "cockpit_rudderbar",
+   "component": "ControlSurface",
+   "field": "yawRange",
+   "value": -14.0
+  },
+  "throttle": {
+   "name": "cockpit_throttle",
+   "component": "Cockpit.Throttle",
+   "range": 40.0
+  }
+ },
+ "gauges": [
+  {
+   "name": "gauge_compass_card",
+   "kind": "gauge_card",
+   "value": "magnetic heading (card)",
+   "unit": "deg",
+   "v0": 0,
+   "v1": 360,
+   "sweep": -360
+  },
+  {
+   "name": "gauge_turn_needle",
+   "kind": "gauge_needle",
+   "zero_deg": 0,
+   "value": "rate of turn",
+   "unit": "deg/s",
+   "v0": 0,
+   "v1": 3,
+   "sweep": 30,
+   "deg_per_unit": 10.0
+  },
+  {
+   "name": "gauge_slip_needle",
+   "kind": "gauge_ball",
+   "zero_deg": 0,
+   "value": "sideslip ball",
+   "unit": "deg",
+   "v0": 0,
+   "v1": 1,
+   "sweep": 3,
+   "deg_per_unit": 3.0
+  },
+  {
+   "name": "gauge_asi_needle",
+   "kind": "gauge_needle",
+   "zero_deg": 0,
+   "value": "indicated airspeed",
+   "unit": "kt",
+   "v0": 0,
+   "v1": 260,
+   "sweep": 330,
+   "deg_per_unit": 1.269231
+  },
+  {
+   "name": "gauge_alt_needle",
+   "kind": "gauge_needle",
+   "zero_deg": 0,
+   "value": "altitude, long needle",
+   "unit": "ft",
+   "v0": 0,
+   "v1": 1000,
+   "sweep": 360,
+   "deg_per_unit": 0.36
+  },
+  {
+   "name": "gauge_alt_needle_short",
+   "kind": "gauge_short",
+   "zero_deg": 0,
+   "value": "altitude, short needle",
+   "unit": "ft",
+   "v0": 0,
+   "v1": 10000,
+   "sweep": 360,
+   "deg_per_unit": 0.036
+  },
+  {
+   "name": "gauge_rpm_needle",
+   "kind": "gauge_needle",
+   "zero_deg": -150,
+   "value": "engine rpm",
+   "unit": "rpm",
+   "v0": 0,
+   "v1": 3000,
+   "sweep": 300,
+   "deg_per_unit": 0.1
+  },
+  {
+   "name": "gauge_boost_needle",
+   "kind": "gauge_needle",
+   "zero_deg": -135,
+   "value": "boost",
+   "unit": "lb/in2",
+   "v0": -4,
+   "v1": 8,
+   "sweep": 270,
+   "deg_per_unit": 22.5
+  },
+  {
+   "name": "gauge_oilp_needle",
+   "kind": "gauge_needle",
+   "zero_deg": -135,
+   "value": "oil pressure",
+   "unit": "psi",
+   "v0": 0,
+   "v1": 100,
+   "sweep": 270,
+   "deg_per_unit": 2.7
+  },
+  {
+   "name": "gauge_oilt_needle",
+   "kind": "gauge_needle",
+   "zero_deg": -135,
+   "value": "oil temperature",
+   "unit": "C",
+   "v0": 0,
+   "v1": 100,
+   "sweep": 270,
+   "deg_per_unit": 2.7
+  },
+  {
+   "name": "gauge_water_needle",
+   "kind": "gauge_needle",
+   "zero_deg": -135,
+   "value": "coolant temperature",
+   "unit": "C",
+   "v0": 0,
+   "v1": 140,
+   "sweep": 270,
+   "deg_per_unit": 1.928571
+  },
+  {
+   "name": "gauge_fuel_needle",
+   "kind": "gauge_needle",
+   "zero_deg": -135,
+   "value": "fuel contents",
+   "unit": "%",
+   "v0": 0,
+   "v1": 100,
+   "sweep": 270,
+   "deg_per_unit": 2.7
+  }
+ ],
+ "panel": {
+  "tilt_deg": 3.0,
+  "tac": {
+   "x": 0.0,
+   "h": 0.112,
+   "w": 0.122,
+   "hgt": 0.07
+  },
+  "version": "cockpit v2"
+ }
+}

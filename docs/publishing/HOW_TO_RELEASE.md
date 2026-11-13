@@ -1,0 +1,77 @@
+# How to release a new version of Heritage Pairs
+
+For the person who publishes (the repository owner). Every step that uploads something is done by hand, by the owner.
+`X.Y.Z` stands for the new version, for example `1.9.11`.
+
+## 1. Build
+
+1. Set the version in three places, all to the same number:
+   - `unity/Editor/FamilyBuild.cs`: `FamilyVersion = "X.Y.Z"` and the path in `InstrumentsDll` (`build\instruments_X.Y.Z\...`);
+   - `src/B25H.Instruments/Plugin.cs`: the third argument of `[BepInPlugin(...)]`;
+   - `src/B25H.Instruments/AssemblyInfo.cs`: `AssemblyVersion`, `AssemblyFileVersion` (`X.Y.Z.0`) and
+     `AssemblyInformationalVersion` (`X.Y.Z`).
+   Do not change the plugin GUID `b25h.instruments`: the players' config file is named after it.
+2. Build the plugin: `bash tools/build_instruments.sh <build>\instruments_X.Y.Z`.
+3. Build the pack: copy `unity/Editor/*.cs` into the Blueprinter project's `Assets/Editor`, then run Unity in batch mode with
+   `-executeMethod B25HTools.FamilyBuild.BuildAll`. All six aircraft must report `CHECK ALL PASS`. The result is
+   `Heritage Pairs_X.Y.Z.nobp` and an install folder with the pack, the DLL and `meta.json`.
+4. Run the tests (README, "Build from source", step 4) and try the build in the game before releasing it.
+
+## 2. Freeze and zip
+
+1. Copy `Heritage Pairs_X.Y.Z.nobp`, `B25H.Instruments.dll` and `meta.json` into a folder that is never changed again
+   (`frozen_X.Y.Z`).
+2. Make the release zip: `python tools/make_release_zip.py <frozen_X.Y.Z> <release_X.Y.Z> X.Y.Z`.
+   It writes `HeritagePairs_X.Y.Z.zip` and prints its sha256. The zip holds exactly two files at its root, the `.nobp` and
+   the DLL, with no folder and no `meta.json`: NOMM unpacks the archive as it is into the mod's folder and writes its own
+   `meta.json`. Do not add a readme or licence file to the zip.
+3. Write the asset inventory: `python tools/pack_asset_report.py <the .nobp> ...` to `docs/publishing/pack_asset_report_X.Y.Z.txt`.
+
+## 3. Repository
+
+1. Update `CHANGELOG.md`, the known issues in `README.md`, and in the README's build section the DLL sha256 and the versions
+   it was built with.
+2. Update `docs/publishing/HeritagePairs.json` only as your own record (file name, version, download URL, hash). After the
+   mod is listed, NOMNOM maintains its own copy of the manifest and adds new versions to it by itself (step 5).
+3. Commit and push. Build the release DLL from the commit you tag: NOMNOM requires that the released DLL matches the
+   published source.
+
+## 4. GitHub release
+
+1. Create the tag `vX.Y.Z` on that commit and a GitHub release for it. The tag must be `v` followed by plain numbers; do not
+   append `-beta` or similar.
+2. **Upload ONLY `HeritagePairs_X.Y.Z.zip` as the single release asset.** NOMNOM's updater takes the first asset of a release
+   (`Assets[0]`). A second file, such as a `.sha256` file or a screenshot, could be registered as the mod instead.
+3. Put into the release description: what changed, the requirements (game version, BepInEx 5, Blueprinter version), the
+   sha256 of the zip as text, a pointer to the known issues, the Shockfront notice from the README word for word, and the AI
+   declaration. `docs/publishing/RELEASE_NOTES_1.9.10.md` is the pattern.
+4. Publish it as a normal release. A release marked "pre-release" is listed by NOMNOM in the category `preRelease`. A draft
+   is ignored by NOMNOM until it is published.
+5. After publishing, compare GitHub's own digest of the asset (shown on the release page) with the sha256 you wrote down.
+
+Never replace the zip of a release that is already published: NOMNOM has recorded its hash, and NOMM refuses a download whose
+hash differs. Publish a new version instead.
+
+## 5. NOMNOM
+
+- **First time only:** fork `KopterBuzz/NOMNOM`, add `docs/publishing/HeritagePairs.json` as `modManifests/HeritagePairs.json`
+  and open a pull request. The download URL and the hash in it must already exist, so the GitHub release comes first.
+- **Every later version:** nothing to do. NOMNOM's hourly job looks at the repository's releases and adds any release whose
+  version is higher than the newest one it knows, taking file name, URL and hash from GitHub. It copies the game version,
+  the type and the Blueprinter version from the newest entry it already has.
+- A changed game version or Blueprinter version is not picked up automatically. The game version is changed through
+  NOMNOM's issue template (`Docs/HOWTO_UPDATE_GAMEVERSION.md` in its repository); the Blueprinter version (`extends`) needs
+  a pull request to the manifest.
+
+## 6. Hiding or removing a release
+
+- **Before NOMNOM has seen it** (its job runs once an hour): set the GitHub release back to draft, or delete the release and
+  its tag. NOMNOM skips drafts and never learns of it.
+- **After NOMNOM has listed it:** NOMNOM only ever adds entries; deleting the GitHub release does not remove the entry, it
+  only breaks its download. To withdraw a version, either publish a higher version that fixes the problem (mod managers offer
+  the newest), or open a pull request to NOMNOM that removes that entry from `modManifests/HeritagePairs.json`, or ask the
+  NOMNOM maintainers to remove it. Then delete the GitHub release.
+- **Removing the mod altogether:** ask the NOMNOM maintainers, or open a pull request that deletes
+  `modManifests/HeritagePairs.json`; then delete the releases or make the repository private.
+- GitHub keeps a deleted release's tag unless you delete the tag too. A deleted tag name can be used again, but do not reuse
+  a version number that players may already have installed.

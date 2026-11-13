@@ -1,0 +1,122 @@
+{
+ "bdf_mattegrey": {
+  "texture": "fd32_livery_bdf_mattegrey.png",
+  "name": "BDF Matte Gray",
+  "label": "BDF Matte Gray",
+  "faction": "BDF",
+  "both": false,
+  "glossiness": 0.2,
+  "colors": [
+   {
+    "color": "#505050FF",
+    "count": 2097089
+   },
+   {
+    "color": "#505060FF",
+    "count": 516055
+   },
+   {
+    "color": "#304040FF",
+    "count": 102166
+   },
+   {
+    "color": "#404040FF",
+    "count": 70853
+   },
+   {
+    "color": "#000000FF",
+    "count": 17473
+   }
+  ]
+ },
+ "bdf_temperate": {
+  "texture": "fd32_livery_bdf_temperate.png",
+  "name": "BDF Temperate Camo",
+  "label": "BDF Temperate Camo",
+  "faction": "BDF",
+  "both": false,
+  "glossiness": 0.2,
+  "colors": [
+   {
+    "color": "#506050FF",
+    "count": 768026
+   },
+   {
+    "color": "#304020FF",
+    "count": 601562
+   },
+   {
+    "color": "#9090A0FF",
+    "count": 366987
+   },
+   {
+    "color": "#909090FF",
+    "count": 362360
+   },
+   {
+    "color": "#809090FF",
+    "count": 275890
+   }
+  ]
+ },
+ "pala_desert": {
+  "texture": "fd32_livery_pala_desert.png",
+  "name": "PALA Desert Camo",
+  "label": "PALA Desert Camo",
+  "faction": "PALA",
+  "both": false,
+  "glossiness": 0.2,
+  "colors": [
+   {
+    "color": "#90A0B0FF",
+    "count": 974377
+   },
+   {
+    "color": "#604020FF",
+    "count": 836671
+   },
+   {
+    "color": "#A08050FF",
+    "count": 561372
+   },
+   {
+    "color": "#707080FF",
+    "count": 61182
+   },
+   {
+    "color": "#706040FF",
+    "count": 44492
+   }
+  ]
+ },
+ "pala_matteblack": {
+  "texture": "fd32_livery_pala_matteblack.png",
+  "name": "PALA Matte Black",
+  "label": "PALA Matte Black",
+  "faction": "PALA",
+  "both": false,
+  "glossiness": 0.2,
+  "colors": [
+   {
+    "color": "#101010FF",
+    "count": 2794785
+   },
+   {
+    "color": "#000000FF",
+    "count": 25886
+   },
+   {
+    "color": "#900000FF",
+    "count": 21019
+   },
+   {
+    "color": "#800000FF",
+    "count": 13593
+   },
+   {
+    "color": "#D0D0D0FF",
+    "count": 7210
+   }
+  ]
+ }
+}

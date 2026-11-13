@@ -1,0 +1,978 @@
+{
+ "generator": "blender/v2/ui/make_ui_art.py",
+ "model": "b25h_v2.blend",
+ "parts_source": "unity\\Editor\\B25HBuild.cs",
+ "root": {
+  "name": "B25H_statusDisplay",
+  "size": [
+   300.0,
+   300.0
+  ],
+  "anchorMin": [
+   1,
+   0
+  ],
+  "anchorMax": [
+   1,
+   0
+  ],
+  "pivot": [
+   1,
+   -0.05
+  ],
+  "anchoredPosition": [
+   0,
+   -30.1
+  ],
+  "sprite": "status/b25h_status.png",
+  "color": [
+   1,
+   1,
+   1,
+   1
+  ],
+  "note": "as CAS1_statusDisplay: StatusDisplay component on the root, root Image = aircraftBackground"
+ },
+ "material": "additive UI material (stock Text_additive, shader UI additive): black = invisible",
+ "part_color": [
+  1,
+  1,
+  0,
+  1
+ ],
+ "redStatusThreshold": 30,
+ "metres_per_ui_unit": 0.06971285024471896,
+ "parts": [
+  {
+   "name": "B25H",
+   "sprite": "status/b25h_status_B25H.png",
+   "sizeDelta": [
+    64,
+    128
+   ],
+   "anchoredPosition": [
+    0.0,
+    30.76
+   ],
+   "localScale": [
+    0.38452,
+    0.38452,
+    1.0
+   ],
+   "pivot": [
+    0.5,
+    0.5
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "visible_px": 171452
+  },
+  {
+   "name": "fus_forward",
+   "sprite": "status/b25h_status_fus_forward.png",
+   "sizeDelta": [
+    128,
+    128
+   ],
+   "anchoredPosition": [
+    0.0,
+    64.75
+   ],
+   "localScale": [
+    0.21515,
+    0.21515,
+    1.0
+   ],
+   "pivot": [
+    0.5,
+    0.5
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "visible_px": 73869
+  },
+  {
+   "name": "fus_cockpit",
+   "sprite": "status/b25h_status_fus_cockpit.png",
+   "sizeDelta": [
+    128,
+    128
+   ],
+   "anchoredPosition": [
+    0.0,
+    81.15
+   ],
+   "localScale": [
+    0.31929,
+    0.31929,
+    1.0
+   ],
+   "pivot": [
+    0.5,
+    0.5
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "visible_px": 129729
+  },
+  {
+   "name": "fus_nose",
+   "sprite": "status/b25h_status_fus_nose.png",
+   "sizeDelta": [
+    128,
+    128
+   ],
+   "anchoredPosition": [
+    -0.09,
+    109.53
+   ],
+   "localScale": [
+    0.18024,
+    0.18024,
+    1.0
+   ],
+   "pivot": [
+    0.5,
+    0.5
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "visible_px": 60174
+  },
+  {
+   "name": "fus_rear",
+   "sprite": "status/b25h_status_fus_rear.png",
+   "sizeDelta": [
+    64,
+    128
+   ],
+   "anchoredPosition": [
+    -0.11,
+    -22.45
+   ],
+   "localScale": [
+    0.52471,
+    0.52471,
+    1.0
+   ],
+   "pivot": [
+    0.5,
+    0.5
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "visible_px": 216776
+  },
+  {
+   "name": "fus_tail",
+   "sprite": "status/b25h_status_fus_tail.png",
+   "sizeDelta": [
+    64,
+    128
+   ],
+   "anchoredPosition": [
+    -0.28,
+    -86.32
+   ],
+   "localScale": [
+    0.55676,
+    0.55676,
+    1.0
+   ],
+   "pivot": [
+    0.5,
+    0.5
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "visible_px": 125129
+  },
+  {
+   "name": "stab_L",
+   "sprite": "status/b25h_status_stab_R.png",
+   "sizeDelta": [
+    128,
+    64
+   ],
+   "anchoredPosition": [
+    -26.42,
+    -75.84
+   ],
+   "localScale": [
+    -0.39711,
+    0.39711,
+    1.0
+   ],
+   "pivot": [
+    0.5,
+    0.5
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "visible_px": 103220
+  },
+  {
+   "name": "stab_R",
+   "sprite": "status/b25h_status_stab_R.png",
+   "sizeDelta": [
+    128,
+    64
+   ],
+   "anchoredPosition": [
+    26.02,
+    -75.84
+   ],
+   "localScale": [
+    0.39711,
+    0.39711,
+    1.0
+   ],
+   "pivot": [
+    0.5,
+    0.5
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "visible_px": 103220
+  },
+  {
+   "name": "elevator_L",
+   "sprite": "status/b25h_status_elevator_R.png",
+   "sizeDelta": [
+    128,
+    64
+   ],
+   "anchoredPosition": [
+    -26.26,
+    -88.42
+   ],
+   "localScale": [
+    -0.32558,
+    0.32558,
+    1.0
+   ],
+   "pivot": [
+    0.5,
+    0.5
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "visible_px": 90191
+  },
+  {
+   "name": "elevator_R",
+   "sprite": "status/b25h_status_elevator_R.png",
+   "sizeDelta": [
+    128,
+    64
+   ],
+   "anchoredPosition": [
+    26.26,
+    -88.42
+   ],
+   "localScale": [
+    0.32558,
+    0.32558,
+    1.0
+   ],
+   "pivot": [
+    0.5,
+    0.5
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "visible_px": 90191
+  },
+  {
+   "name": "fin_L",
+   "sprite": "status/b25h_status_fin_R.png",
+   "sizeDelta": [
+    64,
+    128
+   ],
+   "anchoredPosition": [
+    -48.14,
+    -75.07
+   ],
+   "localScale": [
+    -0.12245,
+    0.12245,
+    1.0
+   ],
+   "pivot": [
+    0.5,
+    0.5
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "visible_px": 7963
+  },
+  {
+   "name": "fin_R",
+   "sprite": "status/b25h_status_fin_R.png",
+   "sizeDelta": [
+    64,
+    128
+   ],
+   "anchoredPosition": [
+    48.02,
+    -75.07
+   ],
+   "localScale": [
+    0.12245,
+    0.12245,
+    1.0
+   ],
+   "pivot": [
+    0.5,
+    0.5
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "visible_px": 7963
+  },
+  {
+   "name": "rudder_L",
+   "sprite": "status/b25h_status_rudder_R.png",
+   "sizeDelta": [
+    64,
+    128
+   ],
+   "anchoredPosition": [
+    -48.1,
+    -88.48
+   ],
+   "localScale": [
+    -0.10643,
+    0.10643,
+    1.0
+   ],
+   "pivot": [
+    0.5,
+    0.5
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "visible_px": 3746
+  },
+  {
+   "name": "rudder_R",
+   "sprite": "status/b25h_status_rudder_R.png",
+   "sizeDelta": [
+    64,
+    128
+   ],
+   "anchoredPosition": [
+    47.99,
+    -88.48
+   ],
+   "localScale": [
+    0.10643,
+    0.10643,
+    1.0
+   ],
+   "pivot": [
+    0.5,
+    0.5
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "visible_px": 3746
+  },
+  {
+   "name": "wing_inner_L",
+   "sprite": "status/b25h_status_wing_inner_R.png",
+   "sizeDelta": [
+    64,
+    128
+   ],
+   "anchoredPosition": [
+    -24.1,
+    28.16
+   ],
+   "localScale": [
+    -0.48981,
+    0.48981,
+    1.0
+   ],
+   "pivot": [
+    0.5,
+    0.5
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "visible_px": 191993
+  },
+  {
+   "name": "wing_inner_R",
+   "sprite": "status/b25h_status_wing_inner_R.png",
+   "sizeDelta": [
+    64,
+    128
+   ],
+   "anchoredPosition": [
+    24.1,
+    28.16
+   ],
+   "localScale": [
+    0.48981,
+    0.48981,
+    1.0
+   ],
+   "pivot": [
+    0.5,
+    0.5
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "visible_px": 191980
+  },
+  {
+   "name": "flap_inner_L",
+   "sprite": "status/b25h_status_flap_inner_R.png",
+   "sizeDelta": [
+    128,
+    128
+   ],
+   "anchoredPosition": [
+    -22.49,
+    7.69
+   ],
+   "localScale": [
+    -0.20599,
+    0.20599,
+    1.0
+   ],
+   "pivot": [
+    0.5,
+    0.5
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "visible_px": 58171
+  },
+  {
+   "name": "flap_inner_R",
+   "sprite": "status/b25h_status_flap_inner_R.png",
+   "sizeDelta": [
+    128,
+    128
+   ],
+   "anchoredPosition": [
+    22.49,
+    7.69
+   ],
+   "localScale": [
+    0.20599,
+    0.20599,
+    1.0
+   ],
+   "pivot": [
+    0.5,
+    0.5
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "visible_px": 58171
+  },
+  {
+   "name": "nacelle_L",
+   "sprite": "status/b25h_status_nacelle_R.png",
+   "sizeDelta": [
+    64,
+    128
+   ],
+   "anchoredPosition": [
+    -42.33,
+    23.36
+   ],
+   "localScale": [
+    -0.56648,
+    0.56648,
+    1.0
+   ],
+   "pivot": [
+    0.5,
+    0.5
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "visible_px": 143924
+  },
+  {
+   "name": "nacelle_R",
+   "sprite": "status/b25h_status_nacelle_R.png",
+   "sizeDelta": [
+    64,
+    128
+   ],
+   "anchoredPosition": [
+    42.33,
+    23.36
+   ],
+   "localScale": [
+    0.56648,
+    0.56648,
+    1.0
+   ],
+   "pivot": [
+    0.5,
+    0.5
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "visible_px": 143898
+  },
+  {
+   "name": "engine_L",
+   "sprite": "status/b25h_status_engine_R.png",
+   "sizeDelta": [
+    128,
+    128
+   ],
+   "anchoredPosition": [
+    -42.33,
+    63.61
+   ],
+   "localScale": [
+    -0.20256,
+    0.20256,
+    1.0
+   ],
+   "pivot": [
+    0.5,
+    0.5
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "visible_px": 67350
+  },
+  {
+   "name": "engine_R",
+   "sprite": "status/b25h_status_engine_R.png",
+   "sizeDelta": [
+    128,
+    128
+   ],
+   "anchoredPosition": [
+    42.33,
+    63.61
+   ],
+   "localScale": [
+    0.20256,
+    0.20256,
+    1.0
+   ],
+   "pivot": [
+    0.5,
+    0.5
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "visible_px": 67369
+  },
+  {
+   "name": "prop_L",
+   "sprite": "status/b25h_status_prop_R.png",
+   "sizeDelta": [
+    128,
+    128
+   ],
+   "anchoredPosition": [
+    -42.37,
+    77.34
+   ],
+   "localScale": [
+    -0.06866,
+    0.06866,
+    1.0
+   ],
+   "pivot": [
+    0.5,
+    0.5
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "visible_px": 6771
+  },
+  {
+   "name": "prop_R",
+   "sprite": "status/b25h_status_prop_R.png",
+   "sizeDelta": [
+    128,
+    128
+   ],
+   "anchoredPosition": [
+    42.3,
+    77.34
+   ],
+   "localScale": [
+    0.06866,
+    0.06866,
+    1.0
+   ],
+   "pivot": [
+    0.5,
+    0.5
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "visible_px": 6771
+  },
+  {
+   "name": "wing_outer_L",
+   "sprite": "status/b25h_status_wing_outer_R.png",
+   "sizeDelta": [
+    128,
+    128
+   ],
+   "anchoredPosition": [
+    -67.86,
+    27.36
+   ],
+   "localScale": [
+    -0.38624,
+    0.38624,
+    1.0
+   ],
+   "pivot": [
+    0.5,
+    0.5
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "visible_px": 234902
+  },
+  {
+   "name": "wing_outer_R",
+   "sprite": "status/b25h_status_wing_outer_R.png",
+   "sizeDelta": [
+    128,
+    128
+   ],
+   "anchoredPosition": [
+    67.86,
+    27.36
+   ],
+   "localScale": [
+    0.38624,
+    0.38624,
+    1.0
+   ],
+   "pivot": [
+    0.5,
+    0.5
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "visible_px": 234922
+  },
+  {
+   "name": "flap_outer_L",
+   "sprite": "status/b25h_status_flap_outer_R.png",
+   "sizeDelta": [
+    128,
+    64
+   ],
+   "anchoredPosition": [
+    -68.48,
+    12.51
+   ],
+   "localScale": [
+    -0.32959,
+    0.32959,
+    1.0
+   ],
+   "pivot": [
+    0.5,
+    0.5
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "visible_px": 77719
+  },
+  {
+   "name": "flap_outer_R",
+   "sprite": "status/b25h_status_flap_outer_R.png",
+   "sizeDelta": [
+    128,
+    64
+   ],
+   "anchoredPosition": [
+    68.48,
+    12.51
+   ],
+   "localScale": [
+    0.32959,
+    0.32959,
+    1.0
+   ],
+   "pivot": [
+    0.5,
+    0.5
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "visible_px": 77719
+  },
+  {
+   "name": "wing_tip_L",
+   "sprite": "status/b25h_status_wing_tip_R.png",
+   "sizeDelta": [
+    128,
+    64
+   ],
+   "anchoredPosition": [
+    -117.48,
+    31.97
+   ],
+   "localScale": [
+    -0.54131,
+    0.54131,
+    1.0
+   ],
+   "pivot": [
+    0.5,
+    0.5
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "visible_px": 252013
+  },
+  {
+   "name": "wing_tip_R",
+   "sprite": "status/b25h_status_wing_tip_R.png",
+   "sizeDelta": [
+    128,
+    64
+   ],
+   "anchoredPosition": [
+    117.48,
+    31.97
+   ],
+   "localScale": [
+    0.54131,
+    0.54131,
+    1.0
+   ],
+   "pivot": [
+    0.5,
+    0.5
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "visible_px": 252013
+  },
+  {
+   "name": "aileron_L",
+   "sprite": "status/b25h_status_aileron_R.png",
+   "sizeDelta": [
+    128,
+    64
+   ],
+   "anchoredPosition": [
+    -112.79,
+    16.88
+   ],
+   "localScale": [
+    -0.40855,
+    0.40855,
+    1.0
+   ],
+   "pivot": [
+    0.5,
+    0.5
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "visible_px": 75031
+  },
+  {
+   "name": "aileron_R",
+   "sprite": "status/b25h_status_aileron_R.png",
+   "sizeDelta": [
+    128,
+    64
+   ],
+   "anchoredPosition": [
+    112.79,
+    16.88
+   ],
+   "localScale": [
+    0.40855,
+    0.40855,
+    1.0
+   ],
+   "pivot": [
+    0.5,
+    0.5
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "visible_px": 75031
+  }
+ ],
+ "failure_indicators": [
+  {
+   "name": "LEFT ENGINE FAILURE",
+   "anchoredPosition": [
+    -42.33,
+    63.61
+   ],
+   "sizeDelta": [
+    18.5,
+    33.4
+   ],
+   "localScale": [
+    0.638,
+    0.853,
+    1
+   ],
+   "color": [
+    1,
+    0,
+    0,
+    1
+   ],
+   "sprite": null,
+   "note": "plain red Image, inactive until StatusDisplay sees this failure message"
+  },
+  {
+   "name": "LEFT PROP STRIKE",
+   "anchoredPosition": [
+    -42.33,
+    77.34
+   ],
+   "sizeDelta": [
+    18.5,
+    17.67
+   ],
+   "localScale": [
+    0.638,
+    0.853,
+    1
+   ],
+   "color": [
+    1,
+    0,
+    0,
+    1
+   ],
+   "sprite": null,
+   "note": "plain red Image, inactive until StatusDisplay sees this failure message"
+  },
+  {
+   "name": "RIGHT ENGINE FAILURE",
+   "anchoredPosition": [
+    42.33,
+    63.61
+   ],
+   "sizeDelta": [
+    18.5,
+    33.4
+   ],
+   "localScale": [
+    0.638,
+    0.853,
+    1
+   ],
+   "color": [
+    1,
+    0,
+    0,
+    1
+   ],
+   "sprite": null,
+   "note": "plain red Image, inactive until StatusDisplay sees this failure message"
+  },
+  {
+   "name": "RIGHT PROP STRIKE",
+   "anchoredPosition": [
+    42.33,
+    77.34
+   ],
+   "sizeDelta": [
+    18.5,
+    17.67
+   ],
+   "localScale": [
+    0.638,
+    0.853,
+    1
+   ],
+   "color": [
+    1,
+    0,
+    0,
+    1
+   ],
+   "sprite": null,
+   "note": "plain red Image, inactive until StatusDisplay sees this failure message"
+  }
+ ],
+ "hidden_parts": []
+}

@@ -1,0 +1,71 @@
+{
+ "tool": "blender/b17g/texel_where1818.py",
+ "old": "C:\\Users\\User\\AppData\\Local\\Temp\\claude\\6b18cd0faa7634a8\\89a3a304-1cbb-45ed-9eda-92fd803638ae\\scratchpad\\f1818\\tex1817\\b17g_livery_usaaf_nm.png",
+ "new": "assets/textures_b17g/b17g_livery_usaaf_nm.png",
+ "thr": 2.0,
+ "changed": 28545,
+ "in_islands": 5880,
+ "padding": 22665,
+ "parts": {
+  "fus_cockpit": {
+   "texels": 1994,
+   "y": [
+    3.939,
+    5.018
+   ],
+   "x": [
+    -1.132,
+    1.131
+   ],
+   "z": [
+    0.85,
+    1.971
+   ]
+  },
+  "fus_nose": {
+   "texels": 554,
+   "y": [
+    4.982,
+    5.739
+   ],
+   "x": [
+    -0.767,
+    0.77
+   ],
+   "z": [
+    1.276,
+    1.679
+   ]
+  },
+  "nacelle_2": {
+   "texels": 1677,
+   "y": [
+    0.193,
+    4.23
+   ],
+   "x": [
+    -3.111,
+    -2.335
+   ],
+   "z": [
+    0.312,
+    0.849
+   ]
+  },
+  "nacelle_3": {
+   "texels": 1655,
+   "y": [
+    0.199,
+    4.235
+   ],
+   "x": [
+    2.336,
+    3.111
+   ],
+   "z": [
+    0.312,
+    0.85
+   ]
+  }
+ }
+}

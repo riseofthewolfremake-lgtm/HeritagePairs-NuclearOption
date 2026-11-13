@@ -1,0 +1,27 @@
+{
+ "tool": "blender/hole_cover1816.py (open share of the skin on the model's own paint islands, 2048 grid)",
+ "1.8.12": {
+  "png": "b17g_skin_dmg_b.png",
+  "model": "b17g.blend @ 32d3a62",
+  "res": 2048,
+  "island_share": 0.4124,
+  "open_pct": {
+   "90": 1.52,
+   "80": 9.12,
+   "50": 18.21,
+   "0": 24.22
+  }
+ },
+ "new": {
+  "png": "b17g_skin_dmg_b.png",
+  "model": "b17g.blend (1.8.14 geometry)",
+  "res": 2048,
+  "island_share": 0.4046,
+  "open_pct": {
+   "90": 1.52,
+   "80": 9.13,
+   "50": 18.21,
+   "0": 24.22
+  }
+ }
+}

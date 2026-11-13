@@ -1,0 +1,2298 @@
+{
+ "meta": {
+  "generated": "2026-11-08T06:57:14",
+  "model": "assets/model_ga25x/ga25x.fbx",
+  "extras_fbx": "assets/model_ga25x/ga25x_propdisc.fbx",
+  "coords": "Unity: x right, y up, z forward (nose); metres; relative to GA25X_root (CG, FBX origin, gear down)",
+  "status": "built and checked offline (FBX re-import check + stub test); NOT verified in game"
+ },
+ "crew": {
+  "stations": [
+   {
+    "role": "pilot",
+    "eye": {
+     "name": "cockpit_eye",
+     "parent": "fus_cockpit",
+     "type": "EMPTY",
+     "pivot": [
+      -0.36,
+      0.8,
+      3.1739
+     ],
+     "local_axes": {
+      "x": [
+       1.0,
+       0.0,
+       0.0
+      ],
+      "y": [
+       0.0,
+       1.0,
+       0.0
+      ],
+      "z": [
+       0.0,
+       0.0,
+       1.0
+      ]
+     },
+     "kind": "crew_eye",
+     "crew": "pilot"
+    },
+    "seat": null,
+    "part": "fus_cockpit",
+    "exit_hatch": "canopy_jettison_L"
+   },
+   {
+    "role": "wso",
+    "eye": {
+     "name": "crew_wso_eye",
+     "parent": "fus_cockpit",
+     "type": "EMPTY",
+     "pivot": [
+      0.36,
+      0.8,
+      3.1739
+     ],
+     "local_axes": {
+      "x": [
+       1.0,
+       0.0,
+       0.0
+      ],
+      "y": [
+       0.0,
+       1.0,
+       0.0
+      ],
+      "z": [
+       0.0,
+       0.0,
+       1.0
+      ]
+     },
+     "kind": "crew_eye",
+     "crew": "wso",
+     "look": "+Z (Unity) forward"
+    },
+    "seat": null,
+    "part": "fus_cockpit",
+    "exit_hatch": "canopy_jettison_R"
+   }
+  ],
+  "stock_seat": {
+   "mesh": "ejectionSeat",
+   "material": "Seats",
+   "in_figure": [
+    0.0,
+    0.0218,
+    -0.041
+   ],
+   "figure_eye_to_root": [
+    0.0,
+    -0.7147,
+    0.0651
+   ]
+  },
+  "note": "0.3.1: ejection seats (Pilot.ejectionSeat true, generator flag) = the STOCK seat each crew figure carries as its EjectionSeat child (COIN / SFB-81 pattern); no seat object in our model. Eyes at the figure helmetCamPoint."
+ },
+ "hatches": {
+  "hatches": [
+   {
+    "hatch": {
+     "name": "canopy_jettison_L",
+     "parent": "canopy_jettison_L_hinge",
+     "type": "MESH",
+     "pivot": [
+      -0.725,
+      0.6264,
+      3.0039
+     ],
+     "local_axes": {
+      "x": [
+       0.0,
+       0.0,
+       1.0
+      ],
+      "y": [
+       0.0,
+       1.0,
+       0.0
+      ],
+      "z": [
+       -1.0,
+       0.0,
+       0.0
+      ]
+     },
+     "kind": "canopy",
+     "open_deg_blender": -60.0,
+     "crew": "pilot",
+     "note": "jettisonable canopy panel over the pilot seat (glass + frame); hinge on the outboard sill (ground opening); Canopy.ejectionTransform on ejection"
+    },
+    "hinge": {
+     "name": "canopy_jettison_L_hinge",
+     "parent": "fus_cockpit",
+     "type": "EMPTY",
+     "pivot": [
+      -0.725,
+      0.6264,
+      3.0039
+     ],
+     "local_axes": {
+      "x": [
+       0.0,
+       0.0,
+       1.0
+      ],
+      "y": [
+       0.0,
+       1.0,
+       0.0
+      ],
+      "z": [
+       -1.0,
+       0.0,
+       0.0
+      ]
+     },
+     "kind": "hatch_hinge"
+    },
+    "parent_part": "fus_cockpit",
+    "axis_parent_space": [
+     0.0,
+     0.0,
+     1.0
+    ],
+    "hingeAngle": 60.0,
+    "probe_closed": [
+     -0.4273,
+     0.9959,
+     3.0733
+    ],
+    "probe_open": [
+     -0.8961,
+     1.069,
+     3.0733
+    ]
+   },
+   {
+    "hatch": {
+     "name": "canopy_jettison_R",
+     "parent": "canopy_jettison_R_hinge",
+     "type": "MESH",
+     "pivot": [
+      0.725,
+      0.6264,
+      3.0039
+     ],
+     "local_axes": {
+      "x": [
+       0.0,
+       0.0,
+       1.0
+      ],
+      "y": [
+       0.0,
+       1.0,
+       0.0
+      ],
+      "z": [
+       -1.0,
+       0.0,
+       0.0
+      ]
+     },
+     "kind": "canopy",
+     "open_deg_blender": 60.0,
+     "crew": "wso",
+     "note": "jettisonable canopy panel over the weapons officer seat (glass + frame); hinge on the outboard sill (ground opening); Canopy.ejectionTransform on ejection"
+    },
+    "hinge": {
+     "name": "canopy_jettison_R_hinge",
+     "parent": "fus_cockpit",
+     "type": "EMPTY",
+     "pivot": [
+      0.725,
+      0.6264,
+      3.0039
+     ],
+     "local_axes": {
+      "x": [
+       0.0,
+       0.0,
+       1.0
+      ],
+      "y": [
+       0.0,
+       1.0,
+       0.0
+      ],
+      "z": [
+       -1.0,
+       0.0,
+       0.0
+      ]
+     },
+     "kind": "hatch_hinge"
+    },
+    "parent_part": "fus_cockpit",
+    "axis_parent_space": [
+     0.0,
+     0.0,
+     1.0
+    ],
+    "hingeAngle": -60.0,
+    "probe_closed": [
+     0.4273,
+     0.9959,
+     3.0733
+    ],
+    "probe_open": [
+     0.8961,
+     1.069,
+     3.0733
+    ]
+   },
+   {
+    "hatch": {
+     "name": "hatch_entry_fwd",
+     "parent": "hatch_entry_fwd_hinge",
+     "type": "MESH",
+     "pivot": [
+      0.0,
+      -1.13,
+      1.5339
+     ],
+     "local_axes": {
+      "x": [
+       1.0,
+       0.0,
+       0.0
+      ],
+      "y": [
+       0.0,
+       1.0,
+       0.0
+      ],
+      "z": [
+       0.0,
+       0.0,
+       1.0
+      ]
+     },
+     "kind": "hatch",
+     "open_deg_blender": 100.0,
+     "note": "weapons officer escape / entry hatch under the capsule; hinged at its front edge"
+    },
+    "hinge": {
+     "name": "hatch_entry_fwd_hinge",
+     "parent": "fus_forward",
+     "type": "EMPTY",
+     "pivot": [
+      0.0,
+      -1.13,
+      1.5339
+     ],
+     "local_axes": {
+      "x": [
+       1.0,
+       0.0,
+       0.0
+      ],
+      "y": [
+       0.0,
+       1.0,
+       0.0
+      ],
+      "z": [
+       0.0,
+       0.0,
+       1.0
+      ]
+     },
+     "kind": "hatch_hinge"
+    },
+    "parent_part": "fus_forward",
+    "axis_parent_space": [
+     1.0,
+     0.0,
+     0.0
+    ],
+    "hingeAngle": -100.0,
+    "probe_closed": [
+     -0.0,
+     -1.12,
+     1.3182
+    ],
+    "probe_open": [
+     -0.0,
+     -1.3442,
+     1.5615
+    ]
+   }
+  ],
+  "note": "0.3.0: canopy_jettison_L/R = jettisonable canopy panels over each seat (COIN values: mass 50, ejectionForce (0,4000,0)); hatch_entry_fwd = ground entry door"
+ },
+ "lights": {
+  "formation": [
+   {
+    "name": "slimelight_fin_L",
+    "parent": "fin_L",
+    "type": "MESH",
+    "pivot": [
+     -3.4345,
+     1.25,
+     -7.6661
+    ],
+    "local_axes": {
+     "x": [
+      1.0,
+      0.0,
+      0.0
+     ],
+     "y": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "z": [
+      0.0,
+      0.0,
+      1.0
+     ]
+    },
+    "kind": "slimelight",
+    "size_m": [
+     0.07,
+     1.0
+    ],
+    "note": "outboard fin face along the leading edge (EW-25 / A-19)",
+    "part": "fin_L",
+    "material": "light_off"
+   },
+   {
+    "name": "slimelight_fin_R",
+    "parent": "fin_R",
+    "type": "MESH",
+    "pivot": [
+     3.4345,
+     1.25,
+     -7.6661
+    ],
+    "local_axes": {
+     "x": [
+      1.0,
+      0.0,
+      0.0
+     ],
+     "y": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "z": [
+      0.0,
+      0.0,
+      1.0
+     ]
+    },
+    "kind": "slimelight",
+    "size_m": [
+     0.07,
+     1.0
+    ],
+    "note": "outboard fin face along the leading edge (EW-25 / A-19)",
+    "part": "fin_R",
+    "material": "light_off"
+   },
+   {
+    "name": "slimelight_nacelle_L",
+    "parent": "nacelle_L",
+    "type": "MESH",
+    "pivot": [
+     -3.4604,
+     -0.2129,
+     0.429
+    ],
+    "local_axes": {
+     "x": [
+      1.0,
+      0.0,
+      0.0
+     ],
+     "y": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "z": [
+      0.0,
+      0.0,
+      1.0
+     ]
+    },
+    "kind": "slimelight",
+    "size_m": [
+     0.55,
+     0.05
+    ],
+    "note": "outboard nacelle side under the wing (user; KR-67 intake-side analogue)",
+    "part": "nacelle_L",
+    "material": "light_off"
+   },
+   {
+    "name": "slimelight_nacelle_R",
+    "parent": "nacelle_R",
+    "type": "MESH",
+    "pivot": [
+     3.4604,
+     -0.2129,
+     0.429
+    ],
+    "local_axes": {
+     "x": [
+      1.0,
+      0.0,
+      0.0
+     ],
+     "y": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "z": [
+      0.0,
+      0.0,
+      1.0
+     ]
+    },
+    "kind": "slimelight",
+    "size_m": [
+     0.55,
+     0.05
+    ],
+    "note": "outboard nacelle side under the wing (user; KR-67 intake-side analogue)",
+    "part": "nacelle_R",
+    "material": "light_off"
+   },
+   {
+    "name": "slimelight_nose_L",
+    "parent": "fus_cockpit",
+    "type": "MESH",
+    "pivot": [
+     -0.728,
+     0.515,
+     3.0339
+    ],
+    "local_axes": {
+     "x": [
+      1.0,
+      0.0,
+      0.0
+     ],
+     "y": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "z": [
+      0.0,
+      0.0,
+      1.0
+     ]
+    },
+    "kind": "slimelight",
+    "size_m": [
+     0.8,
+     0.06
+    ],
+    "note": "horizontal strip under the canopy sill (A-19 slimelights_F)",
+    "part": "fus_cockpit",
+    "material": "light_off"
+   },
+   {
+    "name": "slimelight_nose_R",
+    "parent": "fus_cockpit",
+    "type": "MESH",
+    "pivot": [
+     0.728,
+     0.515,
+     3.0339
+    ],
+    "local_axes": {
+     "x": [
+      1.0,
+      0.0,
+      0.0
+     ],
+     "y": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "z": [
+      0.0,
+      0.0,
+      1.0
+     ]
+    },
+    "kind": "slimelight",
+    "size_m": [
+     0.8,
+     0.06
+    ],
+    "note": "horizontal strip under the canopy sill (A-19 slimelights_F)",
+    "part": "fus_cockpit",
+    "material": "light_off"
+   },
+   {
+    "name": "slimelight_tip_L",
+    "parent": "wing_tip_L",
+    "type": "MESH",
+    "pivot": [
+     -9.2989,
+     0.4292,
+     -0.0421
+    ],
+    "local_axes": {
+     "x": [
+      1.0,
+      0.0,
+      0.0
+     ],
+     "y": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "z": [
+      0.0,
+      0.0,
+      1.0
+     ]
+    },
+    "kind": "slimelight",
+    "size_m": [
+     0.06,
+     0.6
+    ],
+    "note": "chordwise strip on the wing-tip top (A-19 slimelight_L/R)",
+    "part": "wing_tip_L",
+    "material": "light_off"
+   },
+   {
+    "name": "slimelight_tip_R",
+    "parent": "wing_tip_R",
+    "type": "MESH",
+    "pivot": [
+     9.2989,
+     0.4292,
+     -0.0421
+    ],
+    "local_axes": {
+     "x": [
+      1.0,
+      0.0,
+      0.0
+     ],
+     "y": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "z": [
+      0.0,
+      0.0,
+      1.0
+     ]
+    },
+    "kind": "slimelight",
+    "size_m": [
+     0.06,
+     0.6
+    ],
+    "note": "chordwise strip on the wing-tip top (A-19 slimelight_L/R)",
+    "part": "wing_tip_R",
+    "material": "light_off"
+   }
+  ],
+  "note": "separate quad meshes 3 mm proud of the skin; NavLights controlState 1 (Auto): on with the gear down"
+ },
+ "controls": {
+  "sticks": [
+   {
+    "name": "stick_L",
+    "parent": "fus_cockpit",
+    "type": "EMPTY",
+    "pivot": [
+     -0.402,
+     -0.3073,
+     3.6945
+    ],
+    "local_axes": {
+     "x": [
+      1.0,
+      0.0,
+      0.0
+     ],
+     "y": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "z": [
+      0.0,
+      0.0,
+      1.0
+     ]
+    },
+    "kind": "stock_stick",
+    "stock_mesh": "sfb_joystick",
+    "stock_materials": [
+     "hotas",
+     "SFB_cockpit"
+    ],
+    "drive": {
+     "component": "Cockpit.joysticks",
+     "range": 12.0
+    },
+    "range_deg": 12.0,
+    "note": "EMPTY: GA25XBuild adds the stock SFB-81 joystick; placed as SFB-81 joystick_L relative to its crew figure; 0.3.2: stands on a mount boot on the deepened footwell floor"
+   },
+   {
+    "name": "stick_R",
+    "parent": "fus_cockpit",
+    "type": "EMPTY",
+    "pivot": [
+     0.402,
+     -0.3073,
+     3.6945
+    ],
+    "local_axes": {
+     "x": [
+      1.0,
+      0.0,
+      0.0
+     ],
+     "y": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "z": [
+      0.0,
+      0.0,
+      1.0
+     ]
+    },
+    "kind": "stock_stick",
+    "stock_mesh": "sfb_joystick",
+    "stock_materials": [
+     "hotas",
+     "SFB_cockpit"
+    ],
+    "drive": {
+     "component": "Cockpit.joysticks",
+     "range": 12.0
+    },
+    "range_deg": 12.0,
+    "note": "EMPTY: GA25XBuild adds the stock SFB-81 joystick; placed as SFB-81 joystick_R relative to its crew figure; 0.3.2: stands on a mount boot on the deepened footwell floor"
+   }
+  ],
+  "pedals": [
+   {
+    "name": "cockpit_rudder_pedals_L",
+    "parent": "fus_cockpit",
+    "type": "MESH",
+    "pivot": [
+     -0.36,
+     -0.45,
+     4.0639
+    ],
+    "local_axes": {
+     "x": [
+      -0.0,
+      1.0,
+      0.0
+     ],
+     "y": [
+      0.0,
+      0.0,
+      1.0
+     ],
+     "z": [
+      1.0,
+      0.0,
+      -0.0
+     ]
+    },
+    "kind": "rudder_pedals",
+    "axis_local": "+X (Unity) = up",
+    "range_deg": 15,
+    "drive": {
+     "component": "ControlSurface",
+     "field": "yawRange",
+     "value": -15.0,
+     "servoSpeed": 60
+    },
+    "plates": [
+     {
+      "centre": [
+       -0.5587,
+       4.198,
+       -0.1385
+      ],
+      "normal": [
+       0.0,
+       -0.4067,
+       0.9135
+      ],
+      "knee": [
+       -0.5018,
+       3.8895,
+       0.2975
+      ],
+      "heel": [
+       -0.5322,
+       3.9736,
+       -0.1927
+      ]
+     },
+     {
+      "centre": [
+       -0.1613,
+       4.198,
+       -0.1385
+      ],
+      "normal": [
+       0.0,
+       -0.4067,
+       0.9135
+      ],
+      "knee": [
+       -0.2182,
+       3.8895,
+       0.2975
+      ],
+      "heel": [
+       -0.1878,
+       3.9736,
+       -0.1927
+      ]
+     }
+    ],
+    "note": "0.3.2: plates under the ball of each foot of the stock figure (COIN bone pose), tilted 24 deg, face normal aft-up; yaw bar on a post standing on the footwell floor"
+   },
+   {
+    "name": "cockpit_rudder_pedals_R",
+    "parent": "fus_cockpit",
+    "type": "MESH",
+    "pivot": [
+     0.36,
+     -0.45,
+     4.0639
+    ],
+    "local_axes": {
+     "x": [
+      -0.0,
+      1.0,
+      0.0
+     ],
+     "y": [
+      0.0,
+      0.0,
+      1.0
+     ],
+     "z": [
+      1.0,
+      0.0,
+      -0.0
+     ]
+    },
+    "kind": "rudder_pedals",
+    "axis_local": "+X (Unity) = up",
+    "range_deg": 15,
+    "drive": {
+     "component": "ControlSurface",
+     "field": "yawRange",
+     "value": -15.0,
+     "servoSpeed": 60
+    },
+    "plates": [
+     {
+      "centre": [
+       0.1613,
+       4.198,
+       -0.1385
+      ],
+      "normal": [
+       0.0,
+       -0.4067,
+       0.9135
+      ],
+      "knee": [
+       0.2182,
+       3.8895,
+       0.2975
+      ],
+      "heel": [
+       0.1878,
+       3.9736,
+       -0.1927
+      ]
+     },
+     {
+      "centre": [
+       0.5587,
+       4.198,
+       -0.1385
+      ],
+      "normal": [
+       0.0,
+       -0.4067,
+       0.9135
+      ],
+      "knee": [
+       0.5018,
+       3.8895,
+       0.2975
+      ],
+      "heel": [
+       0.5322,
+       3.9736,
+       -0.1927
+      ]
+     }
+    ],
+    "note": "0.3.2: plates under the ball of each foot of the stock figure (COIN bone pose), tilted 24 deg, face normal aft-up; yaw bar on a post standing on the footwell floor"
+   }
+  ],
+  "levers": [
+   {
+    "name": "cockpit_throttle",
+    "parent": "fus_cockpit",
+    "type": "EMPTY",
+    "pivot": [
+     0.0,
+     -0.1452,
+     3.9159
+    ],
+    "local_axes": {
+     "x": [
+      1.0,
+      0.0,
+      0.0
+     ],
+     "y": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "z": [
+      0.0,
+      0.0,
+      1.0
+     ]
+    },
+    "kind": "throttle",
+    "drive": {
+     "component": "Cockpit.throttles",
+     "rotation": true,
+     "range": 52.0
+    },
+    "range_deg": 52.0,
+    "note": "EMPTY = the lever pivot (Unity identity frame); 0.3.3: NO stock mesh (user: the stock levers were not attached), our split lever is the child cockpit_throttle_arm. SFB-81 spot relative to the pilot figure + 0.219 m forward (clears the stock seat). 0.3.2: the quadrant housing is an arc concentric with this pivot (grip 4 mm above it); child cockpit_throttle_arm = our stalk out of the slot"
+   }
+  ],
+  "note": "0.3.1 kitbash: stick_L/R and cockpit_throttle are EMPTIES at the stock SFB-81 pivots (Unity identity frame); the generator adds the stock meshes. Cockpit.Joystick: localEulerAngles = (pitch*range, 0, -roll*range) (range 12 = SFB-81); Cockpit.Throttle rotation range 52 (= SFB-81). pitch > 0 = push (ControlsFilter.cs:241), roll > 0 = right."
+ },
+ "mfds": [
+  {
+   "name": "mfd_center",
+   "parent": "fus_cockpit",
+   "type": "MESH",
+   "pivot": [
+    -0.3301,
+    0.4589,
+    3.9889
+   ],
+   "local_axes": {
+    "x": [
+     1.0,
+     0.0,
+     0.0
+    ],
+    "y": [
+     0.0,
+     1.0,
+     0.0
+    ],
+    "z": [
+     0.0,
+     0.0,
+     1.0
+    ]
+   },
+   "kind": "mfd",
+   "size_m": [
+    0.44,
+    0.24
+   ],
+   "normal_unity": [
+    0.0,
+    0.1392,
+    -0.9903
+   ],
+   "uv": "0-1; u -> crew right, v -> panel up",
+   "note": "pilot main display (tac screen = Cockpit.tacScreenRender)",
+   "bezel": "bezel art 0.540 x 0.337 m with 20 push buttons; lip 2 mm, face 4 mm behind the bezel face",
+   "role": "tac",
+   "corners": [
+    [
+     -0.5501,
+     0.3401,
+     3.9722
+    ],
+    [
+     -0.1101,
+     0.3401,
+     3.9722
+    ],
+    [
+     -0.1101,
+     0.5778,
+     4.0056
+    ],
+    [
+     -0.5501,
+     0.5778,
+     4.0056
+    ]
+   ]
+  },
+  {
+   "name": "mfd_left",
+   "parent": "fus_cockpit",
+   "type": "MESH",
+   "pivot": [
+    -0.54,
+    0.2513,
+    3.9566
+   ],
+   "local_axes": {
+    "x": [
+     1.0,
+     0.0,
+     0.0
+    ],
+    "y": [
+     0.0,
+     1.0,
+     0.0
+    ],
+    "z": [
+     0.0,
+     0.0,
+     1.0
+    ]
+   },
+   "kind": "mfd",
+   "size_m": [
+    0.15,
+    0.07
+   ],
+   "normal_unity": [
+    0.0,
+    0.1392,
+    -0.9903
+   ],
+   "uv": "0-1; u -> crew right, v -> panel up",
+   "note": "pilot auxiliary pane (generator: Touchscreen_off or tac screen)",
+   "role": "tac",
+   "corners": [
+    [
+     -0.615,
+     0.2166,
+     3.9518
+    ],
+    [
+     -0.465,
+     0.2166,
+     3.9518
+    ],
+    [
+     -0.465,
+     0.2859,
+     3.9615
+    ],
+    [
+     -0.615,
+     0.2859,
+     3.9615
+    ]
+   ]
+  },
+  {
+   "name": "mfd_right",
+   "parent": "fus_cockpit",
+   "type": "MESH",
+   "pivot": [
+    0.3299,
+    0.4589,
+    3.9889
+   ],
+   "local_axes": {
+    "x": [
+     1.0,
+     0.0,
+     0.0
+    ],
+    "y": [
+     0.0,
+     1.0,
+     0.0
+    ],
+    "z": [
+     0.0,
+     0.0,
+     1.0
+    ]
+   },
+   "kind": "mfd",
+   "size_m": [
+    0.44,
+    0.24
+   ],
+   "normal_unity": [
+    0.0,
+    0.1392,
+    -0.9903
+   ],
+   "uv": "0-1; u -> crew right, v -> panel up",
+   "note": "weapons officer main display (target camera)",
+   "bezel": "bezel art 0.540 x 0.337 m with 20 push buttons; lip 2 mm, face 4 mm behind the bezel face",
+   "role": "targetcam",
+   "corners": [
+    [
+     0.1099,
+     0.3401,
+     3.9722
+    ],
+    [
+     0.5499,
+     0.3401,
+     3.9722
+    ],
+    [
+     0.5499,
+     0.5778,
+     4.0056
+    ],
+    [
+     0.1099,
+     0.5778,
+     4.0056
+    ]
+   ]
+  },
+  {
+   "name": "mfd_wso",
+   "parent": "fus_cockpit",
+   "type": "MESH",
+   "pivot": [
+    0.54,
+    0.2513,
+    3.9566
+   ],
+   "local_axes": {
+    "x": [
+     1.0,
+     0.0,
+     0.0
+    ],
+    "y": [
+     0.0,
+     1.0,
+     0.0
+    ],
+    "z": [
+     0.0,
+     0.0,
+     1.0
+    ]
+   },
+   "kind": "mfd",
+   "size_m": [
+    0.15,
+    0.07
+   ],
+   "normal_unity": [
+    0.0,
+    0.1392,
+    -0.9903
+   ],
+   "uv": "0-1; u -> crew right, v -> panel up",
+   "note": "weapons officer auxiliary pane (generator: Touchscreen_off or tac screen)",
+   "role": "tac",
+   "corners": [
+    [
+     0.465,
+     0.2166,
+     3.9518
+    ],
+    [
+     0.615,
+     0.2166,
+     3.9518
+    ],
+    [
+     0.615,
+     0.2859,
+     3.9615
+    ],
+    [
+     0.465,
+     0.2859,
+     3.9615
+    ]
+   ]
+  }
+ ],
+ "laser_turret": {
+  "mount": {
+   "name": "laser_turret_mount",
+   "parent": "fus_rear",
+   "type": "EMPTY",
+   "pivot": [
+    0.0,
+    -1.1827,
+    -2.6461
+   ],
+   "local_axes": {
+    "x": [
+     1.0,
+     0.0,
+     0.0
+    ],
+    "y": [
+     0.0,
+     1.0,
+     0.0
+    ],
+    "z": [
+     0.0,
+     0.0,
+     1.0
+    ]
+   },
+   "kind": "turret_mount",
+   "note": "identity (+Y up, fwd = +Z Unity) under fus_rear on the belly, 0.3.0; 360 deg traverse; the turret hangs below it (meshes upside down)"
+  },
+  "az": {
+   "name": "laser_turret_az",
+   "parent": "laser_turret_mount",
+   "type": "MESH",
+   "pivot": [
+    0.0,
+    -1.1827,
+    -2.6461
+   ],
+   "local_axes": {
+    "x": [
+     1.0,
+     0.0,
+     0.0
+    ],
+    "y": [
+     0.0,
+     1.0,
+     0.0
+    ],
+    "z": [
+     0.0,
+     0.0,
+     1.0
+    ]
+   },
+   "kind": "turret_az",
+   "axis_local": "+Y (Unity) = up",
+   "traverseRange": 360,
+   "traverseRate": 150,
+   "note": "faceted armoured base + cheek plates (upside down under the ventral fairing); rests identity under the mount"
+  },
+  "el": {
+   "name": "laser_turret_el",
+   "parent": "laser_turret_az",
+   "type": "MESH",
+   "pivot": [
+    0.0,
+    -1.4827,
+    -2.6461
+   ],
+   "local_axes": {
+    "x": [
+     1.0,
+     0.0,
+     0.0
+    ],
+    "y": [
+     0.0,
+     1.0,
+     0.0
+    ],
+    "z": [
+     0.0,
+     0.0,
+     1.0
+    ]
+   },
+   "kind": "turret_el",
+   "axis_local": "+X (Unity) = right",
+   "minElevation": -90.0,
+   "maxElevation": -2.0,
+   "elevationRate": 60,
+   "note": "ventral beam director; Laser here (forward = +Z Unity); rests identity under the az; elevation -90..-2 = below the turret plane (Turret.cs:714 clamps localEulerAngles.x to [2, 90], positive = muzzle down). Generator: FiringCone axis = -mount.up, exclusion cone toward the open bay doors."
+  },
+  "muzzle": {
+   "name": "muzzle_laser",
+   "parent": "laser_turret_el",
+   "type": "EMPTY",
+   "pivot": [
+    0.0,
+    -1.4827,
+    -2.3361
+   ],
+   "local_axes": {
+    "x": [
+     1.0,
+     0.0,
+     0.0
+    ],
+    "y": [
+     0.0,
+     1.0,
+     0.0
+    ],
+    "z": [
+     0.0,
+     0.0,
+     1.0
+    ]
+   },
+   "kind": "muzzle",
+   "note": "Laser.directionTransform + beam origin"
+  },
+  "Turret": {
+   "traverseRange": 360,
+   "traverseRate": 150,
+   "minElevation": -90.0,
+   "maxElevation": -2.0,
+   "elevationRate": 60
+  }
+ },
+ "doors": [
+  {
+   "name": "bomb_door_L",
+   "parent": "fus_center",
+   "axis_unity": [
+    -0.0015,
+    -0.0028,
+    1.0
+   ],
+   "open_unity": -92.0,
+   "open_in_file": false
+  },
+  {
+   "name": "bomb_door_R",
+   "parent": "fus_center",
+   "axis_unity": [
+    0.0015,
+    -0.0028,
+    1.0
+   ],
+   "open_unity": 92.0,
+   "open_in_file": false
+  },
+  {
+   "name": "gear_door_main_L_a",
+   "parent": "nacelle_L",
+   "axis_unity": [
+    0.0022,
+    -0.0672,
+    0.9977
+   ],
+   "open_unity": 95.0,
+   "open_in_file": true
+  },
+  {
+   "name": "gear_door_main_L_b",
+   "parent": "nacelle_L",
+   "axis_unity": [
+    -0.0022,
+    -0.0672,
+    0.9977
+   ],
+   "open_unity": -95.0,
+   "open_in_file": true
+  },
+  {
+   "name": "gear_door_main_R_a",
+   "parent": "nacelle_R",
+   "axis_unity": [
+    -0.0022,
+    -0.0672,
+    0.9977
+   ],
+   "open_unity": -95.0,
+   "open_in_file": true
+  },
+  {
+   "name": "gear_door_main_R_b",
+   "parent": "nacelle_R",
+   "axis_unity": [
+    0.0022,
+    -0.0672,
+    0.9977
+   ],
+   "open_unity": 95.0,
+   "open_in_file": true
+  },
+  {
+   "name": "gear_door_nose_L",
+   "parent": "fus_cockpit",
+   "axis_unity": [
+    -0.0002,
+    0.0084,
+    1.0
+   ],
+   "open_unity": -95.0,
+   "open_in_file": true
+  },
+  {
+   "name": "gear_door_nose_R",
+   "parent": "fus_cockpit",
+   "axis_unity": [
+    0.0002,
+    0.0084,
+    1.0
+   ],
+   "open_unity": 95.0,
+   "open_in_file": true
+  }
+ ],
+ "hardpoints": [
+  {
+   "name": "hp_bombbay",
+   "parent": "fus_center",
+   "type": "EMPTY",
+   "pivot": [
+    0.0,
+    -0.43,
+    -0.4711
+   ],
+   "local_axes": {
+    "x": [
+     1.0,
+     0.0,
+     0.0
+    ],
+    "y": [
+     0.0,
+     1.0,
+     0.0
+    ],
+    "z": [
+     0.0,
+     0.0,
+     1.0
+    ]
+   },
+   "kind": "hardpoint",
+   "note": "bay centre (single mounts)"
+  },
+  {
+   "name": "hp_bay_L",
+   "parent": "fus_center",
+   "type": "EMPTY",
+   "pivot": [
+    -0.33,
+    -0.43,
+    -0.4711
+   ],
+   "local_axes": {
+    "x": [
+     1.0,
+     0.0,
+     0.0
+    ],
+    "y": [
+     0.0,
+     1.0,
+     0.0
+    ],
+    "z": [
+     0.0,
+     0.0,
+     1.0
+    ]
+   },
+   "kind": "hardpoint",
+   "note": "paired rack, left"
+  },
+  {
+   "name": "hp_bay_R",
+   "parent": "fus_center",
+   "type": "EMPTY",
+   "pivot": [
+    0.33,
+    -0.43,
+    -0.4711
+   ],
+   "local_axes": {
+    "x": [
+     1.0,
+     0.0,
+     0.0
+    ],
+    "y": [
+     0.0,
+     1.0,
+     0.0
+    ],
+    "z": [
+     0.0,
+     0.0,
+     1.0
+    ]
+   },
+   "kind": "hardpoint",
+   "note": "paired rack, right"
+  },
+  {
+   "name": "hp_inner_L",
+   "parent": "wing_outer_L",
+   "type": "EMPTY",
+   "pivot": [
+    -4.1,
+    -0.0766,
+    -0.0888
+   ],
+   "local_axes": {
+    "x": [
+     1.0,
+     0.0,
+     0.0
+    ],
+    "y": [
+     0.0,
+     1.0,
+     0.0
+    ],
+    "z": [
+     0.0,
+     0.0,
+     1.0
+    ]
+   },
+   "kind": "hardpoint",
+   "note": "at the pylon bottom face (stock CAS1 pattern: hardpoint = pylon origin at its bottom)"
+  },
+  {
+   "name": "hp_inner_R",
+   "parent": "wing_outer_R",
+   "type": "EMPTY",
+   "pivot": [
+    4.1,
+    -0.0766,
+    -0.0888
+   ],
+   "local_axes": {
+    "x": [
+     1.0,
+     0.0,
+     0.0
+    ],
+    "y": [
+     0.0,
+     1.0,
+     0.0
+    ],
+    "z": [
+     0.0,
+     0.0,
+     1.0
+    ]
+   },
+   "kind": "hardpoint",
+   "note": "at the pylon bottom face (stock CAS1 pattern: hardpoint = pylon origin at its bottom)"
+  },
+  {
+   "name": "hp_outer_L",
+   "parent": "wing_outer_L",
+   "type": "EMPTY",
+   "pivot": [
+    -5.8,
+    -0.0214,
+    -0.1159
+   ],
+   "local_axes": {
+    "x": [
+     1.0,
+     0.0,
+     0.0
+    ],
+    "y": [
+     0.0,
+     1.0,
+     0.0
+    ],
+    "z": [
+     0.0,
+     0.0,
+     1.0
+    ]
+   },
+   "kind": "hardpoint",
+   "note": "at the pylon bottom face (stock CAS1 pattern: hardpoint = pylon origin at its bottom)"
+  },
+  {
+   "name": "hp_outer_R",
+   "parent": "wing_outer_R",
+   "type": "EMPTY",
+   "pivot": [
+    5.8,
+    -0.0214,
+    -0.1159
+   ],
+   "local_axes": {
+    "x": [
+     1.0,
+     0.0,
+     0.0
+    ],
+    "y": [
+     0.0,
+     1.0,
+     0.0
+    ],
+    "z": [
+     0.0,
+     0.0,
+     1.0
+    ]
+   },
+   "kind": "hardpoint",
+   "note": "at the pylon bottom face (stock CAS1 pattern: hardpoint = pylon origin at its bottom)"
+  },
+  {
+   "name": "hp_tailhook",
+   "parent": "fus_tail",
+   "type": "EMPTY",
+   "pivot": [
+    0.0,
+    -0.677,
+    -7.3461
+   ],
+   "local_axes": {
+    "x": [
+     1.0,
+     0.0,
+     0.0
+    ],
+    "y": [
+     0.0,
+     1.0,
+     0.0
+    ],
+    "z": [
+     0.0,
+     0.0,
+     1.0
+    ]
+   },
+   "kind": "hardpoint",
+   "note": "tail-hook mount (WeaponMount.tailHook)"
+  }
+ ],
+ "hardpoints_added": [
+  {
+   "name": "hp_root_L",
+   "parent": "wing_inner_L",
+   "type": "EMPTY",
+   "pivot": [
+    -1.55,
+    -0.2553,
+    -0.0462
+   ],
+   "local_axes": {
+    "x": [
+     1.0,
+     0.0,
+     0.0
+    ],
+    "y": [
+     0.0,
+     1.0,
+     0.0
+    ],
+    "z": [
+     0.0,
+     0.0,
+     1.0
+    ]
+   },
+   "kind": "hardpoint",
+   "note": "at the pylon bottom face (stock CAS1 pattern: hardpoint = pylon origin at its bottom)"
+  },
+  {
+   "name": "hp_root_R",
+   "parent": "wing_inner_R",
+   "type": "EMPTY",
+   "pivot": [
+    1.55,
+    -0.2553,
+    -0.0462
+   ],
+   "local_axes": {
+    "x": [
+     1.0,
+     0.0,
+     0.0
+    ],
+    "y": [
+     0.0,
+     1.0,
+     0.0
+    ],
+    "z": [
+     0.0,
+     0.0,
+     1.0
+    ]
+   },
+   "kind": "hardpoint",
+   "note": "at the pylon bottom face (stock CAS1 pattern: hardpoint = pylon origin at its bottom)"
+  },
+  {
+   "name": "hp_mid_L",
+   "parent": "wing_outer_L",
+   "type": "EMPTY",
+   "pivot": [
+    -4.95,
+    -0.0482,
+    -0.1025
+   ],
+   "local_axes": {
+    "x": [
+     1.0,
+     0.0,
+     0.0
+    ],
+    "y": [
+     0.0,
+     1.0,
+     0.0
+    ],
+    "z": [
+     0.0,
+     0.0,
+     1.0
+    ]
+   },
+   "kind": "hardpoint",
+   "note": "at the pylon bottom face (stock CAS1 pattern: hardpoint = pylon origin at its bottom)"
+  },
+  {
+   "name": "hp_mid_R",
+   "parent": "wing_outer_R",
+   "type": "EMPTY",
+   "pivot": [
+    4.95,
+    -0.0482,
+    -0.1025
+   ],
+   "local_axes": {
+    "x": [
+     1.0,
+     0.0,
+     0.0
+    ],
+    "y": [
+     0.0,
+     1.0,
+     0.0
+    ],
+    "z": [
+     0.0,
+     0.0,
+     1.0
+    ]
+   },
+   "kind": "hardpoint",
+   "note": "at the pylon bottom face (stock CAS1 pattern: hardpoint = pylon origin at its bottom)"
+  }
+ ],
+ "bay": {
+  "y": [
+   -1.9461,
+   1.0039
+  ],
+  "half_x": 0.66,
+  "note": "bomb bay extent along Unity z (relative to the root) and half width"
+ },
+ "sensors": {
+  "targetcam": {
+   "name": "targetcam_point",
+   "parent": "fus_nose",
+   "type": "EMPTY",
+   "pivot": [
+    0.0,
+    -1.169,
+    5.0539
+   ],
+   "local_axes": {
+    "x": [
+     1.0,
+     0.0,
+     0.0
+    ],
+    "y": [
+     0.0,
+     1.0,
+     0.0
+    ],
+    "z": [
+     0.0,
+     0.0,
+     1.0
+    ]
+   },
+   "kind": "sensor",
+   "note": "TargetCam forward mount"
+  },
+  "radar": {
+   "name": "radar_antenna",
+   "parent": "fus_nose",
+   "type": "EMPTY",
+   "pivot": [
+    0.0,
+    0.0,
+    5.1339
+   ],
+   "local_axes": {
+    "x": [
+     1.0,
+     0.0,
+     0.0
+    ],
+    "y": [
+     0.0,
+     1.0,
+     0.0
+    ],
+    "z": [
+     0.0,
+     0.0,
+     1.0
+    ]
+   },
+   "kind": "sensor",
+   "note": "conformal radar array in the nose skin (Radar.scanner)"
+  },
+  "tail": {
+   "name": "mws_tail",
+   "parent": "fus_tail",
+   "type": "EMPTY",
+   "pivot": [
+    -0.0,
+    0.1636,
+    -10.2261
+   ],
+   "local_axes": {
+    "x": [
+     -1.0,
+     0.0,
+     -0.0
+    ],
+    "y": [
+     0.0,
+     1.0,
+     0.0
+    ],
+    "z": [
+     0.0,
+     0.0,
+     -1.0
+    ]
+   },
+   "kind": "sensor",
+   "note": "tail sensors (missile warning + IR jammer ball); Unity +Z = aft"
+  },
+  "chin": {
+   "name": "chin_turret",
+   "parent": "fus_nose",
+   "type": "MESH",
+   "pivot": [
+    0.0,
+    -1.149,
+    4.8539
+   ],
+   "local_axes": {
+    "x": [
+     1.0,
+     0.0,
+     0.0
+    ],
+    "y": [
+     0.0,
+     1.0,
+     0.0
+    ],
+    "z": [
+     0.0,
+     0.0,
+     1.0
+    ]
+   },
+   "note": "EO/IR gimbal + laser designator / rangefinder (TargetCam mount)"
+  }
+ },
+ "flares": [
+  {
+   "name": "flare_L",
+   "parent": "fus_rear",
+   "type": "EMPTY",
+   "pivot": [
+    -0.7277,
+    -0.56,
+    -3.6461
+   ],
+   "local_axes": {
+    "x": [
+     -0.0,
+     0.0,
+     1.0
+    ],
+    "y": [
+     -0.8575,
+     -0.5145,
+     -0.0
+    ],
+    "z": [
+     0.5145,
+     -0.8575,
+     0.0
+    ]
+   },
+   "kind": "flare_point",
+   "note": "FlareEjector ejection point, Unity +Y = outward/down"
+  },
+  {
+   "name": "flare_R",
+   "parent": "fus_rear",
+   "type": "EMPTY",
+   "pivot": [
+    0.7277,
+    -0.56,
+    -3.6461
+   ],
+   "local_axes": {
+    "x": [
+     -0.0,
+     0.0,
+     1.0
+    ],
+    "y": [
+     0.8575,
+     -0.5145,
+     0.0
+    ],
+    "z": [
+     0.5145,
+     0.8575,
+     0.0
+    ]
+   },
+   "kind": "flare_point",
+   "note": "FlareEjector ejection point, Unity +Y = outward/down"
+  },
+  {
+   "name": "flare_tail_L",
+   "parent": "fus_tail",
+   "type": "EMPTY",
+   "pivot": [
+    -0.22,
+    -0.0364,
+    -9.6661
+   ],
+   "local_axes": {
+    "x": [
+     -0.0,
+     0.0,
+     1.0
+    ],
+    "y": [
+     -0.8575,
+     -0.5145,
+     -0.0
+    ],
+    "z": [
+     0.5145,
+     -0.8575,
+     0.0
+    ]
+   },
+   "kind": "flare_point"
+  },
+  {
+   "name": "flare_tail_R",
+   "parent": "fus_tail",
+   "type": "EMPTY",
+   "pivot": [
+    0.22,
+    -0.0364,
+    -9.6661
+   ],
+   "local_axes": {
+    "x": [
+     -0.0,
+     0.0,
+     1.0
+    ],
+    "y": [
+     0.8575,
+     -0.5145,
+     0.0
+    ],
+    "z": [
+     0.5145,
+     0.8575,
+     0.0
+    ]
+   },
+   "kind": "flare_point"
+  }
+ ],
+ "tailhook": {
+  "name": "tailhook",
+  "parent": "fus_tail",
+  "type": "MESH",
+  "pivot": [
+   0.0,
+   -0.677,
+   -7.3461
+  ],
+  "local_axes": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "kind": "tailhook",
+  "length": 2.3,
+  "stowed_up_deg": 8.5,
+  "note": "hinge at origin, Unity local X = hinge axis; at angle 0 the hook points straight aft (-Z Unity); stowed = +8.5 deg (tip up, flush), deployed down = negative angles",
+  "end": {
+   "name": "tailhook_end",
+   "parent": "tailhook",
+   "type": "EMPTY",
+   "pivot": [
+    0.0,
+    -0.677,
+    -9.6461
+   ],
+   "local_axes": {
+    "x": [
+     1.0,
+     0.0,
+     0.0
+    ],
+    "y": [
+     0.0,
+     1.0,
+     0.0
+    ],
+    "z": [
+     0.0,
+     0.0,
+     1.0
+    ]
+   },
+   "kind": "hook_end",
+   "note": "at angle 0"
+  }
+ },
+ "guns": {
+  "cannon": {
+   "name": "cannon",
+   "parent": "fus_nose",
+   "type": "MESH",
+   "pivot": [
+    0.0,
+    -0.31,
+    4.0039
+   ],
+   "local_axes": {
+    "x": [
+     1.0,
+     0.0,
+     0.0
+    ],
+    "y": [
+     0.0,
+     1.0,
+     0.0
+    ],
+    "z": [
+     0.0,
+     0.0,
+     1.0
+    ]
+   },
+   "note": "76 mm autoloading gun (stock VL-49 Tarantula weapon, fixed forward), 96 guided shells"
+  },
+  "muzzle_cannon": {
+   "name": "muzzle_cannon",
+   "parent": "cannon",
+   "type": "EMPTY",
+   "pivot": [
+    0.0,
+    -0.31,
+    6.2339
+   ],
+   "local_axes": {
+    "x": [
+     1.0,
+     0.0,
+     0.0
+    ],
+    "y": [
+     0.0,
+     1.0,
+     0.0
+    ],
+    "z": [
+     0.0,
+     0.0,
+     1.0
+    ]
+   },
+   "kind": "muzzle"
+  },
+  "package": [
+   {
+    "name": "package_guns_L",
+    "parent": "fus_cockpit",
+    "type": "MESH",
+    "pivot": [
+     -0.8,
+     -0.43,
+     2.5539
+    ],
+    "local_axes": {
+     "x": [
+      1.0,
+      0.0,
+      0.0
+     ],
+     "y": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "z": [
+      0.0,
+      0.0,
+      1.0
+     ]
+    },
+    "note": "chined conformal gun fairing, one 20 mm cannon, 250 rounds"
+   },
+   {
+    "name": "package_guns_R",
+    "parent": "fus_cockpit",
+    "type": "MESH",
+    "pivot": [
+     0.8,
+     -0.43,
+     2.5539
+    ],
+    "local_axes": {
+     "x": [
+      1.0,
+      0.0,
+      0.0
+     ],
+     "y": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "z": [
+      0.0,
+      0.0,
+      1.0
+     ]
+    },
+    "note": "chined conformal gun fairing, one 20 mm cannon, 250 rounds"
+   }
+  ],
+  "muzzles_package": [
+   {
+    "name": "muzzle_package_L1",
+    "parent": "package_guns_L",
+    "type": "EMPTY",
+    "pivot": [
+     -0.7425,
+     -0.43,
+     3.9539
+    ],
+    "local_axes": {
+     "x": [
+      1.0,
+      0.0,
+      0.0
+     ],
+     "y": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "z": [
+      0.0,
+      0.0,
+      1.0
+     ]
+    },
+    "kind": "muzzle"
+   },
+   {
+    "name": "muzzle_package_R1",
+    "parent": "package_guns_R",
+    "type": "EMPTY",
+    "pivot": [
+     0.7425,
+     -0.43,
+     3.9539
+    ],
+    "local_axes": {
+     "x": [
+      1.0,
+      0.0,
+      0.0
+     ],
+     "y": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "z": [
+      0.0,
+      0.0,
+      1.0
+     ]
+    },
+    "kind": "muzzle"
+   }
+  ]
+ },
+ "prop_discs": {
+  "slots": [
+   {
+    "name": "prop_disc_L",
+    "parent": "prop_hub_L",
+    "type": "EMPTY",
+    "pivot": [
+     -2.95,
+     -0.25,
+     2.7339
+    ],
+    "local_axes": {
+     "x": [
+      1.0,
+      0.0,
+      0.0
+     ],
+     "y": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "z": [
+      0.0,
+      0.0,
+      1.0
+     ]
+    },
+    "kind": "prop_disc",
+    "note": "MeshFilter slot for ConstantSpeedProp.propDisc; meshes in ga25x_propdisc.fbx (propdisc_blur, propdisc_full); local +Z (Unity) = spin axis"
+   },
+   {
+    "name": "prop_disc_R",
+    "parent": "prop_hub_R",
+    "type": "EMPTY",
+    "pivot": [
+     2.95,
+     -0.25,
+     2.7339
+    ],
+    "local_axes": {
+     "x": [
+      1.0,
+      0.0,
+      0.0
+     ],
+     "y": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "z": [
+      0.0,
+      0.0,
+      1.0
+     ]
+    },
+    "kind": "prop_disc",
+    "note": "MeshFilter slot for ConstantSpeedProp.propDisc; meshes in ga25x_propdisc.fbx (propdisc_blur, propdisc_full); local +Z (Unity) = spin axis"
+   }
+  ],
+  "meshes": [
+   "propdisc_blur",
+   "propdisc_full"
+  ]
+ },
+ "gear": {
+  "axles": {
+   "gear_nose_wheel": [
+    0.0,
+    -2.21,
+    4.0539
+   ],
+   "gear_main_L_wheel": [
+    -2.95,
+    -1.993,
+    -0.3461
+   ],
+   "gear_main_R_wheel": [
+    2.95,
+    -1.993,
+    -0.3461
+   ]
+  },
+  "main_wheel_r": 0.597,
+  "nose_wheel_r": 0.38
+ }
+}

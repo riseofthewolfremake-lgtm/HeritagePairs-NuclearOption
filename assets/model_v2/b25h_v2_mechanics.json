@@ -1,0 +1,380 @@
+{
+ "checks": [
+  {
+   "name": "cockpit_column_L stays on its floor pin through pitch +-12 deg",
+   "ok": true,
+   "detail": "worst gap 0.0 mm"
+  },
+  {
+   "name": "cockpit_yoke_L stays on the column hub through roll +-45 at pitch -12/0/12",
+   "ok": true,
+   "detail": "worst gap 0.0 mm"
+  },
+  {
+   "name": "cockpit_rudder_pedals_L stays in its floor socket through yaw +-15",
+   "ok": true,
+   "detail": "worst gap 0.0 mm"
+  },
+  {
+   "name": "turret_dorsal (az) rests on the turret ring for all azimuths",
+   "ok": true,
+   "detail": "worst gap 0.0 mm"
+  },
+  {
+   "name": "turret_dorsal_guns (el) stays in the side plates for el -5..85",
+   "ok": true,
+   "detail": "worst gap 0.0 mm"
+  },
+  {
+   "name": "tail_turret_az stays on its pedestal for az +-20",
+   "ok": true,
+   "detail": "worst gap 0.0 mm"
+  },
+  {
+   "name": "tail_guns (el) stays in the yoke for el +-25",
+   "ok": true,
+   "detail": "worst gap 0.0 mm"
+  },
+  {
+   "name": "waist_gun_L_az ball stays in the hatch socket for az +-40",
+   "ok": true,
+   "detail": "worst gap 0.0 mm"
+  },
+  {
+   "name": "waist_gun_L (el) stays on the ball for el -30..40",
+   "ok": true,
+   "detail": "worst gap 0.0 mm"
+  },
+  {
+   "name": "waist_gun_R_az ball stays in the hatch socket for az +-40",
+   "ok": true,
+   "detail": "worst gap 0.0 mm"
+  },
+  {
+   "name": "waist_gun_R (el) stays on the ball for el -30..40",
+   "ok": true,
+   "detail": "worst gap 0.0 mm"
+  },
+  {
+   "name": "gun_turret_L attached to turret_dorsal_guns",
+   "ok": true,
+   "detail": "gap 0.0 mm"
+  },
+  {
+   "name": "muzzle_turret_L at the stock M2 muzzle offset (0, 1.200, 0.046) in the gun frame",
+   "ok": true,
+   "detail": "(0.0, 1.2, 0.046)"
+  },
+  {
+   "name": "gun_turret_R attached to turret_dorsal_guns",
+   "ok": true,
+   "detail": "gap 0.0 mm"
+  },
+  {
+   "name": "muzzle_turret_R at the stock M2 muzzle offset (0, 1.200, 0.046) in the gun frame",
+   "ok": true,
+   "detail": "(0.0, 1.2, 0.046)"
+  },
+  {
+   "name": "gun_tail_L attached to tail_guns",
+   "ok": true,
+   "detail": "gap 0.0 mm"
+  },
+  {
+   "name": "muzzle_tail_L at the stock M2 muzzle offset (0, 1.200, 0.046) in the gun frame",
+   "ok": true,
+   "detail": "(0.0, 1.2, 0.046)"
+  },
+  {
+   "name": "gun_tail_R attached to tail_guns",
+   "ok": true,
+   "detail": "gap 0.0 mm"
+  },
+  {
+   "name": "muzzle_tail_R at the stock M2 muzzle offset (0, 1.200, 0.046) in the gun frame",
+   "ok": true,
+   "detail": "(0.0, 1.2, 0.046)"
+  },
+  {
+   "name": "gun_waist_L attached to waist_gun_L",
+   "ok": true,
+   "detail": "gap 0.0 mm"
+  },
+  {
+   "name": "muzzle_waist_L at the stock M2 muzzle offset (0, 1.200, 0.046) in the gun frame",
+   "ok": true,
+   "detail": "(-0.0, 1.2, 0.046)"
+  },
+  {
+   "name": "gun_waist_R attached to waist_gun_R",
+   "ok": true,
+   "detail": "gap 0.0 mm"
+  },
+  {
+   "name": "muzzle_waist_R at the stock M2 muzzle offset (0, 1.200, 0.046) in the gun frame",
+   "ok": true,
+   "detail": "(0.0, 1.2, 0.046)"
+  },
+  {
+   "name": "hatch_cockpit_top closed sits in its opening and keeps its hinge edge when open",
+   "ok": true,
+   "detail": "closed gap 0.0 mm, open gap 0.0 mm, centroid moves (0.0, 0.39, 0.32)"
+  },
+  {
+   "name": "hatch_cockpit_top opens the right way",
+   "ok": true,
+   "detail": "(0.0, 0.39, 0.317)"
+  },
+  {
+   "name": "hatch_entry_fwd closed sits in its opening and keeps its hinge edge when open",
+   "ok": true,
+   "detail": "closed gap 0.0 mm, open gap 0.0 mm, centroid moves (0.0, 0.24, -0.22)"
+  },
+  {
+   "name": "hatch_entry_fwd opens the right way",
+   "ok": true,
+   "detail": "(0.0, 0.243, -0.224)"
+  },
+  {
+   "name": "hatch_entry_rear closed sits in its opening and keeps its hinge edge when open",
+   "ok": true,
+   "detail": "closed gap 0.0 mm, open gap 0.0 mm, centroid moves (0.0, 0.31, -0.36)"
+  },
+  {
+   "name": "hatch_entry_rear opens the right way",
+   "ok": true,
+   "detail": "(0.0, 0.308, -0.357)"
+  },
+  {
+   "name": "hatch_waist_L closed sits in its opening and keeps its hinge edge when open",
+   "ok": true,
+   "detail": "closed gap 0.0 mm, open gap 0.0 mm, centroid moves (-0.32, 0.0, 0.36)"
+  },
+  {
+   "name": "hatch_waist_L opens the right way",
+   "ok": true,
+   "detail": "(-0.32, 0.0, 0.365)"
+  },
+  {
+   "name": "hatch_waist_R closed sits in its opening and keeps its hinge edge when open",
+   "ok": true,
+   "detail": "closed gap 0.0 mm, open gap 0.0 mm, centroid moves (0.31, 0.0, 0.35)"
+  },
+  {
+   "name": "hatch_waist_R opens the right way",
+   "ok": true,
+   "detail": "(0.31, 0.0, 0.352)"
+  },
+  {
+   "name": "hp_rail_L1 on the bottom face of pylon_rail_L1; pylon reaches into the wing skin",
+   "ok": true,
+   "detail": "hp z 0.264, pylon z 0.264..0.382"
+  },
+  {
+   "name": "hp_rail_L2 on the bottom face of pylon_rail_L2; pylon reaches into the wing skin",
+   "ok": true,
+   "detail": "hp z 0.281, pylon z 0.281..0.398"
+  },
+  {
+   "name": "hp_rail_L3 on the bottom face of pylon_rail_L3; pylon reaches into the wing skin",
+   "ok": true,
+   "detail": "hp z 0.297, pylon z 0.297..0.413"
+  },
+  {
+   "name": "hp_rail_L4 on the bottom face of pylon_rail_L4; pylon reaches into the wing skin",
+   "ok": true,
+   "detail": "hp z 0.313, pylon z 0.313..0.428"
+  },
+  {
+   "name": "hp_rail_R1 on the bottom face of pylon_rail_R1; pylon reaches into the wing skin",
+   "ok": true,
+   "detail": "hp z 0.264, pylon z 0.264..0.382"
+  },
+  {
+   "name": "hp_rail_R2 on the bottom face of pylon_rail_R2; pylon reaches into the wing skin",
+   "ok": true,
+   "detail": "hp z 0.281, pylon z 0.281..0.398"
+  },
+  {
+   "name": "hp_rail_R3 on the bottom face of pylon_rail_R3; pylon reaches into the wing skin",
+   "ok": true,
+   "detail": "hp z 0.297, pylon z 0.297..0.413"
+  },
+  {
+   "name": "hp_rail_R4 on the bottom face of pylon_rail_R4; pylon reaches into the wing skin",
+   "ok": true,
+   "detail": "hp z 0.313, pylon z 0.313..0.428"
+  },
+  {
+   "name": "hp_wingrack_L on the bottom face of pylon_wingrack_L; pylon reaches into the wing skin",
+   "ok": true,
+   "detail": "hp z 0.065, pylon z 0.065..0.234"
+  },
+  {
+   "name": "hp_wingrack_R on the bottom face of pylon_wingrack_R; pylon reaches into the wing skin",
+   "ok": true,
+   "detail": "hp z 0.065, pylon z 0.065..0.234"
+  },
+  {
+   "name": "gauge_airspeed_needle over its dial face at all angles (<= 6 mm)",
+   "ok": true,
+   "detail": "worst gap 2.5 mm"
+  },
+  {
+   "name": "gauge_altimeter_needle over its dial face at all angles (<= 6 mm)",
+   "ok": true,
+   "detail": "worst gap 5.0 mm"
+  },
+  {
+   "name": "gauge_altimeter_needle_short over its dial face at all angles (<= 6 mm)",
+   "ok": true,
+   "detail": "worst gap 2.0 mm"
+  },
+  {
+   "name": "gauge_ammeter_needle over its dial face at all angles (<= 6 mm)",
+   "ok": true,
+   "detail": "worst gap 2.5 mm"
+  },
+  {
+   "name": "gauge_attitude_card over its dial face at all angles (<= 6 mm)",
+   "ok": true,
+   "detail": "worst gap 1.3 mm"
+  },
+  {
+   "name": "gauge_brake_press_needle over its dial face at all angles (<= 6 mm)",
+   "ok": true,
+   "detail": "worst gap 2.5 mm"
+  },
+  {
+   "name": "gauge_carb_temp_L_needle over its dial face at all angles (<= 6 mm)",
+   "ok": true,
+   "detail": "worst gap 2.5 mm"
+  },
+  {
+   "name": "gauge_carb_temp_R_needle over its dial face at all angles (<= 6 mm)",
+   "ok": true,
+   "detail": "worst gap 2.5 mm"
+  },
+  {
+   "name": "gauge_clock_needle over its dial face at all angles (<= 6 mm)",
+   "ok": true,
+   "detail": "worst gap 5.0 mm"
+  },
+  {
+   "name": "gauge_clock_needle_short over its dial face at all angles (<= 6 mm)",
+   "ok": true,
+   "detail": "worst gap 2.0 mm"
+  },
+  {
+   "name": "gauge_compass_card over its dial face at all angles (<= 6 mm)",
+   "ok": true,
+   "detail": "worst gap 1.3 mm"
+  },
+  {
+   "name": "gauge_cyl_temp_needle over its dial face at all angles (<= 6 mm)",
+   "ok": true,
+   "detail": "worst gap 2.5 mm"
+  },
+  {
+   "name": "gauge_deicer_L_needle over its dial face at all angles (<= 6 mm)",
+   "ok": true,
+   "detail": "worst gap 2.5 mm"
+  },
+  {
+   "name": "gauge_deicer_R_needle over its dial face at all angles (<= 6 mm)",
+   "ok": true,
+   "detail": "worst gap 2.5 mm"
+  },
+  {
+   "name": "gauge_flaps_pos_needle over its dial face at all angles (<= 6 mm)",
+   "ok": true,
+   "detail": "worst gap 2.5 mm"
+  },
+  {
+   "name": "gauge_free_air_L_needle over its dial face at all angles (<= 6 mm)",
+   "ok": true,
+   "detail": "worst gap 2.5 mm"
+  },
+  {
+   "name": "gauge_free_air_R_needle over its dial face at all angles (<= 6 mm)",
+   "ok": true,
+   "detail": "worst gap 2.5 mm"
+  },
+  {
+   "name": "gauge_fuel_needle over its dial face at all angles (<= 6 mm)",
+   "ok": true,
+   "detail": "worst gap 2.5 mm"
+  },
+  {
+   "name": "gauge_gear_pos_needle over its dial face at all angles (<= 6 mm)",
+   "ok": true,
+   "detail": "worst gap 2.5 mm"
+  },
+  {
+   "name": "gauge_heading_card over its dial face at all angles (<= 6 mm)",
+   "ok": true,
+   "detail": "worst gap 1.3 mm"
+  },
+  {
+   "name": "gauge_hydraulic_needle over its dial face at all angles (<= 6 mm)",
+   "ok": true,
+   "detail": "worst gap 2.5 mm"
+  },
+  {
+   "name": "gauge_manifold_L_needle over its dial face at all angles (<= 6 mm)",
+   "ok": true,
+   "detail": "worst gap 2.5 mm"
+  },
+  {
+   "name": "gauge_manifold_R_needle over its dial face at all angles (<= 6 mm)",
+   "ok": true,
+   "detail": "worst gap 2.5 mm"
+  },
+  {
+   "name": "gauge_oil_press_needle over its dial face at all angles (<= 6 mm)",
+   "ok": true,
+   "detail": "worst gap 2.5 mm"
+  },
+  {
+   "name": "gauge_oil_temp_needle over its dial face at all angles (<= 6 mm)",
+   "ok": true,
+   "detail": "worst gap 2.5 mm"
+  },
+  {
+   "name": "gauge_oxygen_needle over its dial face at all angles (<= 6 mm)",
+   "ok": true,
+   "detail": "worst gap 2.5 mm"
+  },
+  {
+   "name": "gauge_rpm_L_needle over its dial face at all angles (<= 6 mm)",
+   "ok": true,
+   "detail": "worst gap 2.5 mm"
+  },
+  {
+   "name": "gauge_rpm_R_needle over its dial face at all angles (<= 6 mm)",
+   "ok": true,
+   "detail": "worst gap 2.5 mm"
+  },
+  {
+   "name": "gauge_suction_C_needle over its dial face at all angles (<= 6 mm)",
+   "ok": true,
+   "detail": "worst gap 2.5 mm"
+  },
+  {
+   "name": "gauge_suction_L_needle over its dial face at all angles (<= 6 mm)",
+   "ok": true,
+   "detail": "worst gap 2.5 mm"
+  },
+  {
+   "name": "gauge_volts_needle over its dial face at all angles (<= 6 mm)",
+   "ok": true,
+   "detail": "worst gap 2.5 mm"
+  },
+  {
+   "name": "gauge_vsi_needle over its dial face at all angles (<= 6 mm)",
+   "ok": true,
+   "detail": "worst gap 2.5 mm"
+  }
+ ],
+ "fail": 0
+}

@@ -1,0 +1,4314 @@
+[
+ {
+  "name": "FD32_root",
+  "parent": null,
+  "type": "EMPTY",
+  "pivot_unity": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "note": "CG (50 % fuel) parts 1636 kg"
+  }
+ },
+ {
+  "name": "aileron_L",
+  "parent": "wing_upper_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -1.89,
+   0.9067,
+   -0.0575
+  ],
+  "tris": 217,
+  "local_axes_unity": {
+   "x": [
+    0.9998,
+    -0.0175,
+    0.0
+   ],
+   "y": [
+    0.0175,
+    0.9998,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "control",
+   "hinge_axis": [
+    0.9998477101325989,
+    -0.0,
+    -0.017452392727136612
+   ],
+   "hinge_axis_unity": [
+    0.9998,
+    -0.0175,
+    -0.0
+   ]
+  }
+ },
+ {
+  "name": "aileron_L_nose",
+  "parent": "aileron_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -1.89,
+   0.9067,
+   -0.0575
+  ],
+  "tris": 308,
+  "local_axes_unity": {
+   "x": [
+    0.9998,
+    -0.0175,
+    0.0
+   ],
+   "y": [
+    0.0175,
+    0.9998,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "control_nose",
+   "note": "round nose concentric with the hinge (1.3.1); not in the aileron collider"
+  }
+ },
+ {
+  "name": "aileron_R",
+  "parent": "wing_upper_R",
+  "type": "MESH",
+  "pivot_unity": [
+   1.89,
+   0.9067,
+   -0.0575
+  ],
+  "tris": 217,
+  "local_axes_unity": {
+   "x": [
+    0.9998,
+    0.0175,
+    0.0
+   ],
+   "y": [
+    -0.0175,
+    0.9998,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "control",
+   "hinge_axis": [
+    0.9998477101325989,
+    0.0,
+    0.017452392727136612
+   ],
+   "hinge_axis_unity": [
+    0.9998,
+    0.0175,
+    0.0
+   ]
+  }
+ },
+ {
+  "name": "aileron_R_nose",
+  "parent": "aileron_R",
+  "type": "MESH",
+  "pivot_unity": [
+   1.89,
+   0.9067,
+   -0.0575
+  ],
+  "tris": 308,
+  "local_axes_unity": {
+   "x": [
+    0.9998,
+    0.0175,
+    0.0
+   ],
+   "y": [
+    -0.0175,
+    0.9998,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "control_nose",
+   "note": "round nose concentric with the hinge (1.3.1); not in the aileron collider"
+  }
+ },
+ {
+  "name": "cabane",
+  "parent": "wing_upper_C",
+  "type": "MESH",
+  "pivot_unity": [
+   0.0,
+   0.6765,
+   0.1476
+  ],
+  "tris": 336,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "struts",
+   "note": "not in the part collider"
+  }
+ },
+ {
+  "name": "canopy_rail",
+  "parent": "fus_center",
+  "type": "MESH",
+  "pivot_unity": [
+   0.0,
+   0.4358,
+   -1.2199
+  ],
+  "tris": 892,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "frame",
+   "note": "1.8.3 sill rails over the hole edge; not in the collider"
+  }
+ },
+ {
+  "name": "canopy_slide",
+  "parent": "canopy_slide_hinge",
+  "type": "MESH",
+  "pivot_unity": [
+   0.0,
+   0.9115,
+   -1.9194
+  ],
+  "tris": 396,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "canopy",
+   "note": "1.8.3 bubble hood: painted bows + sill frames (Canopy component)"
+  }
+ },
+ {
+  "name": "canopy_slide_glass",
+  "parent": "canopy_slide",
+  "type": "MESH",
+  "pivot_unity": [
+   0.0,
+   0.9115,
+   -1.9194
+  ],
+  "tris": 512,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "glass"
+  }
+ },
+ {
+  "name": "canopy_slide_hinge",
+  "parent": "fus_center",
+  "type": "EMPTY",
+  "pivot_unity": [
+   0.0,
+   0.9115,
+   -1.9194
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "hatch_hinge",
+   "open_deg": 30.0,
+   "note": "1.8.3: Canopy hinge at the top of the rear bow: tilts up on the ground, jettisoned whole on ejection"
+  }
+ },
+ {
+  "name": "coaming_wall",
+  "parent": "fus_center",
+  "type": "MESH",
+  "pivot_unity": [
+   0.0,
+   0.4265,
+   -1.2274
+  ],
+  "tris": 336,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "coaming",
+   "note": "1.8.3 coaming wall from the hole edge down 10 cm"
+  }
+ },
+ {
+  "name": "cockpit_console_L",
+  "parent": "fus_center",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.3196,
+   -0.1969,
+   -1.1424
+  ],
+  "tris": 16,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "cockpit_prop"
+  }
+ },
+ {
+  "name": "cockpit_console_R",
+  "parent": "fus_center",
+  "type": "MESH",
+  "pivot_unity": [
+   0.3196,
+   -0.1969,
+   -1.1424
+  ],
+  "tris": 16,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "cockpit_prop"
+  }
+ },
+ {
+  "name": "cockpit_console_fwd",
+  "parent": "fus_center",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.3853,
+   0.0586,
+   -0.9773
+  ],
+  "tris": 128,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "cockpit_prop"
+  }
+ },
+ {
+  "name": "cockpit_eye",
+  "parent": "fus_center",
+  "type": "EMPTY",
+  "pivot_unity": [
+   0.0,
+   0.6715,
+   -1.2224
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "crew_eye",
+   "crew": "pilot"
+  }
+ },
+ {
+  "name": "cockpit_floor",
+  "parent": "fus_center",
+  "type": "MESH",
+  "pivot_unity": [
+   0.0,
+   -0.5905,
+   -1.0149
+  ],
+  "tris": 8,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "cockpit_prop"
+  }
+ },
+ {
+  "name": "cockpit_gauges",
+  "parent": "fus_center",
+  "type": "EMPTY",
+  "pivot_unity": [
+   0.0,
+   0.2815,
+   -0.6724
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "group"
+  }
+ },
+ {
+  "name": "cockpit_interior",
+  "parent": "fus_center",
+  "type": "MESH",
+  "pivot_unity": [
+   0.0,
+   -0.0735,
+   -1.0024
+  ],
+  "tris": 1426,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {}
+ },
+ {
+  "name": "cockpit_panel",
+  "parent": "fus_center",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0082,
+   0.3919,
+   -0.6456
+  ],
+  "tris": 298,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "cockpit_prop"
+  }
+ },
+ {
+  "name": "cockpit_quadrant",
+  "parent": "fus_center",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.351,
+   0.0716,
+   -0.8768
+  ],
+  "tris": 72,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "cockpit_prop"
+  }
+ },
+ {
+  "name": "cockpit_stick",
+  "parent": "fus_center",
+  "type": "EMPTY",
+  "pivot_unity": [
+   0.0,
+   -0.4635,
+   -0.7324
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "stock_stick",
+   "stock_mesh": "sfb_joystick"
+  }
+ },
+ {
+  "name": "cockpit_stickboot",
+  "parent": "fus_center",
+  "type": "MESH",
+  "pivot_unity": [
+   0.0,
+   -0.5569,
+   -0.7324
+  ],
+  "tris": 240,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "cockpit_prop"
+  }
+ },
+ {
+  "name": "cockpit_throttle",
+  "parent": "fus_center",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -0.414,
+   0.0695,
+   -1.0374
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "stock_throttle",
+   "stock_mesh": "COIN_throttle",
+   "drive": "Cockpit.Throttle motion (CI-22: slides +Z, range 0.22)"
+  }
+ },
+ {
+  "name": "elevator_L",
+  "parent": "stab_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.13,
+   0.0865,
+   -5.0824
+  ],
+  "tris": 552,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "control",
+   "hinge_axis": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "hinge_axis_unity": [
+    1.0,
+    0.0,
+    0.0
+   ]
+  }
+ },
+ {
+  "name": "elevator_L_nose",
+  "parent": "elevator_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.13,
+   0.0865,
+   -5.0824
+  ],
+  "tris": 280,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "control_nose",
+   "note": "round nose concentric with the hinge; not in the elevator collider"
+  }
+ },
+ {
+  "name": "elevator_R",
+  "parent": "stab_R",
+  "type": "MESH",
+  "pivot_unity": [
+   0.13,
+   0.0865,
+   -5.0824
+  ],
+  "tris": 552,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "control",
+   "hinge_axis": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "hinge_axis_unity": [
+    1.0,
+    0.0,
+    0.0
+   ]
+  }
+ },
+ {
+  "name": "elevator_R_nose",
+  "parent": "elevator_R",
+  "type": "MESH",
+  "pivot_unity": [
+   0.13,
+   0.0865,
+   -5.0824
+  ],
+  "tris": 280,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "control_nose",
+   "note": "round nose concentric with the hinge; not in the elevator collider"
+  }
+ },
+ {
+  "name": "exhaust_point",
+  "parent": "fus_engine",
+  "type": "EMPTY",
+  "pivot_unity": [
+   0.47,
+   -0.0035,
+   0.6976
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "ir_source"
+  }
+ },
+ {
+  "name": "fin",
+  "parent": "fus_rear",
+  "type": "MESH",
+  "pivot_unity": [
+   0.0,
+   0.6265,
+   -4.7024
+  ],
+  "tris": 473,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {}
+ },
+ {
+  "name": "fin_struct",
+  "parent": "fin",
+  "type": "MESH",
+  "pivot_unity": [
+   0.0,
+   0.1265,
+   -4.7024
+  ],
+  "tris": 62,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "structure",
+   "note": "root rib + post stubs; not in the fin collider"
+  }
+ },
+ {
+  "name": "flaperon_L",
+  "parent": "wing_lower_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -1.0,
+   -0.5931,
+   -0.8816
+  ],
+  "tris": 176,
+  "local_axes_unity": {
+   "x": [
+    0.9994,
+    -0.0349,
+    0.0
+   ],
+   "y": [
+    0.0349,
+    0.9994,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "control",
+   "hinge_axis": [
+    0.9993908405303955,
+    -0.0,
+    -0.0348995067179203
+   ],
+   "note": "lower-wing flaperon: roll + flap droop (ControlSurface flap mode on a pivot above it)",
+   "hinge_axis_unity": [
+    0.9994,
+    -0.0349,
+    -0.0
+   ]
+  }
+ },
+ {
+  "name": "flaperon_L_nose",
+  "parent": "flaperon_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -1.0,
+   -0.5931,
+   -0.8816
+  ],
+  "tris": 252,
+  "local_axes_unity": {
+   "x": [
+    0.9994,
+    -0.0349,
+    0.0
+   ],
+   "y": [
+    0.0349,
+    0.9994,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "control_nose",
+   "note": "round nose concentric with the hinge; not in the flaperon collider"
+  }
+ },
+ {
+  "name": "flaperon_R",
+  "parent": "wing_lower_R",
+  "type": "MESH",
+  "pivot_unity": [
+   1.0,
+   -0.5931,
+   -0.8816
+  ],
+  "tris": 176,
+  "local_axes_unity": {
+   "x": [
+    0.9994,
+    0.0349,
+    0.0
+   ],
+   "y": [
+    -0.0349,
+    0.9994,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "control",
+   "hinge_axis": [
+    0.9993908405303955,
+    0.0,
+    0.0348995067179203
+   ],
+   "note": "lower-wing flaperon: roll + flap droop (ControlSurface flap mode on a pivot above it)",
+   "hinge_axis_unity": [
+    0.9994,
+    0.0349,
+    0.0
+   ]
+  }
+ },
+ {
+  "name": "flaperon_R_nose",
+  "parent": "flaperon_R",
+  "type": "MESH",
+  "pivot_unity": [
+   1.0,
+   -0.5931,
+   -0.8816
+  ],
+  "tris": 252,
+  "local_axes_unity": {
+   "x": [
+    0.9994,
+    0.0349,
+    0.0
+   ],
+   "y": [
+    -0.0349,
+    0.9994,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "control_nose",
+   "note": "round nose concentric with the hinge; not in the flaperon collider"
+  }
+ },
+ {
+  "name": "flare_L",
+  "parent": "fus_rear",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -0.2,
+   -0.576,
+   -3.3024
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "flare_ejector"
+  }
+ },
+ {
+  "name": "flare_R",
+  "parent": "fus_rear",
+  "type": "EMPTY",
+  "pivot_unity": [
+   0.2,
+   -0.576,
+   -3.3024
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "flare_ejector"
+  }
+ },
+ {
+  "name": "flash_gun_L",
+  "parent": "fus_engine",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -0.165,
+   0.3815,
+   0.6676
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "muzzle_flash"
+  }
+ },
+ {
+  "name": "flash_gun_R",
+  "parent": "fus_engine",
+  "type": "EMPTY",
+  "pivot_unity": [
+   0.165,
+   0.3815,
+   0.6676
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "muzzle_flash"
+  }
+ },
+ {
+  "name": "fus_center",
+  "parent": "FD32_root",
+  "type": "MESH",
+  "pivot_unity": [
+   0.0,
+   -0.0735,
+   -1.0524
+  ],
+  "tris": 4020,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "attach": [
+    [
+     "cabane",
+     [
+      -0.36,
+      0.62,
+      0.34961
+     ],
+     [
+      "fus_center",
+      "fus_engine"
+     ]
+    ],
+    [
+     "cabane",
+     [
+      -0.56,
+      1.01248,
+      0.90311
+     ],
+     [
+      "wing_upper_C"
+     ]
+    ],
+    [
+     "cabane",
+     [
+      -0.36,
+      -0.1,
+      0.39486
+     ],
+     [
+      "fus_center",
+      "fus_engine"
+     ]
+    ],
+    [
+     "cabane",
+     [
+      -0.56,
+      0.22209,
+      0.91235
+     ],
+     [
+      "wing_upper_C"
+     ]
+    ],
+    [
+     "cabane",
+     [
+      0.36,
+      0.62,
+      0.34961
+     ],
+     [
+      "fus_center",
+      "fus_engine"
+     ]
+    ],
+    [
+     "cabane",
+     [
+      0.56,
+      1.01248,
+      0.90311
+     ],
+     [
+      "wing_upper_C"
+     ]
+    ],
+    [
+     "cabane",
+     [
+      0.36,
+      -0.1,
+      0.39486
+     ],
+     [
+      "fus_center",
+      "fus_engine"
+     ]
+    ],
+    [
+     "cabane",
+     [
+      0.56,
+      0.22209,
+      0.91235
+     ],
+     [
+      "wing_upper_C"
+     ]
+    ],
+    [
+     "struts_L",
+     [
+      -3.02,
+      0.18479,
+      -0.36417
+     ],
+     [
+      "wing_lower_L"
+     ]
+    ],
+    [
+     "struts_L",
+     [
+      -3.45,
+      1.0354,
+      0.94977
+     ],
+     [
+      "wing_upper_L"
+     ]
+    ],
+    [
+     "struts_L",
+     [
+      -3.02,
+      -0.46764,
+      -0.3852
+     ],
+     [
+      "wing_lower_L"
+     ]
+    ],
+    [
+     "struts_L",
+     [
+      -3.45,
+      0.36403,
+      0.95637
+     ],
+     [
+      "wing_upper_L"
+     ]
+    ],
+    [
+     "rigging_L",
+     [
+      -0.62,
+      0.17068,
+      -0.44598
+     ],
+     [
+      "wing_lower_L",
+      "wing_lower_L_root"
+     ]
+    ],
+    [
+     "rigging_L",
+     [
+      -3.45,
+      1.0354,
+      0.94977
+     ],
+     [
+      "struts_L",
+      "wing_upper_L"
+     ]
+    ],
+    [
+     "rigging_L",
+     [
+      -0.56,
+      0.97702,
+      0.90278
+     ],
+     [
+      "wing_upper_C",
+      "cabane"
+     ]
+    ],
+    [
+     "rigging_L",
+     [
+      -3.02,
+      0.18479,
+      -0.36417
+     ],
+     [
+      "struts_L",
+      "wing_lower_L"
+     ]
+    ],
+    [
+     "rigging_L",
+     [
+      -0.62,
+      -0.60841,
+      -0.49113
+     ],
+     [
+      "wing_lower_L",
+      "wing_lower_L_root"
+     ]
+    ],
+    [
+     "rigging_L",
+     [
+      -3.45,
+      0.36403,
+      0.95637
+     ],
+     [
+      "struts_L",
+      "wing_upper_L"
+     ]
+    ],
+    [
+     "rigging_L",
+     [
+      -0.56,
+      0.18692,
+      0.91283
+     ],
+     [
+      "wing_upper_C",
+      "cabane"
+     ]
+    ],
+    [
+     "rigging_L",
+     [
+      -3.02,
+      -0.46764,
+      -0.3852
+     ],
+     [
+      "struts_L",
+      "wing_lower_L"
+     ]
+    ],
+    [
+     "rigging_L",
+     [
+      -3.02,
+      0.18479,
+      -0.33417
+     ],
+     [
+      "struts_L"
+     ]
+    ],
+    [
+     "rigging_L",
+     [
+      -3.45,
+      0.36403,
+      0.92637
+     ],
+     [
+      "struts_L"
+     ]
+    ],
+    [
+     "rigging_L",
+     [
+      -0.42229,
+      1.55,
+      -0.2
+     ],
+     [
+      "fus_engine"
+     ]
+    ],
+    [
+     "stab_strut_L",
+     [
+      -0.13773,
+      -4.2700000000000005,
+      -0.349
+     ],
+     [
+      "fus_rear"
+     ]
+    ],
+    [
+     "stab_strut_L",
+     [
+      -0.69,
+      -4.2700000000000005,
+      0.11663
+     ],
+     [
+      "stab_L"
+     ]
+    ],
+    [
+     "stab_strut_L",
+     [
+      -0.035,
+      -4.7,
+      -0.39092
+     ],
+     [
+      "fus_rear"
+     ]
+    ],
+    [
+     "stab_strut_L",
+     [
+      -0.69,
+      -4.7,
+      0.11697
+     ],
+     [
+      "stab_L"
+     ]
+    ],
+    [
+     "stab_strut_L",
+     [
+      -0.69,
+      -4.7,
+      0.20303
+     ],
+     [
+      "stab_L"
+     ]
+    ],
+    [
+     "gear_main_L_strut",
+     [
+      -0.706,
+      0.34,
+      -0.64401
+     ],
+     [
+      "gear_mount_L"
+     ]
+    ],
+    [
+     "struts_R",
+     [
+      3.02,
+      0.18479,
+      -0.36417
+     ],
+     [
+      "wing_lower_R"
+     ]
+    ],
+    [
+     "struts_R",
+     [
+      3.45,
+      1.0354,
+      0.94977
+     ],
+     [
+      "wing_upper_R"
+     ]
+    ],
+    [
+     "struts_R",
+     [
+      3.02,
+      -0.46764,
+      -0.3852
+     ],
+     [
+      "wing_lower_R"
+     ]
+    ],
+    [
+     "struts_R",
+     [
+      3.45,
+      0.36403,
+      0.95637
+     ],
+     [
+      "wing_upper_R"
+     ]
+    ],
+    [
+     "rigging_R",
+     [
+      0.62,
+      0.17068,
+      -0.44598
+     ],
+     [
+      "wing_lower_R",
+      "wing_lower_R_root"
+     ]
+    ],
+    [
+     "rigging_R",
+     [
+      3.45,
+      1.0354,
+      0.94977
+     ],
+     [
+      "struts_R",
+      "wing_upper_R"
+     ]
+    ],
+    [
+     "rigging_R",
+     [
+      0.56,
+      0.97702,
+      0.90278
+     ],
+     [
+      "wing_upper_C",
+      "cabane"
+     ]
+    ],
+    [
+     "rigging_R",
+     [
+      3.02,
+      0.18479,
+      -0.36417
+     ],
+     [
+      "struts_R",
+      "wing_lower_R"
+     ]
+    ],
+    [
+     "rigging_R",
+     [
+      0.62,
+      -0.60841,
+      -0.49113
+     ],
+     [
+      "wing_lower_R",
+      "wing_lower_R_root"
+     ]
+    ],
+    [
+     "rigging_R",
+     [
+      3.45,
+      0.36403,
+      0.95637
+     ],
+     [
+      "struts_R",
+      "wing_upper_R"
+     ]
+    ],
+    [
+     "rigging_R",
+     [
+      0.56,
+      0.18692,
+      0.91283
+     ],
+     [
+      "wing_upper_C",
+      "cabane"
+     ]
+    ],
+    [
+     "rigging_R",
+     [
+      3.02,
+      -0.46764,
+      -0.3852
+     ],
+     [
+      "struts_R",
+      "wing_lower_R"
+     ]
+    ],
+    [
+     "rigging_R",
+     [
+      3.02,
+      0.18479,
+      -0.33417
+     ],
+     [
+      "struts_R"
+     ]
+    ],
+    [
+     "rigging_R",
+     [
+      3.45,
+      0.36403,
+      0.92637
+     ],
+     [
+      "struts_R"
+     ]
+    ],
+    [
+     "rigging_R",
+     [
+      0.42229,
+      1.55,
+      -0.2
+     ],
+     [
+      "fus_engine"
+     ]
+    ],
+    [
+     "stab_strut_R",
+     [
+      0.13773,
+      -4.2700000000000005,
+      -0.349
+     ],
+     [
+      "fus_rear"
+     ]
+    ],
+    [
+     "stab_strut_R",
+     [
+      0.69,
+      -4.2700000000000005,
+      0.11663
+     ],
+     [
+      "stab_R"
+     ]
+    ],
+    [
+     "stab_strut_R",
+     [
+      0.035,
+      -4.7,
+      -0.39092
+     ],
+     [
+      "fus_rear"
+     ]
+    ],
+    [
+     "stab_strut_R",
+     [
+      0.69,
+      -4.7,
+      0.11697
+     ],
+     [
+      "stab_R"
+     ]
+    ],
+    [
+     "stab_strut_R",
+     [
+      0.69,
+      -4.7,
+      0.20303
+     ],
+     [
+      "stab_R"
+     ]
+    ],
+    [
+     "gear_main_R_strut",
+     [
+      0.706,
+      0.34,
+      -0.64401
+     ],
+     [
+      "gear_mount_R"
+     ]
+    ],
+    [
+     "gear_tail_strut",
+     [
+      0.0,
+      -4.3100000000000005,
+      -0.44463
+     ],
+     [
+      "fus_rear"
+     ]
+    ],
+    [
+     "gear_tail_strut",
+     [
+      0.0,
+      -4.48264,
+      -0.42679
+     ],
+     [
+      "fus_rear"
+     ]
+    ],
+    [
+     "gear_mount_L",
+     [
+      -0.6675,
+      0.34,
+      -0.57257
+     ],
+     [
+      "wing_lower_L"
+     ]
+    ],
+    [
+     "gear_mount_R",
+     [
+      0.6675,
+      0.34,
+      -0.57257
+     ],
+     [
+      "wing_lower_R"
+     ]
+    ]
+   ],
+   "tear": {
+    "y=0.0": 140,
+    "y=-1.5": 140
+   }
+  }
+ },
+ {
+  "name": "fus_center_struct",
+  "parent": "fus_center",
+  "type": "MESH",
+  "pivot_unity": [
+   0.0,
+   -0.0735,
+   -1.0524
+  ],
+  "tris": 6424,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "structure",
+   "note": "tank / rear bulkheads, longeron stubs, inner skin"
+  }
+ },
+ {
+  "name": "fus_engine",
+  "parent": "fus_center",
+  "type": "MESH",
+  "pivot_unity": [
+   0.0,
+   -0.0735,
+   0.7976
+  ],
+  "tris": 10200,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {}
+ },
+ {
+  "name": "fus_engine_struct",
+  "parent": "fus_engine",
+  "type": "MESH",
+  "pivot_unity": [
+   0.0,
+   -0.0735,
+   -0.3024
+  ],
+  "tris": 10648,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "structure",
+   "note": "firewall, bearer stubs, inner skin; not in the collider"
+  }
+ },
+ {
+  "name": "fus_rear",
+  "parent": "fus_center",
+  "type": "MESH",
+  "pivot_unity": [
+   0.0,
+   -0.0735,
+   -3.5024
+  ],
+  "tris": 2122,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {}
+ },
+ {
+  "name": "fus_rear_struct",
+  "parent": "fus_rear",
+  "type": "MESH",
+  "pivot_unity": [
+   0.0,
+   -0.0735,
+   -3.5024
+  ],
+  "tris": 3910,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "structure",
+   "note": "Warren tube truss, former, inner skin"
+  }
+ },
+ {
+  "name": "gear_main_L_strut",
+  "parent": "fus_center",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.7695,
+   -0.7175,
+   0.0376
+  ],
+  "tris": 328,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {}
+ },
+ {
+  "name": "gear_main_L_wheel",
+  "parent": "gear_main_L_strut",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.905,
+   -1.7235,
+   0.5476
+  ],
+  "tris": 1016,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "wheel",
+   "radius": 0.355
+  }
+ },
+ {
+  "name": "gear_main_R_strut",
+  "parent": "fus_center",
+  "type": "MESH",
+  "pivot_unity": [
+   0.7695,
+   -0.7175,
+   0.0376
+  ],
+  "tris": 328,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {}
+ },
+ {
+  "name": "gear_main_R_wheel",
+  "parent": "gear_main_R_strut",
+  "type": "MESH",
+  "pivot_unity": [
+   0.905,
+   -1.7235,
+   0.5476
+  ],
+  "tris": 1016,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "wheel",
+   "radius": 0.355
+  }
+ },
+ {
+  "name": "gear_mount_L",
+  "parent": "wing_lower_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.6675,
+   -0.7175,
+   0.0376
+  ],
+  "tris": 152,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "gear_mount",
+   "note": "round 6: trunnion lug + boss of the aft-swinging main leg; not in the wing collider"
+  }
+ },
+ {
+  "name": "gear_mount_R",
+  "parent": "wing_lower_R",
+  "type": "MESH",
+  "pivot_unity": [
+   0.6675,
+   -0.7175,
+   0.0376
+  ],
+  "tris": 152,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "gear_mount",
+   "note": "round 6: trunnion lug + boss of the aft-swinging main leg; not in the wing collider"
+  }
+ },
+ {
+  "name": "gear_tail_strut",
+  "parent": "fus_rear",
+  "type": "MESH",
+  "pivot_unity": [
+   0.0,
+   -0.4541,
+   -4.8524
+  ],
+  "tris": 318,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {}
+ },
+ {
+  "name": "gear_tail_wheel",
+  "parent": "gear_tail_strut",
+  "type": "MESH",
+  "pivot_unity": [
+   0.0,
+   -0.6435,
+   -4.8524
+  ],
+  "tris": 734,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "wheel",
+   "radius": 0.11,
+   "note": "round 6: FIXED tailwheel (fal wheel), Mk I axle"
+  }
+ },
+ {
+  "name": "hook_channel",
+  "parent": "fus_rear",
+  "type": "MESH",
+  "pivot_unity": [
+   0.0,
+   -0.2735,
+   -3.6167
+  ],
+  "tris": 750,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "hook_channel",
+   "note": "round 6: lined channel over the belly hook slot"
+  }
+ },
+ {
+  "name": "hp_inner_L",
+  "parent": "wing_lower_L",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -1.8,
+   -0.7404,
+   -0.5824
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "hardpoint",
+   "note": "pylon bottom face (stock mount convention)"
+  }
+ },
+ {
+  "name": "hp_inner_R",
+  "parent": "wing_lower_R",
+  "type": "EMPTY",
+  "pivot_unity": [
+   1.8,
+   -0.7404,
+   -0.5824
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "hardpoint",
+   "note": "pylon bottom face (stock mount convention)"
+  }
+ },
+ {
+  "name": "hp_outer_L",
+  "parent": "wing_lower_L",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -2.55,
+   -0.7142,
+   -0.5824
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "hardpoint",
+   "note": "pylon bottom face (stock mount convention)"
+  }
+ },
+ {
+  "name": "hp_outer_R",
+  "parent": "wing_lower_R",
+  "type": "EMPTY",
+  "pivot_unity": [
+   2.55,
+   -0.7142,
+   -0.5824
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "hardpoint",
+   "note": "pylon bottom face (stock mount convention)"
+  }
+ },
+ {
+  "name": "hp_tailhook",
+  "parent": "fus_center",
+  "type": "EMPTY",
+  "pivot_unity": [
+   0.0,
+   0.0965,
+   -2.3524
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "hardpoint"
+  }
+ },
+ {
+  "name": "mfd_engine",
+  "parent": "cockpit_gauges",
+  "type": "MESH",
+  "pivot_unity": [
+   0.245,
+   0.3217,
+   -0.668
+  ],
+  "tris": 2,
+  "local_axes_unity": {
+   "x": [
+    0.0,
+    0.2419,
+    -0.9703
+   ],
+   "y": [
+    -0.0,
+    0.9703,
+    0.2419
+   ],
+   "z": [
+    1.0,
+    -0.0,
+    0.0
+   ]
+  },
+  "info": {
+   "kind": "mfd",
+   "role": "tac",
+   "note": "round 6: own quad, material screen -> stock tacScreenDisplay; one tac-page region"
+  }
+ },
+ {
+  "name": "mfd_flight",
+  "parent": "cockpit_gauges",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.245,
+   0.3488,
+   -0.6613
+  ],
+  "tris": 2,
+  "local_axes_unity": {
+   "x": [
+    0.0,
+    0.2419,
+    -0.9703
+   ],
+   "y": [
+    -0.0,
+    0.9703,
+    0.2419
+   ],
+   "z": [
+    1.0,
+    -0.0,
+    0.0
+   ]
+  },
+  "info": {
+   "kind": "mfd",
+   "role": "tac",
+   "note": "round 6: own quad, material screen -> stock tacScreenDisplay; one tac-page region"
+  }
+ },
+ {
+  "name": "mfd_map",
+  "parent": "cockpit_gauges",
+  "type": "MESH",
+  "pivot_unity": [
+   0.0,
+   0.3459,
+   -0.662
+  ],
+  "tris": 2,
+  "local_axes_unity": {
+   "x": [
+    0.0,
+    0.2419,
+    -0.9703
+   ],
+   "y": [
+    -0.0,
+    0.9703,
+    0.2419
+   ],
+   "z": [
+    1.0,
+    -0.0,
+    0.0
+   ]
+  },
+  "info": {
+   "kind": "mfd",
+   "role": "tac",
+   "note": "round 6: own quad, material screen -> stock tacScreenDisplay; one tac-page region"
+  }
+ },
+ {
+  "name": "mfd_power",
+  "parent": "cockpit_gauges",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.245,
+   0.213,
+   -0.6951
+  ],
+  "tris": 2,
+  "local_axes_unity": {
+   "x": [
+    0.0,
+    0.2419,
+    -0.9703
+   ],
+   "y": [
+    -0.0,
+    0.9703,
+    0.2419
+   ],
+   "z": [
+    1.0,
+    -0.0,
+    0.0
+   ]
+  },
+  "info": {
+   "kind": "mfd",
+   "role": "tac",
+   "note": "round 6: own quad, material screen -> stock tacScreenDisplay; one tac-page region"
+  }
+ },
+ {
+  "name": "muzzle_gun_L",
+  "parent": "fus_engine",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -0.165,
+   0.3815,
+   2.3576
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "muzzle",
+   "note": "bullet origin AHEAD of the prop disc (synchroniser); +Z Unity = forward"
+  }
+ },
+ {
+  "name": "muzzle_gun_R",
+  "parent": "fus_engine",
+  "type": "EMPTY",
+  "pivot_unity": [
+   0.165,
+   0.3815,
+   2.3576
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "muzzle",
+   "note": "bullet origin AHEAD of the prop disc (synchroniser); +Z Unity = forward"
+  }
+ },
+ {
+  "name": "navlamp_L",
+  "parent": "wing_upper_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -5.134,
+   0.9791,
+   0.3976
+  ],
+  "tris": 256,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "lamp",
+   "note": "1.4.0 period wing-tip lamp (coloured glass, no light source); not in the wing collider"
+  }
+ },
+ {
+  "name": "navlamp_R",
+  "parent": "wing_upper_R",
+  "type": "MESH",
+  "pivot_unity": [
+   5.134,
+   0.9791,
+   0.3976
+  ],
+  "tris": 256,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "lamp",
+   "note": "1.4.0 period wing-tip lamp (coloured glass, no light source); not in the wing collider"
+  }
+ },
+ {
+  "name": "navlight_L",
+  "parent": "wing_upper_L",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -5.07,
+   0.9671,
+   0.3176
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "navlight"
+  }
+ },
+ {
+  "name": "navlight_R",
+  "parent": "wing_upper_R",
+  "type": "EMPTY",
+  "pivot_unity": [
+   5.07,
+   0.9671,
+   0.3176
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "navlight"
+  }
+ },
+ {
+  "name": "prop",
+  "parent": "fus_engine",
+  "type": "EMPTY",
+  "pivot_unity": [
+   0.0,
+   -0.0735,
+   2.1676
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "prop_part"
+  }
+ },
+ {
+  "name": "prop_blade_1",
+  "parent": "prop_hub",
+  "type": "MESH",
+  "pivot_unity": [
+   0.0,
+   -0.0735,
+   2.1676
+  ],
+  "tris": 518,
+  "local_axes_unity": {
+   "x": [
+    -0.7071,
+    0.7071,
+    0.0
+   ],
+   "y": [
+    -0.7071,
+    -0.7071,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "prop_blade",
+   "azimuth_deg": -135,
+   "note": "fal blade; local +Y (Unity) = radial"
+  }
+ },
+ {
+  "name": "prop_blade_2",
+  "parent": "prop_hub",
+  "type": "MESH",
+  "pivot_unity": [
+   0.0,
+   -0.0735,
+   2.1676
+  ],
+  "tris": 498,
+  "local_axes_unity": {
+   "x": [
+    -0.7071,
+    -0.7071,
+    0.0
+   ],
+   "y": [
+    0.7071,
+    -0.7071,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "prop_blade",
+   "azimuth_deg": -45,
+   "note": "fal blade; local +Y (Unity) = radial"
+  }
+ },
+ {
+  "name": "prop_blade_3",
+  "parent": "prop_hub",
+  "type": "MESH",
+  "pivot_unity": [
+   0.0,
+   -0.0735,
+   2.1676
+  ],
+  "tris": 506,
+  "local_axes_unity": {
+   "x": [
+    0.7071,
+    -0.7071,
+    0.0
+   ],
+   "y": [
+    0.7071,
+    0.7071,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "prop_blade",
+   "azimuth_deg": 45,
+   "note": "fal blade; local +Y (Unity) = radial"
+  }
+ },
+ {
+  "name": "prop_blade_4",
+  "parent": "prop_hub",
+  "type": "MESH",
+  "pivot_unity": [
+   0.0,
+   -0.0735,
+   2.1676
+  ],
+  "tris": 488,
+  "local_axes_unity": {
+   "x": [
+    0.7071,
+    0.7071,
+    0.0
+   ],
+   "y": [
+    -0.7071,
+    0.7071,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "prop_blade",
+   "azimuth_deg": 135,
+   "note": "fal blade; local +Y (Unity) = radial"
+  }
+ },
+ {
+  "name": "prop_hub",
+  "parent": "prop",
+  "type": "MESH",
+  "pivot_unity": [
+   0.0,
+   -0.0735,
+   2.1676
+  ],
+  "tris": 1564,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "prop_hub",
+   "note": "fal 4-blade prop: spinner + blade roots; spin axis = Unity +Z"
+  }
+ },
+ {
+  "name": "pylon_inner_L",
+  "parent": "wing_lower_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -1.8,
+   -0.6804,
+   -0.5824
+  ],
+  "tris": 80,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "pylon",
+   "note": "faired pylon; not in the wing collider"
+  }
+ },
+ {
+  "name": "pylon_inner_R",
+  "parent": "wing_lower_R",
+  "type": "MESH",
+  "pivot_unity": [
+   1.8,
+   -0.6804,
+   -0.5824
+  ],
+  "tris": 80,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "pylon",
+   "note": "faired pylon; not in the wing collider"
+  }
+ },
+ {
+  "name": "pylon_outer_L",
+  "parent": "wing_lower_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -2.55,
+   -0.6542,
+   -0.5824
+  ],
+  "tris": 80,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "pylon",
+   "note": "faired pylon; not in the wing collider"
+  }
+ },
+ {
+  "name": "pylon_outer_R",
+  "parent": "wing_lower_R",
+  "type": "MESH",
+  "pivot_unity": [
+   2.55,
+   -0.6542,
+   -0.5824
+  ],
+  "tris": 80,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "pylon",
+   "note": "faired pylon; not in the wing collider"
+  }
+ },
+ {
+  "name": "rigging_L",
+  "parent": "wing_lower_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -1.9,
+   0.1265,
+   -0.3024
+  ],
+  "tris": 164,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "wires",
+   "note": "flying/landing wires; not in the part collider"
+  }
+ },
+ {
+  "name": "rigging_R",
+  "parent": "wing_lower_R",
+  "type": "MESH",
+  "pivot_unity": [
+   1.9,
+   0.1265,
+   -0.3024
+  ],
+  "tris": 164,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "wires",
+   "note": "flying/landing wires; not in the part collider"
+  }
+ },
+ {
+  "name": "rudder",
+  "parent": "fin",
+  "type": "MESH",
+  "pivot_unity": [
+   0.0,
+   0.3765,
+   -5.1724
+  ],
+  "tris": 946,
+  "local_axes_unity": {
+   "x": [
+    -0.0,
+    1.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    0.0,
+    -1.0
+   ],
+   "z": [
+    -1.0,
+    -0.0,
+    -0.0
+   ]
+  },
+  "info": {
+   "kind": "control",
+   "hinge_axis": [
+    0,
+    0,
+    1
+   ],
+   "hinge_axis_unity": [
+    0,
+    1,
+    0
+   ]
+  }
+ },
+ {
+  "name": "sensor_ball",
+  "parent": "sensor_mount",
+  "type": "MESH",
+  "pivot_unity": [
+   0.0,
+   -0.4985,
+   0.1576
+  ],
+  "tris": 3904,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "sensor",
+   "note": "fal EO ball; TargetCam / TargetDetector point"
+  }
+ },
+ {
+  "name": "sensor_mount",
+  "parent": "fus_engine",
+  "type": "EMPTY",
+  "pivot_unity": [
+   0.0,
+   -0.4985,
+   0.1576
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "sensor_mount",
+   "stowed_z": -0.425,
+   "deployed_z": -0.8,
+   "note": "HighLiftDevice moving part (localPosition)"
+  }
+ },
+ {
+  "name": "slimelight_fin_L",
+  "parent": "fin",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0245,
+   0.5865,
+   -4.7146
+  ],
+  "tris": 40,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "gear_light",
+   "note": "1.8.0 green strip (stock slimelight_on while the gear is down)"
+  }
+ },
+ {
+  "name": "slimelight_fin_R",
+  "parent": "fin",
+  "type": "MESH",
+  "pivot_unity": [
+   0.0245,
+   0.5865,
+   -4.7146
+  ],
+  "tris": 40,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "gear_light",
+   "note": "1.8.0 green strip (stock slimelight_on while the gear is down)"
+  }
+ },
+ {
+  "name": "slimelight_fus_L",
+  "parent": "fus_center",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.4349,
+   -0.3735,
+   -0.7024
+  ],
+  "tris": 52,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "gear_light",
+   "note": "green gear-down strip (stock slimelight_on while the gear is down)"
+  }
+ },
+ {
+  "name": "slimelight_fus_R",
+  "parent": "fus_center",
+  "type": "MESH",
+  "pivot_unity": [
+   0.4349,
+   -0.3735,
+   -0.7024
+  ],
+  "tris": 52,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "gear_light",
+   "note": "green gear-down strip (stock slimelight_on while the gear is down)"
+  }
+ },
+ {
+  "name": "slimelight_side_L",
+  "parent": "fus_rear",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.3351,
+   0.0465,
+   -2.7774
+  ],
+  "tris": 52,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "gear_light",
+   "note": "1.8.0 green strip (stock slimelight_on while the gear is down)"
+  }
+ },
+ {
+  "name": "slimelight_side_R",
+  "parent": "fus_rear",
+  "type": "MESH",
+  "pivot_unity": [
+   0.3351,
+   0.0465,
+   -2.7774
+  ],
+  "tris": 52,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "gear_light",
+   "note": "1.8.0 green strip (stock slimelight_on while the gear is down)"
+  }
+ },
+ {
+  "name": "slimelight_spine",
+  "parent": "fus_rear",
+  "type": "MESH",
+  "pivot_unity": [
+   0.0,
+   0.6939,
+   -2.8524
+  ],
+  "tris": 52,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "gear_light",
+   "note": "1.8.0 green strip (stock slimelight_on while the gear is down)"
+  }
+ },
+ {
+  "name": "slimelight_wing_L",
+  "parent": "wing_upper_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -4.58,
+   1.0498,
+   0.3141
+  ],
+  "tris": 34,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "gear_light",
+   "note": "1.8.0 green strip (stock slimelight_on while the gear is down)"
+  }
+ },
+ {
+  "name": "slimelight_wing_R",
+  "parent": "wing_upper_R",
+  "type": "MESH",
+  "pivot_unity": [
+   4.58,
+   1.0498,
+   0.3141
+  ],
+  "tris": 34,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "gear_light",
+   "note": "1.8.0 green strip (stock slimelight_on while the gear is down)"
+  }
+ },
+ {
+  "name": "spine_aft",
+  "parent": "fus_rear",
+  "type": "MESH",
+  "pivot_unity": [
+   0.0,
+   0.5265,
+   -3.2924
+  ],
+  "tris": 546,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "spine",
+   "note": "1.8.3 raised spine to the fin leading edge; not in the collider"
+  }
+ },
+ {
+  "name": "spine_fwd",
+  "parent": "fus_center",
+  "type": "MESH",
+  "pivot_unity": [
+   0.0,
+   0.7265,
+   -2.0599
+  ],
+  "tris": 194,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "spine",
+   "note": "1.8.3 raised spine behind the hood; not in the collider"
+  }
+ },
+ {
+  "name": "stab_L",
+  "parent": "fus_rear",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.8,
+   0.0865,
+   -4.7024
+  ],
+  "tris": 916,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {}
+ },
+ {
+  "name": "stab_L_root",
+  "parent": "stab_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.12,
+   0.0865,
+   -4.6024
+  ],
+  "tris": 152,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "fillet",
+   "note": "root fillet to the tail cone"
+  }
+ },
+ {
+  "name": "stab_R",
+  "parent": "fus_rear",
+  "type": "MESH",
+  "pivot_unity": [
+   0.8,
+   0.0865,
+   -4.7024
+  ],
+  "tris": 916,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {}
+ },
+ {
+  "name": "stab_R_root",
+  "parent": "stab_R",
+  "type": "MESH",
+  "pivot_unity": [
+   0.12,
+   0.0865,
+   -4.6024
+  ],
+  "tris": 152,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "fillet",
+   "note": "root fillet to the tail cone"
+  }
+ },
+ {
+  "name": "stab_strut_L",
+  "parent": "stab_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.5,
+   -0.1735,
+   -4.6024
+  ],
+  "tris": 160,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "struts"
+  }
+ },
+ {
+  "name": "stab_strut_R",
+  "parent": "stab_R",
+  "type": "MESH",
+  "pivot_unity": [
+   0.5,
+   -0.1735,
+   -4.6024
+  ],
+  "tris": 160,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "struts"
+  }
+ },
+ {
+  "name": "struts_L",
+  "parent": "wing_upper_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -3.45,
+   0.1765,
+   -0.0024
+  ],
+  "tris": 242,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "struts",
+   "note": "interplane struts; not in the part collider"
+  }
+ },
+ {
+  "name": "struts_R",
+  "parent": "wing_upper_R",
+  "type": "MESH",
+  "pivot_unity": [
+   3.45,
+   0.1765,
+   -0.0024
+  ],
+  "tris": 128,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "struts",
+   "note": "interplane struts; not in the part collider"
+  }
+ },
+ {
+  "name": "tailhook",
+  "parent": "fus_center",
+  "type": "MESH",
+  "pivot_unity": [
+   0.0,
+   0.0965,
+   -2.3524
+  ],
+  "tris": 1600,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "tailhook",
+   "length": 2.36,
+   "stowed_up_deg": -10.0,
+   "deployed_deg": -72.0,
+   "note": "round 6: modern hook (fal); hinge near the CG height (Mk I line-of-pull lesson), runs in a belly slot computed from its swept envelope"
+  }
+ },
+ {
+  "name": "windscreen",
+  "parent": "fus_center",
+  "type": "MESH",
+  "pivot_unity": [
+   0.0,
+   0.3727,
+   -0.5224
+  ],
+  "tris": 316,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "glass"
+  }
+ },
+ {
+  "name": "windscreen_frame",
+  "parent": "fus_center",
+  "type": "MESH",
+  "pivot_unity": [
+   0.0,
+   0.3727,
+   -0.5224
+  ],
+  "tris": 356,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "frame",
+   "note": "1.8.3 slim painted arch + base lip"
+  }
+ },
+ {
+  "name": "wing_lower_L",
+  "parent": "fus_center",
+  "type": "MESH",
+  "pivot_unity": [
+   -2.4,
+   -0.55,
+   -0.6024
+  ],
+  "tris": 1102,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {}
+ },
+ {
+  "name": "wing_lower_L_root",
+  "parent": "wing_lower_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.4,
+   -0.6199,
+   -0.6024
+  ],
+  "tris": 140,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "fillet",
+   "note": "root fillet to the fuselage skin; not in the wing collider"
+  }
+ },
+ {
+  "name": "wing_lower_R",
+  "parent": "fus_center",
+  "type": "MESH",
+  "pivot_unity": [
+   2.4,
+   -0.55,
+   -0.6024
+  ],
+  "tris": 1102,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {}
+ },
+ {
+  "name": "wing_lower_R_root",
+  "parent": "wing_lower_R",
+  "type": "MESH",
+  "pivot_unity": [
+   0.4,
+   -0.6199,
+   -0.6024
+  ],
+  "tris": 140,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "fillet",
+   "note": "root fillet to the fuselage skin; not in the wing collider"
+  }
+ },
+ {
+  "name": "wing_upper_C",
+  "parent": "fus_center",
+  "type": "MESH",
+  "pivot_unity": [
+   0.0,
+   0.8815,
+   0.2376
+  ],
+  "tris": 888,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {}
+ },
+ {
+  "name": "wing_upper_C_struct",
+  "parent": "wing_upper_C",
+  "type": "MESH",
+  "pivot_unity": [
+   0.0,
+   0.8815,
+   0.1976
+  ],
+  "tris": 1376,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "structure"
+  }
+ },
+ {
+  "name": "wing_upper_L",
+  "parent": "wing_upper_C",
+  "type": "MESH",
+  "pivot_unity": [
+   -2.9,
+   0.9182,
+   0.2476
+  ],
+  "tris": 1355,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {}
+ },
+ {
+  "name": "wing_upper_L_struct",
+  "parent": "wing_upper_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -1.0,
+   0.885,
+   0.2476
+  ],
+  "tris": 392,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "structure"
+  }
+ },
+ {
+  "name": "wing_upper_R",
+  "parent": "wing_upper_C",
+  "type": "MESH",
+  "pivot_unity": [
+   2.9,
+   0.9182,
+   0.2476
+  ],
+  "tris": 1355,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {}
+ },
+ {
+  "name": "wing_upper_R_struct",
+  "parent": "wing_upper_R",
+  "type": "MESH",
+  "pivot_unity": [
+   1.0,
+   0.885,
+   0.2476
+  ],
+  "tris": 392,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "structure"
+  }
+ }
+]

@@ -1,0 +1,945 @@
+{
+ "checks": [
+  {
+   "name": "required object names present",
+   "ok": true,
+   "detail": "134 names"
+  },
+  {
+   "name": "root has no rotation (identity)",
+   "ok": true,
+   "detail": "quat=(1.0, 0.0, 0.0, 0.0)"
+  },
+  {
+   "name": "root scale 1",
+   "ok": true,
+   "detail": "(1.0, 1.0, 1.0)"
+  },
+  {
+   "name": "bbox span ~20.60 m (Unity X)",
+   "ok": true,
+   "detail": "20.600"
+  },
+  {
+   "name": "bbox height ~4.98 m on gear (Unity Y)",
+   "ok": true,
+   "detail": "4.979"
+  },
+  {
+   "name": "nose points +Z in Unity",
+   "ok": true,
+   "detail": "cannon z=6.23 tail z=-10.23"
+  },
+  {
+   "name": "right wing on +X in Unity",
+   "ok": true,
+   "detail": "wing_tip_R centre x=8.18"
+  },
+  {
+   "name": "up is +Y in Unity (fin top above wheels)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "cockpit_eye on the left (Unity x<0)",
+   "ok": true,
+   "detail": "(-0.36, 0.8, 3.174)"
+  },
+  {
+   "name": "gear_nose_wheel pivot at wheel bbox centre (<2 mm)",
+   "ok": true,
+   "detail": "0.00 mm"
+  },
+  {
+   "name": "gear_main_L_wheel pivot at wheel bbox centre (<2 mm)",
+   "ok": true,
+   "detail": "0.00 mm"
+  },
+  {
+   "name": "gear_main_R_wheel pivot at wheel bbox centre (<2 mm)",
+   "ok": true,
+   "detail": "0.00 mm"
+  },
+  {
+   "name": "prop_hub_L pivot on prop axis (<2 mm)",
+   "ok": true,
+   "detail": "0.01 mm"
+  },
+  {
+   "name": "prop_hub_L local +Z (Unity) = forward spin axis",
+   "ok": true,
+   "detail": "(0.0, 0.0, 1.0)"
+  },
+  {
+   "name": "prop_L_blade1 pivot at hub centre",
+   "ok": true,
+   "detail": "0.00 mm"
+  },
+  {
+   "name": "prop_L_blade2 pivot at hub centre",
+   "ok": true,
+   "detail": "0.00 mm"
+  },
+  {
+   "name": "prop_L_blade3 pivot at hub centre",
+   "ok": true,
+   "detail": "0.00 mm"
+  },
+  {
+   "name": "prop_L_blade4 pivot at hub centre",
+   "ok": true,
+   "detail": "0.00 mm"
+  },
+  {
+   "name": "prop_L_blade5 pivot at hub centre",
+   "ok": true,
+   "detail": "0.00 mm"
+  },
+  {
+   "name": "prop_L_blade6 pivot at hub centre",
+   "ok": true,
+   "detail": "0.00 mm"
+  },
+  {
+   "name": "prop_L_blade1 points up",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "prop_hub_R pivot on prop axis (<2 mm)",
+   "ok": true,
+   "detail": "0.01 mm"
+  },
+  {
+   "name": "prop_hub_R local +Z (Unity) = forward spin axis",
+   "ok": true,
+   "detail": "(0.0, 0.0, 1.0)"
+  },
+  {
+   "name": "prop_R_blade1 pivot at hub centre",
+   "ok": true,
+   "detail": "0.00 mm"
+  },
+  {
+   "name": "prop_R_blade2 pivot at hub centre",
+   "ok": true,
+   "detail": "0.00 mm"
+  },
+  {
+   "name": "prop_R_blade3 pivot at hub centre",
+   "ok": true,
+   "detail": "0.00 mm"
+  },
+  {
+   "name": "prop_R_blade4 pivot at hub centre",
+   "ok": true,
+   "detail": "0.00 mm"
+  },
+  {
+   "name": "prop_R_blade5 pivot at hub centre",
+   "ok": true,
+   "detail": "0.00 mm"
+  },
+  {
+   "name": "prop_R_blade6 pivot at hub centre",
+   "ok": true,
+   "detail": "0.00 mm"
+  },
+  {
+   "name": "prop_R_blade1 points up",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "materials named exactly",
+   "ok": true,
+   "detail": "present=['ck_art', 'ck_black', 'ck_panel', 'ck_struct', 'ck_throttle', 'cockpit', 'gauges', 'glass', 'interior', 'light_off', 'metal_dark', 'paint', 'prop', 'rubber', 'screen', 'sensor', 'structure']"
+  },
+  {
+   "name": "no n-gons",
+   "ok": true,
+   "detail": "0"
+  },
+  {
+   "name": "both UV maps (livery, detail) on every mesh",
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "name": "triangle budget (<= 180k incl. interiors)",
+   "ok": true,
+   "detail": "96763"
+  },
+  {
+   "name": "livery UVs non-overlapping (raster 2048, <0.3% overlap px)",
+   "ok": true,
+   "detail": "overlap 166 px of 3424675 (0.005%)"
+  },
+  {
+   "name": "livery UV usage >= 70%",
+   "ok": true,
+   "detail": "81.6%"
+  },
+  {
+   "name": "livery UVs inside 0-1",
+   "ok": true,
+   "detail": "0 loops outside"
+  },
+  {
+   "name": "exterior normals: first hit from outside is front-facing (6000 rays)",
+   "ok": true,
+   "detail": "1 back-face hits of 2011: {'wing_inner_L:paint': 1}"
+  }
+ ],
+ "fail": 0,
+ "bbox_unity_size": [
+  20.6,
+  4.979,
+  16.574
+ ],
+ "pivots_unity": {
+  "aileron_L": [
+   -7.8647,
+   0.3032,
+   -1.1198
+  ],
+  "aileron_R": [
+   7.8647,
+   0.3032,
+   -1.1198
+  ],
+  "bomb_door_L": [
+   -0.6603,
+   -1.0012,
+   -0.4711
+  ],
+  "bomb_door_R": [
+   0.6603,
+   -1.0012,
+   -0.4711
+  ],
+  "cannon": [
+   -0.0,
+   -0.31,
+   4.0039
+  ],
+  "canopy_frame": [
+   -0.0,
+   0.95,
+   3.3539
+  ],
+  "canopy_glass": [
+   -0.0,
+   0.95,
+   3.3539
+  ],
+  "canopy_jettison_L": [
+   -0.725,
+   0.6264,
+   3.0039
+  ],
+  "canopy_jettison_L_hinge": [
+   -0.725,
+   0.6264,
+   3.0039
+  ],
+  "canopy_jettison_R": [
+   0.725,
+   0.6264,
+   3.0039
+  ],
+  "canopy_jettison_R_hinge": [
+   0.725,
+   0.6264,
+   3.0039
+  ],
+  "chin_turret": [
+   -0.0,
+   -1.149,
+   4.8539
+  ],
+  "cockpit_eye": [
+   -0.36,
+   0.8,
+   3.1739
+  ],
+  "cockpit_gauges": [
+   -0.0,
+   0.45,
+   4.0139
+  ],
+  "cockpit_interior": [
+   -0.0,
+   -0.15,
+   3.2039
+  ],
+  "cockpit_rudder_pedals_L": [
+   -0.36,
+   -0.45,
+   4.0639
+  ],
+  "cockpit_rudder_pedals_R": [
+   0.36,
+   -0.45,
+   4.0639
+  ],
+  "cockpit_throttle": [
+   -0.0,
+   -0.1452,
+   3.9159
+  ],
+  "cockpit_throttle_arm": [
+   -0.0,
+   -0.1452,
+   3.9159
+  ],
+  "crew_wso_eye": [
+   0.36,
+   0.8,
+   3.1739
+  ],
+  "elevator_L": [
+   -0.47,
+   0.59,
+   -8.3561
+  ],
+  "elevator_R": [
+   0.47,
+   0.59,
+   -8.3561
+  ],
+  "engine_L": [
+   -2.95,
+   -0.25,
+   1.3739
+  ],
+  "engine_R": [
+   2.95,
+   -0.25,
+   1.3739
+  ],
+  "exhaust_L": [
+   -2.95,
+   0.0,
+   1.4539
+  ],
+  "exhaust_R": [
+   2.95,
+   0.0,
+   1.4539
+  ],
+  "fin_L": [
+   -3.35,
+   0.59,
+   -7.8461
+  ],
+  "fin_R": [
+   3.35,
+   0.59,
+   -7.8461
+  ],
+  "flap_inner_L": [
+   -1.5716,
+   0.1131,
+   -1.6096
+  ],
+  "flap_inner_R": [
+   1.5716,
+   0.1131,
+   -1.6096
+  ],
+  "flap_outer_L": [
+   -4.7747,
+   0.2572,
+   -1.3608
+  ],
+  "flap_outer_R": [
+   4.7747,
+   0.2572,
+   -1.3608
+  ],
+  "flare_L": [
+   -0.7277,
+   -0.56,
+   -3.6461
+  ],
+  "flare_R": [
+   0.7277,
+   -0.56,
+   -3.6461
+  ],
+  "flare_tail_L": [
+   -0.22,
+   -0.0364,
+   -9.6661
+  ],
+  "flare_tail_R": [
+   0.22,
+   -0.0364,
+   -9.6661
+  ],
+  "fus_center": [
+   -0.0,
+   -0.25,
+   -0.2461
+  ],
+  "fus_cockpit": [
+   -0.0,
+   0.0,
+   4.3039
+  ],
+  "fus_forward": [
+   -0.0,
+   0.0,
+   2.3739
+  ],
+  "fus_nose": [
+   -0.0,
+   0.0,
+   5.9339
+  ],
+  "fus_rear": [
+   -0.0,
+   0.0,
+   -2.0461
+  ],
+  "fus_tail": [
+   -0.0,
+   0.0,
+   -6.3461
+  ],
+  "GA25X_root": [
+   -0.0,
+   0.0,
+   0.0
+  ],
+  "gauge_isis_att_card": [
+   -0.0,
+   0.5842,
+   4.006
+  ],
+  "gauge_isis_fuel_bar": [
+   -0.0144,
+   0.4739,
+   3.9908
+  ],
+  "gauge_isis_hdg_card": [
+   -0.0,
+   0.4093,
+   3.9814
+  ],
+  "gauge_isis_tq_L_needle": [
+   -0.0161,
+   0.5036,
+   3.9946
+  ],
+  "gauge_isis_tq_R_needle": [
+   0.0161,
+   0.5036,
+   3.9946
+  ],
+  "gear_door_main_L_a": [
+   -2.6188,
+   -0.8055,
+   -1.2461
+  ],
+  "gear_door_main_L_b": [
+   -3.2812,
+   -0.8055,
+   -1.2461
+  ],
+  "gear_door_main_R_a": [
+   2.6188,
+   -0.8055,
+   -1.2461
+  ],
+  "gear_door_main_R_b": [
+   3.2812,
+   -0.8055,
+   -1.2461
+  ],
+  "gear_door_nose_L": [
+   -0.2801,
+   -1.121,
+   2.6289
+  ],
+  "gear_door_nose_R": [
+   0.2801,
+   -1.121,
+   2.6289
+  ],
+  "gear_main_L_strut": [
+   -2.95,
+   -0.4,
+   -0.1961
+  ],
+  "gear_main_L_wheel": [
+   -2.95,
+   -1.993,
+   -0.3461
+  ],
+  "gear_main_R_strut": [
+   2.95,
+   -0.4,
+   -0.1961
+  ],
+  "gear_main_R_wheel": [
+   2.95,
+   -1.993,
+   -0.3461
+  ],
+  "gear_nose_strut": [
+   -0.0,
+   -0.7,
+   3.6039
+  ],
+  "gear_nose_wheel": [
+   -0.0,
+   -2.21,
+   4.0539
+  ],
+  "gunsight_combiner": [
+   -0.36,
+   0.79,
+   3.9739
+  ],
+  "gunsight_pilot": [
+   -0.36,
+   0.727,
+   4.0239
+  ],
+  "hatch_entry_fwd": [
+   -0.0,
+   -1.13,
+   1.5339
+  ],
+  "hatch_entry_fwd_hinge": [
+   -0.0,
+   -1.13,
+   1.5339
+  ],
+  "hatch_entry_rear": [
+   -0.0,
+   -0.9269,
+   -4.9461
+  ],
+  "hatch_entry_rear_hinge": [
+   -0.0,
+   -0.9269,
+   -4.9461
+  ],
+  "hp_bay_L": [
+   -0.33,
+   -0.43,
+   -0.4711
+  ],
+  "hp_bay_R": [
+   0.33,
+   -0.43,
+   -0.4711
+  ],
+  "hp_bombbay": [
+   -0.0,
+   -0.43,
+   -0.4711
+  ],
+  "hp_inner_L": [
+   -4.1,
+   -0.0766,
+   -0.0888
+  ],
+  "hp_inner_R": [
+   4.1,
+   -0.0766,
+   -0.0888
+  ],
+  "hp_mid_L": [
+   -4.95,
+   -0.0482,
+   -0.1025
+  ],
+  "hp_mid_R": [
+   4.95,
+   -0.0482,
+   -0.1025
+  ],
+  "hp_outer_L": [
+   -5.8,
+   -0.0214,
+   -0.1159
+  ],
+  "hp_outer_R": [
+   5.8,
+   -0.0214,
+   -0.1159
+  ],
+  "hp_root_L": [
+   -1.55,
+   -0.2553,
+   -0.0462
+  ],
+  "hp_root_R": [
+   1.55,
+   -0.2553,
+   -0.0462
+  ],
+  "hp_tailhook": [
+   -0.0,
+   -0.677,
+   -7.3461
+  ],
+  "laser_turret_az": [
+   -0.0,
+   -1.1827,
+   -2.6461
+  ],
+  "laser_turret_el": [
+   -0.0,
+   -1.4827,
+   -2.6461
+  ],
+  "laser_turret_mount": [
+   -0.0,
+   -1.1827,
+   -2.6461
+  ],
+  "mfd_center": [
+   -0.3301,
+   0.4589,
+   3.9889
+  ],
+  "mfd_left": [
+   -0.54,
+   0.2513,
+   3.9566
+  ],
+  "mfd_right": [
+   0.3299,
+   0.4589,
+   3.9889
+  ],
+  "mfd_wso": [
+   0.54,
+   0.2513,
+   3.9566
+  ],
+  "muzzle_cannon": [
+   -0.0,
+   -0.31,
+   6.2339
+  ],
+  "muzzle_laser": [
+   -0.0,
+   -1.4827,
+   -2.3361
+  ],
+  "muzzle_package_L1": [
+   -0.7425,
+   -0.43,
+   3.9539
+  ],
+  "muzzle_package_R1": [
+   0.7425,
+   -0.43,
+   3.9539
+  ],
+  "mws_tail": [
+   -0.0,
+   0.1636,
+   -10.2261
+  ],
+  "nacelle_L": [
+   -2.95,
+   -0.25,
+   1.3739
+  ],
+  "nacelle_R": [
+   2.95,
+   -0.25,
+   1.3739
+  ],
+  "package_guns_L": [
+   -0.8,
+   -0.43,
+   2.5539
+  ],
+  "package_guns_R": [
+   0.8,
+   -0.43,
+   2.5539
+  ],
+  "prop_disc_L": [
+   -2.95,
+   -0.25,
+   2.7339
+  ],
+  "prop_disc_R": [
+   2.95,
+   -0.25,
+   2.7339
+  ],
+  "prop_hub_L": [
+   -2.95,
+   -0.25,
+   2.7339
+  ],
+  "prop_hub_R": [
+   2.95,
+   -0.25,
+   2.7339
+  ],
+  "prop_L_blade1": [
+   -2.95,
+   -0.25,
+   2.7339
+  ],
+  "prop_L_blade2": [
+   -2.95,
+   -0.25,
+   2.7339
+  ],
+  "prop_L_blade3": [
+   -2.95,
+   -0.25,
+   2.7339
+  ],
+  "prop_L_blade4": [
+   -2.95,
+   -0.25,
+   2.7339
+  ],
+  "prop_L_blade5": [
+   -2.95,
+   -0.25,
+   2.7339
+  ],
+  "prop_L_blade6": [
+   -2.95,
+   -0.25,
+   2.7339
+  ],
+  "prop_R_blade1": [
+   2.95,
+   -0.25,
+   2.7339
+  ],
+  "prop_R_blade2": [
+   2.95,
+   -0.25,
+   2.7339
+  ],
+  "prop_R_blade3": [
+   2.95,
+   -0.25,
+   2.7339
+  ],
+  "prop_R_blade4": [
+   2.95,
+   -0.25,
+   2.7339
+  ],
+  "prop_R_blade5": [
+   2.95,
+   -0.25,
+   2.7339
+  ],
+  "prop_R_blade6": [
+   2.95,
+   -0.25,
+   2.7339
+  ],
+  "pylon_inner_L": [
+   -4.1,
+   -0.0766,
+   -0.0888
+  ],
+  "pylon_inner_R": [
+   4.1,
+   -0.0766,
+   -0.0888
+  ],
+  "pylon_mid_L": [
+   -4.95,
+   -0.0482,
+   -0.1025
+  ],
+  "pylon_mid_R": [
+   4.95,
+   -0.0482,
+   -0.1025
+  ],
+  "pylon_outer_L": [
+   -5.8,
+   -0.0214,
+   -0.1159
+  ],
+  "pylon_outer_R": [
+   5.8,
+   -0.0214,
+   -0.1159
+  ],
+  "pylon_root_L": [
+   -1.55,
+   -0.2553,
+   -0.0462
+  ],
+  "pylon_root_R": [
+   1.55,
+   -0.2553,
+   -0.0462
+  ],
+  "radar_antenna": [
+   -0.0,
+   0.0,
+   5.1339
+  ],
+  "rudder_L": [
+   -3.35,
+   0.59,
+   -8.3661
+  ],
+  "rudder_R": [
+   3.35,
+   0.59,
+   -8.3661
+  ],
+  "slimelight_fin_L": [
+   -3.4345,
+   1.25,
+   -7.6661
+  ],
+  "slimelight_fin_R": [
+   3.4345,
+   1.25,
+   -7.6661
+  ],
+  "slimelight_nacelle_L": [
+   -3.4604,
+   -0.2129,
+   0.429
+  ],
+  "slimelight_nacelle_R": [
+   3.4604,
+   -0.2129,
+   0.429
+  ],
+  "slimelight_nose_L": [
+   -0.728,
+   0.515,
+   3.0339
+  ],
+  "slimelight_nose_R": [
+   0.728,
+   0.515,
+   3.0339
+  ],
+  "slimelight_tip_L": [
+   -9.2989,
+   0.4292,
+   -0.0421
+  ],
+  "slimelight_tip_R": [
+   9.2989,
+   0.4292,
+   -0.0421
+  ],
+  "stab_L": [
+   -0.4,
+   0.59,
+   -7.8461
+  ],
+  "stab_R": [
+   0.4,
+   0.59,
+   -7.8461
+  ],
+  "stick_L": [
+   -0.402,
+   -0.3073,
+   3.6945
+  ],
+  "stick_R": [
+   0.402,
+   -0.3073,
+   3.6945
+  ],
+  "tailhook": [
+   -0.0,
+   -0.677,
+   -7.3461
+  ],
+  "tailhook_end": [
+   -0.0,
+   -0.677,
+   -9.6461
+  ],
+  "targetcam_point": [
+   -0.0,
+   -1.169,
+   5.0539
+  ],
+  "wing_inner_L": [
+   -0.62,
+   0.08,
+   -0.2461
+  ],
+  "wing_inner_R": [
+   0.62,
+   0.08,
+   -0.2461
+  ],
+  "wing_outer_L": [
+   -2.9495,
+   0.2976,
+   -0.0733
+  ],
+  "wing_outer_R": [
+   2.9495,
+   0.2976,
+   -0.0733
+  ],
+  "wing_tip_L": [
+   -6.1496,
+   0.3166,
+   -0.1206
+  ],
+  "wing_tip_R": [
+   6.1496,
+   0.3166,
+   -0.1206
+  ]
+ },
+ "tris_total": 96763,
+ "tris_by_group": {
+  "wings+controls": 8230,
+  "gear+doors": 5932,
+  "armament+glazing": 4584,
+  "cockpit": 21813,
+  "tail": 2800,
+  "engines+cowl flaps+exhaust": 5954,
+  "fuselage": 34610,
+  "nacelles": 6552,
+  "props": 6288
+ },
+ "livery_uv_usage": 0.8161,
+ "livery_overlap_pixels_frac": 5e-05,
+ "backface_samples": [
+  [
+   "wing_inner_L:paint",
+   [
+    2.5,
+    1.85,
+    0.26
+   ],
+   [
+    0.33,
+    0.32,
+    0.89
+   ]
+  ]
+ ],
+ "exterior_ray_hits": 2011,
+ "exterior_backface_hits": {
+  "wing_inner_L:paint": 1
+ }
+}

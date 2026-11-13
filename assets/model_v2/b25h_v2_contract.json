@@ -1,0 +1,4274 @@
+{
+ "meta": {
+  "generated": "2026-11-09T12:34:54",
+  "model": "assets/model_v2/b25h_v2.fbx",
+  "extras_fbx": "assets/model_v2/b25h_v2_propdisc.fbx",
+  "coords": "Unity: x right, y up, z forward (nose); metres; relative to B25H_root (CG, FBX origin, gear down)",
+  "rotation_rule": "Blender +a about (x,y,z) == Unity Quaternion.AngleAxis(-a, (x,z,y)); all angles below are UNITY angles",
+  "unity_angle_sense": "Quaternion.AngleAxis(+90, X) * Y = +Z (standard right-hand formula on Unity numbers)",
+  "status": "built and checked offline (Blender re-import + mechanics check + stub test); NOT verified in game"
+ },
+ "renames": [
+  {
+   "old": "waist_blister_L",
+   "new": "hatch_waist_L",
+   "note": "waist window is now a hinged, jettisonable hatch with a ball socket"
+  },
+  {
+   "old": "waist_blister_R",
+   "new": "hatch_waist_R",
+   "note": "as above"
+  }
+ ],
+ "changed_meaning": [
+  {
+   "name": "cockpit_yoke_L",
+   "was": "whole yoke (column + wheel) pivoting at the floor; B25HBuild Cockpit.joysticks[0]",
+   "now": "the WHEEL only, child of cockpit_column_L, pivot at the hub, local +X = hub axis",
+   "build_action": "drive cockpit_column_L (pitch) and cockpit_yoke_L (roll) separately (see controls); B25HBuild.cs:1196"
+  },
+  {
+   "name": "turret_dorsal",
+   "was": "static dome + ring",
+   "now": "azimuth body (drum, dome, cradle supports, gunner seat), child of turret_dorsal_mount"
+  },
+  {
+   "name": "turret_dorsal_guns",
+   "was": "static twin guns",
+   "now": "elevation cradle; guns are gun_turret_L/R"
+  },
+  {
+   "name": "tail_guns",
+   "was": "static twin guns at y=-9.42",
+   "now": "elevation cradle at the trunnion, child of tail_turret_az; muzzles moved (pivot y -9.55)"
+  },
+  {
+   "name": "waist_gun_L / waist_gun_R",
+   "was": "static gun inside the fuselage",
+   "now": "elevation part of the ball mount in the hatch glass"
+  },
+  {
+   "name": "cannon",
+   "was": "75 mm M4 shape",
+   "now": "75 mm T13E1 (lighter barrel, concentric recoil sleeve, vertical sliding block)",
+   "build_action": "optional: rename HUD label \"75mm M4 Cannon\" -> \"75mm T13E1\" (OwnM4WeaponInfo)"
+  },
+  {
+   "name": "hp_rail_*, hp_wingrack_*, hp_bombbay",
+   "was": "floating 0.12-0.15 m under the wing / in the bay roof",
+   "now": "at the bottom face of the new pylons; hp_bombbay lowered 0.23 m under a carrier beam"
+  },
+  {
+   "name": "canopy_glass / canopy_frame",
+   "was": "faceted per-quad plates",
+   "now": "smooth shared-vertex grid + swept bars; the roof hatch is cut out of canopy_glass"
+  },
+  {
+   "name": "cockpit_gauges",
+   "was": "29 flat faces",
+   "now": "16 dial faces (8x8 cell atlas); movers are separate gauge_* objects"
+  },
+  {
+   "name": "fus_* split ends, wing_inner/outer/tip split ends",
+   "was": "flat capped bulkhead webs / ribs",
+   "now": "torn: jagged complementary skin edges, set-back frame/rib, stringer/spar stubs (material structure)"
+  }
+ ],
+ "controls": {
+  "note": "ControlSurface rotates visibleMesh by rest * AngleAxis(pitch*pitchRange + roll*rollRange + yaw*yawRange, Vector3.right) (ControlSurfaceJob_Math.cs:75); one ControlSurface per transform, its attachedSurface = fus_cockpit. Input signs: ControlsFilter.cs:241 uses pitch * gLimitPositive, so pitch > 0 = pull; Cockpit.Joystick (Cockpit.cs:20) uses Z = -roll*range, so roll > 0 = right. Values below assume those signs (live probe 1 settles them).",
+  "objects": [
+   {
+    "name": "cockpit_column_L",
+    "parent": "fus_cockpit",
+    "type": "MESH",
+    "pivot": [
+     -0.36,
+     -0.375,
+     3.7389
+    ],
+    "local_axes": {
+     "x": [
+      1.0,
+      0.0,
+      0.0
+     ],
+     "y": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "z": [
+      0.0,
+      0.0,
+      1.0
+     ]
+    },
+    "kind": "control_column",
+    "axis_local": "+X (Unity) = right (lateral)",
+    "range_deg": 12,
+    "drive": {
+     "component": "ControlSurface",
+     "field": "pitchRange",
+     "value": -12.0,
+     "servoSpeed": 60,
+     "alt": "Cockpit.Joystick on this transform drives X=pitch*range but ALSO Z=-roll*range; use ControlSurface"
+    },
+    "sign": "Unity +angle about local +X moves the column top FORWARD (push); pull = negative",
+    "note": "fal-generated B-25 control column (tripo)",
+    "probe": [
+     -0.3513,
+     0.4861,
+     3.5945
+    ],
+    "attachedSurface": "any AeroPart of the aircraft (only used for parentUnit / IsDetached), e.g. fus_cockpit"
+   },
+   {
+    "name": "cockpit_yoke_L",
+    "parent": "cockpit_column_L",
+    "type": "MESH",
+    "pivot": [
+     -0.36,
+     0.45,
+     3.5882
+    ],
+    "local_axes": {
+     "x": [
+      -0.0,
+      0.2873,
+      -0.9578
+     ],
+     "y": [
+      -0.0,
+      0.9578,
+      0.2873
+     ],
+     "z": [
+      1.0,
+      0.0,
+      -0.0
+     ]
+    },
+    "kind": "control_wheel",
+    "axis_local": "+X (Unity) = hub axis, toward the pilot",
+    "range_deg": 45,
+    "drive": {
+     "component": "ControlSurface",
+     "field": "rollRange",
+     "value": 45.0,
+     "servoSpeed": 120
+    },
+    "sign": "Unity +angle about local +X turns the wheel top to the RIGHT (= right roll)",
+    "note": "fal-generated ram's-horn wheel (tripo)",
+    "probe": [
+     -0.4832,
+     0.5726,
+     3.5712
+    ],
+    "attachedSurface": "any AeroPart of the aircraft (only used for parentUnit / IsDetached), e.g. fus_cockpit"
+   },
+   {
+    "name": "cockpit_rudder_pedals_L",
+    "parent": "fus_cockpit",
+    "type": "MESH",
+    "pivot": [
+     -0.36,
+     -0.42,
+     4.1389
+    ],
+    "local_axes": {
+     "x": [
+      -0.0,
+      1.0,
+      0.0
+     ],
+     "y": [
+      0.0,
+      0.0,
+      1.0
+     ],
+     "z": [
+      1.0,
+      0.0,
+      -0.0
+     ]
+    },
+    "kind": "rudder_pedals",
+    "axis_local": "+X (Unity) = up",
+    "range_deg": 15,
+    "drive": {
+     "component": "ControlSurface",
+     "field": "yawRange",
+     "value": -15.0,
+     "servoSpeed": 60
+    },
+    "sign": "Unity +angle about local +X (up) moves the RIGHT pedal AFT; right rudder = negative",
+    "note": "fal-generated pedals (tripo) on the yaw bar, ahead of the pilot's toes in the footwell",
+    "probe": [
+     -0.1514,
+     -0.3643,
+     4.079
+    ],
+    "attachedSurface": "any AeroPart of the aircraft (only used for parentUnit / IsDetached), e.g. fus_cockpit"
+   }
+  ]
+ },
+ "gauges": {
+  "note": "No stock aircraft has 3D needle instruments: stock flight data is drawn by the tac-screen UI (BasicFlightInstruments in tacScreen_*.prefab: airspeed/altitude/climb/heading as text, horizon as an image). The only stock component that can turn a transform from a flight value is Cockpit.Throttle (rotation mode, throttle only). The other needles need a runtime component or stay at rest. Each needle/card: local +X = toward the pilot, rest = 12 o'clock; Unity +angle about local +X = clockwise as seen by the pilot; angle = (value - v0) * deg_per_unit.",
+  "texture": "b25h_gauges: 8 x 8 cells, cell k at column k % 8, row k // 8 (row 0 at v = 0). Faces: 0 airspeed, 1 attitude bezel, 2 altimeter, 3 heading bezel, 4 vsi, 5 fuel, 6/7 manifold L/R, 8/9 rpm L/R, 10 attitude card (horizon), 11 compass card, 12 oil press, 13 oil temp, 14 cyl temp, 15 hydraulic, 16 flaps, 17 gear; 62 = needle (white, tip at the top of the cell), 63 = short needle. Scales start at 12 o'clock and run clockwise over the sweep in the list.",
+  "faces": {
+   "name": "cockpit_gauges",
+   "parent": "fus_cockpit",
+   "type": "MESH",
+   "pivot": [
+    0.0,
+    0.45,
+    4.0139
+   ],
+   "local_axes": {
+    "x": [
+     1.0,
+     0.0,
+     0.0
+    ],
+    "y": [
+     0.0,
+     1.0,
+     0.0
+    ],
+    "z": [
+     0.0,
+     0.0,
+     1.0
+    ]
+   },
+   "note": "real dial faces (8x8 b25h_gauges atlas)"
+  },
+  "movers": [
+   {
+    "name": "gauge_airspeed_needle",
+    "parent": "gauge_airspeed",
+    "type": "MESH",
+    "pivot": [
+     -0.465,
+     0.572,
+     4.0108
+    ],
+    "local_axes": {
+     "x": [
+      -0.0,
+      0.1392,
+      -0.9903
+     ],
+     "y": [
+      0.0,
+      0.9903,
+      0.1392
+     ],
+     "z": [
+      1.0,
+      0.0,
+      -0.0
+     ]
+    },
+    "kind": "gauge_needle",
+    "axis_local": "+X (Unity) = toward the pilot",
+    "rest": "12 o'clock (local +Y Unity = panel up)",
+    "cell": 62,
+    "sign": "Unity +angle about local +X = clockwise as seen by the pilot",
+    "value": "indicated airspeed",
+    "unit": "mph",
+    "v0": 0,
+    "v1": 400,
+    "sweep": 320,
+    "deg_per_unit": 0.8,
+    "probe": [
+     -0.465,
+     0.6055,
+     4.0074
+    ],
+    "stock_driver": null
+   },
+   {
+    "name": "gauge_altimeter_needle",
+    "parent": "gauge_altimeter",
+    "type": "MESH",
+    "pivot": [
+     -0.255,
+     0.572,
+     4.0108
+    ],
+    "local_axes": {
+     "x": [
+      -0.0,
+      0.1392,
+      -0.9903
+     ],
+     "y": [
+      0.0,
+      0.9903,
+      0.1392
+     ],
+     "z": [
+      1.0,
+      0.0,
+      -0.0
+     ]
+    },
+    "kind": "gauge_needle",
+    "axis_local": "+X (Unity) = toward the pilot",
+    "rest": "12 o'clock (local +Y Unity = panel up)",
+    "cell": 62,
+    "sign": "Unity +angle about local +X = clockwise as seen by the pilot",
+    "value": "altitude, long needle (1000 ft per turn)",
+    "unit": "ft",
+    "v0": 0,
+    "v1": 1000,
+    "sweep": 360,
+    "deg_per_unit": 0.36,
+    "probe": [
+     -0.255,
+     0.6075,
+     4.0052
+    ],
+    "stock_driver": null
+   },
+   {
+    "name": "gauge_altimeter_needle_short",
+    "parent": "gauge_altimeter",
+    "type": "MESH",
+    "pivot": [
+     -0.255,
+     0.572,
+     4.0108
+    ],
+    "local_axes": {
+     "x": [
+      -0.0,
+      0.1392,
+      -0.9903
+     ],
+     "y": [
+      0.0,
+      0.9903,
+      0.1392
+     ],
+     "z": [
+      1.0,
+      0.0,
+      -0.0
+     ]
+    },
+    "kind": "gauge_short",
+    "axis_local": "+X (Unity) = toward the pilot",
+    "rest": "12 o'clock (local +Y Unity = panel up)",
+    "cell": 63,
+    "sign": "Unity +angle about local +X = clockwise as seen by the pilot",
+    "value": "altitude, short needle (10000 ft per turn)",
+    "unit": "ft",
+    "v0": 0,
+    "v1": 10000,
+    "sweep": 360,
+    "deg_per_unit": 0.036,
+    "probe": [
+     -0.255,
+     0.5948,
+     4.0065
+    ],
+    "stock_driver": null
+   },
+   {
+    "name": "gauge_ammeter_needle",
+    "parent": "gauge_ammeter",
+    "type": "MESH",
+    "pivot": [
+     -0.02,
+     0.55,
+     4.0077
+    ],
+    "local_axes": {
+     "x": [
+      -0.0,
+      0.1392,
+      -0.9903
+     ],
+     "y": [
+      0.0,
+      0.9903,
+      0.1392
+     ],
+     "z": [
+      1.0,
+      0.0,
+      -0.0
+     ]
+    },
+    "kind": "gauge_needle",
+    "axis_local": "+X (Unity) = toward the pilot",
+    "rest": "12 o'clock (local +Y Unity = panel up)",
+    "cell": 62,
+    "sign": "Unity +angle about local +X = clockwise as seen by the pilot",
+    "value": "generator load A: 30 + 25 sqrt(powerRatio) + ripple, 0 engines stopped",
+    "v0": 0,
+    "v1": 150,
+    "a0": -135,
+    "sweep": 270,
+    "angle": "a0 + clamp01((v - v0) / (v1 - v0)) * sweep",
+    "driver": "B25H.Instruments 1.8.4 Dials184.cs",
+    "deg_per_unit": 1.8,
+    "probe": [
+     -0.02,
+     0.5698,
+     4.0024
+    ],
+    "stock_driver": null
+   },
+   {
+    "name": "gauge_attitude_card",
+    "parent": "gauge_attitude",
+    "type": "MESH",
+    "pivot": [
+     -0.36,
+     0.582,
+     4.0122
+    ],
+    "local_axes": {
+     "x": [
+      -0.0,
+      0.1392,
+      -0.9903
+     ],
+     "y": [
+      0.0,
+      0.9903,
+      0.1392
+     ],
+     "z": [
+      1.0,
+      0.0,
+      -0.0
+     ]
+    },
+    "kind": "gauge_card",
+    "axis_local": "+X (Unity) = toward the pilot",
+    "rest": "12 o'clock (local +Y Unity = panel up)",
+    "cell": 10,
+    "sign": "Unity +angle about local +X = clockwise as seen by the pilot",
+    "value": "bank (card roll) and pitch (card offset)",
+    "unit": "deg",
+    "note": "card angle = -bank; card local +Y (Unity) offset = -0.0015 m per deg of pitch up",
+    "probe": [
+     -0.3345,
+     0.6082,
+     4.009
+    ],
+    "stock_driver": null
+   },
+   {
+    "name": "gauge_brake_press_needle",
+    "parent": "gauge_brake_press",
+    "type": "MESH",
+    "pivot": [
+     -0.115,
+     0.63,
+     4.019
+    ],
+    "local_axes": {
+     "x": [
+      -0.0,
+      0.1392,
+      -0.9903
+     ],
+     "y": [
+      0.0,
+      0.9903,
+      0.1392
+     ],
+     "z": [
+      1.0,
+      0.0,
+      -0.0
+     ]
+    },
+    "kind": "gauge_needle",
+    "axis_local": "+X (Unity) = toward the pilot",
+    "rest": "12 o'clock (local +Y Unity = panel up)",
+    "cell": 62,
+    "sign": "Unity +angle about local +X = clockwise as seen by the pilot",
+    "value": "brake accumulator psi: 1000 - 300 x brake input with engines running",
+    "v0": 0,
+    "v1": 1500,
+    "a0": -135,
+    "sweep": 270,
+    "angle": "a0 + clamp01((v - v0) / (v1 - v0)) * sweep",
+    "driver": "B25H.Instruments 1.8.4 Dials184.cs",
+    "deg_per_unit": 0.18,
+    "probe": [
+     -0.115,
+     0.6481,
+     4.0134
+    ],
+    "stock_driver": null
+   },
+   {
+    "name": "gauge_carb_temp_L_needle",
+    "parent": "gauge_carb_temp_L",
+    "type": "MESH",
+    "pivot": [
+     -0.43,
+     0.37,
+     3.9824
+    ],
+    "local_axes": {
+     "x": [
+      -0.0,
+      0.1392,
+      -0.9903
+     ],
+     "y": [
+      0.0,
+      0.9903,
+      0.1392
+     ],
+     "z": [
+      1.0,
+      0.0,
+      -0.0
+     ]
+    },
+    "kind": "gauge_needle",
+    "axis_local": "+X (Unity) = toward the pilot",
+    "rest": "12 o'clock (local +Y Unity = panel up)",
+    "cell": 62,
+    "sign": "Unity +angle about local +X = clockwise as seen by the pilot",
+    "value": "carburettor air C: free-air + 12 + 18 sqrt(powerRatio), lag 20 s",
+    "v0": -50,
+    "v1": 50,
+    "a0": -135,
+    "sweep": 270,
+    "angle": "a0 + clamp01((v - v0) / (v1 - v0)) * sweep",
+    "driver": "B25H.Instruments 1.8.4 Dials184.cs",
+    "deg_per_unit": 2.7,
+    "probe": [
+     -0.43,
+     0.3898,
+     3.9771
+    ],
+    "stock_driver": null
+   },
+   {
+    "name": "gauge_carb_temp_R_needle",
+    "parent": "gauge_carb_temp_R",
+    "type": "MESH",
+    "pivot": [
+     0.48,
+     0.56,
+     4.0091
+    ],
+    "local_axes": {
+     "x": [
+      -0.0,
+      0.1392,
+      -0.9903
+     ],
+     "y": [
+      0.0,
+      0.9903,
+      0.1392
+     ],
+     "z": [
+      1.0,
+      0.0,
+      -0.0
+     ]
+    },
+    "kind": "gauge_needle",
+    "axis_local": "+X (Unity) = toward the pilot",
+    "rest": "12 o'clock (local +Y Unity = panel up)",
+    "cell": 62,
+    "sign": "Unity +angle about local +X = clockwise as seen by the pilot",
+    "value": "carburettor air C: free-air + 12 + 18 sqrt(powerRatio), lag 20 s",
+    "v0": -50,
+    "v1": 50,
+    "a0": -135,
+    "sweep": 270,
+    "angle": "a0 + clamp01((v - v0) / (v1 - v0)) * sweep",
+    "driver": "B25H.Instruments 1.8.4 Dials184.cs",
+    "deg_per_unit": 2.7,
+    "probe": [
+     0.48,
+     0.5833,
+     4.0043
+    ],
+    "stock_driver": null
+   },
+   {
+    "name": "gauge_clock_needle",
+    "parent": "gauge_clock",
+    "type": "MESH",
+    "pivot": [
+     -0.575,
+     0.52,
+     4.0035
+    ],
+    "local_axes": {
+     "x": [
+      -0.0,
+      0.1392,
+      -0.9903
+     ],
+     "y": [
+      0.0,
+      0.9903,
+      0.1392
+     ],
+     "z": [
+      1.0,
+      0.0,
+      -0.0
+     ]
+    },
+    "kind": "gauge_needle",
+    "axis_local": "+X (Unity) = toward the pilot",
+    "rest": "12 o'clock (local +Y Unity = panel up)",
+    "cell": 62,
+    "sign": "Unity +angle about local +X = clockwise as seen by the pilot",
+    "value": "game time of day (LevelInfo.timeOfDay): long = minutes (360 deg / h), short = hours (30 deg / h)",
+    "driver": "B25H.Instruments 1.8.4",
+    "probe": [
+     -0.575,
+     0.5428,
+     3.9961
+    ],
+    "stock_driver": null
+   },
+   {
+    "name": "gauge_clock_needle_short",
+    "parent": "gauge_clock",
+    "type": "MESH",
+    "pivot": [
+     -0.575,
+     0.52,
+     4.0035
+    ],
+    "local_axes": {
+     "x": [
+      -0.0,
+      0.1392,
+      -0.9903
+     ],
+     "y": [
+      0.0,
+      0.9903,
+      0.1392
+     ],
+     "z": [
+      1.0,
+      0.0,
+      -0.0
+     ]
+    },
+    "kind": "gauge_short",
+    "axis_local": "+X (Unity) = toward the pilot",
+    "rest": "12 o'clock (local +Y Unity = panel up)",
+    "cell": 63,
+    "sign": "Unity +angle about local +X = clockwise as seen by the pilot",
+    "value": "game time of day (LevelInfo.timeOfDay): long = minutes (360 deg / h), short = hours (30 deg / h)",
+    "driver": "B25H.Instruments 1.8.4",
+    "probe": [
+     -0.575,
+     0.5347,
+     3.998
+    ],
+    "stock_driver": null
+   },
+   {
+    "name": "gauge_compass_card",
+    "parent": "gauge_compass",
+    "type": "MESH",
+    "pivot": [
+     0.155,
+     0.385,
+     3.9845
+    ],
+    "local_axes": {
+     "x": [
+      -0.0,
+      0.1392,
+      -0.9903
+     ],
+     "y": [
+      0.0,
+      0.9903,
+      0.1392
+     ],
+     "z": [
+      1.0,
+      0.0,
+      -0.0
+     ]
+    },
+    "kind": "gauge_card",
+    "axis_local": "+X (Unity) = toward the pilot",
+    "rest": "12 o'clock (local +Y Unity = panel up)",
+    "cell": 11,
+    "sign": "Unity +angle about local +X = clockwise as seen by the pilot",
+    "value": "standby magnetic compass: card angle = -heading, lag 1.5 s",
+    "driver": "B25H.Instruments 1.8.4",
+    "probe": [
+     0.1471,
+     0.3671,
+     3.9751
+    ],
+    "stock_driver": null
+   },
+   {
+    "name": "gauge_cyl_temp_needle",
+    "parent": "gauge_cyl_temp",
+    "type": "MESH",
+    "pivot": [
+     0.31,
+     0.46,
+     3.9951
+    ],
+    "local_axes": {
+     "x": [
+      -0.0,
+      0.1392,
+      -0.9903
+     ],
+     "y": [
+      0.0,
+      0.9903,
+      0.1392
+     ],
+     "z": [
+      1.0,
+      0.0,
+      -0.0
+     ]
+    },
+    "kind": "gauge_needle",
+    "axis_local": "+X (Unity) = toward the pilot",
+    "rest": "12 o'clock (local +Y Unity = panel up)",
+    "cell": 62,
+    "sign": "Unity +angle about local +X = clockwise as seen by the pilot",
+    "value": "cylinder-head temperature C, lag 50 s to 120 + 110 sqrt(powerRatio)",
+    "v0": 0,
+    "v1": 350,
+    "a0": -135,
+    "sweep": 270,
+    "angle": "a0 + clamp01((v - v0) / (v1 - v0)) * sweep",
+    "driver": "B25H.Instruments 1.8.4 Dials184.cs",
+    "deg_per_unit": 0.771429,
+    "probe": [
+     0.31,
+     0.4824,
+     3.9901
+    ],
+    "stock_driver": null
+   },
+   {
+    "name": "gauge_deicer_L_needle",
+    "parent": "gauge_deicer_L",
+    "type": "MESH",
+    "pivot": [
+     0.275,
+     0.385,
+     3.9845
+    ],
+    "local_axes": {
+     "x": [
+      -0.0,
+      0.1392,
+      -0.9903
+     ],
+     "y": [
+      0.0,
+      0.9903,
+      0.1392
+     ],
+     "z": [
+      1.0,
+      0.0,
+      -0.0
+     ]
+    },
+    "kind": "gauge_needle",
+    "axis_local": "+X (Unity) = toward the pilot",
+    "rest": "12 o'clock (local +Y Unity = panel up)",
+    "cell": 62,
+    "sign": "Unity +angle about local +X = clockwise as seen by the pilot",
+    "value": "de-icer pressure psi: 8 x clamp01(rpm ratio / 0.6) with engines running",
+    "v0": 0,
+    "v1": 20,
+    "a0": -135,
+    "sweep": 270,
+    "angle": "a0 + clamp01((v - v0) / (v1 - v0)) * sweep",
+    "driver": "B25H.Instruments 1.8.4 Dials184.cs",
+    "deg_per_unit": 13.5,
+    "probe": [
+     0.275,
+     0.4048,
+     3.9792
+    ],
+    "stock_driver": null
+   },
+   {
+    "name": "gauge_deicer_R_needle",
+    "parent": "gauge_deicer_R",
+    "type": "MESH",
+    "pivot": [
+     0.567,
+     0.445,
+     3.993
+    ],
+    "local_axes": {
+     "x": [
+      -0.0,
+      0.1392,
+      -0.9903
+     ],
+     "y": [
+      0.0,
+      0.9903,
+      0.1392
+     ],
+     "z": [
+      1.0,
+      0.0,
+      -0.0
+     ]
+    },
+    "kind": "gauge_needle",
+    "axis_local": "+X (Unity) = toward the pilot",
+    "rest": "12 o'clock (local +Y Unity = panel up)",
+    "cell": 62,
+    "sign": "Unity +angle about local +X = clockwise as seen by the pilot",
+    "value": "de-icer pressure psi: 8 x clamp01(rpm ratio / 0.6) with engines running",
+    "v0": 0,
+    "v1": 20,
+    "a0": -135,
+    "sweep": 270,
+    "angle": "a0 + clamp01((v - v0) / (v1 - v0)) * sweep",
+    "driver": "B25H.Instruments 1.8.4 Dials184.cs",
+    "deg_per_unit": 13.5,
+    "probe": [
+     0.567,
+     0.4648,
+     3.9877
+    ],
+    "stock_driver": null
+   },
+   {
+    "name": "gauge_flaps_pos_needle",
+    "parent": "gauge_flaps_pos",
+    "type": "MESH",
+    "pivot": [
+     0.39,
+     0.515,
+     4.0028
+    ],
+    "local_axes": {
+     "x": [
+      -0.0,
+      0.1392,
+      -0.9903
+     ],
+     "y": [
+      0.0,
+      0.9903,
+      0.1392
+     ],
+     "z": [
+      1.0,
+      0.0,
+      -0.0
+     ]
+    },
+    "kind": "gauge_needle",
+    "axis_local": "+X (Unity) = toward the pilot",
+    "rest": "12 o'clock (local +Y Unity = panel up)",
+    "cell": 62,
+    "sign": "Unity +angle about local +X = clockwise as seen by the pilot",
+    "value": "flap position 0 up .. 1 down (max HighLiftDevice.position of the real flap devices)",
+    "v0": 0,
+    "v1": 1,
+    "a0": -90,
+    "sweep": 180,
+    "angle": "a0 + clamp01((v - v0) / (v1 - v0)) * sweep",
+    "driver": "B25H.Instruments 1.8.4 Dials184.cs",
+    "deg_per_unit": 180.0,
+    "probe": [
+     0.39,
+     0.5374,
+     3.9979
+    ],
+    "stock_driver": null
+   },
+   {
+    "name": "gauge_free_air_L_needle",
+    "parent": "gauge_free_air_L",
+    "type": "MESH",
+    "pivot": [
+     -0.3,
+     0.37,
+     3.9824
+    ],
+    "local_axes": {
+     "x": [
+      -0.0,
+      0.1392,
+      -0.9903
+     ],
+     "y": [
+      0.0,
+      0.9903,
+      0.1392
+     ],
+     "z": [
+      1.0,
+      0.0,
+      -0.0
+     ]
+    },
+    "kind": "gauge_needle",
+    "axis_local": "+X (Unity) = toward the pilot",
+    "rest": "12 o'clock (local +Y Unity = panel up)",
+    "cell": 62,
+    "sign": "Unity +angle about local +X = clockwise as seen by the pilot",
+    "value": "free-air C: ISA(altitude) + 0.9 v^2 / 2010 (no air-temperature model in the game)",
+    "v0": -50,
+    "v1": 50,
+    "a0": -135,
+    "sweep": 270,
+    "angle": "a0 + clamp01((v - v0) / (v1 - v0)) * sweep",
+    "driver": "B25H.Instruments 1.8.4 Dials184.cs",
+    "deg_per_unit": 2.7,
+    "probe": [
+     -0.3,
+     0.3898,
+     3.9771
+    ],
+    "stock_driver": null
+   },
+   {
+    "name": "gauge_free_air_R_needle",
+    "parent": "gauge_free_air_R",
+    "type": "MESH",
+    "pivot": [
+     0.48,
+     0.485,
+     3.9986
+    ],
+    "local_axes": {
+     "x": [
+      -0.0,
+      0.1392,
+      -0.9903
+     ],
+     "y": [
+      0.0,
+      0.9903,
+      0.1392
+     ],
+     "z": [
+      1.0,
+      0.0,
+      -0.0
+     ]
+    },
+    "kind": "gauge_needle",
+    "axis_local": "+X (Unity) = toward the pilot",
+    "rest": "12 o'clock (local +Y Unity = panel up)",
+    "cell": 62,
+    "sign": "Unity +angle about local +X = clockwise as seen by the pilot",
+    "value": "free-air C: ISA(altitude) + 0.9 v^2 / 2010 (no air-temperature model in the game)",
+    "v0": -50,
+    "v1": 50,
+    "a0": -135,
+    "sweep": 270,
+    "angle": "a0 + clamp01((v - v0) / (v1 - v0)) * sweep",
+    "driver": "B25H.Instruments 1.8.4 Dials184.cs",
+    "deg_per_unit": 2.7,
+    "probe": [
+     0.48,
+     0.5083,
+     3.9938
+    ],
+    "stock_driver": null
+   },
+   {
+    "name": "gauge_fuel_needle",
+    "parent": "gauge_fuel",
+    "type": "MESH",
+    "pivot": [
+     -0.465,
+     0.468,
+     3.9962
+    ],
+    "local_axes": {
+     "x": [
+      -0.0,
+      0.1392,
+      -0.9903
+     ],
+     "y": [
+      0.0,
+      0.9903,
+      0.1392
+     ],
+     "z": [
+      1.0,
+      0.0,
+      -0.0
+     ]
+    },
+    "kind": "gauge_needle",
+    "axis_local": "+X (Unity) = toward the pilot",
+    "rest": "12 o'clock (local +Y Unity = panel up)",
+    "cell": 62,
+    "sign": "Unity +angle about local +X = clockwise as seen by the pilot",
+    "value": "fuel remaining",
+    "unit": "%",
+    "v0": 0,
+    "v1": 100,
+    "sweep": 270,
+    "deg_per_unit": 2.7,
+    "probe": [
+     -0.465,
+     0.4964,
+     3.9921
+    ],
+    "stock_driver": null
+   },
+   {
+    "name": "gauge_gear_pos_needle",
+    "parent": "gauge_gear_pos",
+    "type": "MESH",
+    "pivot": [
+     0.39,
+     0.445,
+     3.993
+    ],
+    "local_axes": {
+     "x": [
+      -0.0,
+      0.1392,
+      -0.9903
+     ],
+     "y": [
+      0.0,
+      0.9903,
+      0.1392
+     ],
+     "z": [
+      1.0,
+      0.0,
+      -0.0
+     ]
+    },
+    "kind": "gauge_needle",
+    "axis_local": "+X (Unity) = toward the pilot",
+    "rest": "12 o'clock (local +Y Unity = panel up)",
+    "cell": 62,
+    "sign": "Unity +angle about local +X = clockwise as seen by the pilot",
+    "value": "gear position 0 up .. 1 down (gear state, 6 s travel)",
+    "v0": 0,
+    "v1": 1,
+    "a0": -90,
+    "sweep": 180,
+    "angle": "a0 + clamp01((v - v0) / (v1 - v0)) * sweep",
+    "driver": "B25H.Instruments 1.8.4 Dials184.cs",
+    "deg_per_unit": 180.0,
+    "probe": [
+     0.39,
+     0.4674,
+     3.988
+    ],
+    "stock_driver": null
+   },
+   {
+    "name": "gauge_heading_card",
+    "parent": "gauge_heading",
+    "type": "MESH",
+    "pivot": [
+     -0.36,
+     0.472,
+     3.9968
+    ],
+    "local_axes": {
+     "x": [
+      -0.0,
+      0.1392,
+      -0.9903
+     ],
+     "y": [
+      0.0,
+      0.9903,
+      0.1392
+     ],
+     "z": [
+      1.0,
+      0.0,
+      -0.0
+     ]
+    },
+    "kind": "gauge_card",
+    "axis_local": "+X (Unity) = toward the pilot",
+    "rest": "12 o'clock (local +Y Unity = panel up)",
+    "cell": 11,
+    "sign": "Unity +angle about local +X = clockwise as seen by the pilot",
+    "value": "heading (compass card)",
+    "unit": "deg",
+    "note": "card angle = -heading (current heading at 12 o'clock)",
+    "probe": [
+     -0.36,
+     0.507,
+     3.9948
+    ],
+    "stock_driver": null
+   },
+   {
+    "name": "gauge_hydraulic_needle",
+    "parent": "gauge_hydraulic",
+    "type": "MESH",
+    "pivot": [
+     0.39,
+     0.585,
+     4.0126
+    ],
+    "local_axes": {
+     "x": [
+      -0.0,
+      0.1392,
+      -0.9903
+     ],
+     "y": [
+      0.0,
+      0.9903,
+      0.1392
+     ],
+     "z": [
+      1.0,
+      0.0,
+      -0.0
+     ]
+    },
+    "kind": "gauge_needle",
+    "axis_local": "+X (Unity) = toward the pilot",
+    "rest": "12 o'clock (local +Y Unity = panel up)",
+    "cell": 62,
+    "sign": "Unity +angle about local +X = clockwise as seen by the pilot",
+    "value": "hydraulic pressure psi: 1050 engines running, 800 while the gear moves, lag 3 s",
+    "v0": 0,
+    "v1": 2000,
+    "a0": -135,
+    "sweep": 270,
+    "angle": "a0 + clamp01((v - v0) / (v1 - v0)) * sweep",
+    "driver": "B25H.Instruments 1.8.4 Dials184.cs",
+    "deg_per_unit": 0.135,
+    "probe": [
+     0.39,
+     0.6074,
+     4.0077
+    ],
+    "stock_driver": null
+   },
+   {
+    "name": "gauge_manifold_L_needle",
+    "parent": "gauge_manifold_L",
+    "type": "MESH",
+    "pivot": [
+     0.12,
+     0.585,
+     4.0126
+    ],
+    "local_axes": {
+     "x": [
+      -0.0,
+      0.1392,
+      -0.9903
+     ],
+     "y": [
+      0.0,
+      0.9903,
+      0.1392
+     ],
+     "z": [
+      1.0,
+      0.0,
+      -0.0
+     ]
+    },
+    "kind": "gauge_needle",
+    "axis_local": "+X (Unity) = toward the pilot",
+    "rest": "12 o'clock (local +Y Unity = panel up)",
+    "cell": 62,
+    "sign": "Unity +angle about local +X = clockwise as seen by the pilot",
+    "value": "manifold pressure, left engine",
+    "unit": "inHg",
+    "v0": 10,
+    "v1": 75,
+    "sweep": 300,
+    "deg_per_unit": 4.615385,
+    "probe": [
+     0.12,
+     0.6168,
+     4.009
+    ],
+    "stock_driver": {
+     "component": "Cockpit.throttles[] entry",
+     "rotation": true,
+     "motion": false,
+     "transform": "gauge_manifold_L_needle",
+     "range": 156.9,
+     "note": "needle = throttle * range (full throttle = 44 inHg / 2600 rpm); approximation: no stock component reads engine rpm or manifold pressure into a transform"
+    }
+   },
+   {
+    "name": "gauge_manifold_R_needle",
+    "parent": "gauge_manifold_R",
+    "type": "MESH",
+    "pivot": [
+     0.215,
+     0.585,
+     4.0126
+    ],
+    "local_axes": {
+     "x": [
+      -0.0,
+      0.1392,
+      -0.9903
+     ],
+     "y": [
+      0.0,
+      0.9903,
+      0.1392
+     ],
+     "z": [
+      1.0,
+      0.0,
+      -0.0
+     ]
+    },
+    "kind": "gauge_needle",
+    "axis_local": "+X (Unity) = toward the pilot",
+    "rest": "12 o'clock (local +Y Unity = panel up)",
+    "cell": 62,
+    "sign": "Unity +angle about local +X = clockwise as seen by the pilot",
+    "value": "manifold pressure, right engine",
+    "unit": "inHg",
+    "v0": 10,
+    "v1": 75,
+    "sweep": 300,
+    "deg_per_unit": 4.615385,
+    "probe": [
+     0.215,
+     0.6168,
+     4.009
+    ],
+    "stock_driver": {
+     "component": "Cockpit.throttles[] entry",
+     "rotation": true,
+     "motion": false,
+     "transform": "gauge_manifold_R_needle",
+     "range": 156.9,
+     "note": "needle = throttle * range (full throttle = 44 inHg / 2600 rpm); approximation: no stock component reads engine rpm or manifold pressure into a transform"
+    }
+   },
+   {
+    "name": "gauge_oil_press_needle",
+    "parent": "gauge_oil_press",
+    "type": "MESH",
+    "pivot": [
+     0.31,
+     0.6,
+     4.0148
+    ],
+    "local_axes": {
+     "x": [
+      -0.0,
+      0.1392,
+      -0.9903
+     ],
+     "y": [
+      0.0,
+      0.9903,
+      0.1392
+     ],
+     "z": [
+      1.0,
+      0.0,
+      -0.0
+     ]
+    },
+    "kind": "gauge_needle",
+    "axis_local": "+X (Unity) = toward the pilot",
+    "rest": "12 o'clock (local +Y Unity = panel up)",
+    "cell": 62,
+    "sign": "Unity +angle about local +X = clockwise as seen by the pilot",
+    "value": "oil pressure psi, mean of the props: 40 at idle ratio 0 .. 82 at governed rpm, 0 engines stopped",
+    "v0": 0,
+    "v1": 200,
+    "a0": -135,
+    "sweep": 270,
+    "angle": "a0 + clamp01((v - v0) / (v1 - v0)) * sweep",
+    "driver": "B25H.Instruments 1.8.4 Dials184.cs",
+    "deg_per_unit": 1.35,
+    "probe": [
+     0.31,
+     0.6224,
+     4.0098
+    ],
+    "stock_driver": null
+   },
+   {
+    "name": "gauge_oil_temp_needle",
+    "parent": "gauge_oil_temp",
+    "type": "MESH",
+    "pivot": [
+     0.31,
+     0.53,
+     4.0049
+    ],
+    "local_axes": {
+     "x": [
+      -0.0,
+      0.1392,
+      -0.9903
+     ],
+     "y": [
+      0.0,
+      0.9903,
+      0.1392
+     ],
+     "z": [
+      1.0,
+      0.0,
+      -0.0
+     ]
+    },
+    "kind": "gauge_needle",
+    "axis_local": "+X (Unity) = toward the pilot",
+    "rest": "12 o'clock (local +Y Unity = panel up)",
+    "cell": 62,
+    "sign": "Unity +angle about local +X = clockwise as seen by the pilot",
+    "value": "oil temperature C, lag 60 s to 55 + 25 sqrt(powerRatio), free-air when stopped",
+    "v0": -50,
+    "v1": 150,
+    "a0": -135,
+    "sweep": 270,
+    "angle": "a0 + clamp01((v - v0) / (v1 - v0)) * sweep",
+    "driver": "B25H.Instruments 1.8.4 Dials184.cs",
+    "deg_per_unit": 1.35,
+    "probe": [
+     0.31,
+     0.5524,
+     4.0
+    ],
+    "stock_driver": null
+   },
+   {
+    "name": "gauge_oxygen_needle",
+    "parent": "gauge_oxygen",
+    "type": "MESH",
+    "pivot": [
+     0.565,
+     0.525,
+     4.0042
+    ],
+    "local_axes": {
+     "x": [
+      -0.0,
+      0.1392,
+      -0.9903
+     ],
+     "y": [
+      0.0,
+      0.9903,
+      0.1392
+     ],
+     "z": [
+      1.0,
+      0.0,
+      -0.0
+     ]
+    },
+    "kind": "gauge_needle",
+    "axis_local": "+X (Unity) = toward the pilot",
+    "rest": "12 o'clock (local +Y Unity = panel up)",
+    "cell": 62,
+    "sign": "Unity +angle about local +X = clockwise as seen by the pilot",
+    "value": "oxygen psi: 425, -1 psi/min above 3,000 m",
+    "v0": 0,
+    "v1": 500,
+    "a0": -135,
+    "sweep": 270,
+    "angle": "a0 + clamp01((v - v0) / (v1 - v0)) * sweep",
+    "driver": "B25H.Instruments 1.8.4 Dials184.cs",
+    "deg_per_unit": 0.54,
+    "probe": [
+     0.565,
+     0.5448,
+     3.9989
+    ],
+    "stock_driver": null
+   },
+   {
+    "name": "gauge_rpm_L_needle",
+    "parent": "gauge_rpm_L",
+    "type": "MESH",
+    "pivot": [
+     0.12,
+     0.485,
+     3.9986
+    ],
+    "local_axes": {
+     "x": [
+      -0.0,
+      0.1392,
+      -0.9903
+     ],
+     "y": [
+      0.0,
+      0.9903,
+      0.1392
+     ],
+     "z": [
+      1.0,
+      0.0,
+      -0.0
+     ]
+    },
+    "kind": "gauge_needle",
+    "axis_local": "+X (Unity) = toward the pilot",
+    "rest": "12 o'clock (local +Y Unity = panel up)",
+    "cell": 62,
+    "sign": "Unity +angle about local +X = clockwise as seen by the pilot",
+    "value": "engine rpm, left",
+    "unit": "rpm",
+    "v0": 0,
+    "v1": 3500,
+    "sweep": 300,
+    "deg_per_unit": 0.085714,
+    "probe": [
+     0.12,
+     0.5168,
+     3.995
+    ],
+    "stock_driver": {
+     "component": "Cockpit.throttles[] entry",
+     "rotation": true,
+     "motion": false,
+     "transform": "gauge_rpm_L_needle",
+     "range": 222.9,
+     "note": "needle = throttle * range (full throttle = 44 inHg / 2600 rpm); approximation: no stock component reads engine rpm or manifold pressure into a transform"
+    }
+   },
+   {
+    "name": "gauge_rpm_R_needle",
+    "parent": "gauge_rpm_R",
+    "type": "MESH",
+    "pivot": [
+     0.215,
+     0.485,
+     3.9986
+    ],
+    "local_axes": {
+     "x": [
+      -0.0,
+      0.1392,
+      -0.9903
+     ],
+     "y": [
+      0.0,
+      0.9903,
+      0.1392
+     ],
+     "z": [
+      1.0,
+      0.0,
+      -0.0
+     ]
+    },
+    "kind": "gauge_needle",
+    "axis_local": "+X (Unity) = toward the pilot",
+    "rest": "12 o'clock (local +Y Unity = panel up)",
+    "cell": 62,
+    "sign": "Unity +angle about local +X = clockwise as seen by the pilot",
+    "value": "engine rpm, right",
+    "unit": "rpm",
+    "v0": 0,
+    "v1": 3500,
+    "sweep": 300,
+    "deg_per_unit": 0.085714,
+    "probe": [
+     0.215,
+     0.5168,
+     3.995
+    ],
+    "stock_driver": {
+     "component": "Cockpit.throttles[] entry",
+     "rotation": true,
+     "motion": false,
+     "transform": "gauge_rpm_R_needle",
+     "range": 222.9,
+     "note": "needle = throttle * range (full throttle = 44 inHg / 2600 rpm); approximation: no stock component reads engine rpm or manifold pressure into a transform"
+    }
+   },
+   {
+    "name": "gauge_suction_C_needle",
+    "parent": "gauge_suction_C",
+    "type": "MESH",
+    "pivot": [
+     -0.115,
+     0.55,
+     4.0077
+    ],
+    "local_axes": {
+     "x": [
+      -0.0,
+      0.1392,
+      -0.9903
+     ],
+     "y": [
+      0.0,
+      0.9903,
+      0.1392
+     ],
+     "z": [
+      1.0,
+      0.0,
+      -0.0
+     ]
+    },
+    "kind": "gauge_needle",
+    "axis_local": "+X (Unity) = toward the pilot",
+    "rest": "12 o'clock (local +Y Unity = panel up)",
+    "cell": 62,
+    "sign": "Unity +angle about local +X = clockwise as seen by the pilot",
+    "value": "vacuum inHg: 4.8 x clamp01(prop rpm ratio / 0.6)",
+    "v0": 0,
+    "v1": 10,
+    "a0": -135,
+    "sweep": 270,
+    "angle": "a0 + clamp01((v - v0) / (v1 - v0)) * sweep",
+    "driver": "B25H.Instruments 1.8.4 Dials184.cs",
+    "deg_per_unit": 27.0,
+    "probe": [
+     -0.115,
+     0.5698,
+     4.0024
+    ],
+    "stock_driver": null
+   },
+   {
+    "name": "gauge_suction_L_needle",
+    "parent": "gauge_suction_L",
+    "type": "MESH",
+    "pivot": [
+     -0.575,
+     0.44,
+     3.9923
+    ],
+    "local_axes": {
+     "x": [
+      -0.0,
+      0.1392,
+      -0.9903
+     ],
+     "y": [
+      0.0,
+      0.9903,
+      0.1392
+     ],
+     "z": [
+      1.0,
+      0.0,
+      -0.0
+     ]
+    },
+    "kind": "gauge_needle",
+    "axis_local": "+X (Unity) = toward the pilot",
+    "rest": "12 o'clock (local +Y Unity = panel up)",
+    "cell": 62,
+    "sign": "Unity +angle about local +X = clockwise as seen by the pilot",
+    "value": "vacuum inHg: 4.8 x clamp01(prop rpm ratio / 0.6)",
+    "v0": 0,
+    "v1": 10,
+    "a0": -135,
+    "sweep": 270,
+    "angle": "a0 + clamp01((v - v0) / (v1 - v0)) * sweep",
+    "driver": "B25H.Instruments 1.8.4 Dials184.cs",
+    "deg_per_unit": 27.0,
+    "probe": [
+     -0.575,
+     0.4616,
+     3.9872
+    ],
+    "stock_driver": null
+   },
+   {
+    "name": "gauge_volts_needle",
+    "parent": "gauge_volts",
+    "type": "MESH",
+    "pivot": [
+     -0.02,
+     0.63,
+     4.019
+    ],
+    "local_axes": {
+     "x": [
+      -0.0,
+      0.1392,
+      -0.9903
+     ],
+     "y": [
+      0.0,
+      0.9903,
+      0.1392
+     ],
+     "z": [
+      1.0,
+      0.0,
+      -0.0
+     ]
+    },
+    "kind": "gauge_needle",
+    "axis_local": "+X (Unity) = toward the pilot",
+    "rest": "12 o'clock (local +Y Unity = panel up)",
+    "cell": 62,
+    "sign": "Unity +angle about local +X = clockwise as seen by the pilot",
+    "value": "bus volts: 28.2 - 0.01 x A running, 24 battery",
+    "v0": 0,
+    "v1": 30,
+    "a0": -135,
+    "sweep": 270,
+    "angle": "a0 + clamp01((v - v0) / (v1 - v0)) * sweep",
+    "driver": "B25H.Instruments 1.8.4 Dials184.cs",
+    "deg_per_unit": 9.0,
+    "probe": [
+     -0.02,
+     0.6481,
+     4.0134
+    ],
+    "stock_driver": null
+   },
+   {
+    "name": "gauge_vsi_needle",
+    "parent": "gauge_vsi",
+    "type": "MESH",
+    "pivot": [
+     -0.255,
+     0.468,
+     3.9962
+    ],
+    "local_axes": {
+     "x": [
+      -0.0,
+      0.1392,
+      -0.9903
+     ],
+     "y": [
+      0.0,
+      0.9903,
+      0.1392
+     ],
+     "z": [
+      1.0,
+      0.0,
+      -0.0
+     ]
+    },
+    "kind": "gauge_needle",
+    "axis_local": "+X (Unity) = toward the pilot",
+    "rest": "12 o'clock (local +Y Unity = panel up)",
+    "cell": 62,
+    "sign": "Unity +angle about local +X = clockwise as seen by the pilot",
+    "value": "vertical speed",
+    "unit": "ft/min",
+    "v0": 0,
+    "v1": 6000,
+    "sweep": 170,
+    "note": "descent = anticlockwise (negative)",
+    "deg_per_unit": 0.028333,
+    "probe": [
+     -0.255,
+     0.4981,
+     3.9923
+    ],
+    "stock_driver": null
+   }
+  ]
+ },
+ "levers": {
+  "note": "Throttle levers: Cockpit.Throttle rotation (localEulerAngles = (throttle * range, 0, 0)), local X = lateral, +angle = lever top forward. Prop and mixture levers are static in cockpit_interior.",
+  "movers": [
+   {
+    "name": "quadrant_throttle_L",
+    "parent": "fus_cockpit",
+    "type": "MESH",
+    "pivot": [
+     -0.014,
+     0.2209,
+     3.8011
+    ],
+    "local_axes": {
+     "x": [
+      1.0,
+      0.0,
+      0.0
+     ],
+     "y": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "z": [
+      0.0,
+      0.0,
+      1.0
+     ]
+    },
+    "kind": "throttle_lever",
+    "axis_local": "+X (Unity) = right (lateral)",
+    "rest_deg": 6.0,
+    "range_deg": 40.0,
+    "drive": "Cockpit.throttles[] rotation",
+    "sign": "Unity +angle about local +X moves the lever top FORWARD (as the column); idle at rest",
+    "note": "fal-generated throttle lever (tripo3d image-to-3D + remesh) in its slot",
+    "probe": [
+     0.0052,
+     0.3507,
+     3.7537
+    ],
+    "stock_driver": {
+     "component": "Cockpit.throttles[] entry",
+     "rotation": true,
+     "motion": false,
+     "transform": "quadrant_throttle_L",
+     "range": 40.0,
+     "note": "lever = throttle * range about local X; modelled at idle"
+    }
+   },
+   {
+    "name": "quadrant_throttle_R",
+    "parent": "fus_cockpit",
+    "type": "MESH",
+    "pivot": [
+     0.014,
+     0.2209,
+     3.8011
+    ],
+    "local_axes": {
+     "x": [
+      1.0,
+      0.0,
+      0.0
+     ],
+     "y": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "z": [
+      0.0,
+      0.0,
+      1.0
+     ]
+    },
+    "kind": "throttle_lever",
+    "axis_local": "+X (Unity) = right (lateral)",
+    "rest_deg": 6.0,
+    "range_deg": 40.0,
+    "drive": "Cockpit.throttles[] rotation",
+    "sign": "Unity +angle about local +X moves the lever top FORWARD (as the column); idle at rest",
+    "note": "fal-generated throttle lever (tripo3d image-to-3D + remesh) in its slot",
+    "probe": [
+     0.0332,
+     0.3507,
+     3.7537
+    ],
+    "stock_driver": {
+     "component": "Cockpit.throttles[] entry",
+     "rotation": true,
+     "motion": false,
+     "transform": "quadrant_throttle_R",
+     "range": 40.0,
+     "note": "lever = throttle * range about local X; modelled at idle"
+    }
+   }
+  ]
+ },
+ "mfds": [
+  {
+   "name": "mfd_center",
+   "parent": "fus_cockpit",
+   "type": "MESH",
+   "pivot": [
+    -0.0651,
+    0.3778,
+    3.9734
+   ],
+   "local_axes": {
+    "x": [
+     1.0,
+     0.0,
+     0.0
+    ],
+    "y": [
+     0.0,
+     1.0,
+     0.0
+    ],
+    "z": [
+     0.0,
+     0.0,
+     1.0
+    ]
+   },
+   "kind": "mfd",
+   "size_m": [
+    0.15,
+    0.11
+   ],
+   "normal_unity": [
+    0.0,
+    0.1392,
+    -0.9903
+   ],
+   "uv": "0-1; u -> pilot right, v -> panel up",
+   "note": "retrofit tac unit in the lower centre stack (Cockpit.tacScreenRender) (2082 retrofit unit, fal bezel art)",
+   "corners": [
+    [
+     -0.1401,
+     0.3233,
+     3.9658
+    ],
+    [
+     0.0099,
+     0.3233,
+     3.9658
+    ],
+    [
+     0.0099,
+     0.4323,
+     3.9811
+    ],
+    [
+     -0.1401,
+     0.4323,
+     3.9811
+    ]
+   ]
+  },
+  {
+   "name": "mfd_left",
+   "parent": "fus_cockpit",
+   "type": "MESH",
+   "pivot": [
+    -0.5551,
+    0.3368,
+    3.9677
+   ],
+   "local_axes": {
+    "x": [
+     1.0,
+     0.0,
+     0.0
+    ],
+    "y": [
+     0.0,
+     1.0,
+     0.0
+    ],
+    "z": [
+     0.0,
+     0.0,
+     1.0
+    ]
+   },
+   "kind": "mfd",
+   "size_m": [
+    0.12,
+    0.1
+   ],
+   "normal_unity": [
+    0.0,
+    0.1392,
+    -0.9903
+   ],
+   "uv": "0-1; u -> pilot right, v -> panel up",
+   "note": "retrofit pilot tac unit, outboard lower left (2082 retrofit unit, fal bezel art)",
+   "corners": [
+    [
+     -0.6151,
+     0.2872,
+     3.9607
+    ],
+    [
+     -0.4951,
+     0.2872,
+     3.9607
+    ],
+    [
+     -0.4951,
+     0.3863,
+     3.9746
+    ],
+    [
+     -0.6151,
+     0.3863,
+     3.9746
+    ]
+   ]
+  },
+  {
+   "name": "mfd_right",
+   "parent": "fus_cockpit",
+   "type": "MESH",
+   "pivot": [
+    0.5399,
+    0.3518,
+    3.9698
+   ],
+   "local_axes": {
+    "x": [
+     1.0,
+     0.0,
+     0.0
+    ],
+    "y": [
+     0.0,
+     1.0,
+     0.0
+    ],
+    "z": [
+     0.0,
+     0.0,
+     1.0
+    ]
+   },
+   "kind": "mfd",
+   "size_m": [
+    0.12,
+    0.1
+   ],
+   "normal_unity": [
+    0.0,
+    0.1392,
+    -0.9903
+   ],
+   "uv": "0-1; u -> pilot right, v -> panel up",
+   "note": "retrofit navigator tac unit, outboard lower right (2082 retrofit unit, fal bezel art)",
+   "corners": [
+    [
+     0.4799,
+     0.3022,
+     3.9628
+    ],
+    [
+     0.5999,
+     0.3022,
+     3.9628
+    ],
+    [
+     0.5999,
+     0.4013,
+     3.9767
+    ],
+    [
+     0.4799,
+     0.4013,
+     3.9767
+    ]
+   ]
+  }
+ ],
+ "mfd_note": "Stock: one tac screen per cockpit (CI-22 targetScreen 0.39 x 0.29 m, CAS1 tacscreen 0.60 x 0.34 m) whose renderer is Cockpit.tacScreenRender; the TacScreen UI renders to a RenderTexture shown with tacScreenDisplay.mat. Use mfd_center as tacScreenRender; mfd_left/right have no stock driver (static screen material or a second camera/texture). Material slot name `screen` (already in B25HBuild mats).",
+ "gunsight": [
+  {
+   "name": "gunsight_pilot",
+   "parent": "fus_cockpit",
+   "type": "MESH",
+   "pivot": [
+    -0.36,
+    0.7053,
+    4.0539
+   ],
+   "local_axes": {
+    "x": [
+     1.0,
+     0.0,
+     0.0
+    ],
+    "y": [
+     0.0,
+     1.0,
+     0.0
+    ],
+    "z": [
+     0.0,
+     0.0,
+     1.0
+    ]
+   },
+   "note": "N-3B style reflector sight"
+  },
+  {
+   "name": "gunsight_combiner",
+   "parent": "gunsight_pilot",
+   "type": "MESH",
+   "pivot": [
+    -0.36,
+    0.8123,
+    3.9839
+   ],
+   "local_axes": {
+    "x": [
+     1.0,
+     0.0,
+     0.0
+    ],
+    "y": [
+     0.0,
+     1.0,
+     0.0
+    ],
+    "z": [
+     0.0,
+     0.0,
+     1.0
+    ]
+   },
+   "kind": "combiner",
+   "note": "glass quad; reticle material slot"
+  }
+ ],
+ "turrets": {
+  "note": "Turret.cs sets turret.localEulerAngles = (0, traverse, 0) and elevationTransform.localEulerAngles = (elev, 0, 0) ABSOLUTELY (Turret.cs:715-716) and clamps elev to [-maxElevation, -minElevation] (Turret.cs:714): Unity +X = muzzle down. Our az/el rest with identity local rotation, the orientation lives in *_mount. Gun bodies gun_* are our own M2 meshes placed at the stock UH-90 door-gun barrel origin (turret_12.7mm_door/traverse/barrel, mesh 50cal_doorGun_barrel, muzzle at local (0, 0.046, 1.200)): swap the mesh to the stock one 1:1 or keep ours. Gun component: like turret_12.7mm_door barrel (Gun.cs on the barrel object, muzzles = muzzle_*).",
+  "turrets": [
+   {
+    "mount": {
+     "name": "turret_dorsal_mount",
+     "parent": "fus_forward",
+     "type": "EMPTY",
+     "pivot": [
+      0.0,
+      0.98,
+      1.5739
+     ],
+     "local_axes": {
+      "x": [
+       1.0,
+       0.0,
+       0.0
+      ],
+      "y": [
+       0.0,
+       1.0,
+       0.0
+      ],
+      "z": [
+       0.0,
+       0.0,
+       1.0
+      ]
+     },
+     "kind": "turret_mount",
+     "note": "identity (fwd = +Z)"
+    },
+    "az": {
+     "name": "turret_dorsal",
+     "parent": "turret_dorsal_mount",
+     "type": "MESH",
+     "pivot": [
+      0.0,
+      0.98,
+      1.5739
+     ],
+     "local_axes": {
+      "x": [
+       1.0,
+       0.0,
+       0.0
+      ],
+      "y": [
+       0.0,
+       1.0,
+       0.0
+      ],
+      "z": [
+       0.0,
+       0.0,
+       1.0
+      ]
+     },
+     "kind": "turret_az",
+     "axis_local": "+Y (Unity) = up",
+     "traverseRange": 360,
+     "traverseRate": 45,
+     "note": "Bendix top turret: drum, dome, frames, cradle supports, gunner seat; rests identity"
+    },
+    "el": {
+     "name": "turret_dorsal_guns",
+     "parent": "turret_dorsal",
+     "type": "MESH",
+     "pivot": [
+      0.0,
+      1.21,
+      1.5739
+     ],
+     "local_axes": {
+      "x": [
+       1.0,
+       0.0,
+       0.0
+      ],
+      "y": [
+       0.0,
+       1.0,
+       0.0
+      ],
+      "z": [
+       0.0,
+       0.0,
+       1.0
+      ]
+     },
+     "kind": "turret_el",
+     "axis_local": "+X (Unity) = right",
+     "minElevation": -5,
+     "maxElevation": 85,
+     "elevationRate": 40,
+     "note": "twin M2 cradle; rests identity under turret_dorsal"
+    },
+    "guns": [
+     {
+      "gun": {
+       "name": "gun_turret_L",
+       "parent": "turret_dorsal_guns",
+       "type": "MESH",
+       "pivot": [
+        -0.13,
+        1.164,
+        1.5539
+       ],
+       "local_axes": {
+        "x": [
+         1.0,
+         0.0,
+         0.0
+        ],
+        "y": [
+         0.0,
+         1.0,
+         0.0
+        ],
+        "z": [
+         0.0,
+         0.0,
+         1.0
+        ]
+       },
+       "kind": "gun_body",
+       "swap": "stock 50cal_doorGun_barrel mesh fits this transform 1:1 (origin, +Z fwd, +Y up)",
+       "note": "top turret M2"
+      },
+      "muzzle": {
+       "name": "muzzle_turret_L",
+       "parent": "gun_turret_L",
+       "type": "EMPTY",
+       "pivot": [
+        -0.13,
+        1.21,
+        2.7539
+       ],
+       "local_axes": {
+        "x": [
+         1.0,
+         0.0,
+         0.0
+        ],
+        "y": [
+         0.0,
+         1.0,
+         0.0
+        ],
+        "z": [
+         0.0,
+         0.0,
+         1.0
+        ]
+       },
+       "kind": "muzzle"
+      }
+     },
+     {
+      "gun": {
+       "name": "gun_turret_R",
+       "parent": "turret_dorsal_guns",
+       "type": "MESH",
+       "pivot": [
+        0.13,
+        1.164,
+        1.5539
+       ],
+       "local_axes": {
+        "x": [
+         1.0,
+         0.0,
+         0.0
+        ],
+        "y": [
+         0.0,
+         1.0,
+         0.0
+        ],
+        "z": [
+         0.0,
+         0.0,
+         1.0
+        ]
+       },
+       "kind": "gun_body",
+       "swap": "stock 50cal_doorGun_barrel mesh fits this transform 1:1 (origin, +Z fwd, +Y up)",
+       "note": "top turret M2"
+      },
+      "muzzle": {
+       "name": "muzzle_turret_R",
+       "parent": "gun_turret_R",
+       "type": "EMPTY",
+       "pivot": [
+        0.13,
+        1.21,
+        2.7539
+       ],
+       "local_axes": {
+        "x": [
+         1.0,
+         0.0,
+         0.0
+        ],
+        "y": [
+         0.0,
+         1.0,
+         0.0
+        ],
+        "z": [
+         0.0,
+         0.0,
+         1.0
+        ]
+       },
+       "kind": "muzzle"
+      }
+     }
+    ],
+    "Turret": {
+     "transform": "turret_dorsal",
+     "elevationTransform": "turret_dorsal_guns",
+     "traverseRange": 360,
+     "traverseRate": 45,
+     "minElevation": -5,
+     "maxElevation": 85,
+     "elevationRate": 40
+    },
+    "probe_muzzle": [
+     -0.13,
+     1.21,
+     2.7539
+    ]
+   },
+   {
+    "mount": {
+     "name": "tail_turret_mount",
+     "parent": "fus_tail",
+     "type": "EMPTY",
+     "pivot": [
+      0.0,
+      -0.03,
+      -9.7961
+     ],
+     "local_axes": {
+      "x": [
+       -1.0,
+       0.0,
+       -0.0
+      ],
+      "y": [
+       0.0,
+       1.0,
+       0.0
+      ],
+      "z": [
+       0.0,
+       0.0,
+       -1.0
+      ]
+     },
+     "kind": "turret_mount",
+     "note": "Unity +Z = aft"
+    },
+    "az": {
+     "name": "tail_turret_az",
+     "parent": "tail_turret_mount",
+     "type": "MESH",
+     "pivot": [
+      0.0,
+      -0.03,
+      -9.7961
+     ],
+     "local_axes": {
+      "x": [
+       -1.0,
+       0.0,
+       0.0
+      ],
+      "y": [
+       0.0,
+       1.0,
+       0.0
+      ],
+      "z": [
+       0.0,
+       0.0,
+       -1.0
+      ]
+     },
+     "kind": "turret_az",
+     "axis_local": "+Y (Unity) = up",
+     "traverseRange": 20,
+     "traverseRate": 40,
+     "note": "H tail position yoke; rests identity under tail_turret_mount"
+    },
+    "el": {
+     "name": "tail_guns",
+     "parent": "tail_turret_az",
+     "type": "MESH",
+     "pivot": [
+      0.0,
+      0.15,
+      -9.7961
+     ],
+     "local_axes": {
+      "x": [
+       -1.0,
+       0.0,
+       0.0
+      ],
+      "y": [
+       0.0,
+       1.0,
+       0.0
+      ],
+      "z": [
+       0.0,
+       0.0,
+       -1.0
+      ]
+     },
+     "kind": "turret_el",
+     "axis_local": "+X (Unity) = gunner right (aircraft left)",
+     "minElevation": -25,
+     "maxElevation": 25,
+     "elevationRate": 35,
+     "note": "twin M2 cradle, rests identity under tail_turret_az"
+    },
+    "guns": [
+     {
+      "gun": {
+       "name": "gun_tail_L",
+       "parent": "tail_guns",
+       "type": "MESH",
+       "pivot": [
+        -0.085,
+        0.104,
+        -9.7961
+       ],
+       "local_axes": {
+        "x": [
+         -1.0,
+         0.0,
+         0.0
+        ],
+        "y": [
+         0.0,
+         1.0,
+         0.0
+        ],
+        "z": [
+         0.0,
+         0.0,
+         -1.0
+        ]
+       },
+       "kind": "gun_body",
+       "swap": "stock 50cal_doorGun_barrel mesh fits this transform 1:1 (origin, +Z fwd, +Y up)",
+       "note": "tail M2"
+      },
+      "muzzle": {
+       "name": "muzzle_tail_L",
+       "parent": "gun_tail_L",
+       "type": "EMPTY",
+       "pivot": [
+        -0.085,
+        0.15,
+        -10.9961
+       ],
+       "local_axes": {
+        "x": [
+         -1.0,
+         0.0,
+         0.0
+        ],
+        "y": [
+         0.0,
+         1.0,
+         0.0
+        ],
+        "z": [
+         0.0,
+         0.0,
+         -1.0
+        ]
+       },
+       "kind": "muzzle"
+      }
+     },
+     {
+      "gun": {
+       "name": "gun_tail_R",
+       "parent": "tail_guns",
+       "type": "MESH",
+       "pivot": [
+        0.085,
+        0.104,
+        -9.7961
+       ],
+       "local_axes": {
+        "x": [
+         -1.0,
+         0.0,
+         0.0
+        ],
+        "y": [
+         0.0,
+         1.0,
+         0.0
+        ],
+        "z": [
+         0.0,
+         0.0,
+         -1.0
+        ]
+       },
+       "kind": "gun_body",
+       "swap": "stock 50cal_doorGun_barrel mesh fits this transform 1:1 (origin, +Z fwd, +Y up)",
+       "note": "tail M2"
+      },
+      "muzzle": {
+       "name": "muzzle_tail_R",
+       "parent": "gun_tail_R",
+       "type": "EMPTY",
+       "pivot": [
+        0.085,
+        0.15,
+        -10.9961
+       ],
+       "local_axes": {
+        "x": [
+         -1.0,
+         0.0,
+         0.0
+        ],
+        "y": [
+         0.0,
+         1.0,
+         0.0
+        ],
+        "z": [
+         0.0,
+         0.0,
+         -1.0
+        ]
+       },
+       "kind": "muzzle"
+      }
+     }
+    ],
+    "Turret": {
+     "transform": "tail_turret_az",
+     "elevationTransform": "tail_guns",
+     "traverseRange": 20,
+     "traverseRate": 40,
+     "minElevation": -25,
+     "maxElevation": 25,
+     "elevationRate": 35
+    },
+    "probe_muzzle": [
+     -0.085,
+     0.15,
+     -10.9961
+    ]
+   },
+   {
+    "mount": {
+     "name": "waist_gun_L_mount",
+     "parent": "fus_rear",
+     "type": "EMPTY",
+     "pivot": [
+      -0.7095,
+      -0.0081,
+      -3.3711
+     ],
+     "local_axes": {
+      "x": [
+       0.0,
+       0.0,
+       1.0
+      ],
+      "y": [
+       0.0,
+       1.0,
+       0.0
+      ],
+      "z": [
+       -1.0,
+       0.0,
+       0.0
+      ]
+     },
+     "kind": "turret_mount",
+     "note": "Unity +Z = outboard"
+    },
+    "az": {
+     "name": "waist_gun_L_az",
+     "parent": "waist_gun_L_mount",
+     "type": "MESH",
+     "pivot": [
+      -0.7095,
+      -0.0081,
+      -3.3711
+     ],
+     "local_axes": {
+      "x": [
+       0.0,
+       0.0,
+       1.0
+      ],
+      "y": [
+       0.0,
+       1.0,
+       0.0
+      ],
+      "z": [
+       -1.0,
+       0.0,
+       0.0
+      ]
+     },
+     "kind": "turret_az",
+     "axis_local": "+Y (Unity) = up",
+     "traverseRange": 40,
+     "traverseRate": 60,
+     "note": "ball socket in the waist hatch glass; rests identity under the mount"
+    },
+    "el": {
+     "name": "waist_gun_L",
+     "parent": "waist_gun_L_az",
+     "type": "MESH",
+     "pivot": [
+      -0.7095,
+      -0.0081,
+      -3.3711
+     ],
+     "local_axes": {
+      "x": [
+       0.0,
+       0.0,
+       1.0
+      ],
+      "y": [
+       0.0,
+       1.0,
+       0.0
+      ],
+      "z": [
+       -1.0,
+       0.0,
+       0.0
+      ]
+     },
+     "kind": "turret_el",
+     "axis_local": "+X (Unity) (horizontal, along the fuselage)",
+     "minElevation": -30,
+     "maxElevation": 40,
+     "elevationRate": 60,
+     "note": "single M2 on the ball mount; rests identity under the az"
+    },
+    "guns": [
+     {
+      "gun": {
+       "name": "gun_waist_L",
+       "parent": "waist_gun_L",
+       "type": "MESH",
+       "pivot": [
+        -0.4295,
+        -0.0541,
+        -3.3711
+       ],
+       "local_axes": {
+        "x": [
+         0.0,
+         0.0,
+         1.0
+        ],
+        "y": [
+         0.0,
+         1.0,
+         0.0
+        ],
+        "z": [
+         -1.0,
+         0.0,
+         0.0
+        ]
+       },
+       "kind": "gun_body",
+       "swap": "stock 50cal_doorGun_barrel mesh fits this transform 1:1 (origin, +Z fwd, +Y up)",
+       "note": "waist M2"
+      },
+      "muzzle": {
+       "name": "muzzle_waist_L",
+       "parent": "gun_waist_L",
+       "type": "EMPTY",
+       "pivot": [
+        -1.6295,
+        -0.0081,
+        -3.3711
+       ],
+       "local_axes": {
+        "x": [
+         0.0,
+         0.0,
+         1.0
+        ],
+        "y": [
+         0.0,
+         1.0,
+         0.0
+        ],
+        "z": [
+         -1.0,
+         0.0,
+         0.0
+        ]
+       },
+       "kind": "muzzle"
+      }
+     }
+    ],
+    "Turret": {
+     "transform": "waist_gun_L_az",
+     "elevationTransform": "waist_gun_L",
+     "traverseRange": 40,
+     "traverseRate": 60,
+     "minElevation": -30,
+     "maxElevation": 40,
+     "elevationRate": 60
+    },
+    "probe_muzzle": [
+     -1.6295,
+     -0.0081,
+     -3.3711
+    ]
+   },
+   {
+    "mount": {
+     "name": "waist_gun_R_mount",
+     "parent": "fus_rear",
+     "type": "EMPTY",
+     "pivot": [
+      0.6911,
+      -0.0101,
+      -3.9211
+     ],
+     "local_axes": {
+      "x": [
+       0.0,
+       0.0,
+       -1.0
+      ],
+      "y": [
+       0.0,
+       1.0,
+       0.0
+      ],
+      "z": [
+       1.0,
+       0.0,
+       0.0
+      ]
+     },
+     "kind": "turret_mount",
+     "note": "Unity +Z = outboard"
+    },
+    "az": {
+     "name": "waist_gun_R_az",
+     "parent": "waist_gun_R_mount",
+     "type": "MESH",
+     "pivot": [
+      0.6911,
+      -0.0101,
+      -3.9211
+     ],
+     "local_axes": {
+      "x": [
+       0.0,
+       0.0,
+       -1.0
+      ],
+      "y": [
+       0.0,
+       1.0,
+       0.0
+      ],
+      "z": [
+       1.0,
+       0.0,
+       0.0
+      ]
+     },
+     "kind": "turret_az",
+     "axis_local": "+Y (Unity) = up",
+     "traverseRange": 40,
+     "traverseRate": 60,
+     "note": "ball socket in the waist hatch glass; rests identity under the mount"
+    },
+    "el": {
+     "name": "waist_gun_R",
+     "parent": "waist_gun_R_az",
+     "type": "MESH",
+     "pivot": [
+      0.6911,
+      -0.0101,
+      -3.9211
+     ],
+     "local_axes": {
+      "x": [
+       0.0,
+       0.0,
+       -1.0
+      ],
+      "y": [
+       0.0,
+       1.0,
+       0.0
+      ],
+      "z": [
+       1.0,
+       0.0,
+       0.0
+      ]
+     },
+     "kind": "turret_el",
+     "axis_local": "+X (Unity) (horizontal, along the fuselage)",
+     "minElevation": -30,
+     "maxElevation": 40,
+     "elevationRate": 60,
+     "note": "single M2 on the ball mount; rests identity under the az"
+    },
+    "guns": [
+     {
+      "gun": {
+       "name": "gun_waist_R",
+       "parent": "waist_gun_R",
+       "type": "MESH",
+       "pivot": [
+        0.4111,
+        -0.0561,
+        -3.9211
+       ],
+       "local_axes": {
+        "x": [
+         0.0,
+         0.0,
+         -1.0
+        ],
+        "y": [
+         0.0,
+         1.0,
+         0.0
+        ],
+        "z": [
+         1.0,
+         0.0,
+         0.0
+        ]
+       },
+       "kind": "gun_body",
+       "swap": "stock 50cal_doorGun_barrel mesh fits this transform 1:1 (origin, +Z fwd, +Y up)",
+       "note": "waist M2"
+      },
+      "muzzle": {
+       "name": "muzzle_waist_R",
+       "parent": "gun_waist_R",
+       "type": "EMPTY",
+       "pivot": [
+        1.6111,
+        -0.0101,
+        -3.9211
+       ],
+       "local_axes": {
+        "x": [
+         0.0,
+         0.0,
+         -1.0
+        ],
+        "y": [
+         0.0,
+         1.0,
+         0.0
+        ],
+        "z": [
+         1.0,
+         0.0,
+         0.0
+        ]
+       },
+       "kind": "muzzle"
+      }
+     }
+    ],
+    "Turret": {
+     "transform": "waist_gun_R_az",
+     "elevationTransform": "waist_gun_R",
+     "traverseRange": 40,
+     "traverseRate": 60,
+     "minElevation": -30,
+     "maxElevation": 40,
+     "elevationRate": 60
+    },
+    "probe_muzzle": [
+     1.6111,
+     -0.0101,
+     -3.9211
+    ]
+   }
+  ]
+ },
+ "crew": {
+  "note": "Stock multi-crew aircraft (EW-25 4 crew, FastBomber1 / Darkreach 2, UH-90 2) mark each crew member with a GameObject carrying Pilot.cs + CapsuleCollider whose figure has a helmetCamPoint; Aircraft.pilots[] bails them out one by one (Aircraft.cs:150-230, 500 ms apart without ejection seat) after RpcJettisonCanopy ejects every Canopy in the air (Aircraft.cs:2777). There is no separate exit point: the figure leaves from its own transform. Place one Pilot per crew_*_eye (helmetCamPoint on the eye, as done for the pilot), ejectionSeat = false.",
+  "stations": [
+   {
+    "role": "pilot",
+    "eye": {
+     "name": "cockpit_eye",
+     "parent": "fus_cockpit",
+     "type": "EMPTY",
+     "pivot": [
+      -0.36,
+      0.85,
+      3.1739
+     ],
+     "local_axes": {
+      "x": [
+       1.0,
+       0.0,
+       0.0
+      ],
+      "y": [
+       0.0,
+       1.0,
+       0.0
+      ],
+      "z": [
+       0.0,
+       0.0,
+       1.0
+      ]
+     },
+     "kind": "crew_eye",
+     "crew": "pilot"
+    },
+    "seat": "cockpit_seat_L",
+    "part": "fus_cockpit",
+    "exit_hatch": "hatch_cockpit_top"
+   },
+   {
+    "role": "navigator",
+    "eye": {
+     "name": "crew_navigator_eye",
+     "parent": "fus_cockpit",
+     "type": "EMPTY",
+     "pivot": [
+      0.36,
+      0.83,
+      3.1739
+     ],
+     "local_axes": {
+      "x": [
+       1.0,
+       0.0,
+       0.0
+      ],
+      "y": [
+       0.0,
+       1.0,
+       0.0
+      ],
+      "z": [
+       0.0,
+       0.0,
+       1.0
+      ]
+     },
+     "kind": "crew_eye",
+     "crew": "navigator",
+     "look": "+Z (Unity) forward"
+    },
+    "seat": "cockpit_seat_R",
+    "part": "fus_cockpit",
+    "exit_hatch": "hatch_entry_fwd"
+   },
+   {
+    "role": "engineer",
+    "eye": {
+     "name": "crew_engineer_eye",
+     "parent": "turret_dorsal",
+     "type": "EMPTY",
+     "pivot": [
+      0.0,
+      1.25,
+      1.3739
+     ],
+     "local_axes": {
+      "x": [
+       1.0,
+       0.0,
+       0.0
+      ],
+      "y": [
+       0.0,
+       1.0,
+       0.0
+      ],
+      "z": [
+       0.0,
+       0.0,
+       1.0
+      ]
+     },
+     "kind": "crew_eye",
+     "crew": "engineer",
+     "look": "+Z (Unity), turns with the turret"
+    },
+    "seat": "turret_dorsal",
+    "part": "fus_forward",
+    "exit_hatch": "hatch_entry_fwd"
+   },
+   {
+    "role": "radio",
+    "eye": {
+     "name": "crew_radio_eye",
+     "parent": "fus_rear",
+     "type": "EMPTY",
+     "pivot": [
+      0.0,
+      0.53,
+      -2.3661
+     ],
+     "local_axes": {
+      "x": [
+       1.0,
+       0.0,
+       0.0
+      ],
+      "y": [
+       0.0,
+       1.0,
+       0.0
+      ],
+      "z": [
+       0.0,
+       0.0,
+       1.0
+      ]
+     },
+     "kind": "crew_eye",
+     "crew": "radio",
+     "look": "+Z (Unity)"
+    },
+    "seat": "crew_seat_radio",
+    "part": "fus_rear",
+    "exit_hatch": "hatch_entry_rear"
+   },
+   {
+    "role": "tail",
+    "eye": {
+     "name": "crew_tail_eye",
+     "parent": "fus_tail",
+     "type": "EMPTY",
+     "pivot": [
+      0.0,
+      0.61,
+      -9.1661
+     ],
+     "local_axes": {
+      "x": [
+       -1.0,
+       0.0,
+       -0.0
+      ],
+      "y": [
+       0.0,
+       1.0,
+       0.0
+      ],
+      "z": [
+       0.0,
+       0.0,
+       -1.0
+      ]
+     },
+     "kind": "crew_eye",
+     "crew": "tail",
+     "look": "+Z (Unity) = aft"
+    },
+    "seat": "crew_seat_tail",
+    "part": "fus_tail",
+    "exit_hatch": "hatch_entry_rear"
+   }
+  ]
+ },
+ "hatches": {
+  "note": "Canopy.cs: CanopyHinge.Animate sets transform.localEulerAngles = right * hingeAngle * openAmount (absolute) -> use hatch_* as the CanopyHinge transform (it rests identity under hatch_*_hinge whose local +X = hinge axis). In flight RpcJettisonCanopy calls Canopy.Eject: set ejectionTransform = hatch_* (gets its own Rigidbody, mass ~15 kg, ejectionCollider = a small box on it); on the ground OpenHinges() swings them to hingeAngle. hingeAngle is the Unity angle about the hinge axis (local +X of the hinge empty); axis_parent_space is also given for B25HBuild DoorHinge-style wiring (parents are unrotated, so parent space = root space).",
+  "hatches": [
+   {
+    "hatch": {
+     "name": "hatch_cockpit_top",
+     "parent": "hatch_cockpit_top_hinge",
+     "type": "MESH",
+     "pivot": [
+      0.0,
+      1.1007,
+      3.4839
+     ],
+     "local_axes": {
+      "x": [
+       1.0,
+       0.0,
+       0.0
+      ],
+      "y": [
+       0.0,
+       1.0,
+       0.0
+      ],
+      "z": [
+       0.0,
+       0.0,
+       1.0
+      ]
+     },
+     "kind": "hatch",
+     "open_deg_blender": -100.0,
+     "note": "glazed roof escape hatch, hinged at its front edge, opens upward; jettison = Canopy.ejectionTransform"
+    },
+    "hinge": {
+     "name": "hatch_cockpit_top_hinge",
+     "parent": "fus_cockpit",
+     "type": "EMPTY",
+     "pivot": [
+      0.0,
+      1.1007,
+      3.4839
+     ],
+     "local_axes": {
+      "x": [
+       1.0,
+       0.0,
+       0.0
+      ],
+      "y": [
+       0.0,
+       1.0,
+       0.0
+      ],
+      "z": [
+       0.0,
+       0.0,
+       1.0
+      ]
+     },
+     "kind": "hatch_hinge"
+    },
+    "parent_part": "fus_cockpit",
+    "axis_parent_space": [
+     1.0,
+     0.0,
+     0.0
+    ],
+    "hingeAngle": 100.0,
+    "probe_closed": [
+     -0.0,
+     1.1061,
+     3.1557
+    ],
+    "probe_open": [
+     -0.0,
+     1.4229,
+     3.5461
+    ]
+   },
+   {
+    "hatch": {
+     "name": "hatch_entry_fwd",
+     "parent": "hatch_entry_fwd_hinge",
+     "type": "MESH",
+     "pivot": [
+      0.0,
+      -1.13,
+      1.5339
+     ],
+     "local_axes": {
+      "x": [
+       1.0,
+       0.0,
+       0.0
+      ],
+      "y": [
+       0.0,
+       1.0,
+       0.0
+      ],
+      "z": [
+       0.0,
+       0.0,
+       1.0
+      ]
+     },
+     "kind": "hatch",
+     "open_deg_blender": 100.0,
+     "note": "forward crew entrance hatch (under the navigator/turret compartment, aft of the nose wheel well); hinged at its front edge, drops down; jettison = Canopy.ejectionTransform"
+    },
+    "hinge": {
+     "name": "hatch_entry_fwd_hinge",
+     "parent": "fus_forward",
+     "type": "EMPTY",
+     "pivot": [
+      0.0,
+      -1.13,
+      1.5339
+     ],
+     "local_axes": {
+      "x": [
+       1.0,
+       0.0,
+       0.0
+      ],
+      "y": [
+       0.0,
+       1.0,
+       0.0
+      ],
+      "z": [
+       0.0,
+       0.0,
+       1.0
+      ]
+     },
+     "kind": "hatch_hinge"
+    },
+    "parent_part": "fus_forward",
+    "axis_parent_space": [
+     1.0,
+     0.0,
+     0.0
+    ],
+    "hingeAngle": -100.0,
+    "probe_closed": [
+     -0.0,
+     -1.12,
+     1.3182
+    ],
+    "probe_open": [
+     -0.0,
+     -1.3442,
+     1.5615
+    ]
+   },
+   {
+    "hatch": {
+     "name": "hatch_entry_rear",
+     "parent": "hatch_entry_rear_hinge",
+     "type": "MESH",
+     "pivot": [
+      0.0,
+      -0.9269,
+      -4.9461
+     ],
+     "local_axes": {
+      "x": [
+       1.0,
+       0.0,
+       0.0
+      ],
+      "y": [
+       0.0,
+       1.0,
+       0.0
+      ],
+      "z": [
+       0.0,
+       0.0,
+       1.0
+      ]
+     },
+     "kind": "hatch",
+     "open_deg_blender": 100.0,
+     "note": "rear entrance hatch under the aft fuselage; hinged at its front edge, drops down"
+    },
+    "hinge": {
+     "name": "hatch_entry_rear_hinge",
+     "parent": "fus_rear",
+     "type": "EMPTY",
+     "pivot": [
+      0.0,
+      -0.9269,
+      -4.9461
+     ],
+     "local_axes": {
+      "x": [
+       1.0,
+       0.0,
+       0.0
+      ],
+      "y": [
+       0.0,
+       1.0,
+       0.0
+      ],
+      "z": [
+       0.0,
+       0.0,
+       1.0
+      ]
+     },
+     "kind": "hatch_hinge"
+    },
+    "parent_part": "fus_rear",
+    "axis_parent_space": [
+     1.0,
+     0.0,
+     0.0
+    ],
+    "hingeAngle": -100.0,
+    "probe_closed": [
+     0.0,
+     -0.878,
+     -5.2501
+    ],
+    "probe_open": [
+     0.0,
+     -1.2348,
+     -4.9416
+    ]
+   },
+   {
+    "hatch": {
+     "name": "hatch_waist_L",
+     "parent": "hatch_waist_L_hinge",
+     "type": "MESH",
+     "pivot": [
+      -0.7095,
+      0.3211,
+      -3.3711
+     ],
+     "local_axes": {
+      "x": [
+       0.0,
+       0.0,
+       1.0
+      ],
+      "y": [
+       0.0,
+       1.0,
+       0.0
+      ],
+      "z": [
+       -1.0,
+       0.0,
+       0.0
+      ]
+     },
+     "kind": "hatch",
+     "open_deg_blender": 95.0,
+     "note": "waist window hatch (glazed, ball socket for the waist gun), hinged at its top edge, free edge swings outward; jettison = Canopy.ejectionTransform"
+    },
+    "hinge": {
+     "name": "hatch_waist_L_hinge",
+     "parent": "fus_rear",
+     "type": "EMPTY",
+     "pivot": [
+      -0.7095,
+      0.3211,
+      -3.3711
+     ],
+     "local_axes": {
+      "x": [
+       0.0,
+       0.0,
+       1.0
+      ],
+      "y": [
+       0.0,
+       1.0,
+       0.0
+      ],
+      "z": [
+       -1.0,
+       0.0,
+       0.0
+      ]
+     },
+     "kind": "hatch_hinge"
+    },
+    "parent_part": "fus_rear",
+    "axis_parent_space": [
+     0.0,
+     0.0,
+     1.0
+    ],
+    "hingeAngle": -95.0,
+    "probe_closed": [
+     -0.7165,
+     -0.0081,
+     -3.3711
+    ],
+    "probe_open": [
+     -1.0369,
+     0.3568,
+     -3.3711
+    ]
+   },
+   {
+    "hatch": {
+     "name": "hatch_waist_R",
+     "parent": "hatch_waist_R_hinge",
+     "type": "MESH",
+     "pivot": [
+      0.6911,
+      0.308,
+      -3.9211
+     ],
+     "local_axes": {
+      "x": [
+       0.0,
+       0.0,
+       1.0
+      ],
+      "y": [
+       0.0,
+       1.0,
+       0.0
+      ],
+      "z": [
+       -1.0,
+       0.0,
+       0.0
+      ]
+     },
+     "kind": "hatch",
+     "open_deg_blender": -95.0,
+     "note": "waist window hatch (glazed, ball socket for the waist gun), hinged at its top edge, free edge swings outward; jettison = Canopy.ejectionTransform"
+    },
+    "hinge": {
+     "name": "hatch_waist_R_hinge",
+     "parent": "fus_rear",
+     "type": "EMPTY",
+     "pivot": [
+      0.6911,
+      0.308,
+      -3.9211
+     ],
+     "local_axes": {
+      "x": [
+       0.0,
+       0.0,
+       1.0
+      ],
+      "y": [
+       0.0,
+       1.0,
+       0.0
+      ],
+      "z": [
+       -1.0,
+       0.0,
+       0.0
+      ]
+     },
+     "kind": "hatch_hinge"
+    },
+    "parent_part": "fus_rear",
+    "axis_parent_space": [
+     0.0,
+     0.0,
+     1.0
+    ],
+    "hingeAngle": 95.0,
+    "probe_closed": [
+     0.6972,
+     -0.0101,
+     -3.9211
+    ],
+    "probe_open": [
+     1.0075,
+     0.3417,
+     -3.9211
+    ]
+   }
+  ]
+ },
+ "prop_discs": {
+  "slots": [
+   {
+    "name": "prop_disc_L",
+    "parent": "prop_hub_L",
+    "type": "EMPTY",
+    "pivot": [
+     -2.95,
+     -0.25,
+     2.7339
+    ],
+    "local_axes": {
+     "x": [
+      1.0,
+      0.0,
+      0.0
+     ],
+     "y": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "z": [
+      0.0,
+      0.0,
+      1.0
+     ]
+    },
+    "kind": "prop_disc",
+    "note": "MeshFilter slot for ConstantSpeedProp.propDisc; meshes in b25h_v2_propdisc.fbx (propdisc_blur, propdisc_full); local +Z (Unity) = spin axis"
+   },
+   {
+    "name": "prop_disc_R",
+    "parent": "prop_hub_R",
+    "type": "EMPTY",
+    "pivot": [
+     2.95,
+     -0.25,
+     2.7339
+    ],
+    "local_axes": {
+     "x": [
+      1.0,
+      0.0,
+      0.0
+     ],
+     "y": [
+      0.0,
+      1.0,
+      0.0
+     ],
+     "z": [
+      0.0,
+      0.0,
+      1.0
+     ]
+    },
+    "kind": "prop_disc",
+    "note": "MeshFilter slot for ConstantSpeedProp.propDisc; meshes in b25h_v2_propdisc.fbx (propdisc_blur, propdisc_full); local +Z (Unity) = spin axis"
+   }
+  ],
+  "meshes": {
+   "file": "b25h_v2_propdisc.fbx",
+   "objects": [
+    "propdisc_blur",
+    "propdisc_full"
+   ],
+   "frame": "hub frame, Unity +Z = spin axis",
+   "radius": 1.93,
+   "hub_radius": 0.17,
+   "uv": "propdisc_blur: v 0.5-1 (top half), propdisc_full: v 0-0.5 (bottom half), u 0-1 across; matches the CI-22 COIN_propblur_b layout (512 x 1024)"
+  },
+  "ConstantSpeedProp": {
+   "propDisc": "MeshFilter on prop_disc_L/R (add MeshFilter + MeshRenderer with the propdisc material)",
+   "propDiscMeshes": [
+    null,
+    "propdisc_blur",
+    "propdisc_full"
+   ],
+   "propDiskThicknessMin": 0.5,
+   "propDiskThicknessMax": 3.0,
+   "note": "ConstantSpeedProp.PropAnimate (ConstantSpeedProp.cs:623-639): index = floor(Count * (rpmRatio*0.55 + 0.25)); blades render only at index 0; localScale.z = lerp(min, max, pitch/90) (our discs are 8 mm thick)"
+  },
+  "likely_cause_of_vanishing_props": "B25HBuild.DiscMesh maps the WHOLE 0-1 square onto the disc, but the CI-22 blur texture holds the blade blur in the top half and the disc in the bottom half; the disc centre samples the transparent band between them, so with blades hidden (index >= 1) the prop is nearly invisible. Inference from the code and texture, not observed in game."
+ },
+ "hardpoints": {
+  "note": "Stock pattern (CAS1): the WeaponManager hardpoint transform IS the pylon object, whose mesh origin is its bottom face (CAS1_pylon1 mesh y 0..0.242). Stock mount tops sit above the hardpoint: RocketPod1_single rail mesh top +0.055, bomb_*_single launchpylon1 top +0.030 (500 lb, cluster) / +0.050 (125/250 lb); internal mounts hang bombs 0.15 m below. So our hardpoints sit on the pylon bottom faces and the stock rails sink 3-5.5 cm into the pylon.",
+  "hardpoints": [
+   {
+    "hardpoint": {
+     "name": "hp_rail_L1",
+     "parent": "wing_outer_L",
+     "type": "EMPTY",
+     "pivot": [
+      -4.1,
+      0.0142,
+      -0.1479
+     ],
+     "local_axes": {
+      "x": [
+       1.0,
+       0.0,
+       0.0
+      ],
+      "y": [
+       0.0,
+       1.0,
+       0.0
+      ],
+      "z": [
+       0.0,
+       0.0,
+       1.0
+      ]
+     },
+     "kind": "hardpoint",
+     "note": "at the pylon bottom face (stock CAS1 pattern: hardpoint = pylon origin at its bottom)"
+    },
+    "pylon": {
+     "name": "pylon_rail_L1",
+     "parent": "wing_outer_L",
+     "type": "MESH",
+     "pivot": [
+      -4.1,
+      0.0142,
+      -0.1479
+     ],
+     "local_axes": {
+      "x": [
+       1.0,
+       0.0,
+       0.0
+      ],
+      "y": [
+       0.0,
+       1.0,
+       0.0
+      ],
+      "z": [
+       0.0,
+       0.0,
+       1.0
+      ]
+     },
+     "kind": "pylon",
+     "bottom_z": 0.2642,
+     "depth_below_skin": 0.07,
+     "note": "HVAR zero-length launcher post; RocketPod1_single hangs from it"
+    },
+    "part": "wing_outer_L"
+   },
+   {
+    "hardpoint": {
+     "name": "hp_rail_L2",
+     "parent": "wing_outer_L",
+     "type": "EMPTY",
+     "pivot": [
+      -4.6,
+      0.0311,
+      -0.1539
+     ],
+     "local_axes": {
+      "x": [
+       1.0,
+       0.0,
+       0.0
+      ],
+      "y": [
+       0.0,
+       1.0,
+       0.0
+      ],
+      "z": [
+       0.0,
+       0.0,
+       1.0
+      ]
+     },
+     "kind": "hardpoint",
+     "note": "at the pylon bottom face (stock CAS1 pattern: hardpoint = pylon origin at its bottom)"
+    },
+    "pylon": {
+     "name": "pylon_rail_L2",
+     "parent": "wing_outer_L",
+     "type": "MESH",
+     "pivot": [
+      -4.6,
+      0.0311,
+      -0.1539
+     ],
+     "local_axes": {
+      "x": [
+       1.0,
+       0.0,
+       0.0
+      ],
+      "y": [
+       0.0,
+       1.0,
+       0.0
+      ],
+      "z": [
+       0.0,
+       0.0,
+       1.0
+      ]
+     },
+     "kind": "pylon",
+     "bottom_z": 0.2811,
+     "depth_below_skin": 0.07,
+     "note": "HVAR zero-length launcher post; RocketPod1_single hangs from it"
+    },
+    "part": "wing_outer_L"
+   },
+   {
+    "hardpoint": {
+     "name": "hp_rail_L3",
+     "parent": "wing_outer_L",
+     "type": "EMPTY",
+     "pivot": [
+      -5.1,
+      0.0475,
+      -0.1599
+     ],
+     "local_axes": {
+      "x": [
+       1.0,
+       0.0,
+       0.0
+      ],
+      "y": [
+       0.0,
+       1.0,
+       0.0
+      ],
+      "z": [
+       0.0,
+       0.0,
+       1.0
+      ]
+     },
+     "kind": "hardpoint",
+     "note": "at the pylon bottom face (stock CAS1 pattern: hardpoint = pylon origin at its bottom)"
+    },
+    "pylon": {
+     "name": "pylon_rail_L3",
+     "parent": "wing_outer_L",
+     "type": "MESH",
+     "pivot": [
+      -5.1,
+      0.0475,
+      -0.1599
+     ],
+     "local_axes": {
+      "x": [
+       1.0,
+       0.0,
+       0.0
+      ],
+      "y": [
+       0.0,
+       1.0,
+       0.0
+      ],
+      "z": [
+       0.0,
+       0.0,
+       1.0
+      ]
+     },
+     "kind": "pylon",
+     "bottom_z": 0.2975,
+     "depth_below_skin": 0.07,
+     "note": "HVAR zero-length launcher post; RocketPod1_single hangs from it"
+    },
+    "part": "wing_outer_L"
+   },
+   {
+    "hardpoint": {
+     "name": "hp_rail_L4",
+     "parent": "wing_outer_L",
+     "type": "EMPTY",
+     "pivot": [
+      -5.6,
+      0.0632,
+      -0.1658
+     ],
+     "local_axes": {
+      "x": [
+       1.0,
+       0.0,
+       0.0
+      ],
+      "y": [
+       0.0,
+       1.0,
+       0.0
+      ],
+      "z": [
+       0.0,
+       0.0,
+       1.0
+      ]
+     },
+     "kind": "hardpoint",
+     "note": "at the pylon bottom face (stock CAS1 pattern: hardpoint = pylon origin at its bottom)"
+    },
+    "pylon": {
+     "name": "pylon_rail_L4",
+     "parent": "wing_outer_L",
+     "type": "MESH",
+     "pivot": [
+      -5.6,
+      0.0632,
+      -0.1658
+     ],
+     "local_axes": {
+      "x": [
+       1.0,
+       0.0,
+       0.0
+      ],
+      "y": [
+       0.0,
+       1.0,
+       0.0
+      ],
+      "z": [
+       0.0,
+       0.0,
+       1.0
+      ]
+     },
+     "kind": "pylon",
+     "bottom_z": 0.3132,
+     "depth_below_skin": 0.07,
+     "note": "HVAR zero-length launcher post; RocketPod1_single hangs from it"
+    },
+    "part": "wing_outer_L"
+   },
+   {
+    "hardpoint": {
+     "name": "hp_rail_R1",
+     "parent": "wing_outer_R",
+     "type": "EMPTY",
+     "pivot": [
+      4.1,
+      0.0142,
+      -0.1479
+     ],
+     "local_axes": {
+      "x": [
+       1.0,
+       0.0,
+       0.0
+      ],
+      "y": [
+       0.0,
+       1.0,
+       0.0
+      ],
+      "z": [
+       0.0,
+       0.0,
+       1.0
+      ]
+     },
+     "kind": "hardpoint",
+     "note": "at the pylon bottom face (stock CAS1 pattern: hardpoint = pylon origin at its bottom)"
+    },
+    "pylon": {
+     "name": "pylon_rail_R1",
+     "parent": "wing_outer_R",
+     "type": "MESH",
+     "pivot": [
+      4.1,
+      0.0142,
+      -0.1479
+     ],
+     "local_axes": {
+      "x": [
+       1.0,
+       0.0,
+       0.0
+      ],
+      "y": [
+       0.0,
+       1.0,
+       0.0
+      ],
+      "z": [
+       0.0,
+       0.0,
+       1.0
+      ]
+     },
+     "kind": "pylon",
+     "bottom_z": 0.2642,
+     "depth_below_skin": 0.07,
+     "note": "HVAR zero-length launcher post; RocketPod1_single hangs from it"
+    },
+    "part": "wing_outer_R"
+   },
+   {
+    "hardpoint": {
+     "name": "hp_rail_R2",
+     "parent": "wing_outer_R",
+     "type": "EMPTY",
+     "pivot": [
+      4.6,
+      0.0311,
+      -0.1539
+     ],
+     "local_axes": {
+      "x": [
+       1.0,
+       0.0,
+       0.0
+      ],
+      "y": [
+       0.0,
+       1.0,
+       0.0
+      ],
+      "z": [
+       0.0,
+       0.0,
+       1.0
+      ]
+     },
+     "kind": "hardpoint",
+     "note": "at the pylon bottom face (stock CAS1 pattern: hardpoint = pylon origin at its bottom)"
+    },
+    "pylon": {
+     "name": "pylon_rail_R2",
+     "parent": "wing_outer_R",
+     "type": "MESH",
+     "pivot": [
+      4.6,
+      0.0311,
+      -0.1539
+     ],
+     "local_axes": {
+      "x": [
+       1.0,
+       0.0,
+       0.0
+      ],
+      "y": [
+       0.0,
+       1.0,
+       0.0
+      ],
+      "z": [
+       0.0,
+       0.0,
+       1.0
+      ]
+     },
+     "kind": "pylon",
+     "bottom_z": 0.2811,
+     "depth_below_skin": 0.07,
+     "note": "HVAR zero-length launcher post; RocketPod1_single hangs from it"
+    },
+    "part": "wing_outer_R"
+   },
+   {
+    "hardpoint": {
+     "name": "hp_rail_R3",
+     "parent": "wing_outer_R",
+     "type": "EMPTY",
+     "pivot": [
+      5.1,
+      0.0475,
+      -0.1599
+     ],
+     "local_axes": {
+      "x": [
+       1.0,
+       0.0,
+       0.0
+      ],
+      "y": [
+       0.0,
+       1.0,
+       0.0
+      ],
+      "z": [
+       0.0,
+       0.0,
+       1.0
+      ]
+     },
+     "kind": "hardpoint",
+     "note": "at the pylon bottom face (stock CAS1 pattern: hardpoint = pylon origin at its bottom)"
+    },
+    "pylon": {
+     "name": "pylon_rail_R3",
+     "parent": "wing_outer_R",
+     "type": "MESH",
+     "pivot": [
+      5.1,
+      0.0475,
+      -0.1599
+     ],
+     "local_axes": {
+      "x": [
+       1.0,
+       0.0,
+       0.0
+      ],
+      "y": [
+       0.0,
+       1.0,
+       0.0
+      ],
+      "z": [
+       0.0,
+       0.0,
+       1.0
+      ]
+     },
+     "kind": "pylon",
+     "bottom_z": 0.2975,
+     "depth_below_skin": 0.07,
+     "note": "HVAR zero-length launcher post; RocketPod1_single hangs from it"
+    },
+    "part": "wing_outer_R"
+   },
+   {
+    "hardpoint": {
+     "name": "hp_rail_R4",
+     "parent": "wing_outer_R",
+     "type": "EMPTY",
+     "pivot": [
+      5.6,
+      0.0632,
+      -0.1658
+     ],
+     "local_axes": {
+      "x": [
+       1.0,
+       0.0,
+       0.0
+      ],
+      "y": [
+       0.0,
+       1.0,
+       0.0
+      ],
+      "z": [
+       0.0,
+       0.0,
+       1.0
+      ]
+     },
+     "kind": "hardpoint",
+     "note": "at the pylon bottom face (stock CAS1 pattern: hardpoint = pylon origin at its bottom)"
+    },
+    "pylon": {
+     "name": "pylon_rail_R4",
+     "parent": "wing_outer_R",
+     "type": "MESH",
+     "pivot": [
+      5.6,
+      0.0632,
+      -0.1658
+     ],
+     "local_axes": {
+      "x": [
+       1.0,
+       0.0,
+       0.0
+      ],
+      "y": [
+       0.0,
+       1.0,
+       0.0
+      ],
+      "z": [
+       0.0,
+       0.0,
+       1.0
+      ]
+     },
+     "kind": "pylon",
+     "bottom_z": 0.3132,
+     "depth_below_skin": 0.07,
+     "note": "HVAR zero-length launcher post; RocketPod1_single hangs from it"
+    },
+    "part": "wing_outer_R"
+   },
+   {
+    "hardpoint": {
+     "name": "hp_wingrack_L",
+     "parent": "wing_inner_L",
+     "type": "EMPTY",
+     "pivot": [
+      -1.75,
+      -0.1851,
+      -0.2214
+     ],
+     "local_axes": {
+      "x": [
+       1.0,
+       0.0,
+       0.0
+      ],
+      "y": [
+       0.0,
+       1.0,
+       0.0
+      ],
+      "z": [
+       0.0,
+       0.0,
+       1.0
+      ]
+     },
+     "kind": "hardpoint",
+     "note": "at the pylon bottom face (stock CAS1 pattern: hardpoint = pylon origin at its bottom)"
+    },
+    "pylon": {
+     "name": "pylon_wingrack_L",
+     "parent": "wing_inner_L",
+     "type": "MESH",
+     "pivot": [
+      -1.75,
+      -0.1851,
+      -0.2214
+     ],
+     "local_axes": {
+      "x": [
+       1.0,
+       0.0,
+       0.0
+      ],
+      "y": [
+       0.0,
+       1.0,
+       0.0
+      ],
+      "z": [
+       0.0,
+       0.0,
+       1.0
+      ]
+     },
+     "kind": "pylon",
+     "bottom_z": 0.0649,
+     "depth_below_skin": 0.11,
+     "note": "wing bomb rack; launchpylon1-based bomb mounts hang from it"
+    },
+    "part": "wing_inner_L"
+   },
+   {
+    "hardpoint": {
+     "name": "hp_wingrack_R",
+     "parent": "wing_inner_R",
+     "type": "EMPTY",
+     "pivot": [
+      1.75,
+      -0.1851,
+      -0.2214
+     ],
+     "local_axes": {
+      "x": [
+       1.0,
+       0.0,
+       0.0
+      ],
+      "y": [
+       0.0,
+       1.0,
+       0.0
+      ],
+      "z": [
+       0.0,
+       0.0,
+       1.0
+      ]
+     },
+     "kind": "hardpoint",
+     "note": "at the pylon bottom face (stock CAS1 pattern: hardpoint = pylon origin at its bottom)"
+    },
+    "pylon": {
+     "name": "pylon_wingrack_R",
+     "parent": "wing_inner_R",
+     "type": "MESH",
+     "pivot": [
+      1.75,
+      -0.1851,
+      -0.2214
+     ],
+     "local_axes": {
+      "x": [
+       1.0,
+       0.0,
+       0.0
+      ],
+      "y": [
+       0.0,
+       1.0,
+       0.0
+      ],
+      "z": [
+       0.0,
+       0.0,
+       1.0
+      ]
+     },
+     "kind": "pylon",
+     "bottom_z": 0.0649,
+     "depth_below_skin": 0.11,
+     "note": "wing bomb rack; launchpylon1-based bomb mounts hang from it"
+    },
+    "part": "wing_inner_R"
+   },
+   {
+    "hardpoint": {
+     "name": "hp_bombbay",
+     "parent": "fus_center",
+     "type": "EMPTY",
+     "pivot": [
+      0.0,
+      -0.43,
+      -0.3261
+     ],
+     "local_axes": {
+      "x": [
+       1.0,
+       0.0,
+       0.0
+      ],
+      "y": [
+       0.0,
+       1.0,
+       0.0
+      ],
+      "z": [
+       0.0,
+       0.0,
+       1.0
+      ]
+     },
+     "kind": "hardpoint",
+     "note": "v3: lowered 0.23 m so stock internal mounts (bombs 0.15 m below the hardpoint) clear the bay roof; carrier beam above"
+    },
+    "pylon": null,
+    "part": "B25H (fus_center)"
+   }
+  ]
+ },
+ "breaks": {
+  "parent_map": {
+   "fus_center": "B25H_root",
+   "fus_forward": "fus_center",
+   "fus_cockpit": "fus_forward",
+   "fus_nose": "fus_cockpit",
+   "fus_rear": "fus_center",
+   "fus_tail": "fus_rear",
+   "wing_inner_L": "fus_center",
+   "wing_outer_L": "wing_inner_L",
+   "wing_tip_L": "wing_outer_L",
+   "nacelle_L": "wing_inner_L",
+   "engine_L": "nacelle_L",
+   "stab_L": "fus_tail",
+   "fin_L": "stab_L",
+   "elevator_L": "stab_L",
+   "rudder_L": "fin_L",
+   "flap_inner_L": "wing_inner_L",
+   "flap_outer_L": "wing_outer_L",
+   "aileron_L": "wing_tip_L",
+   "wing_inner_R": "fus_center",
+   "wing_outer_R": "wing_inner_R",
+   "wing_tip_R": "wing_outer_R",
+   "nacelle_R": "wing_inner_R",
+   "engine_R": "nacelle_R",
+   "stab_R": "fus_tail",
+   "fin_R": "stab_R",
+   "elevator_R": "stab_R",
+   "rudder_R": "fin_R",
+   "flap_inner_R": "wing_inner_R",
+   "flap_outer_R": "wing_outer_R",
+   "aileron_R": "wing_tip_R"
+  },
+  "torn_planes": {
+   "fuselage": {
+    "4.55": [
+     "fus_nose",
+     "fus_cockpit"
+    ],
+    "2.62": [
+     "fus_cockpit",
+     "fus_forward"
+    ],
+    "1.3": [
+     "fus_forward",
+     "fus_center"
+    ],
+    "-1.8": [
+     "fus_center",
+     "fus_rear"
+    ],
+    "-6.1": [
+     "fus_rear",
+     "fus_tail"
+    ]
+   },
+   "wings": {
+    "2.95": [
+     "wing_inner",
+     "wing_outer"
+    ],
+    "6.15": [
+     "wing_outer",
+     "wing_tip"
+    ]
+   },
+   "amplitude_m": {
+    "fuselage": 0.06,
+    "wing": 0.08
+   },
+   "setback_m": 0.1
+  },
+  "note": "Part split and names unchanged (B25HBuild PartSpec list). Each tear plane is shared by the two parts with identical, complementary jagged skin edges (no gap while intact); behind each edge sits a set-back frame (fuselage) or closed rib (wing) and stringer / spar stubs that reach through the plane into the mating part. Break faces use the existing `structure` material (tiled, UV1) like the stock jet_mechanical submesh; skin damage stays on the paint shader (_HitPoints). No separate damaged meshes are needed (the stock aircraft have none)."
+ },
+ "build_actions": [
+  "Cockpit: wire cockpit_column_L/R (pitch), cockpit_yoke_L/R (roll), cockpit_rudder_pedals_L/R (yaw) with one ControlSurface each (attachedSurface = fus_cockpit part); remove the Cockpit.joysticks entry on cockpit_yoke_L (B25HBuild.cs:1196).",
+  "Cockpit view copies (B25HBuild.cs:1163): add cockpit_column_L/R, cockpit_yoke_R, cockpit_rudder_pedals_R, gauge_* (meshes), mfd_*, gunsight_*; keep canopy_glass off the cockpit layer as now.",
+  "Cockpit.tacScreenRender = mfd_center renderer (replaces screen_dummy, B25HBuild.cs:1188).",
+  "Throttle-driven needles: Cockpit.throttles += {rotation: true, transform: gauge_manifold_L_needle ...} (see gauges).",
+  "Turrets: Turret on turret_dorsal / tail_turret_az / waist_gun_*_az with elevationTransform = the el object; Gun on gun_* with muzzles = muzzle_*; WeaponStations as turret_12.7mm_door. AI gunners: TargetDetector per turret (stock door gun).",
+  "Hatches: one Canopy per hatch (CanopyHinge.transform = hatch_*, hingeAngle from the table, ejectionTransform = hatch_*).",
+  "Crew: Pilot objects at crew_*_eye (4 more besides the pilot), ejectionSeat = false.",
+  "Prop: import b25h_v2_propdisc.fbx meshes; ConstantSpeedProp.propDisc = MeshFilter on prop_disc_L/R, propDiscMeshes = [null, propdisc_blur, propdisc_full]; drop DiscMesh().",
+  "Materials: new slot `screen` (exists in B25HBuild mats), `propdisc` only in the extras FBX. CopyMesh (B25HBuild.cs:445-447) keeps UV0 only for paint/gauges/glass: add `screen` there, or the MFD 0-1 UVs are replaced by UV1.",
+  "Hardpoints: no code change (same names); re-check the loadout preview: mounts now touch the pylons."
+ ]
+}

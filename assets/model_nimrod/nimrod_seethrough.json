@@ -1,0 +1,182 @@
+{
+ "fus_center": {
+  "objects": [
+   "fus_center",
+   "tailhook",
+   "gear_main_R_strut",
+   "gear_main_R_wheel",
+   "gear_main_L_strut",
+   "gear_main_L_wheel",
+   "fus_center_struct",
+   "cockpit_wall_R",
+   "cockpit_wall_L",
+   "cockpit_trimwheel",
+   "cockpit_throttle",
+   "cockpit_stick",
+   "cockpit_sight",
+   "cockpit_seat",
+   "cockpit_quadrant",
+   "cockpit_panel",
+   "cockpit_interior",
+   "cockpit_frame",
+   "cockpit_floor",
+   "cockpit_compass",
+   "cockpit_coaming",
+   "cockpit_breech_R",
+   "cockpit_breech_L",
+   "cockpit_aldis"
+  ],
+  "rays": 55392,
+  "holes": 0,
+  "first": []
+ },
+ "fus_engine": {
+  "objects": [
+   "fus_engine",
+   "sight_ringbead",
+   "fus_engine_struct"
+  ],
+  "rays": 55152,
+  "holes": 0,
+  "first": []
+ },
+ "fus_rear": {
+  "objects": [
+   "fus_rear",
+   "hook_visual",
+   "hook_fittings",
+   "gear_tail_strut",
+   "gear_tail_skid",
+   "fus_rear_struct"
+  ],
+  "rays": 55392,
+  "holes": 0,
+  "first": []
+ },
+ "wing_upper_C": {
+  "objects": [
+   "wing_upper_C",
+   "wing_upper_C_struct",
+   "cabane"
+  ],
+  "rays": 55392,
+  "holes": 0,
+  "first": []
+ },
+ "wing_upper_L": {
+  "objects": [
+   "wing_upper_L",
+   "wing_upper_L_struct",
+   "struts_L",
+   "navlamp_L"
+  ],
+  "rays": 54912,
+  "holes": 0,
+  "first": []
+ },
+ "wing_upper_R": {
+  "objects": [
+   "wing_upper_R",
+   "wing_upper_R_struct",
+   "struts_R",
+   "navlamp_R"
+  ],
+  "rays": 54912,
+  "holes": 0,
+  "first": []
+ },
+ "wing_lower_L": {
+  "objects": [
+   "wing_lower_L",
+   "wing_lower_L_root",
+   "rigging_L"
+  ],
+  "rays": 54432,
+  "holes": 0,
+  "first": []
+ },
+ "wing_lower_R": {
+  "objects": [
+   "wing_lower_R",
+   "wing_lower_R_root",
+   "rigging_R"
+  ],
+  "rays": 54432,
+  "holes": 0,
+  "first": []
+ },
+ "aileron_L": {
+  "objects": [
+   "aileron_L",
+   "aileron_L_nose"
+  ],
+  "rays": 54432,
+  "holes": 0,
+  "first": []
+ },
+ "aileron_R": {
+  "objects": [
+   "aileron_R",
+   "aileron_R_nose"
+  ],
+  "rays": 54432,
+  "holes": 0,
+  "first": []
+ },
+ "stab_L": {
+  "objects": [
+   "stab_L",
+   "stab_strut_L",
+   "stab_L_root"
+  ],
+  "rays": 54432,
+  "holes": 0,
+  "first": []
+ },
+ "stab_R": {
+  "objects": [
+   "stab_R",
+   "stab_strut_R",
+   "stab_R_root"
+  ],
+  "rays": 54432,
+  "holes": 0,
+  "first": []
+ },
+ "elevator_L": {
+  "objects": [
+   "elevator_L",
+   "elevator_L_nose"
+  ],
+  "rays": 54432,
+  "holes": 0,
+  "first": []
+ },
+ "elevator_R": {
+  "objects": [
+   "elevator_R",
+   "elevator_R_nose"
+  ],
+  "rays": 54432,
+  "holes": 0,
+  "first": []
+ },
+ "fin": {
+  "objects": [
+   "fin",
+   "fin_struct"
+  ],
+  "rays": 54432,
+  "holes": 0,
+  "first": []
+ },
+ "rudder": {
+  "objects": [
+   "rudder",
+   "rudder_balance"
+  ],
+  "rays": 54432,
+  "holes": 0,
+  "first": []
+ }
+}

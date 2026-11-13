@@ -1,0 +1,147 @@
+{
+ "pala_twotone": {
+  "name": "PALA Two-Tone Grey",
+  "faction": "PALA",
+  "texture": "ga25x_livery_pala_twotone.png",
+  "glossiness": 0.1,
+  "colors": [
+   {
+    "color": "#708080FF",
+    "count": 2764328
+   },
+   {
+    "color": "#A0A0A0FF",
+    "count": 2416752
+   },
+   {
+    "color": "#808080FF",
+    "count": 2397541
+   },
+   {
+    "color": "#707070FF",
+    "count": 1578218
+   },
+   {
+    "color": "#707080FF",
+    "count": 1360471
+   }
+  ],
+  "default": true
+ },
+ "pala_matteblack": {
+  "name": "PALA Matte Black",
+  "faction": "PALA",
+  "texture": "ga25x_livery_pala_matteblack.png",
+  "glossiness": 0.0,
+  "colors": [
+   {
+    "color": "#202020FF",
+    "count": 15473733
+   },
+   {
+    "color": "#000000FF",
+    "count": 337383
+   },
+   {
+    "color": "#302020FF",
+    "count": 307454
+   },
+   {
+    "color": "#303020FF",
+    "count": 123416
+   },
+   {
+    "color": "#101010FF",
+    "count": 112983
+   }
+  ],
+  "default": false
+ },
+ "bdf_temperate": {
+  "name": "BDF Temperate Camo",
+  "faction": "BDF",
+  "texture": "ga25x_livery_bdf_temperate.png",
+  "glossiness": 0.0,
+  "colors": [
+   {
+    "color": "#304020FF",
+    "count": 5558017
+   },
+   {
+    "color": "#707070FF",
+    "count": 3313218
+   },
+   {
+    "color": "#808080FF",
+    "count": 2964622
+   },
+   {
+    "color": "#606060FF",
+    "count": 1234666
+   },
+   {
+    "color": "#303020FF",
+    "count": 995105
+   }
+  ],
+  "default": false
+ },
+ "bdf_mattegrey": {
+  "name": "BDF Matte Gray",
+  "faction": "BDF",
+  "texture": "ga25x_livery_bdf_mattegrey.png",
+  "glossiness": 0.0,
+  "colors": [
+   {
+    "color": "#707070FF",
+    "count": 8177565
+   },
+   {
+    "color": "#606060FF",
+    "count": 4173741
+   },
+   {
+    "color": "#706060FF",
+    "count": 1490525
+   },
+   {
+    "color": "#505050FF",
+    "count": 1445234
+   },
+   {
+    "color": "#605050FF",
+    "count": 585988
+   }
+  ],
+  "default": false
+ },
+ "pala_desert": {
+  "name": "PALA Desert Camo",
+  "faction": "PALA",
+  "texture": "ga25x_livery_pala_desert.png",
+  "glossiness": 0.0,
+  "colors": [
+   {
+    "color": "#506060FF",
+    "count": 3748146
+   },
+   {
+    "color": "#606070FF",
+    "count": 1393956
+   },
+   {
+    "color": "#908070FF",
+    "count": 1264492
+   },
+   {
+    "color": "#807060FF",
+    "count": 1184431
+   },
+   {
+    "color": "#908060FF",
+    "count": 1144525
+   }
+  ],
+  "default": false
+ }
+}

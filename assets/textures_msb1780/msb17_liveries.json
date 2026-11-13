@@ -1,0 +1,118 @@
+{
+ "bdf_mattegrey": {
+  "texture": "msb17_livery_bdf_mattegrey.png",
+  "metal": "msb17_skin_m_bdf_mattegrey.png",
+  "name": "BDF Matte Gray",
+  "faction": "BDF",
+  "glossiness": 0.1,
+  "colors": [
+   {
+    "color": "#505050FF",
+    "count": 4911330
+   },
+   {
+    "color": "#505060FF",
+    "count": 513049
+   },
+   {
+    "color": "#405050FF",
+    "count": 48111
+   },
+   {
+    "color": "#404040FF",
+    "count": 42799
+   },
+   {
+    "color": "#404050FF",
+    "count": 33596
+   }
+  ]
+ },
+ "bdf_temperate": {
+  "texture": "msb17_livery_bdf_temperate.png",
+  "metal": "msb17_skin_m_bdf_temperate.png",
+  "name": "BDF Temperate Camo",
+  "faction": "BDF",
+  "glossiness": 0.05,
+  "colors": [
+   {
+    "color": "#304030FF",
+    "count": 2804253
+   },
+   {
+    "color": "#707070FF",
+    "count": 2254739
+   },
+   {
+    "color": "#304020FF",
+    "count": 152680
+   },
+   {
+    "color": "#606060FF",
+    "count": 53311
+   },
+   {
+    "color": "#303020FF",
+    "count": 52351
+   }
+  ]
+ },
+ "pala_desert": {
+  "texture": "msb17_livery_pala_desert.png",
+  "metal": "msb17_skin_m_pala_desert.png",
+  "name": "PALA Desert Camo",
+  "faction": "PALA",
+  "glossiness": 0.05,
+  "colors": [
+   {
+    "color": "#B0A070FF",
+    "count": 1517463
+   },
+   {
+    "color": "#8090A0FF",
+    "count": 1075592
+   },
+   {
+    "color": "#809090FF",
+    "count": 1025564
+   },
+   {
+    "color": "#604030FF",
+    "count": 916460
+   },
+   {
+    "color": "#908050FF",
+    "count": 723598
+   }
+  ]
+ },
+ "pala_matteblack": {
+  "texture": "msb17_livery_pala_matteblack.png",
+  "metal": "msb17_skin_m_pala_matteblack.png",
+  "name": "PALA Matte Black",
+  "faction": "PALA",
+  "glossiness": 0.08,
+  "colors": [
+   {
+    "color": "#101010FF",
+    "count": 5528047
+   },
+   {
+    "color": "#900000FF",
+    "count": 38191
+   },
+   {
+    "color": "#000000FF",
+    "count": 29744
+   },
+   {
+    "color": "#D0D0D0FF",
+    "count": 10858
+   },
+   {
+    "color": "#800000FF",
+    "count": 2292
+   }
+  ]
+ }
+}

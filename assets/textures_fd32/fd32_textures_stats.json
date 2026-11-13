@@ -1,0 +1,11 @@
+{
+ "paint_tris": 27578,
+ "coverage": 0.686,
+ "camo_edge_texels": {
+  "bdf_temperate": 219175,
+  "pala_desert": 230211
+ },
+ "res": 2048,
+ "metres_per_uv": 11.614,
+ "texel_mm": 5.67
+}

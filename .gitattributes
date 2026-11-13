@@ -1,0 +1,18 @@
+* text=auto
+*.cs text eol=lf
+*.py text eol=lf
+*.sh text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+*.jsonl text eol=lf
+*.txt text eol=lf
+*.csproj text eol=lf
+*.asmdef text eol=lf
+.gitattributes text eol=lf
+.gitignore text eol=lf
+LICENSE text eol=lf
+LICENSE-ASSETS text eol=lf
+*.png binary
+*.glb binary
+*.fbx binary
+*.blend binary

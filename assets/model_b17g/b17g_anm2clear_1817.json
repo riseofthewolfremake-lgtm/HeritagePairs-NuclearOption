@@ -1,0 +1,34 @@
+{
+ "log": "p1817g_clear.log",
+ "total_clips": 0,
+ "stations": {
+  "B25H turret_dorsal_mount": "0/144",
+  "B25H tail_turret_mount": "0/49",
+  "B25H waist_gun_L_mount": "0/49",
+  "B25H waist_gun_R_mount": "0/49",
+  "B17G top_mount": "0/144",
+  "B17G cheek_L_mount": "0/49",
+  "B17G cheek_R_mount": "0/49",
+  "B17G chin_mount": "0/49",
+  "B17G radio_mount": "0/49",
+  "B17G ball_mount": "0/144",
+  "B17G waist_L_mount": "0/49",
+  "B17G waist_R_mount": "0/49",
+  "B17G tail_mount": "0/49"
+ },
+ "sweep": {
+  "B25H turret_dorsal_mount": "min 0 mm at rest",
+  "B25H tail_turret_mount": "min 15 mm at az -13 el 25",
+  "B25H waist_gun_L_mount": "min 9 mm at az -18 el -2",
+  "B25H waist_gun_R_mount": "min 14 mm at az 18 el 40",
+  "B17G top_mount": "min 7 mm at az 300 el 34",
+  "B17G cheek_L_mount": "min 31 mm at az -20 el -20",
+  "B17G cheek_R_mount": "min 25 mm at az -20 el -20",
+  "B17G chin_mount": "min 5 mm at az -86 el 20",
+  "B17G radio_mount": "min >= 60 mm at rest",
+  "B17G ball_mount": "min >= 60 mm at rest",
+  "B17G waist_L_mount": "min 11 mm at az -18 el 32",
+  "B17G waist_R_mount": "min 11 mm at az 0 el 14",
+  "B17G tail_mount": "min 4 mm at az 20 el -18"
+ }
+}

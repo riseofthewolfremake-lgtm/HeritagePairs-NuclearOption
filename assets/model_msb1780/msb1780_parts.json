@@ -1,0 +1,7525 @@
+[
+ {
+  "name": "MSB17",
+  "parent": "MSB17_root",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 9422,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "fuselage",
+   "y": [
+    2.9,
+    -3.45
+   ]
+  }
+ },
+ {
+  "name": "MSB17_root",
+  "parent": null,
+  "type": "EMPTY",
+  "pivot_unity": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "root_at_cg"
+  }
+ },
+ {
+  "name": "aileron_L",
+  "parent": "wing_outer_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -11.8451,
+   0.3575,
+   -2.1353
+  ],
+  "tris": 344,
+  "local_axes_unity": {
+   "x": [
+    0.9965,
+    -0.0736,
+    -0.0396
+   ],
+   "y": [
+    0.0735,
+    0.9973,
+    -0.0029
+   ],
+   "z": [
+    0.0397,
+    0.0,
+    0.9992
+   ]
+  },
+  "info": {
+   "kind": "control",
+   "hinge_axis": [
+    -0.9965028762817383,
+    0.039593905210494995,
+    0.07358163595199585
+   ],
+   "hinge_axis_unity": [
+    -0.9965,
+    0.0736,
+    0.0396
+   ]
+  }
+ },
+ {
+  "name": "aileron_R",
+  "parent": "wing_outer_R",
+  "type": "MESH",
+  "pivot_unity": [
+   11.8449,
+   0.3575,
+   -2.1353
+  ],
+  "tris": 344,
+  "local_axes_unity": {
+   "x": [
+    0.9965,
+    0.0736,
+    0.0396
+   ],
+   "y": [
+    -0.0735,
+    0.9973,
+    -0.0029
+   ],
+   "z": [
+    -0.0397,
+    0.0,
+    0.9992
+   ]
+  },
+  "info": {
+   "kind": "control",
+   "hinge_axis": [
+    0.9965028762817383,
+    0.039593905210494995,
+    0.07358163595199585
+   ],
+   "hinge_axis_unity": [
+    0.9965,
+    0.0736,
+    0.0396
+   ]
+  }
+ },
+ {
+  "name": "ant_belly_1",
+  "parent": "MSB17",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 12,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "antenna"
+  }
+ },
+ {
+  "name": "ant_top_1",
+  "parent": "MSB17",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 12,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "antenna"
+  }
+ },
+ {
+  "name": "ant_top_2",
+  "parent": "fus_waist",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 12,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "antenna"
+  }
+ },
+ {
+  "name": "ball_aperture",
+  "parent": "ball_el",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -0.0001,
+   -1.2491,
+   -4.8553
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "laser_aperture"
+  }
+ },
+ {
+  "name": "ball_az",
+  "parent": "ball_mount",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -0.0001,
+   -1.1971,
+   -5.0653
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {}
+ },
+ {
+  "name": "ball_body",
+  "parent": "ball_az",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 1814,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "turret_body",
+   "type": "120 kW laser turret base"
+  }
+ },
+ {
+  "name": "ball_el",
+  "parent": "ball_az",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -0.0001,
+   -1.2491,
+   -5.0653
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {}
+ },
+ {
+  "name": "ball_head",
+  "parent": "ball_el",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 1272,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "turret_frame",
+   "type": "laser head"
+  }
+ },
+ {
+  "name": "ball_mount",
+  "parent": "fus_waist",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -0.0001,
+   -1.1971,
+   -5.0653
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "turret_mount",
+   "station": "Ventral",
+   "weapon": "laser",
+   "traverseRange": 360.0,
+   "minElevation": -90.0,
+   "maxElevation": 0.0
+  }
+ },
+ {
+  "name": "ball_ring",
+  "parent": "fus_waist",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 480,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "turret_race"
+  }
+ },
+ {
+  "name": "ball_seal",
+  "parent": "fus_waist",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 480,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "turret_race",
+   "type": "ventral laser seal ring"
+  }
+ },
+ {
+  "name": "bay_door_L",
+  "parent": "MSB17",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.9466,
+   -0.6295,
+   -1.2653
+  ],
+  "tris": 668,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "bay_door",
+   "hinge_axis": [
+    0,
+    1,
+    0
+   ],
+   "open_deg": 92,
+   "hinge_axis_unity": [
+    0,
+    0,
+    1
+   ],
+   "open_unity": "rotate -92.0 deg (Unity AngleAxis) about (0, 0, 1) (parent space) from the CLOSED pose"
+  }
+ },
+ {
+  "name": "bay_door_R",
+  "parent": "MSB17",
+  "type": "MESH",
+  "pivot_unity": [
+   0.9463,
+   -0.6295,
+   -1.2653
+  ],
+  "tris": 668,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "bay_door",
+   "hinge_axis": [
+    0,
+    1,
+    0
+   ],
+   "open_deg": -92,
+   "hinge_axis_unity": [
+    0,
+    0,
+    1
+   ],
+   "open_unity": "rotate 92.0 deg (Unity AngleAxis) about (0, 0, 1) (parent space) from the CLOSED pose"
+  }
+ },
+ {
+  "name": "bay_hinge_strips",
+  "parent": "MSB17",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 288,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "bay_strip"
+  }
+ },
+ {
+  "name": "bay_liner",
+  "parent": "MSB17",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 156,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "bay"
+  }
+ },
+ {
+  "name": "carry_through",
+  "parent": "MSB17",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 192,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "structure",
+   "note": "wing carry-through box over the 5.7 m bay"
+  }
+ },
+ {
+  "name": "chin_az",
+  "parent": "chin_mount",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -0.0001,
+   -1.1371,
+   5.4247
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {}
+ },
+ {
+  "name": "chin_ball",
+  "parent": "chin_el",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 2440,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "turret_frame",
+   "type": "elevating ball mantlet"
+  }
+ },
+ {
+  "name": "chin_body",
+  "parent": "chin_az",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 2340,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "turret_body",
+   "type": "remote twin 20 mm housing"
+  }
+ },
+ {
+  "name": "chin_el",
+  "parent": "chin_az",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -0.0001,
+   -1.2371,
+   5.7247
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {}
+ },
+ {
+  "name": "chin_gun0",
+  "parent": "chin_el",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -1.2371,
+   5.7247
+  ],
+  "tris": 2644,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "gun_20mm",
+   "type": "MSB twin 20 mm (own model)"
+  }
+ },
+ {
+  "name": "chin_mount",
+  "parent": "fus_nose",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -0.0001,
+   -1.1371,
+   5.4247
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "turret_mount",
+   "station": "Chin",
+   "weapon": "20mm",
+   "traverseRange": 90.0,
+   "minElevation": -60.0,
+   "maxElevation": 15.0
+  }
+ },
+ {
+  "name": "chin_muzzle0",
+  "parent": "chin_gun0",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -0.1301,
+   -1.2371,
+   7.3447
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "muzzle"
+  }
+ },
+ {
+  "name": "chin_muzzle1",
+  "parent": "chin_gun0",
+  "type": "EMPTY",
+  "pivot_unity": [
+   0.1299,
+   -1.2371,
+   7.3447
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "muzzle"
+  }
+ },
+ {
+  "name": "chin_race",
+  "parent": "chin_az",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 160,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "turret_frame"
+  }
+ },
+ {
+  "name": "chin_ring",
+  "parent": "fus_nose",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 320,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "turret_race"
+  }
+ },
+ {
+  "name": "cockpit_console_L",
+  "parent": "cockpit_interior",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 1420,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "cockpit"
+  }
+ },
+ {
+  "name": "cockpit_console_R",
+  "parent": "cockpit_interior",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 1420,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "cockpit"
+  }
+ },
+ {
+  "name": "cockpit_ewo_cheeks",
+  "parent": "MSB17",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 80,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "cockpit"
+  }
+ },
+ {
+  "name": "cockpit_ewo_desk",
+  "parent": "MSB17",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 144,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "cockpit"
+  }
+ },
+ {
+  "name": "cockpit_ewo_panel",
+  "parent": "MSB17",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 228,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "cockpit"
+  }
+ },
+ {
+  "name": "cockpit_ewo_rack",
+  "parent": "MSB17",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 48,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "cockpit"
+  }
+ },
+ {
+  "name": "cockpit_eye",
+  "parent": "cockpit_interior",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -0.3801,
+   1.2629,
+   2.8447
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "eye",
+   "role": "pilot"
+  }
+ },
+ {
+  "name": "cockpit_glareshield",
+  "parent": "cockpit_interior",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 1200,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "cockpit"
+  }
+ },
+ {
+  "name": "cockpit_interior",
+  "parent": "fus_cockpit",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 1020,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "cockpit"
+  }
+ },
+ {
+  "name": "cockpit_overhead",
+  "parent": "fus_cockpit",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 1296,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "cockpit"
+  }
+ },
+ {
+  "name": "cockpit_panel",
+  "parent": "cockpit_interior",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 4912,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "cockpit"
+  }
+ },
+ {
+  "name": "cockpit_pedestal",
+  "parent": "cockpit_interior",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 1166,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "cockpit"
+  }
+ },
+ {
+  "name": "cockpit_screen_deck_attC",
+  "parent": "cockpit_panel",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 2,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "screen",
+   "w": 0.13,
+   "h": 0.15,
+   "content": "panel3",
+   "deck": true
+  }
+ },
+ {
+  "name": "cockpit_screen_deck_mapL",
+  "parent": "cockpit_panel",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 2,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "screen",
+   "w": 0.2,
+   "h": 0.15,
+   "content": "map",
+   "deck": true
+  }
+ },
+ {
+  "name": "cockpit_screen_deck_mapR",
+  "parent": "cockpit_panel",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 2,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "screen",
+   "w": 0.2,
+   "h": 0.15,
+   "content": "map",
+   "deck": true
+  }
+ },
+ {
+  "name": "cockpit_screen_deck_stbyC",
+  "parent": "cockpit_panel",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 2,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "screen",
+   "w": 0.13,
+   "h": 0.07,
+   "content": "panel3",
+   "deck": true
+  }
+ },
+ {
+  "name": "cockpit_screen_deck_sysL",
+  "parent": "cockpit_panel",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 2,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "screen",
+   "w": 0.24,
+   "h": 0.15,
+   "content": "panels12",
+   "deck": true
+  }
+ },
+ {
+  "name": "cockpit_screen_deck_sysR",
+  "parent": "cockpit_panel",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 2,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "screen",
+   "w": 0.24,
+   "h": 0.15,
+   "content": "panels12",
+   "deck": true
+  }
+ },
+ {
+  "name": "cockpit_screen_ewo1",
+  "parent": "cockpit_ewo_panel",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 2,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "screen",
+   "w": 0.22,
+   "h": 0.2
+  }
+ },
+ {
+  "name": "cockpit_screen_ewo2",
+  "parent": "cockpit_ewo_panel",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 2,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "screen",
+   "w": 0.22,
+   "h": 0.2
+  }
+ },
+ {
+  "name": "cockpit_screen_wso1",
+  "parent": "cockpit_wso_console",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 2,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "screen",
+   "w": 0.24,
+   "h": 0.18
+  }
+ },
+ {
+  "name": "cockpit_screen_wso2",
+  "parent": "cockpit_wso_console",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 2,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "screen",
+   "w": 0.24,
+   "h": 0.18
+  }
+ },
+ {
+  "name": "cockpit_throttle",
+  "parent": "cockpit_interior",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -0.0001,
+   0.3777,
+   3.3677
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "stock_anchor",
+   "stock": "sfb_throttle",
+   "materials": [
+    "SFB_cockpit"
+   ]
+  }
+ },
+ {
+  "name": "cockpit_wso_console",
+  "parent": "fus_nose",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 292,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "cockpit"
+  }
+ },
+ {
+  "name": "cockpit_wso_floor",
+  "parent": "fus_nose",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 444,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "cockpit"
+  }
+ },
+ {
+  "name": "cockpit_wso_seatbase",
+  "parent": "fus_nose",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 36,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "cockpit"
+  }
+ },
+ {
+  "name": "cockpit_wso_side_L",
+  "parent": "fus_nose",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 316,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "cockpit"
+  }
+ },
+ {
+  "name": "cockpit_wso_side_R",
+  "parent": "fus_nose",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 316,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "cockpit"
+  }
+ },
+ {
+  "name": "crew_eye_copilot",
+  "parent": "fus_cockpit",
+  "type": "EMPTY",
+  "pivot_unity": [
+   0.3799,
+   1.2629,
+   2.8447
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "crew_eye",
+   "role": "copilot",
+   "part": "fus_cockpit",
+   "index": 1,
+   "forward": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "exit_hatch": "hatch_pilot_R"
+  }
+ },
+ {
+  "name": "crew_eye_ewo",
+  "parent": "MSB17",
+  "type": "EMPTY",
+  "pivot_unity": [
+   0.1999,
+   1.2829,
+   2.0647
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    0.0,
+    0.0,
+    -1.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    1.0,
+    0.0,
+    0.0
+   ]
+  },
+  "info": {
+   "kind": "crew_eye",
+   "role": "ewo",
+   "part": "MSB17",
+   "index": 3,
+   "forward": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "exit_hatch": "hatch_ewo"
+  }
+ },
+ {
+  "name": "crew_eye_pilot",
+  "parent": "fus_cockpit",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -0.3801,
+   1.2629,
+   2.8447
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "crew_eye",
+   "role": "pilot",
+   "part": "fus_cockpit",
+   "index": 0,
+   "forward": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "exit_hatch": "hatch_pilot_L"
+  }
+ },
+ {
+  "name": "crew_eye_wso",
+  "parent": "fus_nose",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -0.0001,
+   0.7379,
+   5.2847
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "crew_eye",
+   "role": "wso",
+   "part": "fus_nose",
+   "index": 2,
+   "forward": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "exit_hatch": "hatch_wso"
+  }
+ },
+ {
+  "name": "elevator_L",
+  "parent": "stab_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.8001,
+   0.6529,
+   -12.4653
+  ],
+  "tris": 356,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "control"
+  }
+ },
+ {
+  "name": "elevator_R",
+  "parent": "stab_R",
+  "type": "MESH",
+  "pivot_unity": [
+   0.7999,
+   0.6529,
+   -12.4653
+  ],
+  "tris": 356,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "control"
+  }
+ },
+ {
+  "name": "engine_1",
+  "parent": "nacelle_1",
+  "type": "MESH",
+  "pivot_unity": [
+   -6.5751,
+   -0.0971,
+   3.0247
+  ],
+  "tris": 4510,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "engine",
+   "engine": 1,
+   "cowl_r": 0.77
+  }
+ },
+ {
+  "name": "engine_2",
+  "parent": "nacelle_2",
+  "type": "MESH",
+  "pivot_unity": [
+   -3.1001,
+   -0.3471,
+   3.6147
+  ],
+  "tris": 4510,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "engine",
+   "engine": 2,
+   "cowl_r": 0.78
+  }
+ },
+ {
+  "name": "engine_3",
+  "parent": "nacelle_3",
+  "type": "MESH",
+  "pivot_unity": [
+   3.0999,
+   -0.3471,
+   3.6147
+  ],
+  "tris": 4510,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "engine",
+   "engine": 3,
+   "cowl_r": 0.78
+  }
+ },
+ {
+  "name": "engine_4",
+  "parent": "nacelle_4",
+  "type": "MESH",
+  "pivot_unity": [
+   6.5749,
+   -0.0971,
+   3.0247
+  ],
+  "tris": 4510,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "engine",
+   "engine": 4,
+   "cowl_r": 0.77
+  }
+ },
+ {
+  "name": "eo_ball",
+  "parent": "fus_cockpit",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 700,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "sensor",
+   "type": "EO/IR targeting ball"
+  }
+ },
+ {
+  "name": "exhaust_1",
+  "parent": "engine_1",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -7.2039,
+   0.436,
+   0.0713
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "ir_source"
+  }
+ },
+ {
+  "name": "exhaust_2",
+  "parent": "engine_2",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -3.8264,
+   0.1595,
+   0.5713
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "ir_source"
+  }
+ },
+ {
+  "name": "exhaust_3",
+  "parent": "engine_3",
+  "type": "EMPTY",
+  "pivot_unity": [
+   3.8261,
+   0.1595,
+   0.5713
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "ir_source"
+  }
+ },
+ {
+  "name": "exhaust_4",
+  "parent": "engine_4",
+  "type": "EMPTY",
+  "pivot_unity": [
+   7.2036,
+   0.436,
+   0.0713
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "ir_source"
+  }
+ },
+ {
+  "name": "fin",
+  "parent": "fus_tail",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 1430,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "fin"
+  }
+ },
+ {
+  "name": "flap_inner_L",
+  "parent": "wing_inner_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -2.9751,
+   -0.317,
+   -2.4602
+  ],
+  "tris": 232,
+  "local_axes_unity": {
+   "x": [
+    0.9965,
+    -0.0782,
+    -0.031
+   ],
+   "y": [
+    0.0782,
+    0.9969,
+    -0.0024
+   ],
+   "z": [
+    0.0311,
+    -0.0,
+    0.9995
+   ]
+  },
+  "info": {
+   "kind": "control",
+   "hinge_axis": [
+    -0.9964520931243896,
+    0.03101661056280136,
+    0.07823774963617325
+   ],
+   "hinge_axis_unity": [
+    -0.9965,
+    0.0782,
+    0.031
+   ]
+  }
+ },
+ {
+  "name": "flap_inner_R",
+  "parent": "wing_inner_R",
+  "type": "MESH",
+  "pivot_unity": [
+   2.9749,
+   -0.317,
+   -2.4602
+  ],
+  "tris": 232,
+  "local_axes_unity": {
+   "x": [
+    0.9965,
+    0.0782,
+    0.031
+   ],
+   "y": [
+    -0.0782,
+    0.9969,
+    -0.0024
+   ],
+   "z": [
+    -0.0311,
+    -0.0,
+    0.9995
+   ]
+  },
+  "info": {
+   "kind": "control",
+   "hinge_axis": [
+    0.9964520931243896,
+    0.03101661056280136,
+    0.07823774963617325
+   ],
+   "hinge_axis_unity": [
+    0.9965,
+    0.0782,
+    0.031
+   ]
+  }
+ },
+ {
+  "name": "flap_outer_L",
+  "parent": "wing_mid_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -6.7751,
+   -0.0226,
+   -2.3306
+  ],
+  "tris": 260,
+  "local_axes_unity": {
+   "x": [
+    0.9964,
+    -0.0763,
+    -0.0366
+   ],
+   "y": [
+    0.0762,
+    0.9971,
+    -0.0028
+   ],
+   "z": [
+    0.0367,
+    0.0,
+    0.9993
+   ]
+  },
+  "info": {
+   "kind": "control",
+   "hinge_axis": [
+    -0.9964169859886169,
+    0.03656032681465149,
+    0.07626652717590332
+   ],
+   "hinge_axis_unity": [
+    -0.9964,
+    0.0763,
+    0.0366
+   ]
+  }
+ },
+ {
+  "name": "flap_outer_R",
+  "parent": "wing_mid_R",
+  "type": "MESH",
+  "pivot_unity": [
+   6.7749,
+   -0.0226,
+   -2.3306
+  ],
+  "tris": 260,
+  "local_axes_unity": {
+   "x": [
+    0.9964,
+    0.0763,
+    0.0366
+   ],
+   "y": [
+    -0.0762,
+    0.9971,
+    -0.0028
+   ],
+   "z": [
+    -0.0367,
+    0.0,
+    0.9993
+   ]
+  },
+  "info": {
+   "kind": "control",
+   "hinge_axis": [
+    0.9964169859886169,
+    0.03656032681465149,
+    0.07626652717590332
+   ],
+   "hinge_axis_unity": [
+    0.9964,
+    0.0763,
+    0.0366
+   ]
+  }
+ },
+ {
+  "name": "flare_disp_L1",
+  "parent": "fus_waist",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 92,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "dispenser"
+  }
+ },
+ {
+  "name": "flare_disp_L2",
+  "parent": "fus_waist",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 92,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "dispenser"
+  }
+ },
+ {
+  "name": "flare_disp_R1",
+  "parent": "fus_waist",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 92,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "dispenser"
+  }
+ },
+ {
+  "name": "flare_disp_R2",
+  "parent": "fus_waist",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 92,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "dispenser"
+  }
+ },
+ {
+  "name": "fork_tail",
+  "parent": "gear_tail",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.9171,
+   -10.6653
+  ],
+  "tris": 124,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "gear_fork",
+   "gear": "gear_tail",
+   "note": "Unity: child of the gear unsprung (steers + rides the suspension, never spins)"
+  }
+ },
+ {
+  "name": "fus_cockpit",
+  "parent": "MSB17",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 8864,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "fuselage",
+   "y": [
+    5.0,
+    2.9
+   ]
+  }
+ },
+ {
+  "name": "fus_nose",
+  "parent": "MSB17",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 14772,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "fuselage",
+   "y": [
+    7.435,
+    5.0
+   ]
+  }
+ },
+ {
+  "name": "fus_tail",
+  "parent": "MSB17",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 6636,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "fuselage",
+   "y": [
+    -8.6,
+    -13.0
+   ]
+  }
+ },
+ {
+  "name": "fus_waist",
+  "parent": "MSB17",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   0.2029,
+   -6.6153
+  ],
+  "tris": 6856,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "fuselage",
+   "y": [
+    -3.45,
+    -8.6
+   ]
+  }
+ },
+ {
+  "name": "gear_main_L",
+  "parent": "wing_inner_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -3.2201,
+   -0.9171,
+   0.8847
+  ],
+  "tris": 184,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "gear",
+   "fold_deg": 79.73169420198975,
+   "fold_axis": [
+    1,
+    0,
+    0
+   ],
+   "fold_sense": "forward-up",
+   "radius": 0.711
+  }
+ },
+ {
+  "name": "gear_main_R",
+  "parent": "wing_inner_R",
+  "type": "MESH",
+  "pivot_unity": [
+   3.2199,
+   -0.9171,
+   0.8847
+  ],
+  "tris": 184,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "gear",
+   "fold_deg": 79.73169420198975,
+   "fold_axis": [
+    1,
+    0,
+    0
+   ],
+   "fold_sense": "forward-up",
+   "radius": 0.711
+  }
+ },
+ {
+  "name": "gear_tail",
+  "parent": "fus_tail",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.2971,
+   -9.7653
+  ],
+  "tris": 120,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "gear",
+   "fold_deg": 27.0,
+   "fold_axis": [
+    1,
+    0,
+    0
+   ],
+   "fold_sense": "aft-up",
+   "radius": 0.33
+  }
+ },
+ {
+  "name": "gear_tail_well",
+  "parent": "fus_tail",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 80,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "well"
+  }
+ },
+ {
+  "name": "gear_well_L",
+  "parent": "wing_inner_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 550,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "well",
+   "v": "1.8.3"
+  }
+ },
+ {
+  "name": "gear_well_R",
+  "parent": "wing_inner_R",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 550,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "well",
+   "v": "1.8.3"
+  }
+ },
+ {
+  "name": "hatch_ewo",
+  "parent": "hatch_ewo_hinge",
+  "type": "MESH",
+  "pivot_unity": [
+   0.3288,
+   1.6329,
+   2.2148
+  ],
+  "tris": 44,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "hatch",
+   "jettison": true
+  }
+ },
+ {
+  "name": "hatch_ewo_hinge",
+  "parent": "MSB17",
+  "type": "EMPTY",
+  "pivot_unity": [
+   0.3288,
+   1.6329,
+   2.2148
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "hatch_hinge"
+  }
+ },
+ {
+  "name": "hatch_pilot_L",
+  "parent": "hatch_pilot_L_hinge",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.3398,
+   1.6279,
+   3.1347
+  ],
+  "tris": 24,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "hatch",
+   "jettison": true
+  }
+ },
+ {
+  "name": "hatch_pilot_L_hinge",
+  "parent": "fus_cockpit",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -0.3398,
+   1.6279,
+   3.1347
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "hatch_hinge"
+  }
+ },
+ {
+  "name": "hatch_pilot_R",
+  "parent": "hatch_pilot_R_hinge",
+  "type": "MESH",
+  "pivot_unity": [
+   0.3396,
+   1.6279,
+   3.1347
+  ],
+  "tris": 24,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "hatch",
+   "jettison": true
+  }
+ },
+ {
+  "name": "hatch_pilot_R_hinge",
+  "parent": "fus_cockpit",
+  "type": "EMPTY",
+  "pivot_unity": [
+   0.3396,
+   1.6279,
+   3.1347
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "hatch_hinge"
+  }
+ },
+ {
+  "name": "hatch_wso",
+  "parent": "hatch_wso_hinge",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   1.0169,
+   5.6147
+  ],
+  "tris": 128,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "hatch",
+   "jettison": true
+  }
+ },
+ {
+  "name": "hatch_wso_hinge",
+  "parent": "fus_nose",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -0.0001,
+   1.0169,
+   5.6147
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "hatch_hinge"
+  }
+ },
+ {
+  "name": "hp_bay",
+  "parent": "MSB17",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -0.0001,
+   -0.3471,
+   -1.2253
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "hardpoint",
+   "options": [
+    "bomb_500_internalx8",
+    "bomb_500_internalx6",
+    "AGM_heavy_internalx8",
+    "CruiseMissile1_internalx2",
+    "bomb_penetrator1_internalx4",
+    "ARM1_internalx4",
+    "bomb_500_glide_internalx6",
+    "AShM2_internalx8",
+    "nuclearBomb1_internalx4_stack",
+    "nuclearBomb1_strategic_internalx4_stack",
+    "AAM4_triple_internal"
+   ]
+  }
+ },
+ {
+  "name": "hp_bay_L",
+  "parent": "MSB17",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -0.4501,
+   0.0029,
+   -1.4153
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "hardpoint",
+   "options": [
+    "bomb_glide1_six_inernal",
+    "bomb_125_internalx6"
+   ]
+  }
+ },
+ {
+  "name": "hp_bay_R",
+  "parent": "MSB17",
+  "type": "EMPTY",
+  "pivot_unity": [
+   0.4499,
+   0.0029,
+   -1.4153
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "hardpoint",
+   "options": [
+    "bomb_glide1_six_inernal",
+    "bomb_125_internalx6"
+   ]
+  }
+ },
+ {
+  "name": "hp_bay_aft",
+  "parent": "MSB17",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -0.0001,
+   -0.0971,
+   -2.5153
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "hardpoint",
+   "options": [
+    "bomb_250_internalx8",
+    "bomb_250_glide_internalx8"
+   ]
+  }
+ },
+ {
+  "name": "hp_bay_fwd",
+  "parent": "MSB17",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -0.0001,
+   -0.0971,
+   -0.0153
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "hardpoint",
+   "options": [
+    "bomb_250_internalx8",
+    "bomb_250_glide_internalx8"
+   ]
+  }
+ },
+ {
+  "name": "hp_bombbay",
+  "parent": "MSB17",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -0.0001,
+   -0.3471,
+   -1.2253
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "hardpoint",
+   "options": [
+    "bomb_500_internalx8",
+    "bomb_500_internalx6",
+    "AGM_heavy_internalx8",
+    "CruiseMissile1_internalx2",
+    "bomb_penetrator1_internalx4",
+    "ARM1_internalx4",
+    "bomb_500_glide_internalx6",
+    "AShM2_internalx8",
+    "nuclearBomb1_internalx4_stack",
+    "nuclearBomb1_strategic_internalx4_stack",
+    "AAM4_triple_internal"
+   ]
+  }
+ },
+ {
+  "name": "hp_def_L",
+  "parent": "fus_waist",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -0.5001,
+   0.0529,
+   -7.3503
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "y": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "hardpoint",
+   "options": [
+    "AAM1_double_internal",
+    "AAM3_double_internal"
+   ],
+   "rolled": "down = outboard"
+  }
+ },
+ {
+  "name": "hp_def_R",
+  "parent": "fus_waist",
+  "type": "EMPTY",
+  "pivot_unity": [
+   0.4999,
+   0.0529,
+   -7.3503
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "y": [
+    -1.0,
+    0.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "hardpoint",
+   "options": [
+    "AAM1_double_internal",
+    "AAM3_double_internal"
+   ],
+   "rolled": "down = outboard"
+  }
+ },
+ {
+  "name": "hp_inner_L",
+  "parent": "wing_outer_L",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -9.3001,
+   -0.3672,
+   -0.3714
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "hardpoint"
+  }
+ },
+ {
+  "name": "hp_inner_R",
+  "parent": "wing_outer_R",
+  "type": "EMPTY",
+  "pivot_unity": [
+   9.2999,
+   -0.3672,
+   -0.3714
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "hardpoint"
+  }
+ },
+ {
+  "name": "hp_outer_L",
+  "parent": "wing_outer_L",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -11.8001,
+   -0.1353,
+   -0.5427
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "hardpoint"
+  }
+ },
+ {
+  "name": "hp_outer_R",
+  "parent": "wing_outer_R",
+  "type": "EMPTY",
+  "pivot_unity": [
+   11.7999,
+   -0.1353,
+   -0.5427
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "hardpoint"
+  }
+ },
+ {
+  "name": "mws_nose_L",
+  "parent": "fus_nose",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 198,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "sensor",
+   "type": "missile warning"
+  }
+ },
+ {
+  "name": "mws_nose_R",
+  "parent": "fus_nose",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 198,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "sensor",
+   "type": "missile warning"
+  }
+ },
+ {
+  "name": "mws_tail_L",
+  "parent": "fus_tail",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 198,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "sensor",
+   "type": "missile warning"
+  }
+ },
+ {
+  "name": "mws_tail_R",
+  "parent": "fus_tail",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 198,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "sensor",
+   "type": "missile warning"
+  }
+ },
+ {
+  "name": "nacelle_1",
+  "parent": "wing_mid_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -6.5751,
+   0.0229,
+   1.6547
+  ],
+  "tris": 5150,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "nacelle",
+   "engine": 1,
+   "v": "1.8.8"
+  }
+ },
+ {
+  "name": "nacelle_2",
+  "parent": "wing_inner_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -3.1001,
+   0.1229,
+   2.6997
+  ],
+  "tris": 8380,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "nacelle",
+   "engine": 2,
+   "v": "1.8.8"
+  }
+ },
+ {
+  "name": "nacelle_3",
+  "parent": "wing_inner_R",
+  "type": "MESH",
+  "pivot_unity": [
+   3.0999,
+   0.1229,
+   2.6997
+  ],
+  "tris": 8380,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "nacelle",
+   "engine": 3,
+   "v": "1.8.8"
+  }
+ },
+ {
+  "name": "nacelle_4",
+  "parent": "wing_mid_R",
+  "type": "MESH",
+  "pivot_unity": [
+   6.5749,
+   0.0229,
+   1.6547
+  ],
+  "tris": 5150,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "nacelle",
+   "engine": 4,
+   "v": "1.8.8"
+  }
+ },
+ {
+  "name": "prop_1",
+  "parent": "engine_1",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -6.5751,
+   -0.0971,
+   4.2247
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "prop",
+   "engine": 1,
+   "radius": 1.7,
+   "row": "front",
+   "turn": 1
+  }
+ },
+ {
+  "name": "prop_1_aft",
+  "parent": "prop_1",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -6.5751,
+   -0.0971,
+   3.7247
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "prop_row",
+   "engine": 1,
+   "radius": 1.7,
+   "row": "aft",
+   "turn": -1
+  }
+ },
+ {
+  "name": "prop_2",
+  "parent": "engine_2",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -3.1001,
+   -0.3471,
+   4.8147
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "prop",
+   "engine": 2,
+   "radius": 1.7,
+   "row": "front",
+   "turn": 1
+  }
+ },
+ {
+  "name": "prop_2_aft",
+  "parent": "prop_2",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -3.1001,
+   -0.3471,
+   4.3147
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "prop_row",
+   "engine": 2,
+   "radius": 1.7,
+   "row": "aft",
+   "turn": -1
+  }
+ },
+ {
+  "name": "prop_3",
+  "parent": "engine_3",
+  "type": "EMPTY",
+  "pivot_unity": [
+   3.0999,
+   -0.3471,
+   4.8147
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "prop",
+   "engine": 3,
+   "radius": 1.7,
+   "row": "front",
+   "turn": 1
+  }
+ },
+ {
+  "name": "prop_3_aft",
+  "parent": "prop_3",
+  "type": "EMPTY",
+  "pivot_unity": [
+   3.0999,
+   -0.3471,
+   4.3147
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "prop_row",
+   "engine": 3,
+   "radius": 1.7,
+   "row": "aft",
+   "turn": -1
+  }
+ },
+ {
+  "name": "prop_4",
+  "parent": "engine_4",
+  "type": "EMPTY",
+  "pivot_unity": [
+   6.5749,
+   -0.0971,
+   4.2247
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "prop",
+   "engine": 4,
+   "radius": 1.7,
+   "row": "front",
+   "turn": 1
+  }
+ },
+ {
+  "name": "prop_4_aft",
+  "parent": "prop_4",
+  "type": "EMPTY",
+  "pivot_unity": [
+   6.5749,
+   -0.0971,
+   3.7247
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "prop_row",
+   "engine": 4,
+   "radius": 1.7,
+   "row": "aft",
+   "turn": -1
+  }
+ },
+ {
+  "name": "prop_hub_1",
+  "parent": "prop_1",
+  "type": "MESH",
+  "pivot_unity": [
+   -6.5751,
+   -0.0971,
+   4.2247
+  ],
+  "tris": 504,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "prop_hub",
+   "row": "front",
+   "spin_axis": "local +Y (Unity +Z)"
+  }
+ },
+ {
+  "name": "prop_hub_1_aft",
+  "parent": "prop_1_aft",
+  "type": "MESH",
+  "pivot_unity": [
+   -6.5751,
+   -0.0971,
+   3.7247
+  ],
+  "tris": 144,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "prop_hub",
+   "row": "aft",
+   "spin_axis": "local +Y (Unity +Z)"
+  }
+ },
+ {
+  "name": "prop_hub_1_aft_blade1",
+  "parent": "prop_hub_1_aft",
+  "type": "MESH",
+  "pivot_unity": [
+   -6.5751,
+   -0.0971,
+   3.7247
+  ],
+  "tris": 1188,
+  "local_axes_unity": {
+   "x": [
+    0.7071,
+    -0.7071,
+    0.0
+   ],
+   "y": [
+    0.7071,
+    0.7071,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "blade",
+   "row": "aft"
+  }
+ },
+ {
+  "name": "prop_hub_1_aft_blade2",
+  "parent": "prop_hub_1_aft",
+  "type": "MESH",
+  "pivot_unity": [
+   -6.5751,
+   -0.0971,
+   3.7247
+  ],
+  "tris": 1188,
+  "local_axes_unity": {
+   "x": [
+    -0.2588,
+    -0.9659,
+    0.0
+   ],
+   "y": [
+    0.9659,
+    -0.2588,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "blade",
+   "row": "aft"
+  }
+ },
+ {
+  "name": "prop_hub_1_aft_blade3",
+  "parent": "prop_hub_1_aft",
+  "type": "MESH",
+  "pivot_unity": [
+   -6.5751,
+   -0.0971,
+   3.7247
+  ],
+  "tris": 1188,
+  "local_axes_unity": {
+   "x": [
+    -0.9659,
+    -0.2588,
+    0.0
+   ],
+   "y": [
+    0.2588,
+    -0.9659,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "blade",
+   "row": "aft"
+  }
+ },
+ {
+  "name": "prop_hub_1_aft_blade4",
+  "parent": "prop_hub_1_aft",
+  "type": "MESH",
+  "pivot_unity": [
+   -6.5751,
+   -0.0971,
+   3.7247
+  ],
+  "tris": 1188,
+  "local_axes_unity": {
+   "x": [
+    -0.7071,
+    0.7071,
+    0.0
+   ],
+   "y": [
+    -0.7071,
+    -0.7071,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "blade",
+   "row": "aft"
+  }
+ },
+ {
+  "name": "prop_hub_1_aft_blade5",
+  "parent": "prop_hub_1_aft",
+  "type": "MESH",
+  "pivot_unity": [
+   -6.5751,
+   -0.0971,
+   3.7247
+  ],
+  "tris": 1188,
+  "local_axes_unity": {
+   "x": [
+    0.2588,
+    0.9659,
+    0.0
+   ],
+   "y": [
+    -0.9659,
+    0.2588,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "blade",
+   "row": "aft"
+  }
+ },
+ {
+  "name": "prop_hub_1_aft_blade6",
+  "parent": "prop_hub_1_aft",
+  "type": "MESH",
+  "pivot_unity": [
+   -6.5751,
+   -0.0971,
+   3.7247
+  ],
+  "tris": 1188,
+  "local_axes_unity": {
+   "x": [
+    0.9659,
+    0.2588,
+    0.0
+   ],
+   "y": [
+    -0.2588,
+    0.9659,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "blade",
+   "row": "aft"
+  }
+ },
+ {
+  "name": "prop_hub_1_blade1",
+  "parent": "prop_hub_1",
+  "type": "MESH",
+  "pivot_unity": [
+   -6.5751,
+   -0.0971,
+   4.2247
+  ],
+  "tris": 1188,
+  "local_axes_unity": {
+   "x": [
+    0.9659,
+    -0.2588,
+    0.0
+   ],
+   "y": [
+    0.2588,
+    0.9659,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "blade",
+   "row": "front"
+  }
+ },
+ {
+  "name": "prop_hub_1_blade2",
+  "parent": "prop_hub_1",
+  "type": "MESH",
+  "pivot_unity": [
+   -6.5751,
+   -0.0971,
+   4.2247
+  ],
+  "tris": 1188,
+  "local_axes_unity": {
+   "x": [
+    0.2588,
+    -0.9659,
+    0.0
+   ],
+   "y": [
+    0.9659,
+    0.2588,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "blade",
+   "row": "front"
+  }
+ },
+ {
+  "name": "prop_hub_1_blade3",
+  "parent": "prop_hub_1",
+  "type": "MESH",
+  "pivot_unity": [
+   -6.5751,
+   -0.0971,
+   4.2247
+  ],
+  "tris": 1188,
+  "local_axes_unity": {
+   "x": [
+    -0.7071,
+    -0.7071,
+    0.0
+   ],
+   "y": [
+    0.7071,
+    -0.7071,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "blade",
+   "row": "front"
+  }
+ },
+ {
+  "name": "prop_hub_1_blade4",
+  "parent": "prop_hub_1",
+  "type": "MESH",
+  "pivot_unity": [
+   -6.5751,
+   -0.0971,
+   4.2247
+  ],
+  "tris": 1188,
+  "local_axes_unity": {
+   "x": [
+    -0.9659,
+    0.2588,
+    0.0
+   ],
+   "y": [
+    -0.2588,
+    -0.9659,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "blade",
+   "row": "front"
+  }
+ },
+ {
+  "name": "prop_hub_1_blade5",
+  "parent": "prop_hub_1",
+  "type": "MESH",
+  "pivot_unity": [
+   -6.5751,
+   -0.0971,
+   4.2247
+  ],
+  "tris": 1188,
+  "local_axes_unity": {
+   "x": [
+    -0.2588,
+    0.9659,
+    0.0
+   ],
+   "y": [
+    -0.9659,
+    -0.2588,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "blade",
+   "row": "front"
+  }
+ },
+ {
+  "name": "prop_hub_1_blade6",
+  "parent": "prop_hub_1",
+  "type": "MESH",
+  "pivot_unity": [
+   -6.5751,
+   -0.0971,
+   4.2247
+  ],
+  "tris": 1188,
+  "local_axes_unity": {
+   "x": [
+    0.7071,
+    0.7071,
+    0.0
+   ],
+   "y": [
+    -0.7071,
+    0.7071,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "blade",
+   "row": "front"
+  }
+ },
+ {
+  "name": "prop_hub_2",
+  "parent": "prop_2",
+  "type": "MESH",
+  "pivot_unity": [
+   -3.1001,
+   -0.3471,
+   4.8147
+  ],
+  "tris": 504,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "prop_hub",
+   "row": "front",
+   "spin_axis": "local +Y (Unity +Z)"
+  }
+ },
+ {
+  "name": "prop_hub_2_aft",
+  "parent": "prop_2_aft",
+  "type": "MESH",
+  "pivot_unity": [
+   -3.1001,
+   -0.3471,
+   4.3147
+  ],
+  "tris": 144,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "prop_hub",
+   "row": "aft",
+   "spin_axis": "local +Y (Unity +Z)"
+  }
+ },
+ {
+  "name": "prop_hub_2_aft_blade1",
+  "parent": "prop_hub_2_aft",
+  "type": "MESH",
+  "pivot_unity": [
+   -3.1001,
+   -0.3471,
+   4.3147
+  ],
+  "tris": 1188,
+  "local_axes_unity": {
+   "x": [
+    0.7071,
+    -0.7071,
+    0.0
+   ],
+   "y": [
+    0.7071,
+    0.7071,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "blade",
+   "row": "aft"
+  }
+ },
+ {
+  "name": "prop_hub_2_aft_blade2",
+  "parent": "prop_hub_2_aft",
+  "type": "MESH",
+  "pivot_unity": [
+   -3.1001,
+   -0.3471,
+   4.3147
+  ],
+  "tris": 1188,
+  "local_axes_unity": {
+   "x": [
+    -0.2588,
+    -0.9659,
+    0.0
+   ],
+   "y": [
+    0.9659,
+    -0.2588,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "blade",
+   "row": "aft"
+  }
+ },
+ {
+  "name": "prop_hub_2_aft_blade3",
+  "parent": "prop_hub_2_aft",
+  "type": "MESH",
+  "pivot_unity": [
+   -3.1001,
+   -0.3471,
+   4.3147
+  ],
+  "tris": 1188,
+  "local_axes_unity": {
+   "x": [
+    -0.9659,
+    -0.2588,
+    0.0
+   ],
+   "y": [
+    0.2588,
+    -0.9659,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "blade",
+   "row": "aft"
+  }
+ },
+ {
+  "name": "prop_hub_2_aft_blade4",
+  "parent": "prop_hub_2_aft",
+  "type": "MESH",
+  "pivot_unity": [
+   -3.1001,
+   -0.3471,
+   4.3147
+  ],
+  "tris": 1188,
+  "local_axes_unity": {
+   "x": [
+    -0.7071,
+    0.7071,
+    0.0
+   ],
+   "y": [
+    -0.7071,
+    -0.7071,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "blade",
+   "row": "aft"
+  }
+ },
+ {
+  "name": "prop_hub_2_aft_blade5",
+  "parent": "prop_hub_2_aft",
+  "type": "MESH",
+  "pivot_unity": [
+   -3.1001,
+   -0.3471,
+   4.3147
+  ],
+  "tris": 1188,
+  "local_axes_unity": {
+   "x": [
+    0.2588,
+    0.9659,
+    0.0
+   ],
+   "y": [
+    -0.9659,
+    0.2588,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "blade",
+   "row": "aft"
+  }
+ },
+ {
+  "name": "prop_hub_2_aft_blade6",
+  "parent": "prop_hub_2_aft",
+  "type": "MESH",
+  "pivot_unity": [
+   -3.1001,
+   -0.3471,
+   4.3147
+  ],
+  "tris": 1188,
+  "local_axes_unity": {
+   "x": [
+    0.9659,
+    0.2588,
+    0.0
+   ],
+   "y": [
+    -0.2588,
+    0.9659,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "blade",
+   "row": "aft"
+  }
+ },
+ {
+  "name": "prop_hub_2_blade1",
+  "parent": "prop_hub_2",
+  "type": "MESH",
+  "pivot_unity": [
+   -3.1001,
+   -0.3471,
+   4.8147
+  ],
+  "tris": 1188,
+  "local_axes_unity": {
+   "x": [
+    0.9659,
+    -0.2588,
+    0.0
+   ],
+   "y": [
+    0.2588,
+    0.9659,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "blade",
+   "row": "front"
+  }
+ },
+ {
+  "name": "prop_hub_2_blade2",
+  "parent": "prop_hub_2",
+  "type": "MESH",
+  "pivot_unity": [
+   -3.1001,
+   -0.3471,
+   4.8147
+  ],
+  "tris": 1188,
+  "local_axes_unity": {
+   "x": [
+    0.2588,
+    -0.9659,
+    0.0
+   ],
+   "y": [
+    0.9659,
+    0.2588,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "blade",
+   "row": "front"
+  }
+ },
+ {
+  "name": "prop_hub_2_blade3",
+  "parent": "prop_hub_2",
+  "type": "MESH",
+  "pivot_unity": [
+   -3.1001,
+   -0.3471,
+   4.8147
+  ],
+  "tris": 1188,
+  "local_axes_unity": {
+   "x": [
+    -0.7071,
+    -0.7071,
+    0.0
+   ],
+   "y": [
+    0.7071,
+    -0.7071,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "blade",
+   "row": "front"
+  }
+ },
+ {
+  "name": "prop_hub_2_blade4",
+  "parent": "prop_hub_2",
+  "type": "MESH",
+  "pivot_unity": [
+   -3.1001,
+   -0.3471,
+   4.8147
+  ],
+  "tris": 1188,
+  "local_axes_unity": {
+   "x": [
+    -0.9659,
+    0.2588,
+    0.0
+   ],
+   "y": [
+    -0.2588,
+    -0.9659,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "blade",
+   "row": "front"
+  }
+ },
+ {
+  "name": "prop_hub_2_blade5",
+  "parent": "prop_hub_2",
+  "type": "MESH",
+  "pivot_unity": [
+   -3.1001,
+   -0.3471,
+   4.8147
+  ],
+  "tris": 1188,
+  "local_axes_unity": {
+   "x": [
+    -0.2588,
+    0.9659,
+    0.0
+   ],
+   "y": [
+    -0.9659,
+    -0.2588,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "blade",
+   "row": "front"
+  }
+ },
+ {
+  "name": "prop_hub_2_blade6",
+  "parent": "prop_hub_2",
+  "type": "MESH",
+  "pivot_unity": [
+   -3.1001,
+   -0.3471,
+   4.8147
+  ],
+  "tris": 1188,
+  "local_axes_unity": {
+   "x": [
+    0.7071,
+    0.7071,
+    0.0
+   ],
+   "y": [
+    -0.7071,
+    0.7071,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "blade",
+   "row": "front"
+  }
+ },
+ {
+  "name": "prop_hub_3",
+  "parent": "prop_3",
+  "type": "MESH",
+  "pivot_unity": [
+   3.0999,
+   -0.3471,
+   4.8147
+  ],
+  "tris": 504,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "prop_hub",
+   "row": "front",
+   "spin_axis": "local +Y (Unity +Z)"
+  }
+ },
+ {
+  "name": "prop_hub_3_aft",
+  "parent": "prop_3_aft",
+  "type": "MESH",
+  "pivot_unity": [
+   3.0999,
+   -0.3471,
+   4.3147
+  ],
+  "tris": 144,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "prop_hub",
+   "row": "aft",
+   "spin_axis": "local +Y (Unity +Z)"
+  }
+ },
+ {
+  "name": "prop_hub_3_aft_blade1",
+  "parent": "prop_hub_3_aft",
+  "type": "MESH",
+  "pivot_unity": [
+   3.0999,
+   -0.3471,
+   4.3147
+  ],
+  "tris": 1188,
+  "local_axes_unity": {
+   "x": [
+    0.7071,
+    -0.7071,
+    0.0
+   ],
+   "y": [
+    0.7071,
+    0.7071,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "blade",
+   "row": "aft"
+  }
+ },
+ {
+  "name": "prop_hub_3_aft_blade2",
+  "parent": "prop_hub_3_aft",
+  "type": "MESH",
+  "pivot_unity": [
+   3.0999,
+   -0.3471,
+   4.3147
+  ],
+  "tris": 1188,
+  "local_axes_unity": {
+   "x": [
+    -0.2588,
+    -0.9659,
+    0.0
+   ],
+   "y": [
+    0.9659,
+    -0.2588,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "blade",
+   "row": "aft"
+  }
+ },
+ {
+  "name": "prop_hub_3_aft_blade3",
+  "parent": "prop_hub_3_aft",
+  "type": "MESH",
+  "pivot_unity": [
+   3.0999,
+   -0.3471,
+   4.3147
+  ],
+  "tris": 1188,
+  "local_axes_unity": {
+   "x": [
+    -0.9659,
+    -0.2588,
+    0.0
+   ],
+   "y": [
+    0.2588,
+    -0.9659,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "blade",
+   "row": "aft"
+  }
+ },
+ {
+  "name": "prop_hub_3_aft_blade4",
+  "parent": "prop_hub_3_aft",
+  "type": "MESH",
+  "pivot_unity": [
+   3.0999,
+   -0.3471,
+   4.3147
+  ],
+  "tris": 1188,
+  "local_axes_unity": {
+   "x": [
+    -0.7071,
+    0.7071,
+    0.0
+   ],
+   "y": [
+    -0.7071,
+    -0.7071,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "blade",
+   "row": "aft"
+  }
+ },
+ {
+  "name": "prop_hub_3_aft_blade5",
+  "parent": "prop_hub_3_aft",
+  "type": "MESH",
+  "pivot_unity": [
+   3.0999,
+   -0.3471,
+   4.3147
+  ],
+  "tris": 1188,
+  "local_axes_unity": {
+   "x": [
+    0.2588,
+    0.9659,
+    0.0
+   ],
+   "y": [
+    -0.9659,
+    0.2588,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "blade",
+   "row": "aft"
+  }
+ },
+ {
+  "name": "prop_hub_3_aft_blade6",
+  "parent": "prop_hub_3_aft",
+  "type": "MESH",
+  "pivot_unity": [
+   3.0999,
+   -0.3471,
+   4.3147
+  ],
+  "tris": 1188,
+  "local_axes_unity": {
+   "x": [
+    0.9659,
+    0.2588,
+    0.0
+   ],
+   "y": [
+    -0.2588,
+    0.9659,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "blade",
+   "row": "aft"
+  }
+ },
+ {
+  "name": "prop_hub_3_blade1",
+  "parent": "prop_hub_3",
+  "type": "MESH",
+  "pivot_unity": [
+   3.0999,
+   -0.3471,
+   4.8147
+  ],
+  "tris": 1188,
+  "local_axes_unity": {
+   "x": [
+    0.9659,
+    -0.2588,
+    0.0
+   ],
+   "y": [
+    0.2588,
+    0.9659,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "blade",
+   "row": "front"
+  }
+ },
+ {
+  "name": "prop_hub_3_blade2",
+  "parent": "prop_hub_3",
+  "type": "MESH",
+  "pivot_unity": [
+   3.0999,
+   -0.3471,
+   4.8147
+  ],
+  "tris": 1188,
+  "local_axes_unity": {
+   "x": [
+    0.2588,
+    -0.9659,
+    0.0
+   ],
+   "y": [
+    0.9659,
+    0.2588,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "blade",
+   "row": "front"
+  }
+ },
+ {
+  "name": "prop_hub_3_blade3",
+  "parent": "prop_hub_3",
+  "type": "MESH",
+  "pivot_unity": [
+   3.0999,
+   -0.3471,
+   4.8147
+  ],
+  "tris": 1188,
+  "local_axes_unity": {
+   "x": [
+    -0.7071,
+    -0.7071,
+    0.0
+   ],
+   "y": [
+    0.7071,
+    -0.7071,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "blade",
+   "row": "front"
+  }
+ },
+ {
+  "name": "prop_hub_3_blade4",
+  "parent": "prop_hub_3",
+  "type": "MESH",
+  "pivot_unity": [
+   3.0999,
+   -0.3471,
+   4.8147
+  ],
+  "tris": 1188,
+  "local_axes_unity": {
+   "x": [
+    -0.9659,
+    0.2588,
+    0.0
+   ],
+   "y": [
+    -0.2588,
+    -0.9659,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "blade",
+   "row": "front"
+  }
+ },
+ {
+  "name": "prop_hub_3_blade5",
+  "parent": "prop_hub_3",
+  "type": "MESH",
+  "pivot_unity": [
+   3.0999,
+   -0.3471,
+   4.8147
+  ],
+  "tris": 1188,
+  "local_axes_unity": {
+   "x": [
+    -0.2588,
+    0.9659,
+    0.0
+   ],
+   "y": [
+    -0.9659,
+    -0.2588,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "blade",
+   "row": "front"
+  }
+ },
+ {
+  "name": "prop_hub_3_blade6",
+  "parent": "prop_hub_3",
+  "type": "MESH",
+  "pivot_unity": [
+   3.0999,
+   -0.3471,
+   4.8147
+  ],
+  "tris": 1188,
+  "local_axes_unity": {
+   "x": [
+    0.7071,
+    0.7071,
+    0.0
+   ],
+   "y": [
+    -0.7071,
+    0.7071,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "blade",
+   "row": "front"
+  }
+ },
+ {
+  "name": "prop_hub_4",
+  "parent": "prop_4",
+  "type": "MESH",
+  "pivot_unity": [
+   6.5749,
+   -0.0971,
+   4.2247
+  ],
+  "tris": 504,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "prop_hub",
+   "row": "front",
+   "spin_axis": "local +Y (Unity +Z)"
+  }
+ },
+ {
+  "name": "prop_hub_4_aft",
+  "parent": "prop_4_aft",
+  "type": "MESH",
+  "pivot_unity": [
+   6.5749,
+   -0.0971,
+   3.7247
+  ],
+  "tris": 144,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "prop_hub",
+   "row": "aft",
+   "spin_axis": "local +Y (Unity +Z)"
+  }
+ },
+ {
+  "name": "prop_hub_4_aft_blade1",
+  "parent": "prop_hub_4_aft",
+  "type": "MESH",
+  "pivot_unity": [
+   6.5749,
+   -0.0971,
+   3.7247
+  ],
+  "tris": 1188,
+  "local_axes_unity": {
+   "x": [
+    0.7071,
+    -0.7071,
+    0.0
+   ],
+   "y": [
+    0.7071,
+    0.7071,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "blade",
+   "row": "aft"
+  }
+ },
+ {
+  "name": "prop_hub_4_aft_blade2",
+  "parent": "prop_hub_4_aft",
+  "type": "MESH",
+  "pivot_unity": [
+   6.5749,
+   -0.0971,
+   3.7247
+  ],
+  "tris": 1188,
+  "local_axes_unity": {
+   "x": [
+    -0.2588,
+    -0.9659,
+    0.0
+   ],
+   "y": [
+    0.9659,
+    -0.2588,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "blade",
+   "row": "aft"
+  }
+ },
+ {
+  "name": "prop_hub_4_aft_blade3",
+  "parent": "prop_hub_4_aft",
+  "type": "MESH",
+  "pivot_unity": [
+   6.5749,
+   -0.0971,
+   3.7247
+  ],
+  "tris": 1188,
+  "local_axes_unity": {
+   "x": [
+    -0.9659,
+    -0.2588,
+    0.0
+   ],
+   "y": [
+    0.2588,
+    -0.9659,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "blade",
+   "row": "aft"
+  }
+ },
+ {
+  "name": "prop_hub_4_aft_blade4",
+  "parent": "prop_hub_4_aft",
+  "type": "MESH",
+  "pivot_unity": [
+   6.5749,
+   -0.0971,
+   3.7247
+  ],
+  "tris": 1188,
+  "local_axes_unity": {
+   "x": [
+    -0.7071,
+    0.7071,
+    0.0
+   ],
+   "y": [
+    -0.7071,
+    -0.7071,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "blade",
+   "row": "aft"
+  }
+ },
+ {
+  "name": "prop_hub_4_aft_blade5",
+  "parent": "prop_hub_4_aft",
+  "type": "MESH",
+  "pivot_unity": [
+   6.5749,
+   -0.0971,
+   3.7247
+  ],
+  "tris": 1188,
+  "local_axes_unity": {
+   "x": [
+    0.2588,
+    0.9659,
+    0.0
+   ],
+   "y": [
+    -0.9659,
+    0.2588,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "blade",
+   "row": "aft"
+  }
+ },
+ {
+  "name": "prop_hub_4_aft_blade6",
+  "parent": "prop_hub_4_aft",
+  "type": "MESH",
+  "pivot_unity": [
+   6.5749,
+   -0.0971,
+   3.7247
+  ],
+  "tris": 1188,
+  "local_axes_unity": {
+   "x": [
+    0.9659,
+    0.2588,
+    0.0
+   ],
+   "y": [
+    -0.2588,
+    0.9659,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "blade",
+   "row": "aft"
+  }
+ },
+ {
+  "name": "prop_hub_4_blade1",
+  "parent": "prop_hub_4",
+  "type": "MESH",
+  "pivot_unity": [
+   6.5749,
+   -0.0971,
+   4.2247
+  ],
+  "tris": 1188,
+  "local_axes_unity": {
+   "x": [
+    0.9659,
+    -0.2588,
+    0.0
+   ],
+   "y": [
+    0.2588,
+    0.9659,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "blade",
+   "row": "front"
+  }
+ },
+ {
+  "name": "prop_hub_4_blade2",
+  "parent": "prop_hub_4",
+  "type": "MESH",
+  "pivot_unity": [
+   6.5749,
+   -0.0971,
+   4.2247
+  ],
+  "tris": 1188,
+  "local_axes_unity": {
+   "x": [
+    0.2588,
+    -0.9659,
+    0.0
+   ],
+   "y": [
+    0.9659,
+    0.2588,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "blade",
+   "row": "front"
+  }
+ },
+ {
+  "name": "prop_hub_4_blade3",
+  "parent": "prop_hub_4",
+  "type": "MESH",
+  "pivot_unity": [
+   6.5749,
+   -0.0971,
+   4.2247
+  ],
+  "tris": 1188,
+  "local_axes_unity": {
+   "x": [
+    -0.7071,
+    -0.7071,
+    0.0
+   ],
+   "y": [
+    0.7071,
+    -0.7071,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "blade",
+   "row": "front"
+  }
+ },
+ {
+  "name": "prop_hub_4_blade4",
+  "parent": "prop_hub_4",
+  "type": "MESH",
+  "pivot_unity": [
+   6.5749,
+   -0.0971,
+   4.2247
+  ],
+  "tris": 1188,
+  "local_axes_unity": {
+   "x": [
+    -0.9659,
+    0.2588,
+    0.0
+   ],
+   "y": [
+    -0.2588,
+    -0.9659,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "blade",
+   "row": "front"
+  }
+ },
+ {
+  "name": "prop_hub_4_blade5",
+  "parent": "prop_hub_4",
+  "type": "MESH",
+  "pivot_unity": [
+   6.5749,
+   -0.0971,
+   4.2247
+  ],
+  "tris": 1188,
+  "local_axes_unity": {
+   "x": [
+    -0.2588,
+    0.9659,
+    0.0
+   ],
+   "y": [
+    -0.9659,
+    -0.2588,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "blade",
+   "row": "front"
+  }
+ },
+ {
+  "name": "prop_hub_4_blade6",
+  "parent": "prop_hub_4",
+  "type": "MESH",
+  "pivot_unity": [
+   6.5749,
+   -0.0971,
+   4.2247
+  ],
+  "tris": 1188,
+  "local_axes_unity": {
+   "x": [
+    0.7071,
+    0.7071,
+    0.0
+   ],
+   "y": [
+    -0.7071,
+    0.7071,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "blade",
+   "row": "front"
+  }
+ },
+ {
+  "name": "pylon_inner_L",
+  "parent": "wing_outer_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 128,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "pylon"
+  }
+ },
+ {
+  "name": "pylon_inner_R",
+  "parent": "wing_outer_R",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 128,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "pylon"
+  }
+ },
+ {
+  "name": "pylon_outer_L",
+  "parent": "wing_outer_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 128,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "pylon"
+  }
+ },
+ {
+  "name": "pylon_outer_R",
+  "parent": "wing_outer_R",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 128,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "pylon"
+  }
+ },
+ {
+  "name": "rudder",
+  "parent": "fin",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   2.9029,
+   -13.5253
+  ],
+  "tris": 332,
+  "local_axes_unity": {
+   "x": [
+    -0.0,
+    1.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "z": [
+    1.0,
+    0.0,
+    -0.0
+   ]
+  },
+  "info": {
+   "kind": "control"
+  }
+ },
+ {
+  "name": "side_bay_door_L",
+  "parent": "fus_waist",
+  "type": "MESH",
+  "pivot_unity": [
+   -1.107,
+   0.4382,
+   -7.2153
+  ],
+  "tris": 320,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "bay_door",
+   "hinge_axis": [
+    0,
+    1,
+    0
+   ],
+   "open_deg": 100,
+   "hinge_axis_unity": [
+    0,
+    0,
+    1
+   ],
+   "open_unity": "rotate -100.0 deg (Unity AngleAxis) about (0, 0, 1) (parent space) from the CLOSED pose"
+  }
+ },
+ {
+  "name": "side_bay_door_R",
+  "parent": "fus_waist",
+  "type": "MESH",
+  "pivot_unity": [
+   1.1067,
+   0.4382,
+   -7.2153
+  ],
+  "tris": 320,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "bay_door",
+   "hinge_axis": [
+    0,
+    1,
+    0
+   ],
+   "open_deg": -100,
+   "hinge_axis_unity": [
+    0,
+    0,
+    1
+   ],
+   "open_unity": "rotate 100.0 deg (Unity AngleAxis) about (0, 0, 1) (parent space) from the CLOSED pose"
+  }
+ },
+ {
+  "name": "side_bay_liner_L",
+  "parent": "fus_waist",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 216,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "bay"
+  }
+ },
+ {
+  "name": "side_bay_liner_R",
+  "parent": "fus_waist",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 216,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "bay"
+  }
+ },
+ {
+  "name": "stab_L",
+  "parent": "fus_tail",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 1389,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "stab"
+  }
+ },
+ {
+  "name": "stab_R",
+  "parent": "fus_tail",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 1389,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "stab"
+  }
+ },
+ {
+  "name": "stick_L",
+  "parent": "cockpit_interior",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -0.4221,
+   0.1556,
+   3.3653
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "stock_anchor",
+   "stock": "sfb_joystick",
+   "materials": [
+    "hotas",
+    "SFB_cockpit"
+   ]
+  }
+ },
+ {
+  "name": "stick_R",
+  "parent": "cockpit_interior",
+  "type": "EMPTY",
+  "pivot_unity": [
+   0.4219,
+   0.1556,
+   3.3653
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "stock_anchor",
+   "stock": "sfb_joystick",
+   "materials": [
+    "hotas",
+    "SFB_cockpit"
+   ]
+  }
+ },
+ {
+  "name": "tail_az",
+  "parent": "tail_mount",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -0.0001,
+   0.3029,
+   -15.4153
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    -1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    -1.0
+   ]
+  },
+  "info": {}
+ },
+ {
+  "name": "tail_ball",
+  "parent": "tail_el",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 2432,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    -0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "turret_frame",
+   "type": "elevating ball mantlet"
+  }
+ },
+ {
+  "name": "tail_body",
+  "parent": "tail_az",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 992,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    -0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "turret_body",
+   "type": "remote twin 20 mm housing"
+  }
+ },
+ {
+  "name": "tail_el",
+  "parent": "tail_az",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -0.0001,
+   0.3029,
+   -15.6153
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    -1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    -1.0
+   ]
+  },
+  "info": {}
+ },
+ {
+  "name": "tail_gun",
+  "parent": "MSB17",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 4864,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "fuselage",
+   "y": [
+    -13.0,
+    -14.94
+   ]
+  }
+ },
+ {
+  "name": "tail_gun0",
+  "parent": "tail_el",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   0.3029,
+   -15.6153
+  ],
+  "tris": 2644,
+  "local_axes_unity": {
+   "x": [
+    -1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    -1.0
+   ]
+  },
+  "info": {
+   "kind": "gun_20mm",
+   "type": "MSB twin 20 mm (own model)"
+  }
+ },
+ {
+  "name": "tail_mount",
+  "parent": "tail_gun",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -0.0001,
+   0.3029,
+   -15.4153
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    -1.0,
+    0.0,
+    -0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    -1.0
+   ]
+  },
+  "info": {
+   "kind": "turret_mount",
+   "station": "Tail",
+   "weapon": "20mm",
+   "traverseRange": 30.0,
+   "minElevation": -40.0,
+   "maxElevation": 40.0
+  }
+ },
+ {
+  "name": "tail_muzzle0",
+  "parent": "tail_gun0",
+  "type": "EMPTY",
+  "pivot_unity": [
+   0.1299,
+   0.3029,
+   -17.2353
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    -1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    -1.0
+   ]
+  },
+  "info": {
+   "kind": "muzzle"
+  }
+ },
+ {
+  "name": "tail_muzzle1",
+  "parent": "tail_gun0",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -0.1301,
+   0.3029,
+   -17.2353
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    -1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    -1.0
+   ]
+  },
+  "info": {
+   "kind": "muzzle"
+  }
+ },
+ {
+  "name": "top_aperture",
+  "parent": "top_el",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -0.0001,
+   1.9829,
+   1.5747
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "laser_aperture"
+  }
+ },
+ {
+  "name": "top_az",
+  "parent": "top_mount",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -0.0001,
+   1.7229,
+   1.3647
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {}
+ },
+ {
+  "name": "top_body",
+  "parent": "top_az",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 1814,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "turret_body",
+   "type": "120 kW laser turret base"
+  }
+ },
+ {
+  "name": "top_el",
+  "parent": "top_az",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -0.0001,
+   1.9829,
+   1.3647
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {}
+ },
+ {
+  "name": "top_head",
+  "parent": "top_el",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 1272,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "turret_frame",
+   "type": "laser head"
+  }
+ },
+ {
+  "name": "top_mount",
+  "parent": "MSB17",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -0.0001,
+   1.7229,
+   1.3647
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "turret_mount",
+   "station": "Dorsal",
+   "weapon": "laser",
+   "traverseRange": 360.0,
+   "minElevation": 0.0,
+   "maxElevation": 90.0
+  }
+ },
+ {
+  "name": "top_race",
+  "parent": "MSB17",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 384,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "turret_race"
+  }
+ },
+ {
+  "name": "warnlamp_L",
+  "parent": "cockpit_interior",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -0.3801,
+   0.6114,
+   2.9866
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "stock_anchor",
+   "stock": "EW1_warningLights",
+   "materials": [
+    "CockpitWarningLight"
+   ]
+  }
+ },
+ {
+  "name": "warnlamp_R",
+  "parent": "cockpit_interior",
+  "type": "EMPTY",
+  "pivot_unity": [
+   0.3799,
+   0.6114,
+   2.9866
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "stock_anchor",
+   "stock": "EW1_warningLights",
+   "materials": [
+    "CockpitWarningLight"
+   ]
+  }
+ },
+ {
+  "name": "wheel_main_L",
+  "parent": "gear_main_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -3.2201,
+   -2.2971,
+   1.1347
+  ],
+  "tris": 1248,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "wheel",
+   "radius": 0.711,
+   "width": 0.5
+  }
+ },
+ {
+  "name": "wheel_main_R",
+  "parent": "gear_main_R",
+  "type": "MESH",
+  "pivot_unity": [
+   3.2199,
+   -2.2971,
+   1.1347
+  ],
+  "tris": 1248,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "wheel",
+   "radius": 0.711,
+   "width": 0.5
+  }
+ },
+ {
+  "name": "wheel_tail",
+  "parent": "gear_tail",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.9171,
+   -10.6653
+  ],
+  "tris": 880,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "wheel",
+   "radius": 0.33,
+   "width": 0.2
+  }
+ },
+ {
+  "name": "wing_inner_L",
+  "parent": "MSB17",
+  "type": "MESH",
+  "pivot_unity": [
+   -1.7601,
+   -0.2754,
+   -0.5473
+  ],
+  "tris": 3368,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "wing",
+   "x": [
+    -1.02,
+    -4.75
+   ],
+   "origin": "main fuel cell (FuelTank)"
+  }
+ },
+ {
+  "name": "wing_inner_R",
+  "parent": "MSB17",
+  "type": "MESH",
+  "pivot_unity": [
+   1.7599,
+   -0.2754,
+   -0.5473
+  ],
+  "tris": 3368,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "wing",
+   "x": [
+    1.02,
+    4.75
+   ],
+   "origin": "main fuel cell (FuelTank)"
+  }
+ },
+ {
+  "name": "wing_mid_L",
+  "parent": "wing_inner_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -5.3101,
+   -0.031,
+   -0.7078
+  ],
+  "tris": 3820,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "wing",
+   "x": [
+    -4.75,
+    -8.9
+   ],
+   "origin": "main fuel cell (FuelTank)"
+  }
+ },
+ {
+  "name": "wing_mid_R",
+  "parent": "wing_inner_R",
+  "type": "MESH",
+  "pivot_unity": [
+   5.3099,
+   -0.031,
+   -0.7078
+  ],
+  "tris": 3820,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "wing",
+   "x": [
+    4.75,
+    8.9
+   ],
+   "origin": "main fuel cell (FuelTank)"
+  }
+ },
+ {
+  "name": "wing_outer_L",
+  "parent": "wing_mid_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -11.7001,
+   0.4034,
+   -0.9735
+  ],
+  "tris": 4060,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "wing",
+   "x": [
+    -8.9,
+    -14.74
+   ],
+   "origin": "main fuel cell (FuelTank)"
+  }
+ },
+ {
+  "name": "wing_outer_R",
+  "parent": "wing_mid_R",
+  "type": "MESH",
+  "pivot_unity": [
+   11.6999,
+   0.4034,
+   -0.9735
+  ],
+  "tris": 4060,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "wing",
+   "x": [
+    8.9,
+    14.74
+   ],
+   "origin": "main fuel cell (FuelTank)"
+  }
+ },
+ {
+  "name": "wing_tip_L",
+  "parent": "wing_outer_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 1112,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "wing",
+   "x": [
+    -14.74,
+    -15.81
+   ],
+   "origin": "datum"
+  }
+ },
+ {
+  "name": "wing_tip_R",
+  "parent": "wing_outer_R",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 1112,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "wing",
+   "x": [
+    14.74,
+    15.81
+   ],
+   "origin": "datum"
+  }
+ }
+]

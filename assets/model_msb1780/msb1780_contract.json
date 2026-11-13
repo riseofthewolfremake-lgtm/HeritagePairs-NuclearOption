@@ -1,0 +1,535 @@
+{
+ "aircraft": "MSB17",
+ "frame": "blender: x right, y forward, z up; metres; gear down",
+ "cg": [
+  0.00013848971866536885,
+  0.7153460383415222,
+  0.39707520604133606
+ ],
+ "cg_estimate": [
+  -0.001696862280368805,
+  0.681100070476532,
+  0.5031347870826721
+ ],
+ "mass_estimate_kg": 33560.0,
+ "prop": {
+  "radius": 1.7,
+  "blades": 6,
+  "rows": {
+   "front": 1,
+   "aft": -1
+  },
+  "engines": {
+   "1": [
+    -1,
+    "outer"
+   ],
+   "2": [
+    -1,
+    "inner"
+   ],
+   "3": [
+    1,
+    "inner"
+   ],
+   "4": [
+    1,
+    "outer"
+   ]
+  },
+  "planes": {
+   "inner": [
+    5.03,
+    5.53,
+    6.15
+   ],
+   "outer": [
+    4.44,
+    4.94,
+    5.5600000000000005
+   ]
+  }
+ },
+ "gear": {
+  "main_pivot": [
+   1.6,
+   -0.52
+  ],
+  "main_leg": 1.38,
+  "main_fold_deg": 79.73169420198975,
+  "main_fold_sense": "forward-up",
+  "wheel_r": 0.711,
+  "tail_pivot": [
+   -9.05,
+   0.1
+  ],
+  "tail_axle_down": [
+   -9.95,
+   -0.52
+  ],
+  "tail_fold_deg": 27.0,
+  "tail_fold_sense": "aft-up"
+ },
+ "bay": {
+  "y": [
+   -3.4,
+   2.3
+  ],
+  "half_w": 0.92,
+  "roof": 0.75,
+  "hardpoints": {
+   "hp_bay": [
+    0.0,
+    -0.51,
+    0.05
+   ],
+   "hp_bay_fwd": [
+    0.0,
+    0.7,
+    0.3
+   ],
+   "hp_bay_aft": [
+    0.0,
+    -1.8,
+    0.3
+   ],
+   "hp_bay_L": [
+    -0.45,
+    -0.7,
+    0.4
+   ],
+   "hp_bay_R": [
+    0.45,
+    -0.7,
+    0.4
+   ]
+  },
+  "stores": {
+   "hp_bay": [
+    "bomb_500_internalx8",
+    "bomb_500_internalx6",
+    "AGM_heavy_internalx8",
+    "CruiseMissile1_internalx2",
+    "bomb_penetrator1_internalx4",
+    "ARM1_internalx4",
+    "bomb_500_glide_internalx6",
+    "AShM2_internalx8",
+    "nuclearBomb1_internalx4_stack",
+    "nuclearBomb1_strategic_internalx4_stack",
+    "AAM4_triple_internal"
+   ],
+   "hp_bay_fwd": [
+    "bomb_250_internalx8",
+    "bomb_250_glide_internalx8"
+   ],
+   "hp_bay_aft": [
+    "bomb_250_internalx8",
+    "bomb_250_glide_internalx8"
+   ],
+   "hp_bay_L": [
+    "bomb_glide1_six_inernal",
+    "bomb_125_internalx6"
+   ],
+   "hp_bay_R": [
+    "bomb_glide1_six_inernal",
+    "bomb_125_internalx6"
+   ]
+  },
+  "door_open_deg": 92
+ },
+ "side_bays": {
+  "y": [
+   -7.95,
+   -5.05
+  ],
+  "z": [
+   0.02,
+   0.8
+  ],
+  "hp_x": 0.5,
+  "hp_y": -6.635,
+  "hp_z": 0.45,
+  "liner_x": 0.46,
+  "env": [
+   -0.33,
+   0.33,
+   -1.3,
+   1.57,
+   -0.32,
+   0.03
+  ]
+ },
+ "pylons": {
+  "hp_inner_L": 9.3,
+  "hp_inner_R": 9.3,
+  "hp_outer_L": 11.8,
+  "hp_outer_R": 11.8
+ },
+ "turrets": [
+  {
+   "key": "chin",
+   "weapon": "20mm",
+   "mount": {
+    "name": "chin_mount"
+   },
+   "az": {
+    "name": "chin_az"
+   },
+   "el": {
+    "name": "chin_el"
+   },
+   "station": "Chin",
+   "guns": [
+    {
+     "gun": {
+      "name": "chin_gun0"
+     },
+     "muzzle": {
+      "name": "chin_muzzle0"
+     }
+    },
+    {
+     "gun": {
+      "name": "chin_gun0"
+     },
+     "muzzle": {
+      "name": "chin_muzzle1"
+     }
+    }
+   ],
+   "aperture": null,
+   "Turret": {
+    "traverseRange": 90.0,
+    "traverseRate": 50,
+    "minElevation": -60.0,
+    "maxElevation": 15.0,
+    "elevationRate": 45
+   }
+  },
+  {
+   "key": "top",
+   "weapon": "laser",
+   "mount": {
+    "name": "top_mount"
+   },
+   "az": {
+    "name": "top_az"
+   },
+   "el": {
+    "name": "top_el"
+   },
+   "station": "Dorsal",
+   "guns": [],
+   "aperture": {
+    "name": "top_aperture"
+   },
+   "Turret": {
+    "traverseRange": 360.0,
+    "traverseRate": 150,
+    "minElevation": 0.0,
+    "maxElevation": 90.0,
+    "elevationRate": 60
+   }
+  },
+  {
+   "key": "ball",
+   "weapon": "laser",
+   "mount": {
+    "name": "ball_mount"
+   },
+   "az": {
+    "name": "ball_az"
+   },
+   "el": {
+    "name": "ball_el"
+   },
+   "station": "Ventral",
+   "guns": [],
+   "aperture": {
+    "name": "ball_aperture"
+   },
+   "Turret": {
+    "traverseRange": 360.0,
+    "traverseRate": 150,
+    "minElevation": -90.0,
+    "maxElevation": 0.0,
+    "elevationRate": 60
+   }
+  },
+  {
+   "key": "tail",
+   "weapon": "20mm",
+   "mount": {
+    "name": "tail_mount"
+   },
+   "az": {
+    "name": "tail_az"
+   },
+   "el": {
+    "name": "tail_el"
+   },
+   "station": "Tail",
+   "guns": [
+    {
+     "gun": {
+      "name": "tail_gun0"
+     },
+     "muzzle": {
+      "name": "tail_muzzle0"
+     }
+    },
+    {
+     "gun": {
+      "name": "tail_gun0"
+     },
+     "muzzle": {
+      "name": "tail_muzzle1"
+     }
+    }
+   ],
+   "aperture": null,
+   "Turret": {
+    "traverseRange": 30.0,
+    "traverseRate": 50,
+    "minElevation": -40.0,
+    "maxElevation": 40.0,
+    "elevationRate": 45
+   }
+  }
+ ],
+ "tris": 234472,
+ "metres_per_uv": 43.67784160562891,
+ "eyes": {
+  "pilot": [
+   -0.38,
+   3.56,
+   1.66
+  ],
+  "copilot": [
+   0.38,
+   3.56,
+   1.66
+  ],
+  "wso": [
+   0.0,
+   6.0,
+   1.135
+  ],
+  "ewo": [
+   0.2,
+   2.78,
+   1.68
+  ]
+ },
+ "screens": [
+  "cockpit_screen_deck_mapL",
+  "cockpit_screen_deck_sysL",
+  "cockpit_screen_deck_attC",
+  "cockpit_screen_deck_stbyC",
+  "cockpit_screen_deck_sysR",
+  "cockpit_screen_deck_mapR",
+  "cockpit_screen_ewo1",
+  "cockpit_screen_ewo2",
+  "cockpit_screen_wso1",
+  "cockpit_screen_wso2"
+ ],
+ "stock_anchors": {
+  "stick_L": "sfb_joystick",
+  "stick_R": "sfb_joystick",
+  "cockpit_throttle": "sfb_throttle",
+  "warnlamp_L": "EW1_warningLights",
+  "warnlamp_R": "EW1_warningLights"
+ },
+ "stock_parts": [
+  {
+   "name": "stick_L",
+   "mesh": "sfb_joystick",
+   "materials": [
+    "hotas",
+    "SFB_cockpit"
+   ],
+   "pos": [
+    -0.422,
+    4.0806000000000004,
+    0.5527
+   ],
+   "layer": null,
+   "role": "stick"
+  },
+  {
+   "name": "stick_R",
+   "mesh": "sfb_joystick",
+   "materials": [
+    "hotas",
+    "SFB_cockpit"
+   ],
+   "pos": [
+    0.422,
+    4.0806000000000004,
+    0.5527
+   ],
+   "layer": null,
+   "role": "stick"
+  },
+  {
+   "name": "cockpit_throttle",
+   "mesh": "sfb_throttle",
+   "materials": [
+    "SFB_cockpit"
+   ],
+   "pos": [
+    0.0,
+    4.083,
+    0.7747999999999999
+   ],
+   "layer": null,
+   "role": "throttle"
+  },
+  {
+   "name": "warnlamp_L",
+   "mesh": "EW1_warningLights",
+   "materials": [
+    "CockpitWarningLight"
+   ],
+   "pos": [
+    -0.3799999952316284,
+    3.7019577026367188,
+    1.0084998607635498
+   ],
+   "layer": 14,
+   "role": "missile_warning_lamp"
+  },
+  {
+   "name": "warnlamp_R",
+   "mesh": "EW1_warningLights",
+   "materials": [
+    "CockpitWarningLight"
+   ],
+   "pos": [
+    0.3799999952316284,
+    3.7019577026367188,
+    1.0084998607635498
+   ],
+   "layer": 14,
+   "role": "missile_warning_lamp"
+  }
+ ],
+ "deck195": {
+  "screens": {
+   "cockpit_screen_deck_mapL": "map",
+   "cockpit_screen_deck_sysL": "panels12",
+   "cockpit_screen_deck_attC": "panel3",
+   "cockpit_screen_deck_stbyC": "panel3",
+   "cockpit_screen_deck_sysR": "panels12",
+   "cockpit_screen_deck_mapR": "map"
+  },
+  "stick_range": 12.0,
+  "throttle_range": 52.0,
+  "panel_x": 0.92,
+  "pedestal_x": 0.105,
+  "floor_z": 0.629,
+  "well_z": 0.495
+ },
+ "controls": {
+  "objects": []
+ },
+ "levers": {
+  "movers": [
+   {
+    "name": "cockpit_throttle",
+    "stock_driver": {
+     "component": "Cockpit.throttles",
+     "range": 52.0
+    },
+    "rest_deg": 0.0
+   }
+  ]
+ },
+ "gauges": {
+  "movers": []
+ },
+ "crew": {
+  "stations": [
+   {
+    "role": "pilot",
+    "part": "fus_cockpit",
+    "eye": {
+     "name": "crew_eye_pilot"
+    },
+    "exit_hatch": "hatch_pilot_L"
+   },
+   {
+    "role": "copilot",
+    "part": "fus_cockpit",
+    "eye": {
+     "name": "crew_eye_copilot"
+    },
+    "exit_hatch": "hatch_pilot_R"
+   },
+   {
+    "role": "wso",
+    "part": "fus_nose",
+    "eye": {
+     "name": "crew_eye_wso"
+    },
+    "exit_hatch": "hatch_wso"
+   },
+   {
+    "role": "ewo",
+    "part": "MSB17",
+    "eye": {
+     "name": "crew_eye_ewo"
+    },
+    "exit_hatch": "hatch_ewo"
+   }
+  ]
+ },
+ "hatches": {
+  "hatches": [
+   {
+    "hatch": {
+     "name": "hatch_pilot_L"
+    },
+    "hinge": {
+     "name": "hatch_pilot_L_hinge"
+    },
+    "hingeAngle": 0.0,
+    "parent_part": "fus_cockpit",
+    "jettison": true
+   },
+   {
+    "hatch": {
+     "name": "hatch_pilot_R"
+    },
+    "hinge": {
+     "name": "hatch_pilot_R_hinge"
+    },
+    "hingeAngle": 0.0,
+    "parent_part": "fus_cockpit",
+    "jettison": true
+   },
+   {
+    "hatch": {
+     "name": "hatch_wso"
+    },
+    "hinge": {
+     "name": "hatch_wso_hinge"
+    },
+    "hingeAngle": 0.0,
+    "parent_part": "fus_nose",
+    "jettison": true
+   },
+   {
+    "hatch": {
+     "name": "hatch_ewo"
+    },
+    "hinge": {
+     "name": "hatch_ewo_hinge"
+    },
+    "hingeAngle": 0.0,
+    "parent_part": "MSB17",
+    "jettison": true
+   }
+  ]
+ }
+}

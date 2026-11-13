@@ -1,0 +1,178 @@
+{
+ "1.8.16 livery atlas == texture manifest (skin / liveries / damage painted on this atlas; re-bake the textures when it fails)": {
+  "ok": true,
+  "detail": "atlas 37bbaca5a79c59ec == manifest (62 paint parts, 13 textures) msb17_atlas_manifest.json"
+ },
+ "m z-fighting: no same-facing coplanar overlapping triangles (whole aircraft, within 0.8 mm / 2 deg)": {
+  "ok": true,
+  "detail": "0 pairs: [] e.g. []"
+ },
+ "n flaps at 0 / 14 / 28 deg down clear of the nacelles and every other part (wing coves excepted)": {
+  "ok": true,
+  "detail": "flap_inner_L@0: 0 (TE z -0.33); flap_inner_R@0: 0 (TE z -0.33); flap_outer_L@0: 0 (TE z 0.01); flap_outer_R@0: 0 (TE z 0.01); flap_inner_L@14: 0 (TE z -0.57); flap_inner_R@14: 0 (TE z -0.57); flap_outer_L@14: 0 (TE z -0.21); flap_outer_R@14: 0 (TE z -0.21); flap_inner_L@28: 0 (TE z -0.88); flap_inner_R@28: 0 (TE z -0.88); flap_outer_L@28: 0 (TE z -0.48); flap_outer_R@28: 0 (TE z -0.48)"
+ },
+ "b2 no interior / structure face seen from outside (glass counts as a surface; turret rings, radio hatch, cowls, wells, control-surface coves excepted; <= 1 of ~2700 rays)": {
+  "ok": true,
+  "detail": "2656 hits, 1 interior first hits: [('wing_outer_L', 1)] at [('wing_outer_L', (-14.73, -0.43, 0.95))]"
+ },
+ "n17 nose cone: no skin on the glazing (1.8.16 tongue ~45 %); paint share of the front hits on the cone <= 6 % (optical-flat frame)": {
+  "ok": true,
+  "detail": "456 / 15104 = 3.0 %"
+ },
+ "n17 nose cone follows the spec rows (centreline top / bottom, half width at its centre; <= 1.5 cm incl. the optical-flat frame)": {
+  "ok": true,
+  "detail": "[(6.75, 0.0), (6.95, 0.0), (7.15, 0.0), (7.3, 0.0), (7.4, 0.0)]"
+ },
+ "n17 nose windows glazed at their centres (navigator x3, right forward, top window, astrodome, both K-5 side panes)": {
+  "ok": true,
+  "detail": "[]"
+ },
+ "n17 K-5 sockets open on the rest aim (nothing between 2 m out and the cheek pivot, the gun hole is at the pivot)": {
+  "ok": true,
+  "detail": "[('cheek_R', None), ('cheek_L', None)]"
+ },
+ "n17 chin opening: no fixed skin inside r 0.49 under the race (the drum turns clear)": {
+  "ok": true,
+  "detail": "0 hits []"
+ },
+ "n17 nose skin closed: rays +-x and down from every inside point (y 4.55-6.55, z 0.2-1.1, 5 cm grid, >= 6 cm from the skin) hit a FRONT face first, + 7,200 rays at the K-5 seams (Unity crew-in-hull rule: PhysX any-hit rays skip back faces)": {
+  "ok": true,
+  "detail": "3567 points, 0 misses []"
+ },
+ "n18 astrodome inner frame ring continuous from inside: 2,163 rays up at r 0.185 / 0.200 / 0.215 meet its bottom 20-32 mm under the skin (or a frame / stringer end under it), depth step < 0.5 mm (1.8.17: chord blocks with wedge gaps and 1.5 mm steps)": {
+  "ok": true,
+  "detail": "0 gaps [], 14 on bar ends, max depth step 0.03 mm"
+ },
+ "n18 no open frame / stringer end round the astrodome: 2,160 horizontal rays from its axis 35-65 mm under the skin meet a FRONT face first": {
+  "ok": true,
+  "detail": "1943 hits, 0 back faces first []"
+ },
+ "i triangle budget total": {
+  "ok": true,
+  "detail": "234472 <= 245000"
+ },
+ "h stance: 3-point angle 8-12 deg": {
+  "ok": true,
+  "detail": "8.5 deg (main contact z -2.61 y 1.85, tail z -0.85 y -9.95)"
+ },
+ "h stance: tail-up CoM angle >= 16 deg (nose-over rule, brakes 0.2-0.3)": {
+  "ok": true,
+  "detail": "20.7 deg (CoM 1.13 m behind the axle, 3.01 m above the contact)"
+ },
+ "h prop ground clearance tail-up > 0.5 m": {
+  "ok": true,
+  "detail": "0.96 m"
+ },
+ "d prop discs (both rows) >= 0.15 m from the fuselage": {
+  "ok": true,
+  "detail": "min clearance 0.295 m"
+ },
+ "d2 prop discs clear of every other part (wing, other props, neighbour nacelles)": {
+  "ok": true,
+  "detail": "[]"
+ },
+ "e gear_main_L: 24-step forward swing clear of every other mesh": {
+  "ok": true,
+  "detail": "overlaps at steps []"
+ },
+ "e gear_main_L: stowed wheel half exposed under the nacelle (0.25-0.55 m below the belly)": {
+  "ok": true,
+  "detail": "stowed wheel centre (-3.22, 3.0, -0.52), bottom -1.23 (belly -0.74)"
+ },
+ "e gear_main_R: 24-step forward swing clear of every other mesh": {
+  "ok": true,
+  "detail": "overlaps at steps []"
+ },
+ "e gear_main_R: stowed wheel half exposed under the nacelle (0.25-0.55 m below the belly)": {
+  "ok": true,
+  "detail": "stowed wheel centre (3.22, 3.0, -0.52), bottom -1.23 (belly -0.74)"
+ },
+ "e gear_tail: 24-step aft-up swing clear of every other mesh": {
+  "ok": true,
+  "detail": "overlaps at steps []"
+ },
+ "c winding: fal props >= 90 % and every other mesh >= 75 % front faces from outside (inside-out detector)": {
+  "ok": true,
+  "detail": "[]"
+ },
+ "b see-through: first hit is a front face (42 directions)": {
+  "ok": true,
+  "detail": "3577 hits, 3 back-face first hits; at [('ball_ring', 2), ('gear_well_R', 1)] [(-0.19, -5.05, -0.45), (2.81, 3.4, -0.71), (-0.68, -4.53, -0.38)]"
+ },
+ "a connectivity: every object within 1 cm of another": {
+  "ok": true,
+  "detail": "170 objects; far: []"
+ },
+ "a2 no floating island inside any object": {
+  "ok": true,
+  "detail": "[]"
+ },
+ "g bay: every stock store of the three bay arrangements fits the 5.7 m bay (walls +-0.89, bulkheads, roof 0.75, not below the belly line)": {
+  "ok": true,
+  "detail": "19 stores; []"
+ },
+ "g2 side bays: 2 x MMR-S3 inside each side bay (liner wall |x| 0.46, inside the skin, inside the door outline)": {
+  "ok": true,
+  "detail": "[]"
+ },
+ "k turrets: azimuth body + elevating parts + the twin 20 mm swept over traverse x elevation (10 deg / 9 steps): no face crosses the static airframe, the cannon never crosses its own housing": {
+  "ok": true,
+  "detail": "chin: 117 poses, airframe 0 [], own housing 0 []; tail: 117 poses, airframe 0 [], own housing 0 []; top: 324 poses, airframe 0 [], own housing 0 []; ball: 324 poses, airframe 0 [], own housing 0 []"
+ },
+ "r contra-rotating rows: 6 + 6 blades, 0.50 m apart, no blade of one row meets the other at any relative angle (5 deg steps)": {
+  "ok": true,
+  "detail": "[]"
+ },
+ "s ejection paths: from each crew eye the seat column (+-0.14 m across, +-0.12 m along: the seat / headrest) rises 6 m through its own hatch and nothing else": {
+  "ok": true,
+  "detail": "pilot: clear, 5/5 lines through a hatch; copilot: clear, 5/5 lines through a hatch; wso: clear, 5/5 lines through a hatch; ewo: clear, 5/5 lines through a hatch"
+ },
+ "j screens: from each crew eye the centre of every screen of its station is the first thing hit": {
+  "ok": true,
+  "detail": "12 sight lines; []"
+ },
+ "q 1.9.5 deck inside the hull (our panel / glare shield / pedestal / consoles / floor and the stock sticks / throttle / lamps: airframe outboard and above every sampled vertex), the stock parts cross none of our parts": {
+  "ok": true,
+  "detail": "8285 vertices, outside 0 []; overlaps []"
+ },
+ "p prop blades clean: no self-intersecting triangles, no crumple (dihedral across chordwise edges on the paddle <= 25 deg), twist falls monotonically root -> tip, both rows present (counter-rotating)": {
+  "ok": true,
+  "detail": "self-crossing []; chordwise-edge dihedral p95 / max [('prop_hub_1_blade1', 4.0, 10.0), ('prop_hub_1_blade2', 4.0, 10.0)]; twist 55.2 -> 26.4 deg (monotonic True); 27 stations x 22 points"
+ },
+ "t1 1.9.5 no whole stock cockpit: the contract places only single stock parts (sfb_joystick x2, sfb_throttle x1, EW1_warningLights x2)": {
+  "ok": true,
+  "detail": "[('stick_L', 'sfb_joystick'), ('stick_R', 'sfb_joystick'), ('cockpit_throttle', 'sfb_throttle'), ('warnlamp_L', 'EW1_warningLights'), ('warnlamp_R', 'EW1_warningLights')]"
+ },
+ "t2 1.9.5 stock ejection seats (4, on the figures) cross none of our parts (deck, consoles, pedestal, stations, hatches, cabin skin)": {
+  "ok": true,
+  "detail": "[]"
+ },
+ "t3 1.9.5 sticks at full deflection (pitch / roll +-12 deg) and the throttle from idle to full (0..52 deg): no contact with our parts or the seats": {
+  "ok": true,
+  "detail": "23 poses; contacts []"
+ },
+ "t4 1.9.5 glare shield stops at the panel ends and stays under both pilots' sight line to the windscreen bottom": {
+  "ok": true,
+  "detail": "shield |x| max 0.920, panel 0.925; min gap under the sight line 16 mm at (eye x, x, y, z) (-0.38, 0.0, 4.53, 1.605)"
+ },
+ "t5 1.9.5 MFD units (screen + bezel) inside the panel face, >= 1 cm from its edges": {
+  "ok": true,
+  "detail": "[]"
+ },
+ "t6 1.9.6 panel annunciator / gear lamps seen from a pilot eye (not under the glare-shield lip, not behind a stick)": {
+  "ok": true,
+  "detail": "64/64 lamp triangles seen"
+ },
+ "u 1.9.7 faceting: no surface meant to be curved shades as separate polygons (same-material faces meeting at 4-38 deg whose corner normals differ by > 4 deg): every object <= 0.3 m of facet edges, total <= 1.0 m (1.9.6: 141.3 m; bay doors 28.7 m each, side-bay doors 11.0 m each)": {
+  "ok": true,
+  "detail": "total 0.00 m over 0 objects, worst aileron_L 0.00 m, max facet dihedral 0.0 deg"
+ },
+ "v 1.9.7 tail windows plated: no glass face in tail_gun / fus_tail (no human tail gunner), the former main side panes are outer paint skin": {
+  "ok": true,
+  "detail": "glass / paint faces {'tail_gun': (0, 1656), 'fus_tail': (0, 1412)}; outer paint faces on the former main panes 72"
+ },
+ "t7 1.9.7 throttle levers stand IN the quadrant gate from idle to full: housing top >= 12 mm above the arm foot, >= 3 mm of slot each side of the arm, slot longer than the arm travel by >= 2 deg each end, no housing-top face inside a slot, knobs >= 20 mm above the top": {
+  "ok": true,
+  "detail": "arm foot r 178 mm |x| 83-91, angles -50.5..-43.2 idle (+52 full); housing top r 219 mm, slot |x| 79-95, -55.9..14.8 deg (margin 5.4); side clearance 4 mm; knob 281 mm; top faces in a slot 0"
+ }
+}

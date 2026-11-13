@@ -1,0 +1,36 @@
+{
+    "name": "B25HTools.Editor",
+    "rootNamespace": "B25HTools",
+    "references": [
+        "Blueprinter.Editor",
+        "Unity.Addressables",
+        "Unity.ResourceManager",
+        "Unity.TextMeshPro",
+        "UnityEngine.UI",
+        "Unity.RenderPipelines.Universal.Runtime",
+        "Unity.RenderPipelines.Core.Runtime"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "Assembly-CSharp.dll",
+        "Assembly-CSharp-firstpass.dll",
+        "Mirage.dll",
+        "Mirage.Components.dll",
+        "Mirage.SocketLayer.dll",
+        "UniTask.dll",
+        "UniTask.Addressables.dll",
+        "JamesFrowen.ScriptableVariables.dll",
+        "Rewired_Core.dll",
+        "Unity.InputSystem.dll",
+        "Newtonsoft.Json.dll"
+    ],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

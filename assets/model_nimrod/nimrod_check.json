@@ -1,0 +1,138 @@
+{
+ "1.8.16 livery atlas == texture manifest (skin / liveries / damage painted on this atlas; re-bake the textures when it fails)": {
+  "ok": true,
+  "detail": "atlas 07f0f30a3e33b5ed == manifest (32 paint parts, 11 textures) nimrod_atlas_manifest.json"
+ },
+ "span within 3 % of 10.29 m": {
+  "ok": true,
+  "detail": "10.320 m"
+ },
+ "length within 3 % of 8.18 m": {
+  "ok": true,
+  "detail": "8.079 m"
+ },
+ "propeller diameter 3.2-3.4 m (2 blades)": {
+  "ok": true,
+  "detail": "3.287 m"
+ },
+ "prop tip clears the ground: level > 0.12 m, 3-point > 0.30 m": {
+  "ok": true,
+  "detail": "level 0.362 m, 3-point 0.765 m"
+ },
+ "bullet origins ahead of the prop plane (> 0.12 m) and outside the spinner": {
+  "ok": true,
+  "detail": "[[-0.165, 2.66, 0.455], [0.165, 2.66, 0.455]]"
+ },
+ "CG aft of the main axle and ahead of the tailwheel (taildragger)": {
+  "ok": true,
+  "detail": "CG y 0.322, main axle 0.85, tail -4.15"
+ },
+ "3-point angle 12-17 deg": {
+  "ok": true,
+  "detail": "14.84 deg"
+ },
+ "hook: deployed tip below the 3-point deck line, stowed tip under the fuselage and above the ground": {
+  "ok": true,
+  "detail": "deployed tip z -2.068 vs deck -1.069; stowed tip z 0.163"
+ },
+ "hook tip below the wheel-contact plane at 0 / 2 / 4 / 6 / 8 deg pitch (mm above the plane, must be < 0)": {
+  "ok": true,
+  "detail": "[-63, -186, -309, -432, -554]"
+ },
+ "hook hinge inside fus_rear (>= 0.10 m behind the split, 0.10 m inside top/bottom) and the stowed bar inside the fuselage": {
+  "ok": true,
+  "detail": "hinge (0.0, -1.68, 0.08) section [0.385, 0.509, -0.595]; stowed tip (0.0, -4.049, 0.163)"
+ },
+ "line of pull (hinge) vs CG: >= -0.25 m at 0 / 7.5 deg (wheel landing), >= -0.50 m at 15.3 deg (3-point; 1.2.1: -0.59 / -0.86 / -1.13 m nosed it over)": {
+  "ok": true,
+  "detail": "[0.103, -0.159, -0.429]"
+ },
+ "no rudder bar / pedals in the cockpit, floor closed under where they stood (35 rays)": {
+  "ok": true,
+  "detail": "{\"objects\": [], \"holes\": []}"
+ },
+ "spinner faces outward (no inside-out hub)": {
+  "ok": true,
+  "detail": "{\"faces\": 512, \"inward\": 0}"
+ },
+ "every needle vertex seen from the eye with nothing in front (no cross-frame tubes over the panel; 1.4.0: boost 13/18 hidden)": {
+  "ok": true,
+  "detail": "[]"
+ },
+ "throttle lever clear of the quadrant/cockpit over 0, 20, 40 deg": {
+  "ok": true,
+  "detail": "intersections at []"
+ },
+ "pilot legs (stock COIN figure pose) clear of every cabin part": {
+  "ok": true,
+  "detail": "[]"
+ },
+ "no floating cabin part (every mesh island within 4 mm of another part)": {
+  "ok": true,
+  "detail": "{\"islands\": 2259, \"n\": 0, \"floating\": []}"
+ },
+ "zero z-fight pairs in the cockpit (coplanar overlapping faces < 0.3 mm apart, between objects AND between islands of one object; 1.2.3 had 141 in cockpit_panel / cockpit_floor)": {
+  "ok": true,
+  "detail": "[]"
+ },
+ "cockpit triangle budget (< 26k tris, welded; 1.2.3: 25k)": {
+  "ok": true,
+  "detail": "30 objects, tris 24209, verts 14344"
+ },
+ "throttle lever in its quadrant slot (clearance 0.5-6 mm at 0 / 20 / 40 deg)": {
+  "ok": true,
+  "detail": "min gap mm [2.0, 2.0, 2.0]"
+ },
+ "closed cockpit from the eye: every downward ray (elev -15..-85) meets a front face (no ground through the floor)": {
+  "ok": true,
+  "detail": "{\"rays\": 900, \"holes\": 0, \"first\": []}"
+ },
+ "view centre clear: no cockpit part within +-2 deg of the eye line (Aldis offset right)": {
+  "ok": true,
+  "detail": "[]"
+ },
+ "Aldis clear of the HUD text blocks (right az 7..20 / el -5..5, left az -18..-8 / el -6..5 deg from the eye)": {
+  "ok": true,
+  "detail": "0 rays hit []"
+ },
+ "nothing inside the 0.2 m camera near plane ahead of the eye (CameraCockpitState nearClipPlane 0.2)": {
+  "ok": true,
+  "detail": "0 verts []; nearest behind the head: cockpit_coaming 0.115 m (only seen when looking back)"
+ },
+ "vertex/triangle budget (1.4.0: + hook A-frame, radiator slats, oil cooler, sights, skid): welded verts < 48k, tris < 75k (B-25H: 117k tris)": {
+  "ok": true,
+  "detail": "verts 46662, tris 74812"
+ },
+ "functional geometry as 1.2.3: part mesh bounds within 25 mm (colliders, CoM, lift points), wheel vertical extent (= radius) within 1.5 mm, pivots within 1 mm": {
+  "ok": true,
+  "detail": "{\"worst_bounds\": [0.007, \"fus_engine\"], \"deviations\": [], \"documented_axis_changes_deg\": {\"aileron_L\": 1.74, \"aileron_R\": 1.74, \"elevator_L\": 2.14, \"elevator_R\": 2.14}, \"documented_140\": {\"stab_L\": 0.198, \"stab_R\": 0.198, \"elevator_L\": 0.32, \"elevator_R\": 0.32, \"fin\": 0.175, \"rudder\": 0.119, \"gear_main_L_wheel (1.5.5 axle +0.15)\": 0.007, \"gear_main_R_wheel (1.5.5 axle +0.15)\": 0.007, \"gear_tail_wheel\": \"no mesh (1.4.0: skid contact frame; radius from the contract)\", \"elevator_L pivot\": 0.385, \"elevator_R pivot\": 0.385, \"flash_gun_L pivot\": 0.61, \"flash_gun_R pivot\": 0.61}}"
+ },
+ "connectivity: all 53 strut / cabane / wire / gear-leg / stab-strut ends within 10 mm of (or inside) their target surface": {
+  "ok": true,
+  "detail": "{\"ends\": 53, \"bad\": []}"
+ },
+ "joints: lower-wing and stabiliser root fillets on the fuselage skin (<= 10 mm), fillet = part root section (<= 2 mm), fin root embedded, hook hinge inside": {
+  "ok": true,
+  "detail": "[]"
+ },
+ "no floating exterior parts: every mesh island of every exterior object within 10 mm of another island / object": {
+  "ok": true,
+  "detail": "{\"islands\": 2210, \"floating\": []}"
+ },
+ "see-through (backface culling ON): zero holes from 42 directions and from inside every break, for every part as it falls away": {
+  "ok": true,
+  "detail": "{\"fus_center\": 55392, \"fus_engine\": 55152, \"fus_rear\": 55392, \"wing_upper_C\": 55392, \"wing_upper_L\": 54912, \"wing_upper_R\": 54912, \"wing_lower_L\": 54432, \"wing_lower_R\": 54432, \"aileron_L\": 54432, \"aileron_R\": 54432, \"stab_L\": 54432, \"stab_R\": 54432, \"elevator_L\": 54432, \"elevator_R\": 54432, \"fin\": 54432, \"rudder\": 54432}"
+ },
+ "control surfaces clear their parent over the full deflection range (aileron 18 / elevator 26 / rudder 25 deg): no intersecting triangles": {
+  "ok": true,
+  "detail": "{\"intersecting_tri_pairs\": {\"aileron_L\": 0, \"aileron_R\": 0, \"elevator_L\": 0, \"elevator_R\": 0, \"rudder\": 0}, \"min_gap_mm\": {\"aileron_L\": 6.0, \"aileron_R\": 6.0, \"elevator_L\": 5.0, \"elevator_R\": 5.0, \"rudder\": 6.6}}"
+ },
+ "1.8.3 no cockpit part pokes through the skin or sits < 1 mm under it (the dark specks on the side skin)": {
+  "ok": true,
+  "detail": "{}"
+ },
+ "1.8.3 internals: Kestrel body + fuel tank in fus_engine_struct (structure material, stock aircraft_structure in Unity), every vertex inside the cowl skin": {
+  "ok": true,
+  "detail": "{\"structure_faces\": 1216, \"outside\": []}"
+ }
+}

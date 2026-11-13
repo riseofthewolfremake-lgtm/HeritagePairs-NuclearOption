@@ -1,0 +1,50 @@
+{
+ "tiles": [
+  "ck_alu",
+  "ck_brass",
+  "ck_canvas",
+  "ck_crinkle",
+  "ck_floor",
+  "ck_leather",
+  "ck_lining",
+  "ck_paint",
+  "ck_red",
+  "ck_rubber",
+  "ck_tube",
+  "ck_wood"
+ ],
+ "tile_scale": {
+  "ck_paint": 4.0,
+  "ck_crinkle": 8.0,
+  "ck_brass": 8.0,
+  "ck_leather": 6.0,
+  "ck_wood": 4.0,
+  "ck_floor": 4.0,
+  "ck_alu": 4.0,
+  "ck_tube": 8.0,
+  "ck_canvas": 10.0,
+  "ck_red": 6.0,
+  "ck_lining": 4.0,
+  "ck_rubber": 8.0
+ },
+ "gauge_cells": 24,
+ "ckart_regions": [
+  "ammo",
+  "breech",
+  "cockplate",
+  "dataplate",
+  "devcard",
+  "lower",
+  "magneto",
+  "oxyface",
+  "quadrant",
+  "ratecard",
+  "seat",
+  "serial",
+  "stencil",
+  "trimcard",
+  "upper",
+  "wallcard1",
+  "wallcard2"
+ ]
+}

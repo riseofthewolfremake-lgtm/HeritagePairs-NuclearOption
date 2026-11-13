@@ -1,0 +1,190 @@
+{
+ "1.8.16 livery atlas == texture manifest (skin / liveries / damage painted on this atlas; re-bake the textures when it fails)": {
+  "ok": true,
+  "detail": "atlas 2c5ae5be331d3da7 == manifest (45 paint parts, 17 textures) b17g_atlas_manifest.json"
+ },
+ "o compass (DG) card: texture u grows toward the pilot right as on the dial faces (1.7.x mirrored)": {
+  "ok": true,
+  "detail": "corr(u, right) +0.1300 (u grows to the pilot right)"
+ },
+ "p tail gunner window: glass in the end opening above the gun cover (>= 0.06 m2), reaching the gunner eye height z 1.25 within 0.1 m": {
+  "ok": true,
+  "detail": "glass 0.415 m2, z 1.11..1.62"
+ },
+ "q1 well: the stowed tyre protrudes only through the opening (every tyre vertex below the belly inside the outline)": {
+  "ok": true,
+  "detail": "502 tyre vertices below the belly, 0 outside the opening []"
+ },
+ "q2 turbos: inner at y 0.05, outer at y 1.60 (reference); IR source at each turbine exhaust": {
+  "ok": true,
+  "detail": "1: IR y 1.19 x -6.57; 2: IR y -0.36 x -3.10; 3: IR y -0.36 x 3.10; 4: IR y 1.19 x 6.57"
+ },
+ "q3 leading-edge intakes: 12 openings cut through both skins (no skin face left in a mouth)": {
+  "ok": true,
+  "detail": "0 faces left in the mouths"
+ },
+ "q4 collider sources: 8 (engine_n_hullsrc = 1.8.2 turbo, nacelle_n_hullsrc = 1.8.7 nacelle), each a child of its part, no paint (not in the livery atlas)": {
+  "ok": true,
+  "detail": "engine_1_hullsrc<-engine_1, engine_2_hullsrc<-engine_2, engine_3_hullsrc<-engine_3, engine_4_hullsrc<-engine_4, nacelle_1_hullsrc<-nacelle_1, nacelle_2_hullsrc<-nacelle_2, nacelle_3_hullsrc<-nacelle_3, nacelle_4_hullsrc<-nacelle_4"
+ },
+ "m z-fighting: no same-facing coplanar overlapping triangles (whole aircraft, within 0.8 mm / 2 deg)": {
+  "ok": true,
+  "detail": "0 pairs: [] e.g. []"
+ },
+ "n flaps at 0 / 14 / 28 deg down clear of the nacelles and every other part (wing coves excepted)": {
+  "ok": true,
+  "detail": "flap_inner_L@0: 0 (TE z -0.33); flap_inner_R@0: 0 (TE z -0.33); flap_outer_L@0: 0 (TE z 0.01); flap_outer_R@0: 0 (TE z 0.01); flap_inner_L@14: 0 (TE z -0.57); flap_inner_R@14: 0 (TE z -0.57); flap_outer_L@14: 0 (TE z -0.21); flap_outer_R@14: 0 (TE z -0.21); flap_inner_L@28: 0 (TE z -0.88); flap_inner_R@28: 0 (TE z -0.88); flap_outer_L@28: 0 (TE z -0.48); flap_outer_R@28: 0 (TE z -0.48)"
+ },
+ "j gauges seen from the pilot eye: nothing but the yokes hides a gauge centre": {
+  "ok": true,
+  "detail": "23 gauges; hidden by the yokes at neutral: 0 []; by other parts: []"
+ },
+ "j needles: every needle tip is the first thing hit (or behind a yoke) from the eye (Nimrod lesson)": {
+  "ok": true,
+  "detail": "[]"
+ },
+ "j throttle levers: grips above the quadrant and short of the panel at idle and full": {
+  "ok": true,
+  "detail": "[]"
+ },
+ "k turret bodies: swept through traverse x elevation, no face crosses the static airframe": {
+  "ok": true,
+  "detail": "top: 24 poses, 0 touching []; chin: 5 poses, 0 touching []; ball: 72 poses, 0 touching []; tail: 15 poses, 0 touching []"
+ },
+ "b2 no interior / structure face seen from outside (glass counts as a surface; turret rings, radio hatch, cowls, wells, control-surface coves excepted; <= 1 of ~2700 rays)": {
+  "ok": true,
+  "detail": "2694 hits, 1 interior first hits: [('nacelle_1', 1)] at [('nacelle_1', (-7.05, 2.94, -0.33))]"
+ },
+ "n17 nose cone: no skin on the glazing (1.8.16 tongue ~45 %); paint share of the front hits on the cone <= 6 % (optical-flat frame)": {
+  "ok": true,
+  "detail": "456 / 15104 = 3.0 %"
+ },
+ "n17 nose cone follows the spec rows (centreline top / bottom, half width at its centre; <= 1.5 cm incl. the optical-flat frame)": {
+  "ok": true,
+  "detail": "[(6.75, 0.0), (6.95, 0.0), (7.15, 0.0), (7.3, 0.0), (7.4, 0.0)]"
+ },
+ "n17 nose windows glazed at their centres (navigator x3, right forward, top window, astrodome, both K-5 side panes)": {
+  "ok": true,
+  "detail": "[]"
+ },
+ "n17 K-5 sockets open on the rest aim (nothing between 2 m out and the cheek pivot, the gun hole is at the pivot)": {
+  "ok": true,
+  "detail": "[('cheek_R', None), ('cheek_L', None)]"
+ },
+ "n17 chin opening: no fixed skin inside r 0.49 under the race (the drum turns clear)": {
+  "ok": true,
+  "detail": "0 hits []"
+ },
+ "n17 nose skin closed: rays +-x and down from every inside point (y 4.55-6.55, z 0.2-1.1, 5 cm grid, >= 6 cm from the skin) hit a FRONT face first, + 7,200 rays at the K-5 seams (Unity crew-in-hull rule: PhysX any-hit rays skip back faces)": {
+  "ok": true,
+  "detail": "11087 points, 0 misses []"
+ },
+ "n18 astrodome inner frame ring continuous from inside: 2,163 rays up at r 0.185 / 0.200 / 0.215 meet its bottom 20-32 mm under the skin (or a frame / stringer end under it), depth step < 0.5 mm (1.8.17: chord blocks with wedge gaps and 1.5 mm steps)": {
+  "ok": true,
+  "detail": "0 gaps [], 14 on bar ends, max depth step 0.03 mm"
+ },
+ "n18 no open frame / stringer end round the astrodome: 2,160 horizontal rays from its axis 35-65 mm under the skin meet a FRONT face first": {
+  "ok": true,
+  "detail": "1943 hits, 0 back faces first []"
+ },
+ "i triangle budget total": {
+  "ok": true,
+  "detail": "214439 <= 215000"
+ },
+ "g bay: every stock store fits (walls, bulkheads, roof, above the catwalk)": {
+  "ok": true,
+  "detail": "[]"
+ },
+ "h stance: 3-point angle 8-12 deg": {
+  "ok": true,
+  "detail": "8.5 deg (main contact z -2.61 y 1.85, tail z -0.85 y -9.95)"
+ },
+ "h stance: tail-up CoM angle >= 16 deg (nose-over rule, brakes 0.2-0.3)": {
+  "ok": true,
+  "detail": "20.7 deg (CoM 1.13 m behind the axle, 3.01 m above the contact)"
+ },
+ "h prop ground clearance tail-up > 0.5 m": {
+  "ok": true,
+  "detail": "0.90 m"
+ },
+ "d prop discs >= 0.15 m from the fuselage": {
+  "ok": true,
+  "detail": "min clearance 0.205 m"
+ },
+ "d2 prop discs clear of every other part (wing, other props, nacelles of the neighbour)": {
+  "ok": true,
+  "detail": "[]"
+ },
+ "e gear_main_L: 24-step forward swing clear of every other mesh": {
+  "ok": true,
+  "detail": "overlaps at steps []"
+ },
+ "e gear_main_L: stowed wheel half exposed under the nacelle (0.25-0.55 m below the belly)": {
+  "ok": true,
+  "detail": "stowed wheel centre (-3.22, 3.0, -0.52), bottom -1.23 (belly -0.74)"
+ },
+ "e gear_main_R: 24-step forward swing clear of every other mesh": {
+  "ok": true,
+  "detail": "overlaps at steps []"
+ },
+ "e gear_main_R: stowed wheel half exposed under the nacelle (0.25-0.55 m below the belly)": {
+  "ok": true,
+  "detail": "stowed wheel centre (3.22, 3.0, -0.52), bottom -1.23 (belly -0.74)"
+ },
+ "e gear_tail: 24-step aft-up swing clear of every other mesh": {
+  "ok": true,
+  "detail": "overlaps at steps []"
+ },
+ "f turret chin: <= 6 % of its envelope blocked by own structure (blocked directions -> exclusion FiringCones)": {
+  "ok": true,
+  "detail": "0/350 blocked (0.0 %): []"
+ },
+ "f turret top: <= 6 % of its envelope blocked by own structure (blocked directions -> exclusion FiringCones)": {
+  "ok": true,
+  "detail": "6/1314 blocked (0.5 %): [(-180, 0), (-180, 5), (-180, 10), (180, 0), (180, 5), (180, 10)]"
+ },
+ "f turret ball: <= 6 % of its envelope blocked by own structure (blocked directions -> exclusion FiringCones)": {
+  "ok": true,
+  "detail": "9/1387 blocked (0.6 %): [(-35, 0), (-30, 0), (-25, 0), (-20, 0), (-15, 0), (0, 0)]"
+ },
+ "f turret tail: <= 6 % of its envelope blocked by own structure (blocked directions -> exclusion FiringCones)": {
+  "ok": true,
+  "detail": "0/169 blocked (0.0 %): []"
+ },
+ "f turret cheek_R: <= 6 % of its envelope blocked by own structure (blocked directions -> exclusion FiringCones)": {
+  "ok": true,
+  "detail": "0/81 blocked (0.0 %): []"
+ },
+ "f turret cheek_L: <= 6 % of its envelope blocked by own structure (blocked directions -> exclusion FiringCones)": {
+  "ok": true,
+  "detail": "0/81 blocked (0.0 %): []"
+ },
+ "f turret waist_R: <= 6 % of its envelope blocked by own structure (blocked directions -> exclusion FiringCones)": {
+  "ok": true,
+  "detail": "23/437 blocked (5.3 %): [(-55, -15), (-55, -10), (-55, -5), (-55, 0), (-50, -15), (-50, -10)]"
+ },
+ "f turret waist_L: <= 6 % of its envelope blocked by own structure (blocked directions -> exclusion FiringCones)": {
+  "ok": true,
+  "detail": "12/437 blocked (2.7 %): [(-55, 5), (25, 0), (30, 0), (35, 0), (40, -5), (40, 0)]"
+ },
+ "f turret radio: <= 6 % of its envelope blocked by own structure (blocked directions -> exclusion FiringCones)": {
+  "ok": true,
+  "detail": "0/143 blocked (0.0 %): []"
+ },
+ "c winding: fal props >= 90 % and every other mesh >= 75 % front faces from outside (inside-out detector)": {
+  "ok": true,
+  "detail": "[]"
+ },
+ "b see-through: first hit is a front face (42 directions)": {
+  "ok": true,
+  "detail": "3608 hits, 3 back-face first hits; at [('ball_ring', 2), ('fus_waist', 1)] [(-0.48, -3.41, -0.57), (-0.89, -4.12, -0.21), (-0.37, -3.3, 1.71)]"
+ },
+ "a connectivity: every object within 1 cm of another": {
+  "ok": true,
+  "detail": "135 objects; far: []"
+ },
+ "a2 no floating island inside any object": {
+  "ok": true,
+  "detail": "[]"
+ }
+}

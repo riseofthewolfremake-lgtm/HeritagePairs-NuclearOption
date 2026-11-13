@@ -1,0 +1,470 @@
+{
+ "options": {
+  "root": [
+   "AGM_heavy_single",
+   "AGM1_triple",
+   "Rocket2_4Podx3",
+   "Rocket2_4Pod",
+   "AAM1_single",
+   "bomb_250_glide_single"
+  ],
+  "inner": [
+   "AGM_heavy_single",
+   "AGM1_triple",
+   "Rocket2_4Podx3",
+   "bomb_250_glide_single"
+  ],
+  "mid": [
+   "AGM_heavy_single",
+   "Rocket2_4Pod",
+   "AAM1_single",
+   "bomb_250_glide_single"
+  ],
+  "outer": [
+   "AGM1_triple",
+   "Rocket2_4Pod",
+   "AAM1_single"
+  ]
+ },
+ "mounts": {
+  "AGM_heavy_single": {
+   "label": "AGM-68",
+   "min": [
+    -0.247,
+    -0.556,
+    -1.16
+   ],
+   "max": [
+    0.247,
+    0.021,
+    1.311
+   ]
+  },
+  "AGM1_triple": {
+   "label": "AGM-48 x3",
+   "min": [
+    -0.391,
+    -0.541,
+    -0.775
+   ],
+   "max": [
+    0.391,
+    0.002,
+    1.146
+   ]
+  },
+  "Rocket2_4Podx3": {
+   "label": "AGR-24 x12",
+   "min": [
+    -0.415,
+    -0.561,
+    -1.091
+   ],
+   "max": [
+    0.415,
+    0.052,
+    1.088
+   ]
+  },
+  "Rocket2_4Pod": {
+   "label": "AGR-24 x4",
+   "min": [
+    -0.195,
+    -0.491,
+    -1.091
+   ],
+   "max": [
+    0.195,
+    0.052,
+    1.088
+   ]
+  },
+  "AAM1_single": {
+   "label": "MMR-S3",
+   "min": [
+    -0.176,
+    -0.387,
+    -1.233
+   ],
+   "max": [
+    0.176,
+    0.035,
+    1.638
+   ]
+  },
+  "bomb_250_glide_single": {
+   "label": "PAB-250LR",
+   "min": [
+    -0.142,
+    -0.453,
+    -1.212
+   ],
+   "max": [
+    0.142,
+    0.046,
+    1.054
+   ]
+  }
+ },
+ "pylons": {
+  "hp_root_L": [
+   -1.55,
+   0.2,
+   -0.005
+  ],
+  "hp_inner_L": [
+   -4.1,
+   0.157,
+   0.173
+  ],
+  "hp_mid_L": [
+   -4.95,
+   0.144,
+   0.202
+  ],
+  "hp_outer_L": [
+   -5.8,
+   0.13,
+   0.229
+  ],
+  "hp_root_R": [
+   1.55,
+   0.2,
+   -0.005
+  ],
+  "hp_inner_R": [
+   4.1,
+   0.157,
+   0.173
+  ],
+  "hp_mid_R": [
+   4.95,
+   0.144,
+   0.202
+  ],
+  "hp_outer_R": [
+   5.8,
+   0.13,
+   0.229
+  ]
+ },
+ "clashes": [],
+ "pairs": [
+  {
+   "pair": "root-inner",
+   "a": "AGM_heavy_single",
+   "b": "AGM_heavy_single",
+   "lateral_gap_m": 2.056
+  },
+  {
+   "pair": "root-inner",
+   "a": "AGM_heavy_single",
+   "b": "AGM1_triple",
+   "lateral_gap_m": 1.912
+  },
+  {
+   "pair": "root-inner",
+   "a": "AGM_heavy_single",
+   "b": "Rocket2_4Podx3",
+   "lateral_gap_m": 1.888
+  },
+  {
+   "pair": "root-inner",
+   "a": "AGM_heavy_single",
+   "b": "bomb_250_glide_single",
+   "lateral_gap_m": 2.161
+  },
+  {
+   "pair": "root-inner",
+   "a": "AGM1_triple",
+   "b": "AGM_heavy_single",
+   "lateral_gap_m": 1.912
+  },
+  {
+   "pair": "root-inner",
+   "a": "AGM1_triple",
+   "b": "AGM1_triple",
+   "lateral_gap_m": 1.768
+  },
+  {
+   "pair": "root-inner",
+   "a": "AGM1_triple",
+   "b": "Rocket2_4Podx3",
+   "lateral_gap_m": 1.744
+  },
+  {
+   "pair": "root-inner",
+   "a": "AGM1_triple",
+   "b": "bomb_250_glide_single",
+   "lateral_gap_m": 2.017
+  },
+  {
+   "pair": "root-inner",
+   "a": "Rocket2_4Podx3",
+   "b": "AGM_heavy_single",
+   "lateral_gap_m": 1.888
+  },
+  {
+   "pair": "root-inner",
+   "a": "Rocket2_4Podx3",
+   "b": "AGM1_triple",
+   "lateral_gap_m": 1.744
+  },
+  {
+   "pair": "root-inner",
+   "a": "Rocket2_4Podx3",
+   "b": "Rocket2_4Podx3",
+   "lateral_gap_m": 1.72
+  },
+  {
+   "pair": "root-inner",
+   "a": "Rocket2_4Podx3",
+   "b": "bomb_250_glide_single",
+   "lateral_gap_m": 1.993
+  },
+  {
+   "pair": "root-inner",
+   "a": "Rocket2_4Pod",
+   "b": "AGM_heavy_single",
+   "lateral_gap_m": 2.108
+  },
+  {
+   "pair": "root-inner",
+   "a": "Rocket2_4Pod",
+   "b": "AGM1_triple",
+   "lateral_gap_m": 1.964
+  },
+  {
+   "pair": "root-inner",
+   "a": "Rocket2_4Pod",
+   "b": "Rocket2_4Podx3",
+   "lateral_gap_m": 1.94
+  },
+  {
+   "pair": "root-inner",
+   "a": "Rocket2_4Pod",
+   "b": "bomb_250_glide_single",
+   "lateral_gap_m": 2.213
+  },
+  {
+   "pair": "root-inner",
+   "a": "AAM1_single",
+   "b": "AGM_heavy_single",
+   "lateral_gap_m": 2.127
+  },
+  {
+   "pair": "root-inner",
+   "a": "AAM1_single",
+   "b": "AGM1_triple",
+   "lateral_gap_m": 1.983
+  },
+  {
+   "pair": "root-inner",
+   "a": "AAM1_single",
+   "b": "Rocket2_4Podx3",
+   "lateral_gap_m": 1.959
+  },
+  {
+   "pair": "root-inner",
+   "a": "AAM1_single",
+   "b": "bomb_250_glide_single",
+   "lateral_gap_m": 2.232
+  },
+  {
+   "pair": "root-inner",
+   "a": "bomb_250_glide_single",
+   "b": "AGM_heavy_single",
+   "lateral_gap_m": 2.161
+  },
+  {
+   "pair": "root-inner",
+   "a": "bomb_250_glide_single",
+   "b": "AGM1_triple",
+   "lateral_gap_m": 2.017
+  },
+  {
+   "pair": "root-inner",
+   "a": "bomb_250_glide_single",
+   "b": "Rocket2_4Podx3",
+   "lateral_gap_m": 1.993
+  },
+  {
+   "pair": "root-inner",
+   "a": "bomb_250_glide_single",
+   "b": "bomb_250_glide_single",
+   "lateral_gap_m": 2.266
+  },
+  {
+   "pair": "inner-mid",
+   "a": "AGM_heavy_single",
+   "b": "AGM_heavy_single",
+   "lateral_gap_m": 0.356
+  },
+  {
+   "pair": "inner-mid",
+   "a": "AGM_heavy_single",
+   "b": "Rocket2_4Pod",
+   "lateral_gap_m": 0.408
+  },
+  {
+   "pair": "inner-mid",
+   "a": "AGM_heavy_single",
+   "b": "AAM1_single",
+   "lateral_gap_m": 0.427
+  },
+  {
+   "pair": "inner-mid",
+   "a": "AGM_heavy_single",
+   "b": "bomb_250_glide_single",
+   "lateral_gap_m": 0.461
+  },
+  {
+   "pair": "inner-mid",
+   "a": "AGM1_triple",
+   "b": "AGM_heavy_single",
+   "lateral_gap_m": 0.212
+  },
+  {
+   "pair": "inner-mid",
+   "a": "AGM1_triple",
+   "b": "Rocket2_4Pod",
+   "lateral_gap_m": 0.264
+  },
+  {
+   "pair": "inner-mid",
+   "a": "AGM1_triple",
+   "b": "AAM1_single",
+   "lateral_gap_m": 0.283
+  },
+  {
+   "pair": "inner-mid",
+   "a": "AGM1_triple",
+   "b": "bomb_250_glide_single",
+   "lateral_gap_m": 0.317
+  },
+  {
+   "pair": "inner-mid",
+   "a": "Rocket2_4Podx3",
+   "b": "AGM_heavy_single",
+   "lateral_gap_m": 0.188
+  },
+  {
+   "pair": "inner-mid",
+   "a": "Rocket2_4Podx3",
+   "b": "Rocket2_4Pod",
+   "lateral_gap_m": 0.24
+  },
+  {
+   "pair": "inner-mid",
+   "a": "Rocket2_4Podx3",
+   "b": "AAM1_single",
+   "lateral_gap_m": 0.259
+  },
+  {
+   "pair": "inner-mid",
+   "a": "Rocket2_4Podx3",
+   "b": "bomb_250_glide_single",
+   "lateral_gap_m": 0.293
+  },
+  {
+   "pair": "inner-mid",
+   "a": "bomb_250_glide_single",
+   "b": "AGM_heavy_single",
+   "lateral_gap_m": 0.461
+  },
+  {
+   "pair": "inner-mid",
+   "a": "bomb_250_glide_single",
+   "b": "Rocket2_4Pod",
+   "lateral_gap_m": 0.513
+  },
+  {
+   "pair": "inner-mid",
+   "a": "bomb_250_glide_single",
+   "b": "AAM1_single",
+   "lateral_gap_m": 0.532
+  },
+  {
+   "pair": "inner-mid",
+   "a": "bomb_250_glide_single",
+   "b": "bomb_250_glide_single",
+   "lateral_gap_m": 0.566
+  },
+  {
+   "pair": "mid-outer",
+   "a": "AGM_heavy_single",
+   "b": "AGM1_triple",
+   "lateral_gap_m": 0.212
+  },
+  {
+   "pair": "mid-outer",
+   "a": "AGM_heavy_single",
+   "b": "Rocket2_4Pod",
+   "lateral_gap_m": 0.408
+  },
+  {
+   "pair": "mid-outer",
+   "a": "AGM_heavy_single",
+   "b": "AAM1_single",
+   "lateral_gap_m": 0.427
+  },
+  {
+   "pair": "mid-outer",
+   "a": "Rocket2_4Pod",
+   "b": "AGM1_triple",
+   "lateral_gap_m": 0.264
+  },
+  {
+   "pair": "mid-outer",
+   "a": "Rocket2_4Pod",
+   "b": "Rocket2_4Pod",
+   "lateral_gap_m": 0.46
+  },
+  {
+   "pair": "mid-outer",
+   "a": "Rocket2_4Pod",
+   "b": "AAM1_single",
+   "lateral_gap_m": 0.479
+  },
+  {
+   "pair": "mid-outer",
+   "a": "AAM1_single",
+   "b": "AGM1_triple",
+   "lateral_gap_m": 0.283
+  },
+  {
+   "pair": "mid-outer",
+   "a": "AAM1_single",
+   "b": "Rocket2_4Pod",
+   "lateral_gap_m": 0.479
+  },
+  {
+   "pair": "mid-outer",
+   "a": "AAM1_single",
+   "b": "AAM1_single",
+   "lateral_gap_m": 0.498
+  },
+  {
+   "pair": "mid-outer",
+   "a": "bomb_250_glide_single",
+   "b": "AGM1_triple",
+   "lateral_gap_m": 0.317
+  },
+  {
+   "pair": "mid-outer",
+   "a": "bomb_250_glide_single",
+   "b": "Rocket2_4Pod",
+   "lateral_gap_m": 0.513
+  },
+  {
+   "pair": "mid-outer",
+   "a": "bomb_250_glide_single",
+   "b": "AAM1_single",
+   "lateral_gap_m": 0.532
+  }
+ ],
+ "ok": true,
+ "selftest_detects_overlap": true,
+ "min_neighbour_gap_m": 0.188,
+ "obstacles_checked": 92
+}
