@@ -8,6 +8,24 @@ Unity coordinates: x right, y up, z forward (nose). Pivot = object origin in mod
 | MSB17_root | None | (0.0, 0.0, 0.0) | identity | 0 | kind=root_at_cg |
 | aileron_L | wing_outer_L | (-11.8451, 0.3575, -2.1353) | (0.9965, -0.0736, -0.0396) / (0.0735, 0.9973, -0.0029) / (0.0397, 0.0, 0.9992) | 344 | kind=control; hinge_axis=[-0.9965028762817383, 0.039593905210494995, 0.07358163595199585]; hinge_axis_unity=(-0.9965, 0.0736, 0.0396) |
 | aileron_R | wing_outer_R | (11.8449, 0.3575, -2.1353) | (0.9965, 0.0736, 0.0396) / (-0.0735, 0.9973, -0.0029) / (-0.0397, 0.0, 0.9992) | 344 | kind=control; hinge_axis=[0.9965028762817383, 0.039593905210494995, 0.07358163595199585]; hinge_axis_unity=(0.9965, 0.0736, 0.0396) |
+| airbrake_in_L | airbrake_in_L_hinge | (-2.0496, 0.136, -1.2584) | (0.999, -0.0421, 0.017) / (0.0446, 0.98, -0.1941) / (-0.0085, 0.1947, 0.9808) | 284 | kind=airbrake_panel; part=wing_inner_L |
+| airbrake_in_L_bed | wing_inner_L | (-0.0001, -0.3971, -0.7153) | identity | 716 | kind=airbrake_bed; part=wing_inner_L |
+| airbrake_in_L_hinge | wing_inner_L | (-2.0496, 0.136, -1.2584) | (0.999, -0.0421, 0.017) / (0.0446, 0.98, -0.1941) / (-0.0085, 0.1947, 0.9808) | 0 | kind=airbrake_hinge; open_deg=55.0; hinge_axis=[0.998968243598938, 0.01703515648841858, -0.04209780693054199]; hinge_axis_unity=(0.999, -0.0421, 0.017); open_unity=rotate -55.0 deg (Unity AngleAxis) about (0.999, -0.0421, 0.017) (parent space) from the CLOSED pose |
+| airbrake_in_R | airbrake_in_R_hinge | (2.0493, 0.136, -1.2584) | (0.999, 0.0421, -0.017) / (-0.0446, 0.98, -0.1941) / (0.0085, 0.1947, 0.9808) | 284 | kind=airbrake_panel; part=wing_inner_R |
+| airbrake_in_R_bed | wing_inner_R | (-0.0001, -0.3971, -0.7153) | identity | 716 | kind=airbrake_bed; part=wing_inner_R |
+| airbrake_in_R_hinge | wing_inner_R | (2.0493, 0.136, -1.2584) | (0.999, 0.0421, -0.017) / (-0.0446, 0.98, -0.1941) / (0.0085, 0.1947, 0.9808) | 0 | kind=airbrake_hinge; open_deg=55.0; hinge_axis=[0.998968243598938, -0.01703515648841858, 0.04209780693054199]; hinge_axis_unity=(0.999, 0.0421, -0.017); open_unity=rotate -55.0 deg (Unity AngleAxis) about (0.999, 0.0421, -0.017) (parent space) from the CLOSED pose |
+| airbrake_mid_L | airbrake_mid_L_hinge | (-5.9246, 0.3081, -1.3148) | (0.9988, -0.0471, 0.0106) / (0.0483, 0.984, -0.1716) / (-0.0024, 0.1719, 0.9851) | 398 | kind=airbrake_panel; part=wing_mid_L |
+| airbrake_mid_L_bed | wing_mid_L | (-0.0001, -0.3971, -0.7153) | identity | 816 | kind=airbrake_bed; part=wing_mid_L |
+| airbrake_mid_L_hinge | wing_mid_L | (-5.9246, 0.3081, -1.3148) | (0.9988, -0.0471, 0.0106) / (0.0483, 0.984, -0.1716) / (-0.0024, 0.1719, 0.9851) | 0 | kind=airbrake_hinge; open_deg=55.0; hinge_axis=[0.9988322854042053, 0.010624104179441929, -0.04712942615151405]; hinge_axis_unity=(0.9988, -0.0471, 0.0106); open_unity=rotate -55.0 deg (Unity AngleAxis) about (0.9988, -0.0471, 0.0106) (parent space) from the CLOSED pose |
+| airbrake_mid_R | airbrake_mid_R_hinge | (5.9243, 0.3081, -1.3148) | (0.9988, 0.0471, -0.0106) / (-0.0483, 0.984, -0.1716) / (0.0024, 0.1719, 0.9851) | 390 | kind=airbrake_panel; part=wing_mid_R |
+| airbrake_mid_R_bed | wing_mid_R | (-0.0001, -0.3971, -0.7153) | identity | 816 | kind=airbrake_bed; part=wing_mid_R |
+| airbrake_mid_R_hinge | wing_mid_R | (5.9243, 0.3081, -1.3148) | (0.9988, 0.0471, -0.0106) / (-0.0483, 0.984, -0.1716) / (0.0024, 0.1719, 0.9851) | 0 | kind=airbrake_hinge; open_deg=55.0; hinge_axis=[0.9988322854042053, -0.010624104179441929, 0.04712942615151405]; hinge_axis_unity=(0.9988, 0.0471, -0.0106); open_unity=rotate -55.0 deg (Unity AngleAxis) about (0.9988, 0.0471, -0.0106) (parent space) from the CLOSED pose |
+| airbrake_out_L | airbrake_out_L_hinge | (-8.0996, 0.4115, -1.3389) | (0.9988, -0.0475, 0.0123) / (0.0488, 0.986, -0.1593) / (-0.0046, 0.1597, 0.9872) | 312 | kind=airbrake_panel; part=wing_mid_L |
+| airbrake_out_L_bed | wing_mid_L | (-0.0001, -0.3971, -0.7153) | identity | 728 | kind=airbrake_bed; part=wing_mid_L |
+| airbrake_out_L_hinge | wing_mid_L | (-8.0996, 0.4115, -1.3389) | (0.9988, -0.0475, 0.0123) / (0.0488, 0.986, -0.1593) / (-0.0046, 0.1597, 0.9872) | 0 | kind=airbrake_hinge; open_deg=55.0; hinge_axis=[0.9987971186637878, 0.01233296561986208, -0.047458063811063766]; hinge_axis_unity=(0.9988, -0.0475, 0.0123); open_unity=rotate -55.0 deg (Unity AngleAxis) about (0.9988, -0.0475, 0.0123) (parent space) from the CLOSED pose |
+| airbrake_out_R | airbrake_out_R_hinge | (8.0993, 0.4115, -1.3389) | (0.9988, 0.0475, -0.0123) / (-0.0488, 0.986, -0.1593) / (0.0046, 0.1597, 0.9872) | 312 | kind=airbrake_panel; part=wing_mid_R |
+| airbrake_out_R_bed | wing_mid_R | (-0.0001, -0.3971, -0.7153) | identity | 728 | kind=airbrake_bed; part=wing_mid_R |
+| airbrake_out_R_hinge | wing_mid_R | (8.0993, 0.4115, -1.3389) | (0.9988, 0.0475, -0.0123) / (-0.0488, 0.986, -0.1593) / (0.0046, 0.1597, 0.9872) | 0 | kind=airbrake_hinge; open_deg=55.0; hinge_axis=[0.9987971186637878, -0.01233296561986208, 0.047458063811063766]; hinge_axis_unity=(0.9988, 0.0475, -0.0123); open_unity=rotate -55.0 deg (Unity AngleAxis) about (0.9988, 0.0475, -0.0123) (parent space) from the CLOSED pose |
 | ant_belly_1 | MSB17 | (-0.0001, -0.3971, -0.7153) | identity | 12 | kind=antenna |
 | ant_top_1 | MSB17 | (-0.0001, -0.3971, -0.7153) | identity | 12 | kind=antenna |
 | ant_top_2 | fus_waist | (-0.0001, -0.3971, -0.7153) | identity | 12 | kind=antenna |
@@ -198,6 +216,14 @@ Unity coordinates: x right, y up, z forward (nose). Pivot = object origin in mod
 | side_bay_door_R | fus_waist | (1.1067, 0.4382, -7.2153) | identity | 320 | kind=bay_door; hinge_axis=[0, 1, 0]; open_deg=-100; hinge_axis_unity=(0, 0, 1); open_unity=rotate 100.0 deg (Unity AngleAxis) about (0, 0, 1) (parent space) from the CLOSED pose |
 | side_bay_liner_L | fus_waist | (-0.0001, -0.3971, -0.7153) | identity | 216 | kind=bay |
 | side_bay_liner_R | fus_waist | (-0.0001, -0.3971, -0.7153) | identity | 216 | kind=bay |
+| slimelight_aft_L | fus_waist | (-0.0001, -0.3971, -0.7153) | identity | 136 | kind=formation_light; part=fus_waist |
+| slimelight_aft_R | fus_waist | (-0.0001, -0.3971, -0.7153) | identity | 136 | kind=formation_light; part=fus_waist |
+| slimelight_fin_L | fin | (-0.0001, -0.3971, -0.7153) | identity | 112 | kind=formation_light; part=fin |
+| slimelight_fin_R | fin | (-0.0001, -0.3971, -0.7153) | identity | 112 | kind=formation_light; part=fin |
+| slimelight_fwd_L | fus_cockpit | (-0.0001, -0.3971, -0.7153) | identity | 160 | kind=formation_light; part=fus_cockpit |
+| slimelight_fwd_R | fus_cockpit | (-0.0001, -0.3971, -0.7153) | identity | 160 | kind=formation_light; part=fus_cockpit |
+| slimelight_tip_L | wing_tip_L | (-0.0001, -0.3971, -0.7153) | identity | 112 | kind=formation_light; part=wing_tip_L |
+| slimelight_tip_R | wing_tip_R | (-0.0001, -0.3971, -0.7153) | identity | 120 | kind=formation_light; part=wing_tip_R |
 | stab_L | fus_tail | (-0.0001, -0.3971, -0.7153) | identity | 1389 | kind=stab |
 | stab_R | fus_tail | (-0.0001, -0.3971, -0.7153) | identity | 1389 | kind=stab |
 | stick_L | cockpit_interior | (-0.4221, 0.1556, 3.3653) | identity | 0 | kind=stock_anchor; stock=sfb_joystick; materials=['hotas', 'SFB_cockpit'] |

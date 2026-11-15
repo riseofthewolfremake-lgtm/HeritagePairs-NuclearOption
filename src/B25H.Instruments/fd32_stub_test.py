@@ -26,7 +26,7 @@ def cf(name):
 
 
 # ---- (1) routing in the C#
-T('plugin version 1.5.1+ (1.5.3: + FD32Tac.cs; 1.6.0: + B17G.cs)', re.search(r'BepInPlugin\("b25h.instruments", "(B-25H|Heritage Pairs) Instruments", "1\.(5\.[135]|6\.0|8\.([04679]|1[0125])|9.([02789]|1[01]))"\)', plug) is not None)
+T('plugin version 1.5.1+ (1.5.3: + FD32Tac.cs; 1.6.0: + B17G.cs)', re.search(r'BepInPlugin\("b25h.instruments", "(B-25H|Heritage Pairs) Instruments", "1\.(5\.[135]|6\.0|8\.([04679]|1[0125])|9.([02789]|1[012]))"\)', plug) is not None)
 T('IsFixedGearKey is NIMROD1 only (FD32 retracts in v2)', re.search(r'IsFixedGearKey\(string k\) => k == NimrodKey;', cs) is not None
   and not re.search(r'IsFixedGearKey\(string k\) =>[^\n]*FD32Key', cs))
 T('IsFixedGear(a) = definition key through IsFixedGearKey', 'IsFixedGear(Aircraft a) => a != null && a.definition != null && IsFixedGearKey(a.definition.jsonKey)' in cs)
@@ -45,6 +45,10 @@ T('BoostJsonKey still "GA25X"; FD32 added through IsBoostKey', 'BoostJsonKey = "
   and 'IsBoostKey(string k) => k == BoostJsonKey || k == BoostJsonKeyFD32;' in plug and 'if (!IsBoostKey(ac.definition.jsonKey)) continue;' in plug)
 T('relabel texts unchanged (AFTERBURNER -> "BOOST ", AIRBRAKE -> "IDLE"), failure disables for the session',
   'f.SetValue(r, "BOOST ")' in plug and 'f.SetValue(r, "IDLE")' in plug and 'boostLabelsBroken = true' in plug)
+# 1.9.12 (HudAirbrake1912): the AIRBRAKE region keeps its name when the aircraft carries a stock Airbrake (RegisterBrakeHud1912 returns true);
+# without one (or with the config switch off) it is renamed IDLE exactly as before. The airbrake rule (on under 5 % throttle, ground and air) and the HUD laws are judged by tools/stub_tests_1912_plugin.py.
+T('1.9.12: AIRBRAKE -> "IDLE" only when the gauge is not taken over by the airbrake HUD (aircraft without an Airbrake, or switch off)',
+  re.search(r'else if \(t == "AIRBRAKE"\)\s*\{\s*if \(RegisterBrakeHud1912\(g, ac, r, f\)\) brake = true;.*\s*else \{ f\.SetValue\(r, "IDLE"\); n\+\+; \}', plug) is not None)
 
 
 # ---- (3) game-API stub
@@ -78,8 +82,8 @@ def hud_gear(a, gear): return False if (gear and fixed(a)) else gear
 T('combat HUD: FD32 with the gear down keeps the stock gear-down state (weapons safe until gear up); NIMROD1 forced up as before',
   hud_gear(Ac('FD32'), True) is True and hud_gear(Ac('NIMROD1'), True) is False and hud_gear(Ac('FD32'), False) is False)
 
-def relabel(gauge, seen):
-    """stub of BoostLabels: returns renamed count, None if skipped"""
+def relabel(gauge, seen, has_brake=False, hud_on=True):
+    """stub of BoostLabels: returns renamed count, None if skipped. 1.9.12: has_brake = the aircraft carries a stock Airbrake"""
     if gauge['id'] in seen: return None
     ac = gauge['ac']
     if ac is None or ac.definition is None: return None          # not initialised: retry next scan (not marked seen)
@@ -89,7 +93,9 @@ def relabel(gauge, seen):
     for r in gauge['regions']:
         t = r['name'].strip().upper()
         if t == 'AFTERBURNER': r['name'] = 'BOOST '; n += 1
-        elif t == 'AIRBRAKE': r['name'] = 'IDLE'; n += 1
+        elif t == 'AIRBRAKE':
+            if hud_on and has_brake: gauge['brake_hud'] = True          # 1.9.12: name kept, driven by the airbrake HUD
+            else: r['name'] = 'IDLE'; n += 1
     return n
 def gauge(k, i): return dict(id=i, ac=Ac(k) if k is not None else None, regions=[dict(name='AIRBRAKE'), dict(name='MIL'), dict(name='AFTERBURNER ')])
 seen = set()
@@ -97,5 +103,11 @@ res = {k: relabel(gauge(k, i), seen) for i, k in enumerate(('GA25X', 'FD32', 'CO
 T('relabel: GA25X 2 (unchanged), FD32 2 (new), COIN / NIMROD1 none', res == {'GA25X': 2, 'FD32': 2, 'COIN': None, 'NIMROD1': None})
 g0 = gauge(None, 9); T('relabel: uninitialised gauge skipped and retried later', relabel(g0, seen) is None and 9 not in seen)
 g0['ac'] = Ac('FD32'); T('relabel: retried gauge renamed once', relabel(g0, seen) == 2 and [r['name'] for r in g0['regions']] == ['IDLE', 'MIL', 'BOOST '])
+# 1.9.12: with an Airbrake on the aircraft the 0 region keeps the stock name; switch off or no Airbrake = the 1.9.11 result
+for k in ('GA25X', 'FD32'):
+    gb = gauge(k, 20); nb = relabel(gb, set(), has_brake=True)
+    T(f'1.9.12 relabel {k} with an Airbrake: 1 rename (BOOST), the region stays AIRBRAKE and is handed to the airbrake HUD', nb == 1 and [r['name'] for r in gb['regions']] == ['AIRBRAKE', 'MIL', 'BOOST '] and gb.get('brake_hud') is True)
+    go = gauge(k, 21); no = relabel(go, set(), has_brake=True, hud_on=False)
+    T(f'1.9.12 relabel {k} with an Airbrake, HudAirbrake1912 Off: as 1.9.11 (2 renames, IDLE)', no == 2 and [r['name'] for r in go['regions']] == ['IDLE', 'MIL', 'BOOST '] and 'brake_hud' not in go)
 print('ALL PASS' if not fails else f'{fails} FAIL')
 raise SystemExit(1 if fails else 0)

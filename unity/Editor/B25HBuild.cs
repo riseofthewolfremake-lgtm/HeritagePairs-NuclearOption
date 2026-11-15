@@ -140,6 +140,13 @@ namespace B25HTools
         // AI climbs on the lift curve; the hand-over speed rises to ~56-57 m/s (the K92 climb-outs at 53-56 m/s gave 57-65 m lows: issue 2).
         // Below the corner speed only; a player gets the GA-25X's stall stop. tools/flightmodel/ai_takeoff.py. false = 1.8.6.
         const bool StallLimiter187F = true;
+        // 1.9.12 (user: the historical aircraft get an "airbrake" effect WITHOUT airbrake parts; "whenever the throttle is below 5% the airbrakes are on, ground or sky"). The stock
+        // Airbrake component (opens while ControlInputs.throttle == 0 over 1 / openSpeed s; force = dragAmount x airDensity x V^2 against the
+        // velocity of its part's rigidbody) on the root part with an empty transforms array: drag only, nothing moves, nothing to see (the
+        // stock UFO carries it the same way; our MSB-17 since 1.9.2). No ground gate anywhere; the plugin (AirBrake1912.cs) only widens "throttle == 0" to
+        // "throttle under 5 %". 1.5 = 0.5 Cd A: 1.35 m/s2 at 90 m/s and 0.60 at 60 m/s on an 11 t aircraft at sea level. false = 1.9.11 (no component).
+        const bool InvisibleAirbrake1912 = true;
+        const float InvisibleAirbrakeDrag = 1.5f, InvisibleAirbrakeOpenSpeed = 1.0f;
 
         // ------------------------------------------------------------------ B-25H numbers (sources in docs)
         const float WingIncidence = 2.0f;   // deg, nose up, all wing panels (liftNormal tilt)
@@ -2134,6 +2141,45 @@ namespace B25HTools
             S(aircraft, "dopplerSounds", doppler);
             aircraft.maxRadius = 11f;
             aircraft.obstacleTop = 2.4f; // fin tips above the root
+            if (InvisibleAirbrake1912) AddInvisibleAirbrake(parts["B25H"], InvisibleAirbrakeDrag, InvisibleAirbrakeOpenSpeed);
+        }
+
+        // 1.9.12: the stock Airbrake on the root object, drag only (the block the MSB-17 has shipped since 1.9.2, every field set: no
+        // transforms, maxAngle 0, no sound, empty constraints array (Airbrake.Update iterates it: it must not be null), aircraft set)
+        static void AddInvisibleAirbrake(AeroPart rootPart, float drag, float openSpeed)
+        {
+            var ab = root.AddComponent<global::Airbrake>();
+            S(ab, "transforms", new Transform[0]); S(ab, "dragAmount", drag); S(ab, "maxAngle", 0f); S(ab, "openSpeed", openSpeed);
+            S(ab, "part", rootPart); S(ab, "airbrakeSound", null); S(ab, "constraints", new UnityEngine.Animations.AimConstraint[0]);
+            S(ab, "volumeMultiplier", 0f); S(ab, "aircraft", aircraft);
+            L($"1.9.12 invisible airbrake: stock Airbrake on the root, part {rootPart.name}, dragAmount {drag} (rho V^2: {drag * 1.225f * 90f * 90f / 1000f:F1} kN at 90 m/s SL), no transforms, opens at throttle 0 in {1f / openSpeed:F1} s");
+        }
+
+        // 1.9.12 check row: "" when the prefab carries exactly the airbrake the flag asks for (on: ONE Airbrake in the whole prefab, on the
+        // root object, values, part = the root part, constraints not null; off: none at all), else what is wrong
+        static string InvisibleAirbrakeProblems(GameObject inst, bool on, float drag, float openSpeed, out string detail)
+        {
+            var abs = inst.GetComponentsInChildren<global::Airbrake>(true);
+            detail = $"{abs.Length} Airbrake component(s)";
+            if (!on) return abs.Length == 0 ? "" : "flag off but an Airbrake is present";
+            if (abs.Length != 1) return "expected exactly one Airbrake";
+            var ab = abs[0]; var bad = new List<string>();
+            var tr = G(ab, "transforms") as Transform[]; var cons = G(ab, "constraints") as UnityEngine.Animations.AimConstraint[];
+            var part = G(ab, "part") as UnitPart; var rootPart = inst.GetComponent<AeroPart>();
+            var snd = G(ab, "airbrakeSound") as AudioSource; var abAc = G(ab, "aircraft") as Aircraft;
+            detail = $"on {ab.name}, part {(part != null ? part.name : "null")}, dragAmount {G(ab, "dragAmount")}, maxAngle {G(ab, "maxAngle")}, openSpeed {G(ab, "openSpeed")}, transforms {(tr == null ? "null" : tr.Length.ToString())}, constraints {(cons == null ? "null" : cons.Length.ToString())}, sound {(snd != null ? "set" : "none")}, volumeMultiplier {G(ab, "volumeMultiplier")}, aircraft {(abAc != null ? "set" : "null")}";
+            if (ab.gameObject != inst) bad.Add("not on the root object");
+            if (!ab.enabled) bad.Add("disabled");
+            if (rootPart == null || part != rootPart) bad.Add("part is not the root part");
+            if (!Mathf.Approximately((float)G(ab, "dragAmount"), drag)) bad.Add("dragAmount");
+            if (!Mathf.Approximately((float)G(ab, "openSpeed"), openSpeed) || openSpeed <= 0f) bad.Add("openSpeed");
+            if (!Mathf.Approximately((float)G(ab, "maxAngle"), 0f)) bad.Add("maxAngle");
+            if (tr == null || tr.Length != 0) bad.Add("transforms not an empty array");
+            if (cons == null) bad.Add("constraints null");
+            if (snd != null) bad.Add("sound set");
+            if (!Mathf.Approximately((float)G(ab, "volumeMultiplier"), 0f)) bad.Add("volumeMultiplier");
+            if (abAc == null || abAc != inst.GetComponent<Aircraft>()) bad.Add("aircraft is not the root Aircraft");
+            return string.Join(", ", bad);
         }
 
         static Vector3 TipPoint(AeroPart tip, float side)
@@ -3028,6 +3074,11 @@ namespace B25HTools
                         if (ba.Intersects(bb) && !jointPairs.Contains((allParts[i], allParts[j]))) unjoined.Add($"{allParts[i].name}/{allParts[j].name}");
                     }
                 R("every overlapping hull pair is jointed", unjoined.Count == 0, string.Join(",", unjoined));
+                {   // 1.9.12: invisible airbrake (flag off = no Airbrake anywhere in the prefab = 1.9.11)
+                    string abBad = InvisibleAirbrakeProblems(inst, InvisibleAirbrake1912, InvisibleAirbrakeDrag, InvisibleAirbrakeOpenSpeed, out string abDet);
+                    string abName = InvisibleAirbrake1912 ? $"exactly one stock Airbrake, on the root object, part = the root part, dragAmount {InvisibleAirbrakeDrag}, openSpeed {InvisibleAirbrakeOpenSpeed}, maxAngle 0, no transforms (drag only, no parts), no sound, constraints not null, aircraft set" : "flag off, no Airbrake in the prefab";
+                    R("1.9.12 invisible airbrake: " + abName, abBad == "", abDet + (abBad == "" ? "" : "; WRONG: " + abBad));
+                }
             }
             finally { Object.DestroyImmediate(inst); }
 

@@ -15,7 +15,7 @@ for p in (V2, NIM, B17, HERE):
     if p in sys.path:
         sys.path.remove(p)
     sys.path.insert(0, p)
-for m in ('b17g_spec', 'msb_spec', 'b17g_parts', 'b17g_props', 'b17g_cockpit', 'b17g_detail', 'b17g_nacelle', 'b17g_nose1817', 'msb_parts', 'msb_cockpit', 'msb_stations', 'msb_deck195', 'msb_detail196'):
+for m in ('b17g_spec', 'msb_spec', 'b17g_parts', 'b17g_props', 'b17g_cockpit', 'b17g_detail', 'b17g_nacelle', 'b17g_nose1817', 'msb_parts', 'msb_cockpit', 'msb_stations', 'msb_deck195', 'msb_detail196', 'msb_ext1912'):
     sys.modules.pop(m, None)
 from mathutils import Vector as V, Matrix
 import b17g_spec as S
@@ -32,6 +32,7 @@ import msb_cockpit as MC
 import msb_stations as MST
 import msb_deck195 as MDK
 import nimrod_structure as NS
+import msb_ext1912 as X1912
 
 MATERIALS = {   # the B-17G material names (Unity builds one material per name; the MSB tiles are greys, built_textures_msb1780.py)
     'paint': ((0.42, 0.44, 0.45, 1.0), 0.1, 0.6), 'interior': ((0.36, 0.37, 0.38, 1.0), 0.1, 0.75), 'structure': ((0.55, 0.57, 0.58, 1.0), 0.5, 0.5),
@@ -45,6 +46,8 @@ MATERIALS = {   # the B-17G material names (Unity builds one material per name; 
     'gauges': ((0.85, 0.85, 0.80, 1.0), 0.0, 0.4), 'needle': ((0.92, 0.92, 0.88, 1.0), 0.0, 0.5), 'screen': ((0.01, 0.012, 0.015, 1.0), 0.0, 0.8),
     'ck_legend': ((0.90, 0.90, 0.86, 1.0), 0.0, 0.5), 'ck_amber': ((0.85, 0.55, 0.10, 1.0), 0.0, 0.4), 'ck_green': ((0.25, 0.80, 0.35, 1.0), 0.0, 0.4),   # 1.9.6 legends / lamps (emissive in Unity)
 }
+if M.STRIPS1912:    # 1.9.12 formation-light strips, unlit (Unity: the stock light_green_off; lit by NavLights with the stock slimelight_on)
+    MATERIALS['light_off'] = ((0.47, 0.61, 0.54, 1.0), 0.0, 0.4)
 MASS = {   # kg (CG estimate only; Unity sets the part masses, MSB1780Build Parts())
     'fus_nose': 1700, 'fus_cockpit': 2600, 'B17G': 6200, 'fus_waist': 1300, 'fus_tail': 420, 'tail_gun': 520,
     'wing_inner': 2200, 'wing_mid': 1500, 'wing_outer': 700, 'wing_tip': 70, 'nacelle': 350, 'engine': 1400, 'prop': 380,
@@ -354,13 +357,21 @@ def main():
         dropped += len(p.mesh.faces) - len(keep); p.mesh.faces = keep
     print(f'[msb] zero-area faces dropped: {dropped}')
     area, mpu = B.pack_livery(parts)
+    # 1.9.12: spoiler panels + formation-light strips, AFTER the pack: they are not packed (the panels' paint faces take the atlas UV of the
+    # wing skin under them), so the livery atlas of every 1.9.11 part is unchanged
+    ext1912, con1912 = X1912.build(parts) if (M.SPOILERS1912 or M.STRIPS1912) else ([], {})
+    parts += ext1912
     coll = bpy.data.collections.new(M.KEY); bpy.context.scene.collection.children.link(coll)
     objs = B.create_objects(parts, mats, coll)
     tex_dir = os.path.join(os.path.dirname(out), '..', 'textures_msb1780')
     os.makedirs(tex_dir, exist_ok=True)
     MP.write_prop_texture(os.path.abspath(os.path.join(tex_dir, 'msb17_pr_hsprop_b.png')))
     import b17g_zfix as ZF
-    ZF.resolve([o for o in coll.objects if o.type == 'MESH'], log_path=os.path.join(os.path.dirname(out), 'msb1780_zfix.json'))
+    # 1.9.12: the spoiler panels / strips are left out of the z-fix pass. Its detector compares plane constants (n . p0) of triangles whose
+    # normals differ by up to 2 deg, which is only a distance for parallel planes: 2-10 mm proud plates beside the inner skin (double_skin,
+    # slightly tilted) were 'found' at random and their faces pushed 3 mm through each other (first 1.9.12 build: 33 faces). The plates are
+    # checked with true distances instead (check_1912.py row z). The pass itself, and so every 1.9.11 object, is exactly as in 1.9.11.
+    ZF.resolve([o for o in coll.objects if o.type == 'MESH' and not o.name.startswith(X1912.PREFIXES)], log_path=os.path.join(os.path.dirname(out), 'msb1780_zfix.json'))
     if M.SMOOTH197:
         import msb_smooth197 as SM197
         SM197.apply([o for o in coll.objects if o.type == 'MESH'])
@@ -403,6 +414,7 @@ def main():
         hatches=dict(hatches=[dict(hatch=dict(name=n), hinge=dict(name=n + '_hinge'), hingeAngle=0.0, parent_part=pp, jettison=True)
                               for n, pp in (('hatch_pilot_L', 'fus_cockpit'), ('hatch_pilot_R', 'fus_cockpit'), ('hatch_wso', 'fus_nose'), ('hatch_ewo', M.KEY))]),
     )
+    contract.update(con1912)      # 1.9.12: 'airbrake' (panels) / 'lights' (formation strips); no key with the flags off
     bpy.context.scene['b25_build_stats'] = json.dumps(dict(metres_per_uv=mpu, tris=tris))
     os.makedirs(os.path.dirname(out), exist_ok=True)
     json.dump(contract, open(os.path.join(os.path.dirname(out), 'msb1780_contract.json'), 'w'), indent=1)

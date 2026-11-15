@@ -1,0 +1,599 @@
+{
+ "marks": {
+  "pala_twotone": {
+   "faction": "PALA",
+   "samples": 6960,
+   "L": {
+    "y": [
+     -4.495,
+     -5.309
+    ],
+    "z": [
+     -0.236,
+     0.574
+    ],
+    "n": 3355
+   },
+   "R": {
+    "y": [
+     -4.488,
+     -5.309
+    ],
+    "z": [
+     -0.235,
+     0.573
+    ],
+    "n": 3605
+   },
+   "composer_box": {
+    "y": [
+     -4.41,
+     -5.390000000000001
+    ],
+    "z": [
+     -0.26,
+     0.74
+    ]
+   }
+  },
+  "pala_matteblack": {
+   "faction": "PALA",
+   "samples": 6960,
+   "L": {
+    "y": [
+     -4.495,
+     -5.309
+    ],
+    "z": [
+     -0.236,
+     0.574
+    ],
+    "n": 3355
+   },
+   "R": {
+    "y": [
+     -4.488,
+     -5.309
+    ],
+    "z": [
+     -0.235,
+     0.573
+    ],
+    "n": 3605
+   },
+   "composer_box": {
+    "y": [
+     -4.41,
+     -5.390000000000001
+    ],
+    "z": [
+     -0.26,
+     0.74
+    ]
+   }
+  },
+  "bdf_temperate": {
+   "faction": "BDF",
+   "samples": 3057,
+   "L": {
+    "y": [
+     -4.403,
+     -5.391
+    ],
+    "z": [
+     -0.085,
+     0.556
+    ],
+    "n": 1471
+   },
+   "R": {
+    "y": [
+     -4.4,
+     -5.396
+    ],
+    "z": [
+     -0.088,
+     0.561
+    ],
+    "n": 1586
+   },
+   "composer_box": {
+    "y": [
+     -4.25,
+     -5.550000000000001
+    ],
+    "z": [
+     -0.14,
+     0.62
+    ]
+   }
+  },
+  "bdf_mattegrey": {
+   "faction": "BDF",
+   "samples": 3057,
+   "L": {
+    "y": [
+     -4.403,
+     -5.391
+    ],
+    "z": [
+     -0.085,
+     0.556
+    ],
+    "n": 1471
+   },
+   "R": {
+    "y": [
+     -4.4,
+     -5.396
+    ],
+    "z": [
+     -0.088,
+     0.561
+    ],
+    "n": 1586
+   },
+   "composer_box": {
+    "y": [
+     -4.25,
+     -5.550000000000001
+    ],
+    "z": [
+     -0.14,
+     0.62
+    ]
+   }
+  },
+  "pala_desert": {
+   "faction": "PALA",
+   "samples": 6960,
+   "L": {
+    "y": [
+     -4.495,
+     -5.309
+    ],
+    "z": [
+     -0.236,
+     0.574
+    ],
+    "n": 3355
+   },
+   "R": {
+    "y": [
+     -4.488,
+     -5.309
+    ],
+    "z": [
+     -0.235,
+     0.573
+    ],
+    "n": 3605
+   },
+   "composer_box": {
+    "y": [
+     -4.41,
+     -5.390000000000001
+    ],
+    "z": [
+     -0.26,
+     0.74
+    ]
+   }
+  }
+ },
+ "obstacles": {
+  "flap_inner_L": {
+   "lo": [
+    -2.494,
+    -2.394,
+    0.121
+   ],
+   "hi": [
+    -0.645,
+    -1.298,
+    0.596
+   ],
+   "parent": "wing_inner_L",
+   "type": "MESH",
+   "coll": "GA25X"
+  },
+  "flap_inner_R": {
+   "lo": [
+    0.645,
+    -2.394,
+    0.121
+   ],
+   "hi": [
+    2.494,
+    -1.298,
+    0.596
+   ],
+   "parent": "wing_inner_R",
+   "type": "MESH",
+   "coll": "GA25X"
+  },
+  "flare_L": {
+   "lo": [
+    -0.728,
+    -3.4,
+    -0.31
+   ],
+   "hi": [
+    -0.728,
+    -3.4,
+    -0.31
+   ],
+   "parent": "fus_rear",
+   "type": "EMPTY",
+   "coll": "GA25X"
+  },
+  "flare_R": {
+   "lo": [
+    0.728,
+    -3.4,
+    -0.31
+   ],
+   "hi": [
+    0.728,
+    -3.4,
+    -0.31
+   ],
+   "parent": "fus_rear",
+   "type": "EMPTY",
+   "coll": "GA25X"
+  },
+  "hatch_entry_rear": {
+   "lo": [
+    -0.237,
+    -5.3,
+    -0.677
+   ],
+   "hi": [
+    0.237,
+    -4.7,
+    -0.58
+   ],
+   "parent": "hatch_entry_rear_hinge",
+   "type": "MESH",
+   "coll": "GA25X"
+  },
+  "hatch_entry_rear_hinge": {
+   "lo": [
+    0.0,
+    -4.7,
+    -0.677
+   ],
+   "hi": [
+    0.0,
+    -4.7,
+    -0.677
+   ],
+   "parent": "fus_rear",
+   "type": "EMPTY",
+   "coll": "GA25X"
+  },
+  "hp_tailhook": {
+   "lo": [
+    0.0,
+    -7.1,
+    -0.427
+   ],
+   "hi": [
+    0.0,
+    -7.1,
+    -0.427
+   ],
+   "parent": "fus_tail",
+   "type": "EMPTY",
+   "coll": "GA25X"
+  },
+  "laser_turret_az": {
+   "lo": [
+    -0.42,
+    -2.82,
+    -1.373
+   ],
+   "hi": [
+    0.42,
+    -1.98,
+    -0.927
+   ],
+   "parent": "laser_turret_mount",
+   "type": "MESH",
+   "coll": "GA25X"
+  },
+  "laser_turret_el": {
+   "lo": [
+    -0.19,
+    -2.6,
+    -1.365
+   ],
+   "hi": [
+    0.19,
+    -2.096,
+    -1.113
+   ],
+   "parent": "laser_turret_az",
+   "type": "MESH",
+   "coll": "GA25X"
+  },
+  "laser_turret_mount": {
+   "lo": [
+    0.0,
+    -2.4,
+    -0.933
+   ],
+   "hi": [
+    0.0,
+    -2.4,
+    -0.933
+   ],
+   "parent": "fus_rear",
+   "type": "EMPTY",
+   "coll": "GA25X"
+  },
+  "stab_L": {
+   "lo": [
+    -3.38,
+    -8.46,
+    0.713
+   ],
+   "hi": [
+    -0.4,
+    -6.885,
+    0.967
+   ],
+   "parent": "fus_tail",
+   "type": "MESH",
+   "coll": "GA25X"
+  },
+  "stab_R": {
+   "lo": [
+    0.4,
+    -8.46,
+    0.713
+   ],
+   "hi": [
+    3.38,
+    -6.885,
+    0.967
+   ],
+   "parent": "fus_tail",
+   "type": "MESH",
+   "coll": "GA25X"
+  },
+  "tailhook": {
+   "lo": [
+    -0.07,
+    -9.489,
+    -0.462
+   ],
+   "hi": [
+    0.07,
+    -7.065,
+    -0.061
+   ],
+   "parent": "fus_tail",
+   "type": "MESH",
+   "coll": "GA25X"
+  }
+ },
+ "sites": {
+  "A first build: flank, on the mark": {
+   "area_m2": 1.4939,
+   "share_of_first": 1.0,
+   "mark_colour_samples": {
+    "pala_twotone": 3605,
+    "pala_matteblack": 3605,
+    "bdf_temperate": 1586,
+    "bdf_mattegrey": 1586,
+    "pala_desert": 3605
+   },
+   "composer_box_overlap": {
+    "pala_twotone": true,
+    "pala_matteblack": true,
+    "bdf_temperate": true,
+    "bdf_mattegrey": true,
+    "pala_desert": true
+   },
+   "part": "fus_rear",
+   "note": "the mark rides out on the panel"
+  },
+  "B flank ahead of the mark (between the sensor pad end -3.95 and the BDF mark front -4.25, 20 mm clear each)": {
+   "area_m2": 0.2738,
+   "share_of_first": 0.183,
+   "mark_colour_samples": {
+    "pala_twotone": 0,
+    "pala_matteblack": 0,
+    "bdf_temperate": 0,
+    "bdf_mattegrey": 0,
+    "pala_desert": 0
+   },
+   "composer_box_overlap": {
+    "pala_twotone": false,
+    "pala_matteblack": false,
+    "bdf_temperate": false,
+    "bdf_mattegrey": false,
+    "pala_desert": false
+   },
+   "part": "fus_rear",
+   "note": "only 0.26 m long"
+  },
+  "C flank behind the mark (BDF mark aft -5.55 .. 0.20 m ahead of the fus_rear break -6.10)": {
+   "area_m2": 0.347,
+   "share_of_first": 0.232,
+   "mark_colour_samples": {
+    "pala_twotone": 0,
+    "pala_matteblack": 0,
+    "bdf_temperate": 0,
+    "bdf_mattegrey": 0,
+    "pala_desert": 0
+   },
+   "composer_box_overlap": {
+    "pala_twotone": false,
+    "pala_matteblack": false,
+    "bdf_temperate": false,
+    "bdf_mattegrey": false,
+    "pala_desert": false
+   },
+   "part": "fus_rear",
+   "note": "only 0.33 m long"
+  },
+  "D flank below the mark (PALA bottom -0.26; the side ends where the belly radius starts, z about -0.44)": {
+   "area_m2": 0.2295,
+   "share_of_first": 0.154,
+   "mark_colour_samples": {
+    "pala_twotone": 0,
+    "pala_matteblack": 0,
+    "bdf_temperate": 0,
+    "bdf_mattegrey": 0,
+    "pala_desert": 0
+   },
+   "composer_box_overlap": {
+    "pala_twotone": false,
+    "pala_matteblack": false,
+    "bdf_temperate": false,
+    "bdf_mattegrey": false,
+    "pala_desert": false
+   },
+   "part": "fus_rear",
+   "note": "a 0.16 m strip"
+  },
+  "E flank on fus_tail, ahead of the stabiliser root (0.20 m behind the break .. 0.10 m ahead of the stabiliser leading edge -6.885)": {
+   "area_m2": 0.4132,
+   "share_of_first": 0.277,
+   "mark_colour_samples": {
+    "pala_twotone": 0,
+    "pala_matteblack": 0,
+    "bdf_temperate": 0,
+    "bdf_mattegrey": 0,
+    "pala_desert": 0
+   },
+   "composer_box_overlap": {
+    "pala_twotone": false,
+    "pala_matteblack": false,
+    "bdf_temperate": false,
+    "bdf_mattegrey": false,
+    "pala_desert": false
+   },
+   "part": "fus_tail",
+   "note": "other part (fus_tail); opens under the stabiliser"
+  },
+  "B + C + E together (three small panels per side)": {
+   "area_m2": 1.034,
+   "share_of_first": 0.692,
+   "mark_colour_samples": {
+    "pala_twotone": 0,
+    "pala_matteblack": 0,
+    "bdf_temperate": 0,
+    "bdf_mattegrey": 0,
+    "pala_desert": 0
+   },
+   "composer_box_overlap": {
+    "pala_twotone": false,
+    "pala_matteblack": false,
+    "bdf_temperate": false,
+    "bdf_mattegrey": false,
+    "pala_desert": false
+   },
+   "part": "fus_rear",
+   "note": "see B, C, E: sum below"
+  },
+  "F shoulder, 60 mm above the tallest mark to 50 mm from the centre line, y -4.20 .. -5.80 (BUILT)": {
+   "area_m2": 1.1312,
+   "share_of_first": 0.757,
+   "mark_colour_samples": {
+    "pala_twotone": 0,
+    "pala_matteblack": 0,
+    "bdf_temperate": 0,
+    "bdf_mattegrey": 0,
+    "pala_desert": 0
+   },
+   "composer_box_overlap": {
+    "pala_twotone": false,
+    "pala_matteblack": false,
+    "bdf_temperate": false,
+    "bdf_mattegrey": false,
+    "pala_desert": false
+   },
+   "part": "fus_rear",
+   "note": "stock FS-12 / T-A-30 layout"
+  },
+  "G one dorsal saddle over both shoulders (both halves of F and the 0.10 m between them)": {
+   "area_m2": 1.2114,
+   "share_of_first": 0.811,
+   "mark_colour_samples": {
+    "pala_twotone": 0,
+    "pala_matteblack": 0,
+    "bdf_temperate": 0,
+    "bdf_mattegrey": 0,
+    "pala_desert": 0
+   },
+   "composer_box_overlap": {
+    "pala_twotone": false,
+    "pala_matteblack": false,
+    "bdf_temperate": false,
+    "bdf_mattegrey": false,
+    "pala_desert": false
+   },
+   "part": "fus_rear",
+   "note": "per side = half the saddle; front edge sagitta about 0.4 m"
+  },
+  "H shoulder further forward (y -2.60 .. -4.20, over the wing trailing edge and the sensor pads)": {
+   "area_m2": 1.3061,
+   "share_of_first": 0.874,
+   "mark_colour_samples": {
+    "pala_twotone": 0,
+    "pala_matteblack": 0,
+    "bdf_temperate": 0,
+    "bdf_mattegrey": 0,
+    "pala_desert": 0
+   },
+   "composer_box_overlap": {
+    "pala_twotone": false,
+    "pala_matteblack": false,
+    "bdf_temperate": false,
+    "bdf_mattegrey": false,
+    "pala_desert": false
+   },
+   "part": "fus_rear",
+   "note": "hidden over the wing from the chase view; 0.2 m behind the wing fillet"
+  }
+ },
+ "composer": {
+  "y": -4.9,
+  "z": 0.24,
+  "BDF": [
+   1.3,
+   0.76
+  ],
+  "PALA": [
+   0.98,
+   1.0
+  ]
+ },
+ "first_area_m2": 1.4939,
+ "built": {
+  "site": {
+   "y_hinge": -4.2,
+   "y_aft": -5.8,
+   "z_lo": 0.8,
+   "x_in": 0.05
+  },
+  "mark_colour_top_z": {
+   "pala_twotone": 0.574,
+   "pala_matteblack": 0.574,
+   "bdf_temperate": 0.561,
+   "bdf_mattegrey": 0.561,
+   "pala_desert": 0.574
+  },
+  "composer_top_z": {
+   "pala_twotone": 0.74,
+   "pala_matteblack": 0.74,
+   "bdf_temperate": 0.62,
+   "bdf_mattegrey": 0.62,
+   "pala_desert": 0.74
+  },
+  "lower_edge_above_tallest_mark_m": 0.06
+ }
+}

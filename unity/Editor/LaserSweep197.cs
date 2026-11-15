@@ -142,6 +142,7 @@ namespace B25HTools
 
         public static void Run()
         {
+            var open1912 = new StringBuilder();
             var sb = new StringBuilder("{\"grid_deg\": " + GridStep + ", \"range_m\": " + Range + ", \"aircraft\": [\n"); bool first = true; bool ok = true;
             foreach (var (key, prefab, mountGlob) in new[] { ("GA25X", FamilyBuild.FamilyRoot + "/ga25x/GA25X.prefab", FamilyBuild.FamilyRoot + "/ga25x"), ("MSB17", FamilyBuild.FamilyRoot + "/msb17/MSB17.prefab", FamilyBuild.FamilyRoot + "/msb17") })
             {
@@ -160,9 +161,32 @@ namespace B25HTools
                     foreach (var r in after) if (r.samples.Count > 0) Debug.Log($"[B25H] LaserSweep197 {key} AFTER  {r.name} lines: {string.Join(" | ", r.samples)}");
                     foreach (var ang in new[] { 0.25f, 0.5f, 0.75f, 2f, 5f, 10f })      // information: how the residual depends on the beam angle
                         foreach (var r in CheckInstance(inst, ang)) Debug.Log($"[B25H] LaserSweep197 {key} SCAN   {r}");
+                    // 1.9.12: the same beam sweep with the airbrake panels fully OPEN (the stock Airbrake pose: each hinge rotated maxAngle about its local X).
+                    // Panels carry no collider, so the damage and prop-disc counts must equal the shut pose; no beam line may end on a panel mesh either.
+                    bool openOk = true;
+                    var ab1912 = inst.GetComponentInChildren<Airbrake>(true);
+                    var hinges1912 = ab1912 != null ? ((Transform[])G(ab1912, "transforms") ?? new Transform[0]) : new Transform[0];
+                    if (hinges1912.Length > 0)
+                    {
+                        float oa = (float)G(ab1912, "maxAngle"); var keepRot = hinges1912.Select(x => x.localRotation).ToArray(); List<Result> open;
+                        try { foreach (var x in hinges1912) x.Rotate(new Vector3(oa, 0f, 0f), Space.Self); Physics.SyncTransforms(); open = CheckInstance(inst, BeamAngle); }
+                        finally { for (int i = 0; i < hinges1912.Length; i++) hinges1912[i].localRotation = keepRot[i]; Physics.SyncTransforms(); }
+                        openOk = open.Count == after.Count;
+                        for (int i = 0; i < open.Count && i < after.Count; i++)
+                        {
+                            var o = open[i]; var c = after[i];
+                            int onPanel = o.by.Where(k => k.Key.StartsWith("airbrake") || k.Key.StartsWith("spoiler")).Sum(k => k.Value);
+                            bool rowOk = Clean(o) && o.turretCol == c.turretCol && o.pilotCol == c.pilotCol && o.turretDisc == c.turretDisc && o.pilotDisc == c.pilotDisc && onPanel == 0;
+                            openOk &= rowOk;
+                            Debug.Log($"[B25H] LaserSweep197 {key} OPEN   {o}; panels open {oa:F0} deg ({hinges1912.Length} hinges): {onPanel} beam lines on a panel; shut pose damage {c.turretCol} / {c.pilotCol}, disc {c.turretDisc} / {c.pilotDisc}, mesh {c.turretMesh} / {c.pilotMesh} -> {(rowOk ? "PASS" : "FAIL")}");
+                            open1912.Append((open1912.Length > 0 ? ",\n" : "") + $"  {{\"aircraft\": \"{key}\", \"turret\": \"{o.name}\", \"open_deg\": {oa}, \"hinges\": {hinges1912.Length}, \"turret_damage\": {o.turretCol}, \"turret_disc\": {o.turretDisc}, \"turret_mesh\": {o.turretMesh}, \"pilot_damage\": {o.pilotCol}, \"pilot_disc\": {o.pilotDisc}, \"pilot_mesh\": {o.pilotMesh}, \"lines_on_panel\": {onPanel}, \"shut_turret_mesh\": {c.turretMesh}, \"shut_pilot_mesh\": {c.pilotMesh}, \"pass\": {(rowOk ? "true" : "false")}}}");
+                        }
+                        Debug.Log($"[B25H] LaserSweep197 {key}: panels-open sweep {(openOk ? "PASS" : "FAIL")}");
+                    }
+                    else Debug.Log($"[B25H] LaserSweep197 {key}: no Airbrake hinges (airbrake panels flag off): no panels-open sweep");
                     bool clean = after.Count > 0 && after.All(Clean) && before.Sum(r => r.pilotCol) > 50 * Mathf.Max(1, after.Sum(r => r.pilotCol));
                     Debug.Log($"[B25H] LaserSweep197 {key}: saved Laser.maxAngle [{string.Join(", ", saved)}] {(angOk ? "OK" : "FAIL")}; beam sweep {(clean ? "PASS" : "FAIL")} ({after.Count} laser turrets)");
-                    ok &= angOk && clean;
+                    ok &= angOk && clean && openOk;
                     foreach (var (tag, list) in new[] { ("before_30", before), ("after", after) })
                         foreach (var r in list)
                         {
@@ -174,6 +198,7 @@ namespace B25HTools
             }
             sb.Append("\n], \"pass\": " + (ok ? "true" : "false") + "}\n");
             File.WriteAllText(@"C:\Users\User\nuclearoption-ref\unitylogs\lasersweep197.json", sb.ToString());
+            File.WriteAllText(@"C:\Users\User\nuclearoption-ref\unitylogs\lasersweep1912_open.json", "{\"rows\": [\n" + open1912 + "\n]}\n");   // 1.9.12 (the 1.9.7 json above keeps its form)
             Debug.Log($"[B25H] LaserSweep197 {(ok ? "ALL PASS" : "FAIL")}");
         }
     }

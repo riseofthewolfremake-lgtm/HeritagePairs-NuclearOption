@@ -105,6 +105,14 @@ namespace B25HTools
         // (true in this candidate; false = the documented fallback):
         const bool Deck195Screens = true;       // our six MFD units: map / power + engines per pilot, attitude in the centre, standby dark (false: all six dark glass)
         const bool WarnLamps195 = true;         // the two stock EW-25 missile-warning lamps on the stock CockpitWarningLights blinker (false: lamps stay dark)
+        // 1.9.12 (user: the upgraded aircraft get real airbrake panels that deploy when the aircraft is airbraking; the MSB-17 is missing the green
+        // light strips). Geometry: blender/msb1780/msb_ext1912.py behind msb_spec.SPOILERS1912 / STRIPS1912 (false there = the 1.9.11 model);
+        // these steer the Unity side (true in this candidate; false = the 1.9.11 wiring: drag-only Airbrake, two wing-tip nav lights):
+        const bool AirbrakePanels1912 = true;   // the six upper-wing spoiler panels (contract airbrake.panels; round 2: three a side, 3.97 m2 a side) become the transforms of the 1.9.2 Airbrake, maxAngle AirbrakePanelAngle
+        const float AirbrakePanelAngle = 55f;   // deg about each hinge's local +X (the rear edge rises); the contract's airbrake.max_angle must agree
+        const int AirbrakePanelCount = 6;
+        const bool FormationLights1912 = true;  // eight slimelight_* strips (contract lights.formation) on the stock NavLights, lit with the stock slimelight_on (the GA-25X block)
+        const int FormationLightCount = 8;
 
         // ------------------------------------------------------------------ MSB numbers (tools/flightmodel/msb1780_estimate.py, msb1780_ground.py)
         // 1.9.2: aero frames only (the mesh keeps the B-17G wing): tools/flightmodel/msb1780_fm.py fits the 1.9.0 in-game level speeds (690 / 678 /

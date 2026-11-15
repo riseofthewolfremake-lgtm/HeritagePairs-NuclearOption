@@ -181,6 +181,25 @@ namespace B25HTools
         // false = the 1.9.10 values (spawnOffset.z 0, rudder impact damage as every other airframe part).
         public const bool LiftSpawnFix1911 = true;
         public const float SpawnForward1911 = 1.2f;   // m: rudder aft end 0.39 m ahead of the Annex backstop face, 0.61 m ahead of the Hyperion one (0.6 m would leave it 0.21 m BEHIND the Annex face, clear only by height)
+        // 1.9.12 (user: the upgraded aircraft get real airbrake panels "in the appropriate places" that deploy when the aircraft is airbraking): two small
+        // flank panels on fus_rear (Blender y -2.47 .. -3.05, z -0.32 .. +0.05: aft of the faction mark, under the green side strip, ahead of the serial / naval
+        // title, above the flare ejectors and the hook slot), front-hinged on a vertical hinge line, driven by ONE stock Airbrake on the root (Airbrake.cs: opens
+        // at throttle 0 over 1 / openSpeed s, rotates every transform +maxAngle about its local X, force = dragAmount x rho x V^2 on part.rb). The panels come from
+        // their own FBX (assets\model_fd32\fd32_airbrake.fbx + fd32_airbrake.json, blender\fd32\run_airbrake1912_fd32.py; the main model is not rebuilt): thin
+        // plates 4.2 mm proud of the uncut skin carrying the skin's own atlas texels, no collider, not parts; fus_rear's mesh and hull are untouched.
+        // false = 1.9.11 (no FBX import, no objects, no Airbrake). Round 2 (user: "whenever the throttle is below 5 % the airbrakes are on,
+        // does not matter if it is on the ground or sky"): nothing here gates the brake; the throttle threshold is the plugin's (AirBrake1912.cs). The panels stand open
+        // when parked at idle. Seam band, rim and hinge knuckles are FD32_cove (dark matte, non-metallic): a thin dark line and two dark blocks on every livery.
+        const bool AirbrakePanels1912 = true;
+        const float AirbrakeDrag1912 = 0.5f, AirbrakeMaxAngle1912 = 55f, AirbrakeOpenSpeed1912 = 1.0f, AirbrakeMinEdgeOut1912 = 0.15f;
+        static readonly string[] AirbrakeSides1912 = { "L", "R" };
+        // 1.9.12 (user: naval liveries for both factions): "BDF Navy Hex" / "PALA Navy Splinter" (fd32_livery_bdf_navy / _pala_navy, baked by
+        // build_textures_fd32.py --liveries-only). They are APPENDED after the four 1.9.11 entries (saved missions store the list index): indexes 0-3 keep
+        // their 1.9.11 names, 4 = BDF Navy Hex, 5 = PALA Navy Splinter. false = the json's naval entries are ignored (list and textures = 1.9.11).
+        const bool NavalLiveries1912 = true;
+        const float NavalGloss1912 = 0.0f;      // round 2: LiveryData.Glossiness of the two naval liveries = the stock naval liveries' value (the other four keep 0.2); the JSON carries it
+        static bool IsNaval1912(string file) => file.EndsWith("_navy");
+        static readonly string[] Liveries1911 = { "BDF Matte Gray", "BDF Temperate Camo", "PALA Desert Camo", "PALA Matte Black" };
         const float FabricImpactG = 25f, FabricImpactMult = 1.2f, MetalImpactG = 30f, MetalImpactMult = 1f;   // composite airframe: between the Mk I fabric and metal values
         const bool CooperPivotCentred = true; const float CooperMass = 9.1f, CooperYield = 7.3f;   // unused (Cooper off)
         // stock stores per pylon (docs/fd32_design.md 3; blender/fd32/check_fd32_model.py store boxes): AGR-24 x4 inner only (user decision),
@@ -272,6 +291,7 @@ namespace B25HTools
                 BuildMaterials();
                 root = (GameObject)Object.Instantiate(model);
                 root.name = "FD32";
+                AddAirbrakePanels1912();
                 BuildPrefab();
                 var prefab = SaveEverything();
                 DestroyTemplates();
@@ -321,7 +341,95 @@ namespace B25HTools
             mi.globalScale = 1f; mi.useFileScale = true; mi.importBlendShapes = false;
             mi.SaveAndReimport();
             L($"model imported {dst} ({new FileInfo(RepoModel).Length} bytes)");
+            airbrakeModel1912 = null; airbrakeJson1912 = null;
+            if (AirbrakePanels1912)
+            {   // 1.9.12 airbrake add-on: same exporter, same import settings as the main model (same frame, CG at the origin)
+                var asrc = Path.Combine(Path.GetDirectoryName(RepoModel), "fd32_airbrake.fbx");
+                var ajs = Path.Combine(Path.GetDirectoryName(RepoModel), "fd32_airbrake.json");
+                if (!File.Exists(asrc) || !File.Exists(ajs)) throw new Exception("AirbrakePanels1912: " + asrc + " / .json missing (python blender/fd32/run_airbrake1912_fd32.py)");
+                var adst = SrcDir + "/fd32_airbrake.fbx";
+                File.Copy(asrc, adst, true);
+                AssetDatabase.ImportAsset(adst, ImportAssetOptions.ForceUpdate);
+                var ami = (ModelImporter)AssetImporter.GetAtPath(adst);
+                ami.isReadable = true; ami.importAnimation = false; ami.importCameras = false; ami.importLights = false;
+                ami.globalScale = 1f; ami.useFileScale = true; ami.importBlendShapes = false;
+                ami.SaveAndReimport();
+                airbrakeModel1912 = AssetDatabase.LoadAssetAtPath<GameObject>(adst);
+                airbrakeJson1912 = Newtonsoft.Json.Linq.JObject.Parse(File.ReadAllText(ajs));
+                L($"airbrake add-on imported {adst} ({new FileInfo(asrc).Length} bytes) + fd32_airbrake.json");
+            }
             return AssetDatabase.LoadAssetAtPath<GameObject>(dst);
+        }
+
+        // ------------------------------------------------------------------ 1.9.12 airbrake panels
+        static GameObject airbrakeModel1912;
+        static Newtonsoft.Json.Linq.JObject airbrakeJson1912;
+        static AeroPart OwningPart1912(Transform t) { for (var x = t; x != null; x = x.parent) { var ap = x.GetComponent<AeroPart>(); if (ap != null) return ap; } return null; }
+        static Vector3 V3Json1912(Newtonsoft.Json.Linq.JToken a) => new Vector3((float)a[0], (float)a[1], (float)a[2]);
+
+        /// how far the panel's free (aft) edge moves away from the aircraft centre line when the hinge is turned by `deg` about its local X
+        /// exactly as the stock Airbrake does (localEulerAngles = base, then Rotate(deg, 0, 0) in Space.Self). The hinge is restored.
+        static float AirbrakeOpenGain1912(Transform hinge, Transform centre, float deg)
+        {
+            var mf = hinge.GetComponentsInChildren<MeshFilter>(true).FirstOrDefault(m => m.name == hinge.name.Replace("_hinge", ""));
+            if (mf == null || mf.sharedMesh == null) return float.NaN;
+            // free edge = the mesh vertices farthest aft of the hinge line in the hinge frame (hinge-local -Z)
+            var pts = mf.sharedMesh.vertices.Select(v => hinge.InverseTransformPoint(mf.transform.TransformPoint(v))).ToList();
+            float zmin = pts.Min(p => p.z);
+            var edge = pts.Where(p => p.z < zmin + 0.01f).ToList();
+            var free = new Vector3(edge.Average(p => p.x), edge.Max(p => p.y), zmin);
+            var keep = hinge.localRotation;
+            float shut = Mathf.Abs(centre.InverseTransformPoint(hinge.TransformPoint(free)).x);
+            hinge.Rotate(new Vector3(deg, 0f, 0f), Space.Self);
+            float open = Mathf.Abs(centre.InverseTransformPoint(hinge.TransformPoint(free)).x);
+            hinge.localRotation = keep;
+            return open - shut;
+        }
+
+        /// Adds the panels of fd32_airbrake.fbx under the fus_rear model object, BEFORE BuildPrefab: the panels then get our meshes /
+        /// materials with every other renderer, land in fus_rear's livery list (paint first) and stay out of its collider (own mesh only).
+        /// The hinge frame comes from fd32_airbrake.json (the numbers the Blender checks and renders used): position, forward along the
+        /// skin (Z), outward (Y); X = the vertical hinge line. The imported hinge empty must be at the same place (1 mm).
+        static void AddAirbrakePanels1912()
+        {
+            if (!AirbrakePanels1912) return;
+            var inst = (GameObject)Object.Instantiate(airbrakeModel1912);
+            inst.transform.SetPositionAndRotation(root.transform.position, root.transform.rotation);
+            var all = inst.GetComponentsInChildren<Transform>(true);
+            Transform Get(string n) => all.FirstOrDefault(t => t.name == n) ?? throw new Exception("fd32_airbrake.fbx: no object " + n);
+            var fusRear = Find("fus_rear");
+            foreach (var s in AirbrakeSides1912)
+            {
+                var srcHinge = Get($"airbrake_{s}_hinge"); var panel = Get($"airbrake_{s}"); var tray = Get($"airbrake_tray_{s}");
+                var js = airbrakeJson1912["sides"][s];
+                var hl = V3Json1912(js["hinge_unity"]); var fwdL = V3Json1912(js["forward_unity"]); var outL = V3Json1912(js["outward_unity"]);
+                var got = root.transform.InverseTransformPoint(srcHinge.position);
+                if ((got - hl).magnitude > 0.001f) throw new Exception($"airbrake_{s}_hinge: FBX position {got.ToString("F4")} != fd32_airbrake.json {hl.ToString("F4")} (FBX and json from different runs?)");
+                if (Mathf.Abs(Vector3.Dot(fwdL, outL)) > 1e-4f || outL.x * Mathf.Sign(hl.x) <= 0f) throw new Exception($"airbrake_{s}: json frame not orthogonal / not outward");
+                var rot = root.transform.rotation * Quaternion.LookRotation(fwdL, outL);
+                var hinge = NewGO($"airbrake_{s}_hinge", fusRear, root.transform.TransformPoint(hl), rot);
+                panel.SetParent(hinge.transform, true);
+                tray.SetParent(fusRear, true);
+                float gain = AirbrakeOpenGain1912(hinge.transform, root.transform, AirbrakeMaxAngle1912);
+                if (!(gain >= AirbrakeMinEdgeOut1912)) throw new Exception($"airbrake_{s}: +{AirbrakeMaxAngle1912} deg about the hinge X moves the free edge {gain:F3} m outward (>= {AirbrakeMinEdgeOut1912} expected): hinge frame wrong");
+                var pmesh = panel.GetComponent<MeshFilter>().sharedMesh;
+                L($"airbrake panel {s}: hinge {hl.ToString("F3")} (root frame), X {(Quaternion.Inverse(root.transform.rotation) * hinge.transform.right).ToString("F3")}, outward {outL.ToString("F3")}, " +
+                  $"panel {pmesh.vertexCount} v / {pmesh.triangles.Length / 3} tris, free edge +{gain:F3} m outward at {AirbrakeMaxAngle1912} deg (Blender: +{(float)js["free_edge_gain_abs_x_m"]:F3})");
+            }
+            Object.DestroyImmediate(inst);
+        }
+
+        /// one stock Airbrake on the root: transforms = the two hinges, drag on the root part. Field set as on the MSB-17 (msb_root.cs, in
+        /// game since 1.9.2) plus the transforms and the angle.
+        static void AirbrakeComponent1912()
+        {
+            if (!AirbrakePanels1912) return;
+            var hinges = AirbrakeSides1912.Select(s => Find($"airbrake_{s}_hinge")).ToArray();
+            var ab = root.AddComponent<global::Airbrake>();
+            S(ab, "transforms", hinges); S(ab, "dragAmount", AirbrakeDrag1912); S(ab, "maxAngle", AirbrakeMaxAngle1912); S(ab, "openSpeed", AirbrakeOpenSpeed1912);
+            S(ab, "part", parts["FD32"]); S(ab, "airbrakeSound", null); S(ab, "constraints", new UnityEngine.Animations.AimConstraint[0]);
+            S(ab, "volumeMultiplier", 0f); S(ab, "aircraft", aircraft);
+            L($"airbrake: stock Airbrake on the root, {hinges.Length} hinges, dragAmount {AirbrakeDrag1912} (rho V^2: {AirbrakeDrag1912 * 1.225f * 80f * 80f / 1000f:F1} kN at 80 m/s SL), maxAngle {AirbrakeMaxAngle1912}, opens at throttle 0 in {1f / AirbrakeOpenSpeed1912:F1} s");
         }
 
         static readonly string[] SkinMaps = { "b", "n", "m", "ao", "dmg_b", "dmg_n" };
@@ -343,6 +451,7 @@ namespace B25HTools
             {
                 var e = (Newtonsoft.Json.Linq.JObject)kv.Value;
                 var file = Path.GetFileNameWithoutExtension((string)e["texture"]);
+                if (!NavalLiveries1912 && IsNaval1912(file)) { L($"livery table: {file} skipped (NavalLiveries1912 off)"); continue; }
                 Liveries.Add((file, (string)e["name"], ((string)e["faction"]).ToUpperInvariant().Contains("PALA") ? "PALA" : "BDF", e["both"] != null && (bool)e["both"]));
                 L($"livery table: {file} '{(string)e["name"]}' ({(string)e["faction"]}{(e["both"] != null && (bool)e["both"] ? ", both factions" : " only")})");
             }
@@ -1433,6 +1542,7 @@ namespace B25HTools
             S(aircraft, "dopplerSounds", new List<AudioSource> { parts["fus_engine"].GetComponent<AudioSource>(), parts["prop"].GetComponent<AudioSource>() });
             aircraft.maxRadius = 5.6f;
             aircraft.obstacleTop = 1.4f;
+            AirbrakeComponent1912();
         }
 
         static void FlyByWire(LandingGear mainGear)
@@ -1505,11 +1615,14 @@ namespace B25HTools
             }
             foreach (var side in new[] { "BDF", "PALA" })
             {
-                var own = Liveries.Where(x => x.faction == side).ToList();
+                var own = Liveries.Where(x => x.faction == side && !IsNaval1912(x.file)).ToList();   // 1.9.12: the 1.9.11 loop over the 1.9.11 entries: same list, same indexes
                 var shared = new List<(string file, string label, string faction, bool both)>();   // round 3 (user): each faction only its own liveries
                 foreach (var (file, label, fac, _) in own.Concat(shared))
                     livs.Add(new AircraftParameters.Livery { name = label, faction = side == "BDF" ? facBDF : facPALA, assetReference = new AssetReferenceLiveryData(livGuid[file]) });
             }
+            foreach (var side in new[] { "BDF", "PALA" })   // 1.9.12: naval liveries appended at the END (BDF then PALA)
+                foreach (var (file, label, fac, _) in Liveries.Where(x => x.faction == side && IsNaval1912(x.file)))
+                    livs.Add(new AircraftParameters.Livery { name = label, faction = side == "BDF" ? facBDF : facPALA, assetReference = new AssetReferenceLiveryData(livGuid[file]) });
 
             var prm = Object.Instantiate(coinParams);
             prm.HUDExtras = StockHUDExtras ? Asset<GameObject>("GameObject/Multirole1_HUDExtras_PLACEHOLDER.prefab") : null;
@@ -1623,7 +1736,15 @@ namespace B25HTools
             try
             {
                 {   // 1.8.16 livery-atlas guard (AtlasGuard1816.cs = blender/atlas_guard.py): the skin / livery / damage textures were painted on THIS UV0 atlas
-                    var ag = AtlasGuard1816.Check(inst, mats["paint"], Path.Combine(RepoTextures, "fd32_atlas_manifest.json"), null);
+                    // 1.9.12: the airbrake panels are not atlas parts (they borrow fus_rear's texels; own row below): the guard sees the model without them
+                    var agInst = inst;
+                    if (AirbrakePanels1912)
+                    {
+                        agInst = (GameObject)Object.Instantiate(inst);
+                        foreach (var zt in agInst.GetComponentsInChildren<Transform>(true).Where(t => t.name.StartsWith("airbrake_") && t.name.EndsWith("_hinge")).ToList()) Object.DestroyImmediate(zt.gameObject);
+                    }
+                    var ag = AtlasGuard1816.Check(agInst, mats["paint"], Path.Combine(RepoTextures, "fd32_atlas_manifest.json"), null);
+                    if (agInst != inst) Object.DestroyImmediate(agInst);   // 1.9.12: the copy without the airbrake panels
                     R("1.8.16 livery atlas: UV0 of the paint meshes == the texture manifest (textures painted on this atlas, files unchanged)", ag.Item1, ag.Item2);
                 }
                 var ac = inst.GetComponent<Aircraft>();
@@ -1954,10 +2075,138 @@ namespace B25HTools
                 R("HUD extras = stock Multirole1 (BOOST throttle bar), status display, map icon", prm.HUDExtras != null && AssetDatabase.GetAssetPath(prm.HUDExtras).Contains("Multirole1_HUDExtras") && prm.StatusDisplay != null && ac.definition.mapIcon != null, prm.HUDExtras ? AssetDatabase.GetAssetPath(prm.HUDExtras) : "none");
                 var lv = prm.liveries;
                 var facs = lv.Select(l => l.faction).Distinct().ToList();
-                R("liveries per faction ONLY its own (round 3): BDF = Matte Gray, Temperate; PALA = Desert (first), Matte Black", facs.Count == 2
-                    && lv.Where(l => l.faction == facs[0]).Select(l => l.name).SequenceEqual(new[] { "BDF Matte Gray", "BDF Temperate Camo" })
-                    && lv.Where(l => l.faction == facs[1]).Select(l => l.name).SequenceEqual(new[] { "PALA Desert Camo", "PALA Matte Black" }),
+                var zBdf = NavalLiveries1912 ? new[] { "BDF Matte Gray", "BDF Temperate Camo", "BDF Navy Hex" } : new[] { "BDF Matte Gray", "BDF Temperate Camo" };
+                var zPala = NavalLiveries1912 ? new[] { "PALA Desert Camo", "PALA Matte Black", "PALA Navy Splinter" } : new[] { "PALA Desert Camo", "PALA Matte Black" };
+                R("liveries per faction ONLY its own (round 3): BDF = Matte Gray, Temperate" + (NavalLiveries1912 ? ", Navy Hex" : "") + "; PALA = Desert (first), Matte Black" + (NavalLiveries1912 ? ", Navy Splinter (1.9.12)" : ""), facs.Count == 2
+                    && lv.Where(l => l.faction == facs[0]).Select(l => l.name).SequenceEqual(zBdf)
+                    && lv.Where(l => l.faction == facs[1]).Select(l => l.name).SequenceEqual(zPala),
                     string.Join(", ", lv.Select(l => l.name)));
+                {   // 1.9.12: saved missions store the livery list index
+                    var zNames = lv.Select(l => l.name).ToList();
+                    var zWant = NavalLiveries1912 ? Liveries1911.Concat(new[] { "BDF Navy Hex", "PALA Navy Splinter" }).ToArray() : Liveries1911;
+                    bool zNavOk = !NavalLiveries1912 || (lv.Count == 6 && lv[4].faction == facs[0] && lv[5].faction == facs[1]
+                        && new[] { 4, 5 }.All(i => { var ld = AssetDatabase.LoadAssetAtPath<LiveryData>(AssetDatabase.GUIDToAssetPath(lv[i].assetReference.AssetGUID)); return ld != null && ld.Texture != null && ld.Texture.name == (i == 4 ? "fd32_livery_bdf_navy" : "fd32_livery_pala_navy") && Mathf.Abs(ld.Glossiness - NavalGloss1912) < 1e-4f && ld.Colors != null && ld.Colors.Length > 0; }));
+                    R("1.9.12 livery list: indexes 0-3 are the 1.9.11 names in the 1.9.11 order (saved missions keep their livery)" + (NavalLiveries1912 ? "; 4 = BDF Navy Hex (BDF), 5 = PALA Navy Splinter (PALA), each with its own texture, glossiness " + NavalGloss1912.ToString("F1") + " (stock naval) and colour list" : "; no naval entry (flag off)"),
+                        zNames.SequenceEqual(zWant) && zNavOk, string.Join(" | ", zNames.Select((n, i) => i + " " + n)));
+                }
+                // ---- 1.9.12 airbrake panels
+                {
+                    var zAbs = inst.GetComponentsInChildren<global::Airbrake>(true);
+                    var zHinges = inst.GetComponentsInChildren<Transform>(true).Where(t => t.name.StartsWith("airbrake_") && t.name.EndsWith("_hinge")).OrderBy(t => t.name).ToList();
+                    var zTrays = inst.GetComponentsInChildren<Transform>(true).Where(t => t.name == "airbrake_tray_L" || t.name == "airbrake_tray_R").ToList();
+                    if (!AirbrakePanels1912)
+                        R("1.9.12 airbrake panels off (flag): no Airbrake component, no airbrake_* object (= 1.9.11)", zAbs.Length == 0 && zHinges.Count == 0 && zTrays.Count == 0, $"{zAbs.Length} Airbrake, {zHinges.Count} hinges, {zTrays.Count} trays");
+                    else
+                    {
+                        bool zOur(Object o) => AssetDatabase.GetAssetPath(o).StartsWith(Folder);
+                        var zAb = zAbs.FirstOrDefault();
+                        var zTr = zAb != null ? ((Transform[])G(zAb, "transforms")).ToList() : new List<Transform>();
+                        var zCon = zAb != null ? (UnityEngine.Animations.AimConstraint[])G(zAb, "constraints") : null;
+                        R($"1.9.12 airbrake: ONE stock Airbrake on the root, part = the root part, dragAmount {AirbrakeDrag1912}, maxAngle {AirbrakeMaxAngle1912}, openSpeed {AirbrakeOpenSpeed1912} (opens in {1f / AirbrakeOpenSpeed1912:F0} s), transforms = airbrake_L_hinge + airbrake_R_hinge, no sound, constraints empty (not null), aircraft set",
+                            zAbs.Length == 1 && zAb.gameObject == inst && (G(zAb, "part") as UnitPart) == inst.GetComponent<AeroPart>() && Mathf.Approximately((float)G(zAb, "dragAmount"), AirbrakeDrag1912)
+                                && Mathf.Approximately((float)G(zAb, "maxAngle"), AirbrakeMaxAngle1912) && Mathf.Approximately((float)G(zAb, "openSpeed"), AirbrakeOpenSpeed1912)
+                                && zTr.Count == 2 && zTr.All(t => t != null) && zTr.Select(t => t.name).OrderBy(n => n).SequenceEqual(new[] { "airbrake_L_hinge", "airbrake_R_hinge" })
+                                && (G(zAb, "airbrakeSound") as AudioSource) == null && zCon != null && zCon.Length == 0 && (G(zAb, "aircraft") as Aircraft) == ac,
+                            zAb == null ? $"{zAbs.Length} Airbrake components" : $"{zAbs.Length} on {zAb.name}: drag {G(zAb, "dragAmount")}, maxAngle {G(zAb, "maxAngle")}, openSpeed {G(zAb, "openSpeed")}, transforms [{string.Join(", ", zTr.Select(t => t ? t.name : "null"))}], part {(G(zAb, "part") as UnitPart)?.name}");
+                        // structure: hinge under fus_rear (not a capsule part), one panel mesh child with paint first, nothing but Transform / MeshFilter / MeshRenderer, no collider, no part
+                        var zBad = new List<string>();
+                        foreach (var zh in zHinges)
+                        {
+                            var zp = zh.Find(zh.name.Replace("_hinge", ""));
+                            var zmr = zp ? zp.GetComponent<MeshRenderer>() : null; var zmf = zp ? zp.GetComponent<MeshFilter>() : null;
+                            if (zmr == null || zmf == null || zmf.sharedMesh == null) { zBad.Add(zh.name + ": no panel mesh child"); continue; }
+                            if (zmr.sharedMaterials.Length == 0 || zmr.sharedMaterials[0] != mats["paint"]) zBad.Add(zp.name + ": paint is not material 0");
+                            if (!zOur(zmf.sharedMesh)) zBad.Add(zp.name + ": mesh not ours");
+                            var zOwn = OwningPart1912(zh);
+                            if (zOwn == null || zOwn.name != "fus_rear") zBad.Add(zh.name + ": owning part " + zOwn?.name);
+                            if (zh.GetComponentsInParent<Component>(true).Any(c => c != null && c.GetType().Name == "EscapeCapsule")) zBad.Add(zh.name + ": under an escape capsule part");
+                            if (zh.GetComponentsInChildren<Collider>(true).Length > 0) zBad.Add(zh.name + ": collider under the hinge");
+                            if (zh.GetComponentsInChildren<UnitPart>(true).Length > 0) zBad.Add(zh.name + ": UnitPart under the hinge");
+                            foreach (var zc in zh.GetComponentsInChildren<Component>(true))
+                                if (zc == null || !(zc is Transform || zc is MeshFilter || zc is MeshRenderer)) zBad.Add(zh.name + ": extra component " + (zc == null ? "missing script" : zc.GetType().Name));
+                            if (Mathf.Abs(Vector3.Dot(zh.right, inst.transform.up)) < 0.9999f) zBad.Add(zh.name + ": hinge line (local X) not vertical");
+                            if (zOwn != null)
+                            {
+                                var zdm = ((IList)G(G(zOwn, "damageMaterial"), "renderers")).Cast<Object>().ToList();
+                                if (!zdm.Contains(zmr)) zBad.Add(zp.name + ": not in fus_rear's livery / damage renderer list");
+                            }
+                        }
+                        foreach (var zt in zTrays)
+                        {
+                            if (zt.GetComponentsInChildren<Collider>(true).Length > 0) zBad.Add(zt.name + ": collider");
+                            if (zt.GetComponentsInChildren<MeshRenderer>(true).Any(r => r.sharedMaterials.Contains(mats["paint"]))) zBad.Add(zt.name + ": paint on the well");
+                            var zOwnT = OwningPart1912(zt);
+                            if (zOwnT == null || zOwnT.name != "fus_rear" || zt.parent != zOwnT.transform) zBad.Add(zt.name + ": not a direct child of fus_rear");
+                        }
+                        R("1.9.12 airbrake panels: two hinges under fus_rear (no escape-capsule parent), hinge line vertical, each with one panel mesh child (our mesh, paint = material 0, in fus_rear's livery list), only Transform / MeshFilter / MeshRenderer under a hinge, no collider, no part; two fixed wells without paint or collider",
+                            zHinges.Count == 2 && zTrays.Count == 2 && zBad.Count == 0, zBad.Count == 0 ? string.Join(", ", zHinges.Select(t => t.name).Concat(zTrays.Select(t => t.name))) : string.Join("; ", zBad.Take(8)));
+                        // fus_rear itself is the 1.9.11 part: its collider is baked from its own mesh only
+                        {
+                            var zfr = P("fus_rear"); var zmc = zfr != null ? zfr.GetComponent<MeshCollider>() : null; var zfmr = zfr != null ? zfr.GetComponent<MeshFilter>() : null;
+                            var zcb = zmc != null && zmc.sharedMesh != null ? zmc.sharedMesh.bounds : new Bounds(); var zmb = zfmr != null && zfmr.sharedMesh != null ? zfmr.sharedMesh.bounds : new Bounds();
+                            R("1.9.12 airbrake panels leave fus_rear alone: one MeshCollider on fus_rear whose bounds lie inside its own mesh bounds (the panels stand 4 mm proud and open 0.48 m outward: they are not in the hull)",
+                                zmc != null && zfmr != null && zcb.min.x >= zmb.min.x - 0.002f && zcb.max.x <= zmb.max.x + 0.002f && zcb.min.z >= zmb.min.z - 0.002f && zcb.max.z <= zmb.max.z + 0.002f && zfr.GetComponents<Collider>().Length == 1,
+                                zmc != null ? $"collider x {zcb.min.x:F3}..{zcb.max.x:F3}, mesh x {zmb.min.x:F3}..{zmb.max.x:F3}" : "no collider");
+                        }
+                        // opening sense and travel, exactly the stock call
+                        var zGain = zHinges.Select(zh => AirbrakeOpenGain1912(zh, inst.transform, AirbrakeMaxAngle1912)).ToList();
+                        R($"1.9.12 airbrake panels: the stock rotation (+{AirbrakeMaxAngle1912} deg about the hinge's local X) moves each free edge outward by >= {AirbrakeMinEdgeOut1912} m, left = right",
+                            zGain.Count == 2 && zGain.All(g => g >= AirbrakeMinEdgeOut1912) && Mathf.Abs(zGain[0] - zGain[1]) < 0.01f, string.Join(" / ", zGain.Select(g => g.ToString("F3") + " m")));
+                        // paint texels: every panel paint vertex takes the atlas texel of the fus_rear skin point 3-5 mm under it
+                        {
+                            var zfm = P("fus_rear").GetComponent<MeshFilter>(); var zsm = zfm.sharedMesh;
+                            var zsv = zsm.vertices.Select(v => zfm.transform.TransformPoint(v)).ToArray(); var zsu = zsm.uv; var zst = zsm.GetTriangles(0);
+                            int zn = 0, zmiss = 0; float zdMin = float.MaxValue, zdMax = 0f;
+                            foreach (var zh in zHinges)
+                            {
+                                var zp = zh.Find(zh.name.Replace("_hinge", "")); if (zp == null) continue;
+                                var zpm = zp.GetComponent<MeshFilter>().sharedMesh; var zpu = zpm.uv; var zpv = zpm.vertices;
+                                foreach (var zi in zpm.GetTriangles(0).Distinct())
+                                {
+                                    zn++; var zu = zpu[zi]; var zw = zp.TransformPoint(zpv[zi]); float best = float.MaxValue;
+                                    for (int k = 0; k < zst.Length; k += 3)
+                                    {
+                                        Vector2 a = zsu[zst[k]], b = zsu[zst[k + 1]], c = zsu[zst[k + 2]];
+                                        float den = (b.y - c.y) * (a.x - c.x) + (c.x - b.x) * (a.y - c.y); if (Mathf.Abs(den) < 1e-12f) continue;
+                                        float l0 = ((b.y - c.y) * (zu.x - c.x) + (c.x - b.x) * (zu.y - c.y)) / den, l1 = ((c.y - a.y) * (zu.x - c.x) + (a.x - c.x) * (zu.y - c.y)) / den, l2 = 1f - l0 - l1;
+                                        if (l0 < -0.02f || l1 < -0.02f || l2 < -0.02f) continue;
+                                        best = Mathf.Min(best, Vector3.Distance(zw, l0 * zsv[zst[k]] + l1 * zsv[zst[k + 1]] + l2 * zsv[zst[k + 2]]));
+                                    }
+                                    if (best == float.MaxValue) { zmiss++; continue; }
+                                    zdMin = Mathf.Min(zdMin, best); zdMax = Mathf.Max(zdMax, best);
+                                }
+                            }
+                            R("1.9.12 airbrake panels carry the livery: every panel paint vertex has the atlas UV0 of the fus_rear skin point 3-5 mm under it (same texels as the skin beneath; the atlas is not re-packed, the manifest row above is checked without the panels)",
+                                zn > 0 && zmiss == 0 && zdMin >= 0.003f && zdMax <= 0.005f, $"{zn} paint vertices, {zmiss} with a UV outside fus_rear's paint triangles, skin point {zdMin * 1000f:F2}..{zdMax * 1000f:F2} mm away");
+                        }
+                        // clear of the green strips, shut and through the whole opening: bounds of the panels (aircraft frame) against the bounds of every strip
+                        {
+                            var zStrips = inst.GetComponentsInChildren<MeshFilter>(true).Where(r => r.name.StartsWith("slimelight_") && r.sharedMesh != null).ToList();
+                            Bounds zB(MeshFilter m) { var vs = m.sharedMesh.vertices; var bb = new Bounds(inst.transform.InverseTransformPoint(m.transform.TransformPoint(vs[0])), Vector3.zero); foreach (var v in vs) bb.Encapsulate(inst.transform.InverseTransformPoint(m.transform.TransformPoint(v))); return bb; }
+                            var zSB = zStrips.Select(m => (m.name, zB(m))).ToList();
+                            var zKeep = zHinges.Select(t => t.localRotation).ToList(); var zHit = new List<string>(); float zGap = float.MaxValue;
+                            try
+                            {
+                                for (int zdeg = 0; zdeg <= (int)AirbrakeMaxAngle1912; zdeg += 5)
+                                {
+                                    for (int zi = 0; zi < zHinges.Count; zi++) { zHinges[zi].localRotation = zKeep[zi]; zHinges[zi].Rotate(new Vector3(zdeg, 0f, 0f), Space.Self); }
+                                    foreach (var zh in zHinges) foreach (var zmf in zh.GetComponentsInChildren<MeshFilter>(true))
+                                    {
+                                        var zb = zB(zmf);
+                                        foreach (var (zsn, zsb) in zSB)
+                                        {
+                                            if (zb.Intersects(zsb)) zHit.Add($"{zmf.name} x {zsn} at {zdeg} deg");
+                                            zGap = Mathf.Min(zGap, Mathf.Sqrt(zb.SqrDistance(zsb.ClosestPoint(zb.center))));
+                                        }
+                                    }
+                                }
+                            }
+                            finally { for (int zi = 0; zi < zHinges.Count; zi++) zHinges[zi].localRotation = zKeep[zi]; }
+                            R("1.9.12 airbrake panels clear of the 9 green gear-down strips, shut and at every 5 deg of the opening (bounds of the panels in the aircraft frame against the bounds of every strip, >= 30 mm)",
+                                zStrips.Count == 9 && zHit.Count == 0 && zGap >= 0.03f, zHit.Count == 0 ? $"nearest strip bounds {zGap * 1000f:F0} mm from a panel's bounds" : string.Join("; ", zHit.Take(4)));
+                        }
+                    }
+                }
                 var stockMesh = inst.GetComponentsInChildren<MeshFilter>(true).Where(m => m.sharedMesh != null && !AssetDatabase.GetAssetPath(m.sharedMesh).StartsWith(Folder) && !AssetDatabase.GetAssetPath(m.sharedMesh).StartsWith(DNS)).Select(m => m.name).ToList();
                 R("every mesh is ours (mesh bank in the mod folder) or a stock placeholder (seat, stick, throttle)", stockMesh.Count == 0, string.Join(", ", stockMesh.Take(6)));
                 var def = (AircraftDefinition)ac.definition;
@@ -2443,6 +2692,7 @@ namespace B25HTools
             foreach (var mr in PartRenderers(p.gameObject))
             {
                 if (mr.gameObject.layer == 3) continue;
+                if (mr.name.StartsWith("airbrake_")) continue;   // 1.9.12: the damage diagram and the map icon are drawn from the 1.9.11 meshes only (the airbrake panels and wells are 2-5 mm proud plates on fus_rear; with them a few edge pixels of three sprites moved)
                 var mf = mr.GetComponent<MeshFilter>(); if (mf == null || mf.sharedMesh == null) continue;
                 if (mr.sharedMaterials.Length > 0 && mr.sharedMaterials[0] == mats["propdisc"]) continue;
                 var m = mf.sharedMesh; var v = m.vertices; var tr = mf.transform;

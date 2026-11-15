@@ -28,6 +28,8 @@ import tex_lib as T          # numpy helpers (noise, dilation, normals, text, pn
 import faction_marks as FM   # BDF / PALA marks (vector redraws)
 sys.path.insert(0, os.path.join(ROOT, 'blender'))
 import atlas_guard as AG   # 1.8.16: manifest of the atlas these textures are painted on
+sys.path.insert(0, HERE)
+import naval1912 as NV     # 1.9.12: the two naval liveries (numbers, json / manifest merge; numpy only, stub-tested)
 F32 = np.float32
 
 argv = sys.argv[sys.argv.index('--') + 1:] if '--' in sys.argv else []
@@ -35,6 +37,9 @@ RES = int(argv[argv.index('--res') + 1]) if '--res' in argv else 2048
 OUT = os.path.abspath(argv[argv.index('--out') + 1]) if '--out' in argv else os.path.join(ROOT, 'assets', 'textures_nimrod')
 os.makedirs(OUT, exist_ok=True)
 STATS = {}
+if '--naval-no-fal' in argv:        # 1.9.12 review only (A / B of the fal grime layer): never with the repo's texture folder as --out
+    assert os.path.normcase(OUT) != os.path.normcase(os.path.join(ROOT, 'assets', 'textures_nimrod')), '--naval-no-fal is a review bake: give another --out'
+    NV.GRIME_AMOUNT = 0.0
 
 
 def log(*a):
@@ -284,6 +289,146 @@ def serials(col, G, F, text, rgb, small=False):
 
 
 # =============================================================================================== liveries
+def naval_texel():
+    """side of one livery texel in metres (the atlas has one scale: metres_per_uv of the model build)"""
+    return json.loads(bpy.context.scene.get('b25_build_stats', '{}')).get('metres_per_uv', 10.0) / RES
+
+
+_NAV_GEOM = {}
+
+
+def naval_geom(G, texel):
+    """1.9.12 round 3, naval PALA scheme only (no other livery calls it): per texel the pattern field (NV.field_of: part kind + smooth
+    normal), the texel's footprint on the surface (Ju, Jv from NV.raster_extra, the same rasterisation as rasterise()) and the
+    fuselage unwrap table built from the fuselage texels. Computed once per run."""
+    if 'field' in _NAV_GEOM:
+        return _NAV_GEOM
+    Ju, Jv, sn, pid = NV.raster_extra(bpy.data.objects, RES)
+    assert (pid[G.mask] == G.id).all() and ((pid >= 0) == G.mask).all(), 'raster_extra must cover the texels of rasterise() exactly'
+    Ju, Jv, sn = Ju[G.mask].astype(np.float64), Jv[G.mask].astype(np.float64), sn[G.mask].astype(np.float64)
+    kinds = np.array([NV.kind_of(n) for n in G.names], np.int8)[G.id]
+    field = NV.field_of(sn, kinds)
+    fus_sel = (kinds == NV.KIND_FUS) & (field == NV.FIELD_FUS)
+    tab = NV.fus_table(G.P[fus_sel])
+    na, nb = NV.footprint_counts(Ju, Jv, texel)
+    st = dict(texels=int(G.K), stretched_over_2_texels=int(((na > 4) | (nb > 4)).sum()), at_fp_max=int(((na == NV.FP_MAX) | (nb == NV.FP_MAX)).sum()),
+              fields=[int((field == f).sum()) for f in range(NV.N_FIELDS)], fus_texels=int(fus_sel.sum()))
+    _NAV_GEOM.update(field=field, Ju=Ju, Jv=Jv, fus=tab, fp_stats=st)
+    log('naval geometry:', json.dumps(st))
+    return _NAV_GEOM
+
+
+def stencil(col, G, sel, pu, pv, inside, rgb, texel):
+    """paint a hard-edged shape (inside(pu, pv) -> bool, local metres) crisply: NV.supersample (4 x 4 thresholded sub-samples per texel)"""
+    cov = np.zeros(G.K, F32)
+    if sel.any():
+        cov[sel] = NV.supersample(inside, pu[sel], pv[sel], texel)
+    return put(col, cov, np.asarray(rgb, F32))
+
+
+def glyphs(text, h, stroke):
+    """inside-test of a word in the project's stroke font, hard edge (tex_lib.text_mask with a vanishing soft edge, thresholded)"""
+    return lambda u, v: T.text_mask(u, v, [text], h, stroke, aa=1e-5) > 0.5
+
+
+def naval_weather(col, G, F, c):
+    """restrained wear, the stock naval skins' kind at this aircraft's scale (numbers in naval1912.py): salt streaks along the airflow,
+    the fal grime tile, chalked rib tapes with a dirt line each side, dark cowling panel joints with a lighter worn rim,
+    dark control-surface hinge gaps, paint chipped to a lighter tone on leading edges and cowl panel edges."""
+    ax = np.abs(G.x)
+    flow = T.fbm(G.P * np.array([5.0, 0.55, 5.0], F32), 1.0, 3, seed=21); fine = T.fbm(G.P, 9.0, 2, seed=23)
+    gain = NV.streak_gain(flow, fine)
+    if NV.GRIME_AMOUNT > 0:             # fal: stains, drips, smudges, scratches (one seamless tile, high-passed, triplanar in world space)
+        gain = gain * NV.grime_gain(T.tri_sample(fal_grey_hp(NV.GRIME_TILE, 512, sigma=NV.GRIME_HP_SIGMA), G.P, G.N, NV.GRIME_SPAN, seed=5))
+    # fabric: rib tapes (same stations as the height map in features())
+    tape = np.zeros(G.K, F32); edge = np.full(G.K, 9.0, F32)
+    for sel, pitch, off in ((F['wing_up'] | F['wing_lo'], 0.17, 0.05), (G.g('stab_', 'elevator_'), 0.14, 0.02)):
+        d = T.periodic(ax, pitch, off)
+        tape = np.where(sel, np.exp(-(d / 0.012) ** 2), tape); edge = np.where(sel, np.abs(d - NV.TAPE_EDGE_OFF), edge)
+    fr = G.g('fin', 'rudder')
+    d = T.periodic(G.z, 0.15, 0.02)
+    tape = np.where(fr, np.exp(-(d / 0.011) ** 2), tape); edge = np.where(fr, np.abs(d - NV.TAPE_EDGE_OFF), edge)
+    t_light = np.where(fr, NV.FIN_TAPE_LIGHT, NV.TAPE_LIGHT).astype(F32); t_depth = np.where(fr, NV.FIN_TAPE_EDGE_DEPTH, NV.TAPE_EDGE_DEPTH).astype(F32)
+    gain = gain * (1 + t_light * tape) * NV.line_gain(edge, NV.TAPE_EDGE_HALF, t_depth)     # round 3: fin / rudder tapes a third as strong
+    # metal cowling: panel joints (the lines of the height map) dark, a lighter rim beside them
+    dy, _ = T.nearest_station(G.y, np.array(NV.COWL_LINES_Y, F32))
+    side_line = np.minimum(np.abs(G.z - NV.COWL_LINES_Z[0]), np.abs(G.z - NV.COWL_LINES_Z[1]))
+    pl = np.minimum(dy, np.where(ax > 0.2, side_line, 9)).astype(F32)
+    gain = gain * np.where(F['metal'], NV.line_gain(pl, NV.PANEL_LINE_HALF, NV.PANEL_LINE_DEPTH) * NV.rim_gain(pl, NV.PANEL_LINE_HALF, NV.PANEL_RIM_HALF, NV.PANEL_RIM_GAIN), 1.0)
+    # hinge gaps: fin / rudder post, aileron and elevator leading edges
+    hd = np.full(G.K, 9.0, F32)
+    hd = np.where(G.g('fin') | (G.g('rudder') & ~G.g('rudder_balance')), np.abs(G.y - NV.RUDDER_HINGE_Y), hd)
+    for pre in ('aileron_L', 'aileron_R', 'elevator_L', 'elevator_R'):
+        m = G.g(pre) & ~G.g(pre + '_nose')
+        if m.any():
+            hd = np.where(m & (np.abs(G.N[:, 2]) > 0.5), np.abs(G.y - float(G.y[m].max())), hd)
+    gain = gain * NV.line_gain(hd, NV.HINGE_HALF, NV.HINGE_DEPTH)
+    col = col * gain[:, None]
+    # chips: leading edges of wings / tail (faces looking forward) and the cowl panel edges
+    n = T.fbm(G.P, 55.0, 2, seed=31); big = T.fbm(G.P, 6.0, 2, seed=33)
+    le = (F['wing_up'] | F['wing_lo'] | G.g('stab_', 'fin')) & (G.N[:, 1] > 0.70)
+    chip = np.where(le, T.smoothstep(0.60, 0.66, n) * T.smoothstep(0.35, 0.60, big), 0.0)
+    chip = np.maximum(chip, np.where(F['metal'] & (pl < 0.014), T.smoothstep(0.64, 0.70, n) * T.smoothstep(0.40, 0.60, big), 0.0))
+    return put(col, (NV.CHIP_MAX * chip).astype(F32), c['chip'])
+
+
+def naval(G, F, key):
+    """1.9.12 naval liveries (naval1912.py holds the numbers and the pattern).
+    BDF Navy Gray: the stock VT-7 "BDF Navy Gray" language - neutral grey (the metal cowling a tone darker), lighter undersides, dark
+    navy-grey accent panels (anti-glare panel on the cowling, upper-wing centre section, walkways), small red warning marks.
+    PALA Navy: a straight-edged splinter in the stock PALA navy palette all over (the FD-32 "PALA Navy Splinter" family).
+    Both: emblems at the six sites, the stock title in a dark label plate on the rear fuselage, a number on the rudder between two
+    small red arrows, crisp stencils, restrained panel-line / wear detail (naval_weather), glossiness 0.0."""
+    c = NV.SCHEME[key]
+    texel = naval_texel()
+    w = F['wear'][:, None]
+    ax = np.abs(G.x)
+    if c['pattern'] == 'splinter':
+        X = naval_geom(G, texel)                 # round 3: field per part kind + smooth normal (fuselage unwrap), texel footprint average
+        col, idx = NV.splinter_rgb_fp(G.P, X['Ju'], X['Jv'], X['field'], X['fus'], c['palette'], texel)
+        STATS['pala_navy_footprint'] = X['fp_stats']
+        col = col * (0.96 + 0.06 * w)
+        STATS['pala_navy_shares'] = [round(s, 4) for s in NV.shares_of(idx, len(c['palette']))]
+    else:
+        up = np.where(F['metal'][:, None], c['metal'][None, :] * (0.97 + 0.04 * w), c['upper'][None, :] * (0.95 + 0.07 * w))
+        t = np.where(F['struts'], 1.0, NV.under_weight(G.N[:, 2])).astype(F32)[:, None]      # struts / gear legs: the upper colour all round
+        col = up * t + c['under'][None, :] * (0.95 + 0.07 * w) * (1 - t)
+        glare = F['metal'] & (G.N[:, 2] > NV.GLARE_NZ) & (ax < NV.GLARE_HALF) & (G.y > NV.GLARE_Y[0]) & (G.y < NV.GLARE_Y[1])
+        col = put(col, glare.astype(F32), c['accent'])
+        cs = G.g('wing_upper_') & (ax < NV.CS_HALF) & F['top']
+        col = put(col, cs.astype(F32), c['accent'])
+    walk = F['wing_lo'] & F['top'] & (ax < NV.WALK_HALF) & (G.y < NV.WALK_Y_FWD)
+    col = put(col, walk.astype(F32) * 0.94, c['walk'])
+    col = naval_weather(col, G, F, c)
+    col = nat_marks(col, G, F, c['kind'])
+    # red warning marks: the walkway's outer limit line, the propeller line round the cowling
+    sel = F['wing_lo'] & F['top'] & (G.y < NV.WALK_Y_FWD) & (np.abs(ax - NV.WALK_HALF) < 0.06)
+    col = stencil(col, G, sel, ax - NV.WALK_HALF, G.y * 0, lambda u, v: np.abs(u - NV.WALK_LINE / 2) <= NV.WALK_LINE / 2, c['red'], texel)
+    sel = F['metal'] & (np.abs(G.y - NV.PROP_LINE_Y) < 0.05)
+    col = stencil(col, G, sel, G.y - NV.PROP_LINE_Y, G.y * 0, lambda u, v: np.abs(u) <= NV.PROP_LINE_W / 2, c['red'], texel)
+    hu, hv = NV.plate_half(c['title'])
+    y0, y1, z0, z1 = NV.text_box(c['number'], NV.NUM_Y, NV.NUM_Z, NV.NUM_H, NV.NUM_STROKE)
+    for side in (-1, 1):
+        # title: dark label plate, thin light border, light letters
+        sel = F['fus'] & (np.sign(G.x) == side) & (np.abs(G.N[:, 0]) > 0.4) & (G.y > NV.TITLE_SEL_Y[0]) & (G.y < NV.TITLE_SEL_Y[1])
+        pu, pv = side * (G.y - NV.TITLE_Y), G.z - NV.TITLE_Z
+        sel = sel & (np.abs(pu) < hu + 0.03) & (np.abs(pv) < hv + 0.03)
+        col = stencil(col, G, sel, pu, pv, lambda u, v: NV.in_box(u, v, hu, hv), c['plate'], texel)
+        col = stencil(col, G, sel, pu, pv, lambda u, v: NV.in_frame(u, v, hu, hv, NV.PLATE_BORDER, NV.PLATE_BORDER), c['title_rgb'], texel)
+        col = stencil(col, G, sel, pu, pv, glyphs(c['title'], NV.TITLE_H, NV.TITLE_STROKE), c['title_rgb'], texel)
+        # number on the rudder (by the normal: the rudder sits at x ~ 0, the sign of x is no use there), red arrows fore and aft
+        sel = G.g('rudder') & ~G.g('rudder_balance') & (side * G.N[:, 0] > 0.4)
+        pu, pv = side * (G.y - NV.NUM_Y), G.z - NV.NUM_Z
+        sel = sel & (np.abs(pu) < (y1 - y0) / 2 + 0.15) & (np.abs(pv) < NV.NUM_H)
+        if c['keyline'] is not None:
+            col = stencil(col, G, sel, pu, pv, glyphs(c['number'], NV.NUM_H, NV.NUM_STROKE + 2 * NV.NUM_KEYLINE), c['keyline'], texel)
+        col = stencil(col, G, sel, pu, pv, glyphs(c['number'], NV.NUM_H, NV.NUM_STROKE), c['number_rgb'], texel)
+        half = (y1 - y0) / 2 + NV.ARROW_GAP
+        for d in (-1, 1):       # d = -1: the arrow left of the word, pointing right at it; +1: right of it, pointing left
+            col = stencil(col, G, sel, pu, pv, lambda u, v, d=d: NV.in_arrow(u, v, d * half, NV.ARROW_LEN, NV.ARROW_HALF, -d), c['red'], texel)
+    return col, NV.GLOSS
+
+
 def livery(G, F, key):
     K = G.K
     w, gr = F['wear'], F['grime']
@@ -306,6 +451,8 @@ def livery(G, F, key):
             sel = F['fus'] & (np.sign(G.x) == side) & (np.abs(G.N[:, 0]) > 0.4) & (G.y > -1.85) & (G.y < -1.35)
             col = text_on(col, G, sel, side * (G.y + 1.60), G.z + 0.05, '566', 0.16, 0.026, BLACK)
         gloss = 0.45
+    elif NV.NAVAL_LIVERIES_1912 and key in NV.KEYS:
+        col, gloss = naval(G, F, key)
     else:
         if key == 'bdf_mattegrey':
             base = np.array([0.36, 0.38, 0.40], F32)
@@ -363,6 +510,8 @@ def top_colors(img, mask, n=5):
 LIVERIES = [('faa_silver', 'FAA Silver (1934)', 'BDF', True), ('bdf_mattegrey', 'BDF Matte Gray', 'BDF', False),
             ('bdf_temperate', 'BDF Temperate Camo', 'BDF', False), ('pala_matteblack', 'PALA Matte Black', 'PALA', False),
             ('pala_desert', 'PALA Desert Camo', 'PALA', False)]
+if NV.NAVAL_LIVERIES_1912:          # 1.9.12: appended, never inserted (saved missions store the list index)
+    LIVERIES = LIVERIES + NV.ENTRIES
 
 
 def skin(G, F, metres_per_uv):
@@ -536,6 +685,43 @@ def write_manifest(dmg_only=False):
     log('atlas manifest', m['atlas_hash'])
 
 
+def liveries_only(G_, F, mask, keys):
+    """1.9.12: bake ONLY the named liveries on the unchanged atlas. Writes <key>.png, merges their entries into nimrod_liveries.json
+    (old entries untouched and first) and adds the files to the atlas manifest. No skin / damage / tile / prop-blur file is written and
+    nimrod_skin_b is not touched. Self-check first: the shipped liveries baked again in memory must equal the files in the repo (same
+    wear / detail layers as the liveries next to them); a difference is reported, not fatal."""
+    label = {k: (l, f, b) for k, l, f, b in LIVERIES}
+    unknown = [k for k in keys if k not in label]
+    assert not unknown, f'unknown livery keys {unknown}'
+    assert all(k in NV.KEYS for k in keys), 'liveries-only writes the 1.9.12 naval liveries only (the others are shipped files)'
+    man = os.path.join(OUT, 'nimrod_atlas_manifest.json')
+    model_atlas = AG.atlas_hash(AG.scene_parts())
+    import tempfile, hashlib
+    same = {}
+    for k in [x[0] for x in LIVERIES if x[0] not in NV.KEYS]:
+        col, _ = livery(G_, F, k)
+        tmp = os.path.join(tempfile.gettempdir(), f'nimrod_selfcheck_{os.getpid()}_{k}.png')
+        T.save_png(finish(to_img(G_, col), mask), tmp)
+        same[k] = NV.sha12(tmp) == NV.sha12(os.path.join(OUT, f'nimrod_livery_{k}.png'))
+        os.remove(tmp)
+    log('self-check, shipped liveries re-baked in memory == repo files:', json.dumps(same))
+    new = {}; files = []
+    for k in keys:
+        col, gloss = livery(G_, F, k)
+        img = finish(to_img(G_, col), mask)
+        name = 'nimrod_livery_' + k
+        save(img, name); files.append(os.path.join(OUT, name + '.png'))
+        new[k] = dict(texture=name + '.png', name=label[k][0], label=label[k][0], faction=label[k][1], both=label[k][2], glossiness=gloss, colors=top_colors(img, mask))
+    jp = os.path.join(OUT, 'nimrod_liveries.json')
+    json.dump(NV.merge_liveries(json.load(open(jp)), new), open(jp, 'w'), indent=1)
+    m = NV.manifest_add(man, files, model_atlas, 'blender/nimrod/textures/build_textures_nimrod.py --liveries-only ' + ','.join(keys))
+    json.dump(dict(keys=keys, selfcheck_same=same, atlas=m['atlas_hash'], files={os.path.basename(f): NV.sha12(f) for f in files},
+                   glossiness=NV.GLOSS, texel_m=round(naval_texel(), 6), splinter_seed=NV.SPL_SEED, pala_navy_shares=STATS.get('pala_navy_shares'),
+                   stencil_sub=NV.STENCIL_SUB, fal_wear=NV.fal_record(), round3_footprint=STATS.get('pala_navy_footprint')),
+              open(os.path.join(OUT, 'nimrod_liveries_1912_stats.json'), 'w'), indent=1)
+    log('liveries-only done', keys, 'atlas', m['atlas_hash'])
+
+
 def main():
     stats = json.loads(bpy.context.scene.get('b25_build_stats', '{}'))
     mpu = stats.get('metres_per_uv', 10.0)
@@ -548,6 +734,9 @@ def main():
         write_manifest(True)
         return
     F = features(G_)
+    if '--liveries-only' in argv:                                        # 1.9.12: bake the named liveries only
+        liveries_only(G_, F, mask, argv[argv.index('--liveries-only') + 1].split(','))
+        return
     skin(G_, F, mpu)
     meta = {}
     for key, label, fac, both in LIVERIES:

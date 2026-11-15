@@ -1,0 +1,130 @@
+{
+ "ok": true,
+ "rows": [
+  {
+   "name": "fd32_airbrake.json == the panels rebuilt from the model now (site, frames, counts, numbers)",
+   "ok": true,
+   "detail": "L hinge [-0.359, -0.20847, -2.7728] R hinge [0.359, -0.20847, -2.7728]"
+  },
+  {
+   "name": "six objects: per side a hinge empty under fus_rear, one panel mesh under the hinge (paint = slot 0, + cove seam, structure, metal_dark; UV livery + detail), one fixed well under fus_rear without paint",
+   "ok": true,
+   "detail": "airbrake_L_hinge, airbrake_L, airbrake_tray_L, airbrake_R_hinge, airbrake_R, airbrake_tray_R"
+  },
+  {
+   "name": "triangles: each panel <= 450, each well <= 120 (stock airbrake panels 120-474)",
+   "ok": true,
+   "detail": "{'airbrake_L': 356, 'airbrake_tray_L': 82, 'airbrake_R': 370, 'airbrake_tray_R': 82}"
+  },
+  {
+   "name": "paint texels: every panel paint corner has the atlas UV of the fus_rear skin point under it (within 0.25 texel) and lies 3.0 - 4.4 mm above the skin",
+   "ok": true,
+   "detail": "308 corners, 4.13..4.29 mm above the skin, worst UV error 0.002 texel (5.67 mm per texel)"
+  },
+  {
+   "name": "shut panel: every vertex of the inner body (structure faces: inner skin, stiffeners, closing frame) is below the skin surface, so at least 4 mm under the paint face (nothing pokes through the shut panel)",
+   "ok": true,
+   "detail": "highest inner-body vertex 0.00 mm relative to the skin surface (paint face at +4.13)"
+  },
+  {
+   "name": "shut panel + well: >= 40 mm from the green side strips, >= 0.30 m from the spine strip, >= 0.10 m from the spine fairing, >= 0.15 m from the hook and its channel; no other object of the model within 40 mm",
+   "ok": true,
+   "detail": "slimelight_side_L 59 mm, slimelight_side_R 59 mm, hook_channel 195 mm, tailhook 245 mm, spine_aft 327 mm, fus_center_struct 516 mm, fus_center 572 mm"
+  },
+  {
+   "name": "shut panel: flare ejectors >= 0.15 m, tailplane >= 0.9 m, fin >= 0.8 m, canopy hood >= 0.8 m away",
+   "ok": true,
+   "detail": "flare_L 0.203 m, flare_R 0.203 m, stab_L 1.061 m, stab_R 1.061 m, fin 1.003 m, canopy_slide 0.986 m, slimelight_fin_L 1.354 m, gear_tail_strut 1.423 m"
+  },
+  {
+   "name": "shut panel inner body (stiffeners, hinge arms, reaching into the fuselage behind the uncut skin): >= 15 mm from every truss tube / frame face of fus_rear_struct",
+   "ok": true,
+   "detail": "nearest structure face 57.7 mm from the body; body reaches 44.6 mm inside the hinge line (the inner skin sheet is 1.4 mm from it: crossed, hidden between the two skins)"
+  },
+  {
+   "name": "naval markings (naval1912_fd32.py): title box behind the green side strip (>= 0.15 m) and ahead of the tailplane leading edge (>= 0.3 m), all four corners on the fus_rear flank",
+   "ok": true,
+   "detail": "title y -3.705 .. -3.095 (strip ends y -2.900, tailplane LE y -4.105, corners on the flank True)"
+  },
+  {
+   "name": "naval rudder number (round 2; keyline included): all four corners on the rudder paint on both sides, >= 60 mm aft of the hinge line and >= 60 mm ahead of the trailing edge at the heights of the number, and no other object of the model in front of the box in the side view (brace, wire, strip, tailplane)",
+   "ok": true,
+   "detail": "number y -5.569 .. -4.961, z 0.565 .. 0.835; rudder paint at those heights y -5.634 .. -4.878 (hinge clear 83 mm, trailing edge clear 65 mm); corners on the rudder True; objects across the box: none; tailplane brace nearest y -4.734231472015381"
+  },
+  {
+   "name": "markings: the outline starts >= 40 mm aft of the faction mark of both factions (drawn extent measured from faction_marks.layers at the builder's site y -2.12, 0.58 m) and ends >= 30 mm ahead of the small serial and of the naval titles",
+   "ok": true,
+   "detail": "mark aft end y -2.415 (BDF half width 0.292, PALA 0.295), outline y -2.47 .. -3.05, serial from y -3.091, naval title from y -3.095; builder site lines found: True"
+  },
+  {
+   "name": "stacking: well floor / stringers 1.6 - 3.4 mm above the skin, panel face >= 0.8 mm above the stringers",
+   "ok": true,
+   "detail": "well 1.91..3.28 mm, panel face 4.13..4.29 mm above the skin"
+  },
+  {
+   "name": "opening sense: the stock rotation (+55 deg about the hinge local X, Unity left-handed) moves the free edge outward >= 0.15 m, left = right; the Unity-way and the Blender-way rotation give the same point",
+   "ok": true,
+   "detail": "|x| gain L 0.4947 R 0.4947 m; open free edge (Blender) L [-0.8076, -2.8408, -0.135] R [0.8076, -2.8408, -0.135]"
+  },
+  {
+   "name": "hinges: mirror images within 1 mm, hinge line vertical (Unity local X = +-Y), 0.55 m or more aft of the fus_center | fus_rear break",
+   "ok": true,
+   "detail": "L [-0.359, -0.20847, -2.7728] R [0.359, -0.20847, -2.7728], X L [0.0, 1.0, 0.0] R [0.0, -1.0, 0.0]"
+  },
+  {
+   "name": "opening sweep 0 - 55 deg in 5 deg steps: the panels touch no object of the model (strips, hook stowed and lowered, tailplane, gear, wings, canopy, spine); fully open, only the panel root next to the hinge line is still inside the uncut skin (within 45 mm of the hinge line)",
+   "ok": true,
+   "detail": "0 contacts [], nearest other object 59 mm (slimelight_side_L at 0 deg), buried points up to 35.6 mm aft of the hinge line"
+  },
+  {
+   "name": "open panels: free edges 0.75 - 0.90 m from the centre line (tailplane tip 1.57 m, lower wing root 0.44 m), 1.0 m or more aft of the lower-wing trailing edge (y -1.00) and ahead of the tailplane (y -4.10)",
+   "ok": true,
+   "detail": "[[-0.8076, -2.8408, -0.135], [0.8076, -2.8408, -0.135]]"
+  },
+  {
+   "name": "fd32_airbrake.fbx re-imported: the six objects, same polygon counts, vertices (0.5 mm), material order and livery UVs as built",
+   "ok": true,
+   "detail": "['FD32_root', 'airbrake_L', 'airbrake_L_hinge', 'airbrake_R', 'airbrake_R_hinge', 'airbrake_tray_L', 'airbrake_tray_R']"
+  }
+ ],
+ "site": {
+  "y_hinge": -2.47,
+  "y_aft": -3.05,
+  "z_lo": -0.32,
+  "z_hi": 0.05
+ },
+ "nearest_objects_shut_mm": {
+  "slimelight_side_L": 58.9,
+  "slimelight_side_R": 58.9,
+  "hook_channel": 195.5,
+  "tailhook": 244.9,
+  "spine_aft": 326.7,
+  "fus_center_struct": 516.2,
+  "fus_center": 571.5
+ },
+ "far_m": {
+  "flare_L": 0.203,
+  "flare_R": 0.203,
+  "stab_L": 1.061,
+  "stab_R": 1.061,
+  "fin": 1.003,
+  "canopy_slide": 0.986,
+  "slimelight_fin_L": 1.354,
+  "gear_tail_strut": 1.423
+ },
+ "mark_extent": {
+  "BDF": [
+   -0.29249998927116394,
+   0.29249998927116394,
+   -0.17000000178813934,
+   0.17000000178813934
+  ],
+  "PALA": [
+   -0.29499998688697815,
+   0.29499998688697815,
+   -0.29750001430511475,
+   0.29750001430511475
+  ]
+ },
+ "truss_mm": 57.7
+}

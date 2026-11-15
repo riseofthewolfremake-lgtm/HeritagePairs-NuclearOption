@@ -39,6 +39,10 @@ for a, b in ((r"OUT = os.path.abspath(argv[argv.index('--out') + 1]) if '--out' 
              ("o.name.startswith(('fus_', 'B17G', 'tail_gun')) and not o.name.startswith('B17G_root')", "o.name.startswith(('fus_', 'MSB17', 'tail_gun')) and not o.name.startswith('MSB17_root')"),
              # the MSB has no K-5 cheek frames (S.NOSE1817_K5 = []), so the 7,200 seam rays do not exist: the grid alone (3,887 inside points x 3 rays)
              ("not miss and n > 10000, f'{n} points", "not miss and n > (10000 if S.NOSE1817_K5 else 3500), f'{n} points"),
+             # 1.9.12: row m compares plane constants of triangles up to 2 deg apart (a distance only for parallel planes), so thin proud
+             # plates beside the tilted inner skin are reported at random. The spoiler panels / strips are left out of row m and get row z
+             # of check_1912.py instead: the same rule (same-facing within 2 deg, overlapping) with TRUE point-to-triangle distances
+             ("    hits = zfight_pairs()\n", "    hits = zfight_pairs(objs=[o for o in meshes() if not o.name.startswith(('airbrake_', 'slimelight_'))])\n"),
              # grid points INSIDE the WSO console (a closed solid box on the nose floor, not a hull gap) see its back faces: skipped
              ("                p = V((x, y, z)); n += 1",
               "                p = V((x, y, z))\n                if _in_wso_console(p):\n                    continue\n                n += 1")):
@@ -492,7 +496,7 @@ def check_screens():
 sys.path.insert(0, os.path.join(HERE, '..'))
 import atlas_guard as AG
 R('1.8.16 livery atlas == texture manifest (skin / liveries / damage painted on this atlas; re-bake the textures when it fails)',
-  *AG.check_row(os.path.join(ROOT, 'assets', 'textures_msb1780', 'msb17_atlas_manifest.json')))
+  *AG.check_row(os.path.join(os.path.abspath(argv[argv.index('--tex') + 1]) if '--tex' in argv else os.path.join(ROOT, 'assets', 'textures_msb1780'), 'msb17_atlas_manifest.json')))   # --tex: a texture set built outside the repo (1.9.12 offline builds)
 def check_props_msb():
     """(d) both rows of every engine: disc points (0.6 / 0.8 / 1.0 R, 72 around) >= 0.15 m from the fuselage (unsigned distance), and no other
     part (wing, nacelles of the neighbour, other props; the own spinner / cowl excepted) within 5 cm of a disc."""
@@ -532,9 +536,13 @@ ONLY_ = argv[argv.index('--only') + 1].split(',') if '--only' in argv else None
 if ONLY_:
     loc = {f.__name__: f for f in (check_bay_msb, check_turrets_msb, check_rows, check_eject, check_screens, check_stock_fit, check_blades, check_deck195)}
     for f_ in ONLY_:
+        if f_ == 'check_1912':      # 1.9.12 rows (defined below the full run): --only check_1912
+            import check_1912 as _C1912
+            _C1912.run(R, meshes, obj, ns['zfight_pairs'])
+            continue
         (loc.get(f_) or ns.get(f_) or globals()[f_])()
     for k, v in RES.items():
-        print('[only]', 'PASS' if v['ok'] else 'FAIL', k[:80], '|', v['detail'][:500])
+        print('[only]', 'PASS' if v['ok'] else 'FAIL', k[:80], '|', v['detail'][:500 if 'check_1912' not in ONLY_ else 2500])
     raise SystemExit(0)
 for fn in ('check_zfight', 'check_flaps', 'check_interior_visible', 'check_nose_msb', 'check_dome1818', 'check_budget', 'check_stance', 'check_props_msb',
            'check_gear', 'check_winding', 'check_see_through', 'check_connect'):
@@ -606,7 +614,13 @@ def check_197():
       f'slot |x| {M.QUAD_SLOT_X[0] * 1000:.0f}-{M.QUAD_SLOT_X[1] * 1000:.0f}, {s0:.1f}..{s1:.1f} deg (margin {marg:.1f}); side clearance {side * 1000:.0f} mm; knob {min(knob) * 1000:.0f} mm; top faces in a slot {in_slot}')
 
 
-for f_ in (check_bay_msb, check_turrets_msb, check_rows, check_eject, check_screens, check_stock_fit, check_blades, check_deck195, check_197):
+def check_1912():
+    """1.9.12 rows: (x1-x3) spoiler panels, (y1-y3) formation-light strips, (z, z2, z3) z-fighting of the plates with true distances (blender/msb1780/check_1912.py)."""
+    import check_1912 as C1912
+    C1912.run(R, meshes, obj, ns['zfight_pairs'])
+
+
+for f_ in (check_bay_msb, check_turrets_msb, check_rows, check_eject, check_screens, check_stock_fit, check_blades, check_deck195, check_197, check_1912):
     try:
         f_()
     except Exception as ex:

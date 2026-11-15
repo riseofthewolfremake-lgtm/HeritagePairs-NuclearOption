@@ -1,7 +1,7 @@
 {
  "1.8.16 livery atlas == texture manifest (skin / liveries / damage painted on this atlas; re-bake the textures when it fails)": {
   "ok": true,
-  "detail": "atlas 37bbaca5a79c59ec == manifest (62 paint parts, 13 textures) msb17_atlas_manifest.json"
+  "detail": "atlas ff3ff1237b927c17 == manifest (68 paint parts, 13 textures) msb17_atlas_manifest.json"
  },
  "m z-fighting: no same-facing coplanar overlapping triangles (whole aircraft, within 0.8 mm / 2 deg)": {
   "ok": true,
@@ -49,7 +49,7 @@
  },
  "i triangle budget total": {
   "ok": true,
-  "detail": "234472 <= 245000"
+  "detail": "242020 <= 245000"
  },
  "h stance: 3-point angle 8-12 deg": {
   "ok": true,
@@ -101,7 +101,7 @@
  },
  "a connectivity: every object within 1 cm of another": {
   "ok": true,
-  "detail": "170 objects; far: []"
+  "detail": "190 objects; far: []"
  },
  "a2 no floating island inside any object": {
   "ok": true,
@@ -174,5 +174,41 @@
  "t7 1.9.7 throttle levers stand IN the quadrant gate from idle to full: housing top >= 12 mm above the arm foot, >= 3 mm of slot each side of the arm, slot longer than the arm travel by >= 2 deg each end, no housing-top face inside a slot, knobs >= 20 mm above the top": {
   "ok": true,
   "detail": "arm foot r 178 mm |x| 83-91, angles -50.5..-43.2 idle (+52 full); housing top r 219 mm, slot |x| 79-95, -55.9..14.8 deg (margin 5.4); side clearance 4 mm; knob 281 mm; top faces in a slot 0"
+ },
+ "x1 1.9.12 spoiler panels: 6 panels (hinge empty > panel, bed) on wing_inner / wing_mid; the panel's paint face lies 15 mm above the wing's own (export) triangles everywhere and carries the atlas UV of the skin under it (<= 1.5 texel of 4096); underside and stiffeners above the bed plate, bed (plate + frame) 0.5-8 mm above the skin": {
+  "ok": true,
+  "detail": "paint face 15.00..15.00 mm, underside / stiffeners 5.20..15.00 mm, bed 2.00..7.50 mm above the skin; panel sizes (span x chord, m2) airbrake_in_R 1.30 x 1.05 = 1.36, airbrake_mid_R 1.91 x 0.88 = 1.69, airbrake_out_R 1.16 x 0.79 = 0.92; 3.97 m2 a side; UV of the skin under 736 corners: worst 0.01 texel; []"
+ },
+ "x2 1.9.12 spoiler panels shut: >= 0.08 m from the flaps, >= 0.15 m from nacelles / engines / fuselage, >= 0.30 m from an exhaust line (|x| 3.83 / 7.20), >= 0.20 m from a wing split, >= 1 m inboard of the wing roundel": {
+  "ok": true,
+  "detail": "airbrake_in_L flap 0.12, nacelle 0.31, fuselage 0.23, exhaust_line 1.12, wing_split 2.04, roundel 8.79; airbrake_in_R flap 0.12, nacelle 0.31, fuselage 0.23, exhaust_line 1.12, wing_split 2.04, roundel 8.79; airbrake_mid_L flap 0.10, nacelle 0.39, fuselage 9.00, exhaust_line 0.31, wing_split 0.21, roundel 4.61; airbrake_mid_R flap 0.10, nacelle 0.41, fuselage 9.00, exhaust_line 0.31, wing_split 0.21, roundel 4.61; airbrake_out_L flap 0.09, nacelle 0.98, fuselage 9.00, exhaust_line 0.31, wing_split 0.21, roundel 2.81; airbrake_out_R flap 0.09, nacelle 1.00, fuselage 9.00, exhaust_line 0.31, wing_split 0.21, roundel 2.81"
+ },
+ "x3 1.9.12 spoiler panels open 28 / 55 deg (minus about the hinge's local +X in Blender = plus in Unity): the rear edge rises >= 0.30 m, the panel and its arms cross nothing but their own wing skin / bed, and stay >= 0.30 m under the dorsal laser's horizontal plane (z 2.38, elevation >= 0) and above the ventral one's (z -0.85, elevation <= 0)": {
+  "ok": true,
+  "detail": "airbrake_in_L: free edge z 0.33 -> 1.26 (+0.93 m), top 1.27; airbrake_in_R: free edge z 0.33 -> 1.26 (+0.93 m), top 1.27; airbrake_mid_L: free edge z 0.56 -> 1.33 (+0.77 m), top 1.35; airbrake_mid_R: free edge z 0.56 -> 1.33 (+0.77 m), top 1.35; airbrake_out_L: free edge z 0.69 -> 1.38 (+0.69 m), top 1.39; airbrake_out_R: free edge z 0.69 -> 1.38 (+0.69 m), top 1.39"
+ },
+ "y1 1.9.12 formation-light strips: 8 closed slabs, material light_off only (no paint: not in the livery atlas), children of fus_cockpit / fus_waist / fin / wing_tip; front face 5 mm (+-0.8) above the part's own (export) triangles at every corner, back face above the skin, >= 0.05 m from any glass": {
+  "ok": true,
+  "detail": "slimelight_fwd_L: front 4.96..5.00 mm, back 1.98..2.00 mm, 0.125 m2, 30/30 faces see 2 m of free space, glass 0.111 m; slimelight_fwd_R: front 4.92..5.00 mm, back 1.97..2.00 mm, 0.126 m2, 30/30 faces see 2 m of free space, glass 0.111 m; slimelight_aft_L: front 4.96..5.00 mm, back 1.98..2.00 mm, 0.146 m2, 24/24 faces see 2 m of free space, glass 0.300 m; slimelight_aft_R: front 4.98..5.00 mm, back 1.99..2.00 mm, 0.146 m2, 24/24 faces see 2 m of free space, glass 0.300 m; slimelight_fin_L: front 4.98..5.00 mm, back 1.99..2.00 mm, 0.122 m2, 18/18 faces see 2 m of free space, glass 9.000 m; slimelight_fin_R: front 4.99..5.00 mm, back 2.00..2.00 mm, 0.122 m2, 18/18 faces see 2 m of free space, glass 9.000 m; slimelight_tip_L: front 4.99..5.00 mm, back 2.00..2.00 mm, 0.114 m2, 19/19 faces see 2 m of free space, glass 9.000 m; slimelight_tip_R: front 4.99..5.00 mm, back 2.00..2.00 mm, 0.114 m2, 20/20 faces see 2 m of free space, glass 9.000 m"
+ },
+ "y2 1.9.12 formation-light strips are seen: along its own normal every front face has 2 m of free space (not behind a frame, door, nacelle or antenna)": {
+  "ok": true,
+  "detail": "hidden: []"
+ },
+ "y3 1.9.12 formation-light strips placement (measured boxes): forward under the cab window frame and above the outer nacelle top line; waist above the side-bay door (also swung open), aft of the sensor window, ahead of the roundel; fin above the serial, on the fixed fin; tip outboard of the aileron and the wing roundel, inboard of the nav light": {
+  "ok": true,
+  "detail": "L: fwd_under_frame 0.07, fwd_over_outer_nacelle_top 0.03, fwd_in_part 0.30, aft_over_door_hinge 0.22, aft_behind_sensor_window 0.30, aft_ahead_of_roundel 1.10, aft_in_part 0.75, fin_over_serial 0.50, fin_ahead_of_rudder_hinge 0.82, fin_under_tip 0.54, tip_outboard_of_aileron 0.25, tip_outboard_of_roundel 1.29, tip_inboard_of_navlight 0.63 | R: fwd_under_frame 0.07, fwd_over_outer_nacelle_top 0.03, fwd_in_part 0.30, aft_over_door_hinge 0.22, aft_behind_sensor_window 0.30, aft_ahead_of_roundel 1.10, aft_in_part 0.75, fin_over_serial 0.50, fin_ahead_of_rudder_hinge 0.82, fin_under_tip 0.54, tip_outboard_of_aileron 0.25, tip_outboard_of_roundel 1.29, tip_inboard_of_navlight 0.63 | open side-bay door L: nearest 0.263 m | open side-bay door R: nearest 0.263 m"
+ },
+ "z 1.9.12 z-fighting, true distances: no triangle of a spoiler panel / bed / strip lies within 0.8 mm of a same-facing (2 deg) triangle of the aircraft that lies over / under it (row m's rule; the plates are left out of row m)": {
+  "ok": true,
+  "detail": "7402 triangles of 20 objects; closest same-facing triangle 1.00 mm; pairs []"
+ },
+ "z2 1.9.12 plate stand-off, real distances over ALL vertices (not samples): every vertex of a spoiler panel / bed / strip is >= 0.8 mm (row m's distance) from every triangle of the rest of the aircraft, and every airframe vertex near a plate is >= 0.8 mm from the plate's triangles (any facing; hinge arms, which cross the skin by design, left out)": {
+  "ok": true,
+  "detail": "bed x6: plate vertices -> airframe min 1.65 mm, airframe vertices -> plate min 2.00 mm; panel x6: plate vertices -> airframe min 5.20 mm, airframe vertices -> plate min 5.20 mm; strip x8: plate vertices -> airframe min 1.72 mm, airframe vertices -> plate min 1.96 mm; 3976 plate vertices, 1560 airframe vertices measured, 56 hinge-arm faces left out; closest: 1.65 mm (airbrake_mid_L_bed vertex -> airframe at (-4.96, -1.474, 0.49))"
+ },
+ "z3 1.9.12 row m's own detector on the whole aircraft WITH the plates (informational for the plates: plane constants within 0.8 mm, normals within 2 deg - a distance only for parallel planes): no pair without a plate; the plate pairs it reports are listed and are measured by rows z / z2": {
+  "ok": true,
+  "detail": "77 plate pairs reported by the plane-constant test: [(('airbrake_in_L_bed', 'gear', 'wing_inner_L', 'paint'), 8), (('airbrake_in_R_bed', 'gear', 'wing_inner_R', 'paint'), 8), (('airbrake_mid_L_bed', 'cove', 'wing_mid_L', 'paint'), 7), (('airbrake_mid_L', 'gear', 'wing_mid_L', 'paint'), 6), (('airbrake_mid_R', 'gear', 'wing_mid_R', 'paint'), 6), (('airbrake_in_L_bed', 'cove', 'wing_inner_L', 'paint'), 5), (('airbrake_in_R_bed', 'cove', 'wing_inner_R', 'paint'), 5), (('airbrake_mid_R_bed', 'cove', 'wing_mid_R', 'paint'), 5)]; pairs without a plate 0"
  }
 }

@@ -13,6 +13,10 @@
    "sha": "a8f68346b4e6",
    "atlas": "07f0f30a3e33b5ed"
   },
+  "nimrod_livery_bdf_navy.png": {
+   "sha": "cd085e8e1570",
+   "atlas": "07f0f30a3e33b5ed"
+  },
   "nimrod_livery_bdf_temperate.png": {
    "sha": "d8b333154a11",
    "atlas": "07f0f30a3e33b5ed"
@@ -27,6 +31,10 @@
   },
   "nimrod_livery_pala_matteblack.png": {
    "sha": "d3879e881e0c",
+   "atlas": "07f0f30a3e33b5ed"
+  },
+  "nimrod_livery_pala_navy.png": {
+   "sha": "32debdd33fcf",
    "atlas": "07f0f30a3e33b5ed"
   },
   "nimrod_skin_ao.png": {
@@ -215,5 +223,12 @@
    "n": 721,
    "cells": "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"
   }
+ },
+ "liveries_only_1912": {
+  "written_by": "blender/nimrod/textures/build_textures_nimrod.py --liveries-only bdf_navy,pala_navy",
+  "files": [
+   "nimrod_livery_bdf_navy.png",
+   "nimrod_livery_pala_navy.png"
+  ]
  }
 }

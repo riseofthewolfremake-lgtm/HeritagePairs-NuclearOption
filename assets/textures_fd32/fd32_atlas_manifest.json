@@ -13,6 +13,10 @@
    "sha": "7f654ffcf51d",
    "atlas": "136d9b5f8b7ede89"
   },
+  "fd32_livery_bdf_navy.png": {
+   "sha": "a0b2a2f120ce",
+   "atlas": "136d9b5f8b7ede89"
+  },
   "fd32_livery_bdf_temperate.png": {
    "sha": "58e2be6d88cd",
    "atlas": "136d9b5f8b7ede89"
@@ -23,6 +27,10 @@
   },
   "fd32_livery_pala_matteblack.png": {
    "sha": "da55e9de87c7",
+   "atlas": "136d9b5f8b7ede89"
+  },
+  "fd32_livery_pala_navy.png": {
+   "sha": "46a144a849fe",
    "atlas": "136d9b5f8b7ede89"
   },
   "fd32_skin_ao.png": {
@@ -251,5 +259,12 @@
    "n": 721,
    "cells": "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"
   }
+ },
+ "liveries_only_1912": {
+  "written_by": "blender/fd32/textures/build_textures_fd32.py --liveries-only bdf_navy,pala_navy",
+  "files": [
+   "fd32_livery_bdf_navy.png",
+   "fd32_livery_pala_navy.png"
+  ]
  }
 }

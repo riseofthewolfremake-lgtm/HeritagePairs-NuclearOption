@@ -32,6 +32,11 @@ REPL = [
     ("os.path.join(OUT, 'b17g_atlas_manifest.json'), 'B17G'", "os.path.join(OUT, 'msb17_atlas_manifest.json'), 'MSB17'"),
     ("written_by='blender/b17g/textures/build_textures_b17g.py'", "written_by='blender/msb1780/build_textures_msb1780.py'"),
     ("if key == 'usaaf_od':\n            save(img, 'msb17_skin_b')", "if key == DEFAULT_LIVERY:\n            save(img, 'msb17_skin_b')"),
+    # 1.9.12: the spoiler panels (airbrake_*) wear the atlas texels of the wing skin under them (blender/msb1780/msb_ext1912.py): they are
+    # not rasterised, so a re-bake paints exactly the 1.9.11 texels (the wing skin's own position, part mask and markings). The manifest
+    # still lists them (AG.scene_parts: their UV points are wing-skin points), as the guard wants for every paint part.
+    ("        if 'paint' not in mats or 'livery' not in me.uv_layers:\n            continue\n",
+     "        if 'paint' not in mats or 'livery' not in me.uv_layers or ob.name.startswith('airbrake_'):\n            continue\n"),
 ]
 for a, b in REPL:
     assert a in src, a[:70]

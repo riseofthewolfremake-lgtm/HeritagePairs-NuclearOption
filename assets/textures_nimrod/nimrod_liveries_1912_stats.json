@@ -1,0 +1,49 @@
+{
+ "keys": [
+  "bdf_navy",
+  "pala_navy"
+ ],
+ "selfcheck_same": {
+  "faa_silver": true,
+  "bdf_mattegrey": true,
+  "bdf_temperate": true,
+  "pala_matteblack": true,
+  "pala_desert": true
+ },
+ "atlas": "07f0f30a3e33b5ed",
+ "files": {
+  "nimrod_livery_bdf_navy.png": "cd085e8e1570",
+  "nimrod_livery_pala_navy.png": "32debdd33fcf"
+ },
+ "glossiness": 0.0,
+ "texel_m": 0.005383,
+ "splinter_seed": 0,
+ "pala_navy_shares": [
+  0.3491,
+  0.3113,
+  0.2108,
+  0.1287
+ ],
+ "stencil_sub": 4,
+ "fal_wear": {
+  "on": true,
+  "tile": "naval_grime_d",
+  "span_m": 1.7,
+  "amount": 0.055,
+  "endpoint": "fal-ai/z-image/turbo/tiling"
+ },
+ "round3_footprint": {
+  "texels": 3114375,
+  "stretched_over_2_texels": 79577,
+  "at_fp_max": 4257,
+  "fields": [
+   91877,
+   92389,
+   56611,
+   1063966,
+   1089817,
+   719715
+  ],
+  "fus_texels": 719715
+ }
+}

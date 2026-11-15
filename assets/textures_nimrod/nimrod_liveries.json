@@ -148,5 +148,65 @@
     "count": 127997
    }
   ]
+ },
+ "bdf_navy": {
+  "texture": "nimrod_livery_bdf_navy.png",
+  "name": "BDF Navy Gray",
+  "label": "BDF Navy Gray",
+  "faction": "BDF",
+  "both": false,
+  "glossiness": 0.0,
+  "colors": [
+   {
+    "color": "#606060FF",
+    "count": 1346813
+   },
+   {
+    "color": "#707070FF",
+    "count": 725695
+   },
+   {
+    "color": "#807070FF",
+    "count": 268115
+   },
+   {
+    "color": "#808080FF",
+    "count": 185871
+   },
+   {
+    "color": "#505050FF",
+    "count": 167318
+   }
+  ]
+ },
+ "pala_navy": {
+  "texture": "nimrod_livery_pala_navy.png",
+  "name": "PALA Navy",
+  "label": "PALA Navy",
+  "faction": "PALA",
+  "both": false,
+  "glossiness": 0.0,
+  "colors": [
+   {
+    "color": "#304040FF",
+    "count": 886220
+   },
+   {
+    "color": "#505050FF",
+    "count": 779055
+   },
+   {
+    "color": "#808080FF",
+    "count": 700761
+   },
+   {
+    "color": "#909090FF",
+    "count": 171513
+   },
+   {
+    "color": "#404040FF",
+    "count": 119506
+   }
+  ]
  }
 }

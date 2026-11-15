@@ -33,6 +33,8 @@ import tex_lib as T          # numpy helpers (noise, dilation, normals, text, pn
 import faction_marks as FM   # BDF / PALA marks (vector redraws)
 sys.path.insert(0, os.path.join(ROOT, 'blender'))
 import atlas_guard as AG   # 1.8.16: manifest of the atlas these textures are painted on
+sys.path.insert(0, HERE)
+import naval1912_fd32 as NV    # 1.9.12: the two naval liveries (patterns, numbers, json / manifest merge; numpy only, stub-tested)
 F32 = np.float32
 
 argv = sys.argv[sys.argv.index('--') + 1:] if '--' in sys.argv else []
@@ -276,6 +278,115 @@ def serials(col, G, F, text, rgb, small=False):
 
 
 # =============================================================================================== liveries
+_NAV_GEOM = {}
+
+
+def naval_geom(G):
+    """1.9.12 round 3, naval liveries only (the other liveries never call it): per texel the pattern field (NV.field_of: part kind +
+    smooth normal), the texel's footprint on the surface (Ju, Jv from NV.raster_extra, the same rasterisation as rasterise()) and the
+    fuselage unwrap table built from the fuselage texels. Computed once per run."""
+    if 'field' in _NAV_GEOM:
+        return _NAV_GEOM
+    Ju, Jv, sn, pid = NV.raster_extra(bpy.data.objects, RES)
+    assert (pid[G.mask] == G.id).all() and ((pid >= 0) == G.mask).all(), 'raster_extra must cover the texels of rasterise() exactly'
+    Ju, Jv, sn = Ju[G.mask].astype(np.float64), Jv[G.mask].astype(np.float64), sn[G.mask].astype(np.float64)
+    kinds = np.array([NV.kind_of(n) for n in G.names], np.int8)[G.id]
+    field = NV.field_of(sn, kinds)
+    fus_sel = (kinds == NV.KIND_FUS) & (field == NV.FIELD_FUS)
+    tab = NV.fus_table(G.P[fus_sel])
+    na, nb = NV.footprint_counts(Ju, Jv, TEXEL_M)
+    st = dict(texels=int(G.K), stretched_over_2_texels=int(((na > 4) | (nb > 4)).sum()), at_fp_max=int(((na == NV.FP_MAX) | (nb == NV.FP_MAX)).sum()),
+              fields=[int((field == f).sum()) for f in range(NV.N_FIELDS)], fus_texels=int(fus_sel.sum()),
+              smooth_vs_face_normal_deg_p95=round(float(np.degrees(np.arccos(np.clip(np.percentile((sn * G.N).sum(1), 5), -1, 1)))), 2))
+    ur = q = None
+    if NV.R4_UNDERRES:                                                       # round 4: keep pattern edges and fine wear off under-resolved texels
+        w = NV.underres_weight(Ju, Jv)
+        fu, fv = NV.field_coords(G.P, field, tab)
+        ur = NV.UnderRes(G.P, w, field, fu, fv)
+        q = ur.field(G.P)
+        _NAV_GEOM['r4_stats'] = dict(texels_over_ok=int((NV.texel_length(Ju, Jv) > NV.UR_OK).sum()), texels_bad=int((w >= 1).sum()), texels_weight_gt0=ur.n_bad,
+                                     quiet_gt_0_5=int((q > 0.5).sum()), quiet_gt_0=int((q > 0).sum()), cells=int(len(ur.cells[0])), cells_quiet_gt_0_5=int((ur.cells[1] > 0.5).sum()),
+                                     ur_ok=NV.UR_OK, ur_bad=NV.UR_BAD, voxel=NV.UR_VOXEL, margin=NV.UR_MARGIN, ramp=NV.UR_RAMP)
+    _NAV_GEOM.update(field=field, Ju=Ju, Jv=Jv, fus=tab, fp_stats=st, ur=ur, q=q)
+    log('naval geometry:', json.dumps(st), json.dumps(_NAV_GEOM.get('r4_stats')))
+    return _NAV_GEOM
+
+
+def naval_base(G, F, key):
+    """1.9.12 naval liveries, base coat (naval1912_fd32.py holds the patterns and numbers): "BDF Navy Hex" = blue-grey with clusters
+    of small navy-blue and near-black hexagons, "PALA Navy Splinter" = hard-edged straight-sided shards in teal and three greys. All
+    over, undersides included (as the stock hex / splinter skins). Round 3: the pattern field of each texel comes from its part kind and
+    smooth normal (naval_geom / NV.field_of: fuselage unwrap, plan view, side view), and each texel is the pattern averaged over its own
+    footprint on the surface (NV.footprint_mean: 2 x 2 samples on an ordinary texel, more along a stretched atlas axis) - one texel of
+    anti-aliasing on a hard edge, no staircase where the atlas is stretched; the fine wear there is averaged the same way.
+    (Round 2 used 4 points in a 5.7 mm square and a cross-fade of views chosen on the face normal.) -> (colour, colour index per texel)"""
+    c = NV.SCHEME[key]
+    pal = np.stack(c['palette']).astype(F32)
+    base = None
+    if c['pattern'] == 'hex':
+        tone = T.fbm(G.P, 0.8, 3, seed=31)                                   # soft second / third base tone (stock: #677981, #56676C)
+        base = pal[0][None, :] + (c['base2'] - pal[0])[None, :] * T.smoothstep(0.50, 0.62, tone)[:, None] + (c['base3'] - pal[0])[None, :] * T.smoothstep(0.50, 0.38, tone)[:, None]
+    # round 3: field per texel from its part kind and smooth normal; every texel = the pattern averaged over its own footprint
+    X = naval_geom(G)
+
+    def colour_at(Q, sel):
+        i = NV.pattern_index_at(key, Q, X['field'][sel], X['fus'], ur=X['ur'])
+        return pal[i] if base is None else np.where((i == 0)[:, None], base[sel], pal[i])
+    col = NV.footprint_mean(colour_at, G.P, X['Ju'], X['Jv'], TEXEL_M, 3)
+    idx = NV.pattern_index_at(key, G.P, X['field'], X['fus'], ur=X['ur'])  # at the texel centre (share statistics)
+    STATS.setdefault('naval_footprint', {})[key] = X['fp_stats']
+    w = F['wear']
+    if X['ur'] is not None:                                                  # round 4: shards fade to the scheme's mean colour, the wear to its mean,
+        STATS.setdefault('naval_r4', {})[key] = X['r4_stats']                  # where the atlas cannot hold them (hexagon cells were dropped whole above)
+        if c['pattern'] != 'hex':
+            col = NV.fade_to(col, NV.plain_colour(key), X['q']).astype(F32)
+        w = NV.fade_to(w, float(np.mean(w)), X['q']).astype(F32)
+    col = col * (0.95 + 0.07 * w[:, None])
+
+    def wear_gain(Q, sel):
+        Q = np.asarray(Q, F32)
+        flow = T.fbm(Q * np.array([5.0, 0.55, 5.0], F32), 1.0, 3, seed=21); fine = T.fbm(Q, 9.0, 2, seed=23)
+        g = NV.streak_gain(flow, fine)                                       # salt / chalk streaks along the airflow
+        if NV.FAL_WEAR:                                                      # round 2: fal grime tile (cloudy stains), high-passed, a few per cent
+            g = g * (1.0 + NV.FAL_WEAR_GAIN * np.clip(T.tri_sample(fal_grey_hp(NV.FAL_WEAR_TILE, sigma=48), Q, G.N[sel], NV.FAL_WEAR_SPAN, seed=17), -2.5, 2.5))
+        return np.asarray(g, np.float64)[:, None]
+    gain = wear_gain(G.P, np.arange(G.K))[:, 0]
+    na, nb = NV.footprint_counts(X['Ju'], X['Jv'], TEXEL_M)
+    st = np.flatnonzero((na > 4) | (nb > 4))                                 # round 3: where a texel is over two texel sizes long (the FD-32 cockpit
+    if len(st):                                                              # ring, slivers) the fine wear is averaged over the footprint too: point
+        gain[st] = NV.footprint_mean(lambda Q, s: wear_gain(Q, st[s]), G.P[st], X['Ju'][st], X['Jv'][st], TEXEL_M, 1)[:, 0]   # samples 50 mm apart alias into streaks
+    if X['ur'] is not None:
+        gain = NV.fade_to(gain, 1.0, X['q'])
+    col = col * gain[:, None]
+    return col.astype(F32), idx
+
+
+def text_crisp(col, G, sel, pu, pv, text, h, stroke, rgb):
+    """text_on with an edge half a texel wide (tex_lib's default edge is half a STROKE: soft lettering)"""
+    cov = np.zeros(G.K, F32)
+    if sel.any():
+        cov[sel] = T.text_mask(pu[sel], pv[sel], [text], h, stroke, aa=NV.TEXT_AA_TEXELS * TEXEL_M)
+    return put(col, cov, rgb)
+
+
+def naval_marks(col, G, F, key):
+    """title on both fuselage sides (behind the green side strip and the airbrake panel) and the number on both sides of the rudder:
+    white with a thin dark keyline, readable on every pattern colour, stencil-crisp."""
+    c = NV.SCHEME[key]
+    for side in (-1, 1):
+        sel = F['fus'] & (np.sign(G.x) == side) & (np.abs(G.N[:, 0]) > 0.4) & (G.y > NV.TITLE_SEL_Y[0]) & (G.y < NV.TITLE_SEL_Y[1])
+        pu, pv = side * (G.y - NV.TITLE_Y), G.z - NV.TITLE_Z
+        col = text_crisp(col, G, sel, pu, pv, c['title'], NV.TITLE_H, NV.TITLE_STROKE + 2 * NV.OUTLINE, c['outline_rgb'])
+        col = text_crisp(col, G, sel, pu, pv, c['title'], NV.TITLE_H, NV.TITLE_STROKE, c['title_rgb'])
+        sel = G.g('rudder') & (side * G.N[:, 0] > 0.4)         # by the normal: the rudder sits at x ~ 0, the sign of x is no use there
+        pu, pv = side * (G.y - NV.RUD_NUM_Y), G.z - NV.RUD_NUM_Z
+        col = text_crisp(col, G, sel, pu, pv, c['number'], NV.RUD_NUM_H, NV.RUD_NUM_STROKE + 2 * NV.OUTLINE, c['outline_rgb'])
+        col = text_crisp(col, G, sel, pu, pv, c['number'], NV.RUD_NUM_H, NV.RUD_NUM_STROKE, c['number_rgb'])
+    return col
+
+
+TEXEL_M = 11.614 / 2048   # metres per atlas texel; main() sets it from the model's own number
+NAV_IDX = {}    # 1.9.12: per naval livery the pattern colour index per texel (share statistics)
 LIV_W = {}      # round 8: per-livery camo weight (camo pattern x upper/underside) per sample, for the edge smoothing in main()
 
 
@@ -289,6 +400,10 @@ def livery(G, F, key):
     elif key == 'pala_matteblack':
         base = np.array([0.085, 0.085, 0.09], F32)
         col = np.tile(base, (K, 1)) * (0.92 + 0.12 * w[:, None])
+    elif NV.NAVAL_LIVERIES_1912 and key in NV.KEYS:      # 1.9.12, tested BEFORE the catch-all camo branch below
+        col, NAV_IDX[key] = naval_base(G, F, key)                             # no LIV_W: nothing of a naval livery is blurred
+    elif key not in ('bdf_temperate', 'pala_desert'):
+        raise KeyError(f'livery(): unknown key {key!r} (1.9.12: no longer baked as a desert camo by the catch-all branch)')
     else:
         n = T.fbm(G.P * np.array([1.0, 0.6, 1.0], F32), 0.95, 3, seed=3 if key == 'bdf_temperate' else 5)
         upper = (G.N[:, 2] > -0.30)
@@ -305,12 +420,20 @@ def livery(G, F, key):
     col = col * (1 - 0.18 * (F['seam'] < 0.0012)[:, None] - 0.12 * ((F['seam_w'] < 0.0010) & (F['wing_up'] | F['wing_lo']))[:, None])
     kind = 'BDF' if key.startswith('bdf') else 'PALA'
     col = nat_marks(col, G, F, kind)
-    col = serials(col, G, F, 'FD-32' if kind == 'BDF' else 'P-32', WHITE * 0.85 if key != 'bdf_mattegrey' else BLACK, small=True)
+    if NV.NAVAL_LIVERIES_1912 and key in NV.KEYS:
+        col = naval_marks(col, G, F, key)                                     # title + rudder number; the small serial is dropped (as on the Mk I navy schemes)
+    else:
+        col = serials(col, G, F, 'FD-32' if kind == 'BDF' else 'P-32', WHITE * 0.85 if key != 'bdf_mattegrey' else BLACK, small=True)
     sw = (0.08 + np.clip(0.5 - G.y, 0, None) * 0.02)                          # light heat staining aft of the exhaust ports
     soot = (F['fus'] & (np.abs(G.x) > 0.25) & (G.y > -1.2) & (G.y < 1.8)).astype(F32) * T.smoothstep(sw, sw * 0.4, np.abs(G.z - 0.06)) * T.smoothstep(0.30, 0.0, G.y)
+    if NV.NAVAL_LIVERIES_1912 and key in NV.KEYS and _NAV_GEOM.get('ur') is not None:
+        soot = (soot * (1.0 - _NAV_GEOM['q'])).astype(F32)                     # round 4: the stain's hard end at y -1.2 lies in the cockpit ring: fade it out before
     col = col * (1 - 0.18 * soot[:, None] * (0.5 + 0.5 * gr[:, None]))
-    col = col * F['detail'][:, None]
-    return np.clip(col, 0, 1), 0.2
+    det = F['detail']
+    if NV.NAVAL_LIVERIES_1912 and key in NV.KEYS and _NAV_GEOM.get('ur') is not None:
+        det = NV.fade_to(det, 1.0, _NAV_GEOM['q']).astype(F32)                # round 4: the composite detail aliases into streaks on long texels
+    col = col * det[:, None]
+    return np.clip(col, 0, 1), (NV.GLOSS if key in NV.KEYS else 0.2)
 
 
 # =============================================================================================== image assembly
@@ -338,6 +461,8 @@ def top_colors(img, mask, n=5):
 
 LIVERIES = [('bdf_mattegrey', 'BDF Matte Gray', 'BDF', False), ('bdf_temperate', 'BDF Temperate Camo', 'BDF', False),
             ('pala_desert', 'PALA Desert Camo', 'PALA', False), ('pala_matteblack', 'PALA Matte Black', 'PALA', False)]
+if NV.NAVAL_LIVERIES_1912:          # 1.9.12: appended, never inserted (saved missions store the list index)
+    LIVERIES = LIVERIES + NV.ENTRIES
 DEFAULT_LIVERY = 'bdf_mattegrey'
 
 
@@ -514,9 +639,70 @@ def write_manifest(dmg_only=False):
     log('atlas manifest', m['atlas_hash'])
 
 
+def livery_image(G_, F, mask, key):
+    """one livery as the finished atlas image (colour, island padding, edge smoothing) -> (image, glossiness); the 1.9.11 loop body"""
+    col, gloss = livery(G_, F, key)
+    img = finish(to_img(G_, col), mask)
+    if key in LIV_W:
+        # round 8 (in-game 1.5.3: the camo / underside edge still stair-stepped at the flaperon and the nose chin, where a sharp edge
+        # crosses the atlas diagonally): soften the colour only inside the camo-edge zone (where the camo weight changes within 2
+        # texels), with a mask-normalised blur (no bleed from outside the islands); markings and panel lines elsewhere stay sharp
+        Wi = to_img(G_, LIV_W[key]); mf = mask.astype(F32)
+        zone = (np.abs(Wi - T.blur(Wi * mf, 2) / np.maximum(T.blur(mf, 2), 1e-3)) > 0.03) & mask
+        zone = T.blur(zone.astype(F32), 1) > 0.05
+        num = T.blur(img * mf[..., None], 2); den = np.maximum(T.blur(mf, 2), 1e-3)[..., None]
+        img = np.where((zone & mask)[..., None], num / den, img)
+        STATS.setdefault('camo_edge_texels', {})[key] = int((zone & mask).sum())
+    return img, gloss
+
+
+def liveries_only(G_, F, mask, keys):
+    """1.9.12: bake ONLY the named naval liveries on the unchanged atlas. Writes fd32_livery_<key>.png, merges their entries into
+    fd32_liveries.json (old entries untouched and first) and adds the files to the atlas manifest. No skin / damage / tile / prop-blur
+    file is written and fd32_skin_b is not touched. Self-check first: the four shipped liveries baked again in memory are compared
+    with the files in the repo (sha, and the largest 8-bit difference when the sha differs); reported in the stats, not fatal."""
+    label = {k: (l, f, b) for k, l, f, b in LIVERIES}
+    assert all(k in label and k in NV.KEYS for k in keys), f'liveries-only writes the 1.9.12 naval liveries only, not {keys}'
+    man = os.path.join(OUT, 'fd32_atlas_manifest.json')
+    model_atlas = AG.atlas_hash(AG.scene_parts())
+    import tempfile
+    same = {}
+    for k in [x[0] for x in LIVERIES if x[0] not in NV.KEYS]:
+        img, _ = livery_image(G_, F, mask, k)
+        tmp = os.path.join(tempfile.gettempdir(), f'fd32_selfcheck_{os.getpid()}_{k}.png')
+        T.save_png(img, tmp)
+        ref = os.path.join(OUT, f'fd32_livery_{k}.png')
+        eq = NV.sha12(tmp) == NV.sha12(ref)
+        dmax = 0
+        if not eq:
+            a = (T.load_image(tmp, nonc=False)[..., :3] * 255).round().astype(int); b = (T.load_image(ref, nonc=False)[..., :3] * 255).round().astype(int)
+            dmax = int(np.abs(a - b).max())
+        same[k] = dict(same_file=eq, max_diff_8bit=dmax)
+        os.remove(tmp)
+    log('self-check, shipped liveries re-baked in memory vs repo files:', json.dumps(same))
+    new = {}; files = []; shares = {}
+    for k in keys:
+        img, gloss = livery_image(G_, F, mask, k)
+        name = 'fd32_livery_' + k
+        save(img, name); files.append(os.path.join(OUT, name + '.png'))
+        new[k] = dict(texture=name + '.png', name=label[k][0], label=label[k][0], faction=label[k][1], both=label[k][2], glossiness=gloss, colors=top_colors(img, mask))
+        shares[k] = [round(v, 4) for v in NV.shares_of(NAV_IDX[k], len(NV.SCHEME[k]['palette']))]
+    jp = os.path.join(OUT, 'fd32_liveries.json')
+    json.dump(NV.merge_liveries(json.load(open(jp)), new), open(jp, 'w'), indent=1)
+    m = NV.manifest_add(man, files, model_atlas, 'blender/fd32/textures/build_textures_fd32.py --liveries-only ' + ','.join(keys))
+    json.dump(dict(keys=keys, selfcheck=same, atlas=m['atlas_hash'], pattern_shares_texels=shares, camo_edge_texels=STATS.get('camo_edge_texels', {}),
+                   glossiness=NV.GLOSS, texel_m=round(TEXEL_M, 6), splinter_seed=NV.SPL_SEED, hex_thresholds=[round(NV.HEX_T1, 6), round(NV.HEX_T2, 6)],
+                   round3_footprint=STATS.get('naval_footprint', {}), round4_underres=STATS.get('naval_r4', {}), r4_flag=NV.R4_UNDERRES, fal_wear=dict(on=NV.FAL_WEAR, tile=NV.FAL_WEAR_TILE, gain=NV.FAL_WEAR_GAIN),
+                   files={os.path.basename(f): NV.sha12(f) for f in files}),
+              open(os.path.join(OUT, 'fd32_liveries_1912_stats.json'), 'w'), indent=1)
+    log('liveries-only done', keys, 'atlas', m['atlas_hash'], 'shares', json.dumps(shares))
+
+
 def main():
     stats = json.loads(bpy.context.scene.get('b25_build_stats', '{}'))
     mpu = stats.get('metres_per_uv', 10.0)
+    global TEXEL_M                                                       # 1.9.12: texel size for the naval pattern's supersampling
+    TEXEL_M = mpu / RES
     pos, nrm, pid, names, mask = rasterise()
     G_ = G(pos, nrm, pid, names, mask)
     if '--dmg-only' in argv:            # 1.8.9: only the damage maps (liveries / normals / tiles stay as built)
@@ -526,21 +712,13 @@ def main():
         write_manifest(True)
         return
     F = features(G_)
+    if '--liveries-only' in argv:       # 1.9.12
+        liveries_only(G_, F, mask, argv[argv.index('--liveries-only') + 1].split(','))
+        return
     skin(G_, F, mpu)
     meta = {}
     for key, label, fac, both in LIVERIES:
-        col, gloss = livery(G_, F, key)
-        img = finish(to_img(G_, col), mask)
-        if key in LIV_W:
-            # round 8 (in-game 1.5.3: the camo / underside edge still stair-stepped at the flaperon and the nose chin, where a sharp edge
-            # crosses the atlas diagonally): soften the colour only inside the camo-edge zone (where the camo weight changes within 2
-            # texels), with a mask-normalised blur (no bleed from outside the islands); markings and panel lines elsewhere stay sharp
-            Wi = to_img(G_, LIV_W[key]); mf = mask.astype(F32)
-            zone = (np.abs(Wi - T.blur(Wi * mf, 2) / np.maximum(T.blur(mf, 2), 1e-3)) > 0.03) & mask
-            zone = T.blur(zone.astype(F32), 1) > 0.05
-            num = T.blur(img * mf[..., None], 2); den = np.maximum(T.blur(mf, 2), 1e-3)[..., None]
-            img = np.where((zone & mask)[..., None], num / den, img)
-            STATS.setdefault('camo_edge_texels', {})[key] = int((zone & mask).sum())
+        img, gloss = livery_image(G_, F, mask, key)
         name = 'fd32_livery_' + key
         save(img, name)
         if key == DEFAULT_LIVERY:

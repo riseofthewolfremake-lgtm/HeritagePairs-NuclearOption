@@ -2,6 +2,34 @@
 
 Heritage Pairs, newest first. Versions before 1.9.10 were private test builds and were never released.
 
+## 1.9.12
+
+- Air brakes on all six aircraft. Whenever the throttle is below 5 % the air brake is on, on the ground as well as in the
+  air, and the throttle gauge reads AIRBRAKE; at 5 % and above it closes again (about a second, the game's own opening
+  speed). (The game's own aircraft open theirs only at exactly 0.)
+  - B-25H, Nimrod Mk I and B-17G: the braking has no visible parts.
+  - GA-25X: a panel on each upper shoulder of the rear fuselage opens upward and outward. The faction emblems on the
+    fuselage sides stay where they are.
+  - FD-32: a small panel on each side of the rear fuselage, behind the faction emblem.
+  - MSB-17: six spoiler panels on top of the wing, three on each side, ahead of the flaps. The MSB-17 already braked at
+    throttle 0; it now shows it.
+- The brake has no ground exception: it also works on the landing roll, and an aircraft parked at idle stands with its
+  brake on. On the GA-25X, FD-32 and MSB-17 the panels therefore stand open while parked at idle.
+- MSB-17: eight green formation-light strips, as on the game's own aircraft and on the GA-25X and FD-32: under the cockpit
+  side windows, on the waist, on both sides of the fin and on the wing tips. They are lit with the landing gear down or with
+  the navigation lights switched on.
+- Naval liveries for the carrier aircraft: Nimrod Mk I "BDF Navy Gray" and "PALA Navy", FD-32 "BDF Navy Hex" and
+  "PALA Navy Splinter". They are added at the end of each list, so missions and saves keep the liveries they had.
+  Computer-flown aircraft can now appear in the naval liveries too: the game picks from the whole list of a faction.
+- New settings in `b25h.instruments.cfg`, section `[Airbrake]`: `AirbrakeIdle1912` (Off = the brake opens only at exactly 0,
+  as on the game's own aircraft), `AirbrakeThrottle1912` (the limit, 0.05 = 5 %; 0 to 0.2) and `HudAirbrake1912`
+  (Off = the gauge texts of 1.9.11).
+- Nothing else changed: flight models, weapons and the existing liveries and textures are those of 1.9.11.
+- Tried in the game: the air brake and gauge text on all six aircraft, the panels, braking in flight, a GA-25X landing roll
+  with the brake open to the stop, FD-32 and Nimrod Mk I idling on a moving carrier, the naval liveries in both factions'
+  lists. Not tried: B-17G and MSB-17 landings with the brake, AI taxi and landings, multiplayer.
+- Holding the throttle exactly at 5 % makes the brake open and close about once a second.
+
 ## 1.9.11
 
 - Fixed: the FD-32's rudder was damaged, and sometimes torn off, when the aircraft came up on a carrier's lift. On the aft

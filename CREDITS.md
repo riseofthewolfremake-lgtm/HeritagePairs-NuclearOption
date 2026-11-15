@@ -62,6 +62,18 @@ of the emblems.
 | `fal-ai/hunyuan-3d/v3.1/pro/image-to-3d` | Tencent Hunyuan | Two trial parts (GA-25X throttle study) |
 
 The MSB-17 uses no new generated art: it reuses the B-17G's tiles and is otherwise procedural.
+The 1.9.12 additions: the air-brake panels and the MSB-17 light strips are built by script and use no generated art. The four
+naval liveries are painted by script (pattern, colours, markings); the naval colours were taken as numbers from the colour
+statistics of the game's own naval liveries, and no pixel of a game texture is in them. Two AI-generated tiling dirt textures
+are mixed in faintly as weathering:
+
+| File | fal endpoint | Request, seed | Used for |
+|---|---|---|---|
+| `assets/textures_fd32/fal_raw/naval_grunge.png` | `fal-ai/z-image/turbo/tiling` | `01a1db35-f949-7d73-82d8-c776d797a4a4`, seed 1665911485 | FD-32 "BDF Navy Hex" and "PALA Navy Splinter": weathering at 5 % strength under the pattern |
+| `assets/textures_nimrod/fal_raw/naval_grime_d.png` | `fal-ai/z-image/turbo/tiling` | `01a1dbec-9a40-7001-afe4-41618a651a9c`, seed 191204 | Nimrod Mk I "BDF Navy Gray" and "PALA Navy": grime at 5.5 % strength under the pattern and markings |
+
+The prompts are in `assets/textures_fd32/fal_raw/fal_manifest.jsonl` and `assets/textures_nimrod/fal_raw/fal_manifest_1912.jsonl`.
+Eight further trial tiles from the same endpoint were generated and discarded; they are not in the repository or the pack.
 
 ## Fonts
 

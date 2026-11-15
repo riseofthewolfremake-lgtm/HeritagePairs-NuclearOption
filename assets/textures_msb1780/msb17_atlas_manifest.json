@@ -4,62 +4,62 @@
  "uv": "livery",
  "material": "paint",
  "quant": 65536,
- "atlas_hash": "37bbaca5a79c59ec",
+ "atlas_hash": "ff3ff1237b927c17",
  "model": "msb1780.blend",
  "written_by": "blender/msb1780/build_textures_msb1780.py",
- "note": "1.9.9 key rename MSB1780 -> MSB17: part key and texture file prefix renamed, no UV moved; atlas hash 38cd9dc0abfbee1b -> 37bbaca5a79c59ec only because the hash covers the part names",
+ "note": "",
  "textures": {
   "msb17_livery_bdf_mattegrey.png": {
    "sha": "b0e261f0dad9",
-   "atlas": "37bbaca5a79c59ec"
+   "atlas": "ff3ff1237b927c17"
   },
   "msb17_livery_bdf_temperate.png": {
    "sha": "c28774d3887b",
-   "atlas": "37bbaca5a79c59ec"
+   "atlas": "ff3ff1237b927c17"
   },
   "msb17_livery_pala_desert.png": {
    "sha": "c3ed109e75eb",
-   "atlas": "37bbaca5a79c59ec"
+   "atlas": "ff3ff1237b927c17"
   },
   "msb17_livery_pala_matteblack.png": {
    "sha": "423f71b48a2a",
-   "atlas": "37bbaca5a79c59ec"
+   "atlas": "ff3ff1237b927c17"
   },
   "msb17_skin_ao.png": {
    "sha": "f617ef49dc15",
-   "atlas": "37bbaca5a79c59ec"
+   "atlas": "ff3ff1237b927c17"
   },
   "msb17_skin_b.png": {
    "sha": "b0e261f0dad9",
-   "atlas": "37bbaca5a79c59ec"
+   "atlas": "ff3ff1237b927c17"
   },
   "msb17_skin_dmg_b.png": {
    "sha": "99da3cebc915",
-   "atlas": "37bbaca5a79c59ec"
+   "atlas": "ff3ff1237b927c17"
   },
   "msb17_skin_dmg_n.png": {
    "sha": "3293b47eec6b",
-   "atlas": "37bbaca5a79c59ec"
+   "atlas": "ff3ff1237b927c17"
   },
   "msb17_skin_m_bdf_mattegrey.png": {
    "sha": "ad814a62567f",
-   "atlas": "37bbaca5a79c59ec"
+   "atlas": "ff3ff1237b927c17"
   },
   "msb17_skin_m_bdf_temperate.png": {
    "sha": "ad814a62567f",
-   "atlas": "37bbaca5a79c59ec"
+   "atlas": "ff3ff1237b927c17"
   },
   "msb17_skin_m_pala_desert.png": {
    "sha": "ad814a62567f",
-   "atlas": "37bbaca5a79c59ec"
+   "atlas": "ff3ff1237b927c17"
   },
   "msb17_skin_m_pala_matteblack.png": {
    "sha": "ad814a62567f",
-   "atlas": "37bbaca5a79c59ec"
+   "atlas": "ff3ff1237b927c17"
   },
   "msb17_skin_n.png": {
    "sha": "23eb23299e1b",
-   "atlas": "37bbaca5a79c59ec"
+   "atlas": "ff3ff1237b927c17"
   }
  },
  "parts": {
@@ -77,6 +77,36 @@
    "hash": "12393c1d0007ab5b",
    "n": 193,
    "cells": "DcxLSFVRAAVQD9V773IqhLBJOUtH0ijerGjkoHnNspnk5xmRmSZqJdJXigxB+pipaZokQUIfwggktCCESqmkwCJS6EsJSbUGm3vu2Wuf4lRZZrd0yKTkpcsyWclJr8xKfqYsUyrFqQq2gq1kq9gqtpqtZnNsjq1h97EH2INsHXuIrWcb2MNsI9vENPPNfAt7hD3GtrJt7HH2BHOSP6U/bXOGabdptznLnmPPMx38BabTppPpsuniLzKX+MvMFbbbrpvr4XvYPrafHeAG+SFumBu2GWFusaM2o+xt9o5+jB9j79rc099nH9g81I2z49wj28e6CWbC9oluipnSPbV/pn+un9ZPe2ta/4J76a1XzAw7w7323hvuLTdnM8e9498z8/w898HmI/OJ/6xfYBfYBedF+0X2i81X9pvNd/aH/LT7xf5ml2yXuD+ybLPM/rX5x+clk6kVsjLJz6xKsulU0ptOJ3npmJRmVvuuSXIym16rWycF+gK2wP0GZqNvob7Q/SYp0hX5L9GV+G72v0Wy/rfKtqQ87I27QmUsDdUxG2picdgf14famAp1Uu/c4K5R18S0sEdjeWiNLaE71oarsTL0xD3hWtwZ+uKO0B+3h+sy4Dzo7oZuiBlmb9qMxP8="
+  },
+  "airbrake_in_L": {
+   "hash": "0f368e424257e3d4",
+   "n": 41,
+   "cells": "DcirEYNAFEbh/24Hwd8VyMgoCK2gIAlpAoZHQTHMUEM0dg0+KhVwxDdn5kR9rEKHBVErXelmd3RYEPW1GVE7f7cXJrgSTfTgH/bEBNfPRrj+VuKBEa5LGJQFVx4KtOjhuoYbCtRo8EaPEw=="
+  },
+  "airbrake_in_R": {
+   "hash": "2d38f80acb1462b3",
+   "n": 41,
+   "cells": "DcuxDYJQGEXhs8j/doCCgI5ATWcofCJUVrQQkBF0BEqH9BRfTnKTmyi4atShRGUr23DRqEOJlrcSnXvHU7uC3vY2u2cG7QpebApm3zMPbQo+rHztSa2sRcGPUrVuumvSoj8="
+  },
+  "airbrake_mid_L": {
+   "hash": "9e90746c4ddf6cf5",
+   "n": 44,
+   "cells": "Dcq9EQEBEIbh4JvdEqhAHWQX2WvCz4wGlIBBwMVnnaMDcjnR1UEFEm/wzDvfzi51sD1a3FDqaHOUqtiVhZKd/CQ72Xe76kGfNsMOLUIv+qYd9862uCD0sUZf+rMpNjgj1PNU30MDn2CNE8Yaeq0RLbgXvsAKNf4="
+  },
+  "airbrake_mid_R": {
+   "hash": "8d9ae344c3de04bc",
+   "n": 42,
+   "cells": "Dci7DcJAFETRkaYVGtgmKIDcmZvwCyAhtYRBIicjB2TTATY/L9l2ww2OrmbCC21xwAl3PJARTvyJL7ETe6kZ4ZX2GPBFuKIVrflr9fggvNbbG9qqww0vhM96onGvHa6Y0Dhr9I8W/qIjLhjxBw=="
+  },
+  "airbrake_out_L": {
+   "hash": "9a627b6159f7172a",
+   "n": 44,
+   "cells": "DcgxDoJAGEThYpI53f61tdJyATsV7SShMLBQWtGQbGfBJei9hNzAV3yZzAs1PqDCGQ90mBB6elTLZp9wx4jQ2xmhmT67QUZoYRe20Au98Av/4wGhlb76hgFJm3skfX3EFT2Sfthpu2tc8MIf"
+  },
+  "airbrake_out_R": {
+   "hash": "c811c48e7deb1f05",
+   "n": 44,
+   "cells": "DcghEoJgGITh2dkzULWTSRRm/mbgENDtfBWzWr2ATYEDEETAc/mGZ97ZDWe64I4nJsz4IXzQ7iPNdcOEHeFCG8Ilf6kRG8IVrWjiT/yJndgnrQjX/LUGrOjc6OuWnnXFGws69+xeD7zwwR8="
   },
   "ant_belly_1": {
    "hash": "05bbe147573401c0",

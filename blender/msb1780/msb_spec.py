@@ -192,5 +192,50 @@ def stick_anchor(side):
 def throttle_anchor():
     return (0.0, EYE_PILOT[1] + FIG_ROOT[1] + SFB_THROTTLE_Y, EYE_PILOT[2] + FIG_ROOT[2] + SFB_THROTTLE_Z)
 
+# ---------------------------------------------------------------- 1.9.12 (user): visible airbrake panels + the green formation-light strips
+# Each behind its flag (False = the 1.9.11 model: no object, no contract key). Geometry: blender/msb1780/msb_ext1912.py (plates cut from the
+# uncut skin and lifted along its normals; the owning parts' meshes, colliders and the livery atlas stay as in 1.9.11).
+SPOILERS1912 = True       # six upper-wing spoiler panels ahead of the flaps (docs/msb17_80_design.md: "the spoiler panels become airbrakes"),
+                          # driven by the stock Airbrake the MSB has had since 1.9.2 (Unity: AirbrakePanels1912)
+# round 2 (review of the first build: 0.9 / 1.4 m tabs of 13 % chord were too small for a 31 m wing and dragAmount 3.0): three pairs, each as
+# long as its bay allows, 18.5 % chord. Free room MEASURED on the built model (model check row x2):
+#   in   |x| 1.40-2.70  between the fuselage side (1.165) and the inner nacelle's upper fairing (which runs back to about 65 % chord at 3.0-3.15)
+#   mid  |x| 4.97-6.88  from 0.21 m outboard of the wing split 4.75 (bed rim) to 0.31 m inboard of the outer exhaust line 7.20; the outer nacelle's tail
+#                       ends at about 46 % chord, so the panel passes BEHIND it (front edge at 52 %)
+#   out  |x| 7.52-8.68  from 0.31 m outboard of the exhaust line 7.20 to 0.21 m inboard of the wing split 8.90 (flap end 8.80); the
+#                       10 mm bed rim counts (model check x2 measures the bed's vertices too)
+# Nothing fits between the inner exhaust line 3.83 (+0.30) and the split 4.75 (-0.20): 0.42 m. No panel ahead of the ailerons (8.95-14.74).
+SPOILER_X = {'in': (1.40, 2.70), 'mid': (4.97, 6.88), 'out': (7.52, 8.68)}
+SPOILER_PART = {'in': 'wing_inner_', 'mid': 'wing_mid_', 'out': 'wing_mid_'}
+SPOILER_S_FRONT = 0.52    # hinge line chord fraction (first build: the ring row 0.5714)
+SPOILER_S_REAR = 0.705    # rear edge chord fraction (flap cove / hinge at 0.735)
+SPOILER_MAX_ANGLE = 55.0  # deg, opens upward about the front edge (supervisor: 50-60)
+SPOILER_TOP, SPOILER_BOTTOM = 0.015, 0.009       # panel top / underside above the skin (m)
+SPOILER_BED_TOP, SPOILER_BED_BOTTOM = 0.004, 0.002   # dark bed plate: top 4 mm above the skin; its back face 2 mm above the skin, facing it (a closed slab,
+                          # not embedded: the wing's inner skin lies 2-6 mm under the outer one and an embedded back face z-fought with it).
+                          # Round 2: 3 / 1 mm measured 0.60 mm from the built skin triangles at the closest vertex (model check z2); now >= 0.8 mm everywhere
+SPOILER_RIM = 0.010       # the bed is this much larger than the panel all round: the seam line of the shut panel
+# round 2: the bed reads as a recess with structure, the panel underside as a stiffened skin (the first build: two flat plates)
+SPOILER_BEDRIB_TOP, SPOILER_BEDRIB_BACK = 0.0075, 0.003   # frame / ribs / stringer on the bed (material gear): top 3.5 mm above the bed top, back face inside the bed slab
+SPOILER_BEDRIB_W = 0.035      # width of the bed's frame, ribs and stringer
+SPOILER_BED_FRAME_IN = 0.005  # the frame's outer edge lies this far INSIDE the panel outline (hidden when shut: the seam stays dark)
+SPOILER_BED_STRINGER = 0.55   # the bed's spanwise stringer at this fraction of the panel chord behind the hinge line
+SPOILER_PRIB_TOP, SPOILER_PRIB_BOTTOM = 0.012, 0.0052     # stiffeners under the panel (material gear): top inside the panel's thickness, bottom 1.2 mm above the bed top when shut
+SPOILER_PRIB_W = 0.030
+SPOILER_PRIB_INSET = 0.07     # the stiffeners start / end this far from the hinge line and the rear edge
+SPOILER_BAY = 0.33            # rib pitch aimed at (bed ribs at k / n of the span, panel stiffeners and hinge arms at the half stations between them)
+SPOILER_ARM_W, SPOILER_ARM_DEPTH = 0.024, 0.11
+STRIPS1912 = True         # eight green formation-light strips (study light_strips.md + check_light-strips.md; Unity: FormationLights1912)
+STRIP_FWD = dict(y=(3.20, 4.40), z=(1.10, 1.20))     # fus_cockpit, under the side windows (sill 1.31, frame bar from 1.27), above the outer nacelle top line 1.07
+STRIP_AFT = dict(y=(-7.85, -6.55), z=(1.05, 1.15))   # fus_waist, above the side-bay doors (hinge 0.835), aft of the sensor windows, ahead of the roundel
+STRIP_FIN = dict(z=(3.70, 4.90), behind_le=(0.25, 0.35))   # both faces of the fin, parallel to the leading edge, above the serial (to z 3.20)
+STRIP_TIP = dict(x=(14.99, 15.11), chord=(0.15, 0.55))     # wing_tip top, outboard of the aileron end (14.74) and the wing roundel (to 13.7)
+STRIP_LIFT, STRIP_BACK = 0.005, 0.002            # front face / back face above the skin (closed slab; the back face looks at the skin, 2 mm off it;
+                          # round 2: 4 / 1 mm measured 0.72 mm from the built skin triangles at the closest vertex, model check z2)
+
+import os as _os
+if _os.environ.get('MSB1912_OFF') == '1':     # regression build only (flags off must give the 1.9.11 model): MSB1912_OFF=1 blender ... build_msb1780.py
+    SPOILERS1912 = STRIPS1912 = False
+
 # ---------------------------------------------------------------- budgets
 S.TRI_BUDGET_TOTAL = 245000

@@ -1,0 +1,121 @@
+{
+ "keys": [
+  "bdf_navy",
+  "pala_navy"
+ ],
+ "selfcheck": {
+  "bdf_mattegrey": {
+   "same_file": true,
+   "max_diff_8bit": 0
+  },
+  "bdf_temperate": {
+   "same_file": true,
+   "max_diff_8bit": 0
+  },
+  "pala_desert": {
+   "same_file": true,
+   "max_diff_8bit": 0
+  },
+  "pala_matteblack": {
+   "same_file": true,
+   "max_diff_8bit": 0
+  }
+ },
+ "atlas": "136d9b5f8b7ede89",
+ "pattern_shares_texels": {
+  "bdf_navy": [
+   0.7803,
+   0.1531,
+   0.0666
+  ],
+  "pala_navy": [
+   0.3483,
+   0.3008,
+   0.2296,
+   0.1212
+  ]
+ },
+ "camo_edge_texels": {
+  "bdf_temperate": 219175,
+  "pala_desert": 230211
+ },
+ "glossiness": 0.0,
+ "texel_m": 0.005671,
+ "splinter_seed": 14,
+ "hex_thresholds": [
+  0.589368,
+  0.608443
+ ],
+ "round3_footprint": {
+  "bdf_navy": {
+   "texels": 2877450,
+   "stretched_over_2_texels": 61375,
+   "at_fp_max": 7129,
+   "fields": [
+    81081,
+    80991,
+    47990,
+    979758,
+    1022254,
+    665376
+   ],
+   "fus_texels": 665376,
+   "smooth_vs_face_normal_deg_p95": 5.26
+  },
+  "pala_navy": {
+   "texels": 2877450,
+   "stretched_over_2_texels": 61375,
+   "at_fp_max": 7129,
+   "fields": [
+    81081,
+    80991,
+    47990,
+    979758,
+    1022254,
+    665376
+   ],
+   "fus_texels": 665376,
+   "smooth_vs_face_normal_deg_p95": 5.26
+  }
+ },
+ "round4_underres": {
+  "bdf_navy": {
+   "texels_over_ok": 46058,
+   "texels_bad": 12952,
+   "texels_weight_gt0": 46058,
+   "quiet_gt_0_5": 140277,
+   "quiet_gt_0": 297234,
+   "cells": 18747,
+   "cells_quiet_gt_0_5": 1511,
+   "ur_ok": 0.012,
+   "ur_bad": 0.02,
+   "voxel": 0.03,
+   "margin": 0.03,
+   "ramp": 0.2
+  },
+  "pala_navy": {
+   "texels_over_ok": 46058,
+   "texels_bad": 12952,
+   "texels_weight_gt0": 46058,
+   "quiet_gt_0_5": 140277,
+   "quiet_gt_0": 297234,
+   "cells": 18747,
+   "cells_quiet_gt_0_5": 1511,
+   "ur_ok": 0.012,
+   "ur_bad": 0.02,
+   "voxel": 0.03,
+   "margin": 0.03,
+   "ramp": 0.2
+  }
+ },
+ "r4_flag": true,
+ "fal_wear": {
+  "on": true,
+  "tile": "naval_grunge",
+  "gain": 0.05
+ },
+ "files": {
+  "fd32_livery_bdf_navy.png": "a0b2a2f120ce",
+  "fd32_livery_pala_navy.png": "46a144a849fe"
+ }
+}

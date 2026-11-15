@@ -71,6 +71,12 @@ namespace B25HTools
         const bool OwnFlapAirfoil = true;       // 1.6.3: flaps get their own curve (airfoil 3): CL ~2.0 at flap AoA ~33 deg, low drag (wing curve: post-stall airbrake, 27 kN at 50 m/s)
         const bool OwnAileronAirfoil = true;    // Nimrod lesson: ailerons as separate parts need a flap-like curve or they reverse roll
         const bool SpawnThreePoint = true;      // restRotation = the 3-point attitude (Hangar.cs:649 applies it on the host spawn)
+        // 1.9.12 (user: the historical aircraft get an "airbrake" effect WITHOUT airbrake parts; "whenever the throttle is below 5% the airbrakes are on, ground or sky"): the stock
+        // Airbrake on the root part, drag only, no transforms (B25HBuild.AddInvisibleAirbrake, called at the end of RootSystems; the MSB-17
+        // block of 1.9.2 with the same dragAmount 3.0 on the same airframe size: 1.10 m/s2 at 90 m/s, 0.49 at 60 m/s on 27 t at sea level).
+        // No ground gate anywhere; the plugin (AirBrake1912.cs) only widens "throttle == 0" to "throttle under 5 %". false = 1.9.11 (no component).
+        const bool InvisibleAirbrake1912 = true;
+        const float InvisibleAirbrakeDrag = 3.0f, InvisibleAirbrakeOpenSpeed = 1.0f;
 
         // ------------------------------------------------------------------ B-17G numbers (tools/flightmodel/b17g_estimate.py, docs/b17g_design.md)
         const float WingIncidence = 3.5f;       // deg, liftNormal tilt of the wing panels (1.6.3: 2.5 -> 3.5, the real B-17 root incidence; take-off lift)

@@ -105,6 +105,55 @@ rep('            Save(LitMat(lit, "MSB17_screen", Color.black, 0f, 0.5f), "scree
     '                em.EnableKeyword("_EMISSION"); em.SetColor("_EmissionColor", col * glow); em.globalIlluminationFlags = MaterialGlobalIlluminationFlags.None;\n'
     '                Save(em, key);\n'
     '            }')
+# 1.9.12 formation-light strips: the model's `light_off` material slot = the stock light_green_off (the GA-25X line, GA25XBuild.BuildMaterials).
+# Keyed on the MODEL (contract lights.formation, written only with msb_spec.STRIPS1912), not on FormationLights1912: BuildPrefab throws on a
+# model material without an entry whatever the Unity flag says, and a model built with the strips off gets the 1.9.11 material list (the
+# "materials:" build-log line stays as in 1.9.11).
+rep('                Save(em, key);\n            }',
+    '                Save(em, key);\n            }\n'
+    '            if (JList("lights", "formation").Any()) mats["light_off"] = Asset<Material>("Material/light_green_off_PLACEHOLDER.mat");   // 1.9.12 slimelight_* strips unlit (stock light_green_off; msb_spec.STRIPS1912)')
+
+
+# 1.9.12: the B-17G got an invisible airbrake (InvisibleAirbrake1912: a call at the end of its RootSystems + two helper methods + a check
+# row). The MSB-17 keeps exactly ONE Airbrake, its own Airbrake192 block in msb_root.cs. Today the B-17G additions fall inside the spliced
+# RootSystems / RunCheck / head and vanish; if they ever move, strip them here and fail loudly rather than build a second Airbrake.
+def _strip_method(sig):
+    global s
+    a_ = s.find(sig)
+    if a_ < 0:
+        return False
+    i = s.index('{', a_); d = 0
+    for j in range(i, len(s)):
+        d += s[j] == '{'; d -= s[j] == '}'
+        if d == 0:
+            break
+    a0 = s.rfind('\n', 0, a_) + 1
+    while True:        # the comment lines directly above the method go with it
+        p0 = s.rfind('\n', 0, a0 - 1) + 1
+        if s[p0:a0].strip().startswith('//'):
+            a0 = p0
+        else:
+            break
+    b0 = s.index('\n', j) + 1
+    while s[b0:b0 + 1] == '\n':      # ... and the blank line(s) after it
+        b0 += 1
+    s = s[:a0] + s[b0:]
+    return True
+
+
+_stripped = [sig for sig in ('static void AddInvisibleAirbrake(', 'static string InvisibleAirbrakeProblems(') if _strip_method(sig)]
+s = re.sub(r'^[ \t]*if \(InvisibleAirbrake1912\) AddInvisibleAirbrake\([^\n]*\n', '', s, flags=re.M)
+s = re.sub(r'^[ \t]*(//[^\n]*\n[ \t]*)*const bool InvisibleAirbrake1912 = [^\n]*\n[ \t]*const float InvisibleAirbrakeDrag[^\n]*\n', '', s, flags=re.M)
+if _stripped:
+    print('note: B-17G invisible-airbrake helpers stripped from the MSB build:', _stripped)
+_code = [ln.split('//')[0] for ln in s.splitlines()]
+_inv = [ln for ln in _code if 'InvisibleAirbrake' in ln]
+_add = [ln for ln in _code if 'AddComponent<global::Airbrake>()' in ln]
+if _inv or len(_add) != 1:
+    print('MSB-17 must carry exactly ONE Airbrake (its Airbrake192 block in msb_root.cs):', len(_add), 'AddComponent<global::Airbrake>() lines,', len(_inv), 'InvisibleAirbrake references')
+    print('\n'.join((_inv + _add)[:20])); sys.exit(1)
+for _need in ('var ab = root.AddComponent<global::Airbrake>();', 'S(ab, "part", parts["MSB17"]);', 'const bool Airbrake192 = true;', 'const float AirbrakeDrag = 3.0f, AirbrakeOpenSpeed = 1.0f;'):
+    assert _need in s, 'pinned text missing (tools/stub_tests_192 / 193 / 194): ' + _need
 s = s.replace('\r\n', '\n')
 open(os.path.join(ED, 'MSB1780Build.cs'), 'w', encoding='utf-8', newline='\r\n').write(s)   # CRLF as the other generators
 print('wrote', os.path.join(ED, 'MSB1780Build.cs'), len(s.splitlines()), 'lines')

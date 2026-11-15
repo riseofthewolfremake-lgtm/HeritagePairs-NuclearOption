@@ -148,6 +148,648 @@
   }
  },
  {
+  "name": "airbrake_in_L",
+  "parent": "airbrake_in_L_hinge",
+  "type": "MESH",
+  "pivot_unity": [
+   -2.0496,
+   0.136,
+   -1.2584
+  ],
+  "tris": 284,
+  "local_axes_unity": {
+   "x": [
+    0.999,
+    -0.0421,
+    0.017
+   ],
+   "y": [
+    0.0446,
+    0.98,
+    -0.1941
+   ],
+   "z": [
+    -0.0085,
+    0.1947,
+    0.9808
+   ]
+  },
+  "info": {
+   "kind": "airbrake_panel",
+   "part": "wing_inner_L"
+  }
+ },
+ {
+  "name": "airbrake_in_L_bed",
+  "parent": "wing_inner_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 716,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "airbrake_bed",
+   "part": "wing_inner_L"
+  }
+ },
+ {
+  "name": "airbrake_in_L_hinge",
+  "parent": "wing_inner_L",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -2.0496,
+   0.136,
+   -1.2584
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    0.999,
+    -0.0421,
+    0.017
+   ],
+   "y": [
+    0.0446,
+    0.98,
+    -0.1941
+   ],
+   "z": [
+    -0.0085,
+    0.1947,
+    0.9808
+   ]
+  },
+  "info": {
+   "kind": "airbrake_hinge",
+   "open_deg": 55.0,
+   "hinge_axis": [
+    0.998968243598938,
+    0.01703515648841858,
+    -0.04209780693054199
+   ],
+   "hinge_axis_unity": [
+    0.999,
+    -0.0421,
+    0.017
+   ],
+   "open_unity": "rotate -55.0 deg (Unity AngleAxis) about (0.999, -0.0421, 0.017) (parent space) from the CLOSED pose"
+  }
+ },
+ {
+  "name": "airbrake_in_R",
+  "parent": "airbrake_in_R_hinge",
+  "type": "MESH",
+  "pivot_unity": [
+   2.0493,
+   0.136,
+   -1.2584
+  ],
+  "tris": 284,
+  "local_axes_unity": {
+   "x": [
+    0.999,
+    0.0421,
+    -0.017
+   ],
+   "y": [
+    -0.0446,
+    0.98,
+    -0.1941
+   ],
+   "z": [
+    0.0085,
+    0.1947,
+    0.9808
+   ]
+  },
+  "info": {
+   "kind": "airbrake_panel",
+   "part": "wing_inner_R"
+  }
+ },
+ {
+  "name": "airbrake_in_R_bed",
+  "parent": "wing_inner_R",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 716,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "airbrake_bed",
+   "part": "wing_inner_R"
+  }
+ },
+ {
+  "name": "airbrake_in_R_hinge",
+  "parent": "wing_inner_R",
+  "type": "EMPTY",
+  "pivot_unity": [
+   2.0493,
+   0.136,
+   -1.2584
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    0.999,
+    0.0421,
+    -0.017
+   ],
+   "y": [
+    -0.0446,
+    0.98,
+    -0.1941
+   ],
+   "z": [
+    0.0085,
+    0.1947,
+    0.9808
+   ]
+  },
+  "info": {
+   "kind": "airbrake_hinge",
+   "open_deg": 55.0,
+   "hinge_axis": [
+    0.998968243598938,
+    -0.01703515648841858,
+    0.04209780693054199
+   ],
+   "hinge_axis_unity": [
+    0.999,
+    0.0421,
+    -0.017
+   ],
+   "open_unity": "rotate -55.0 deg (Unity AngleAxis) about (0.999, 0.0421, -0.017) (parent space) from the CLOSED pose"
+  }
+ },
+ {
+  "name": "airbrake_mid_L",
+  "parent": "airbrake_mid_L_hinge",
+  "type": "MESH",
+  "pivot_unity": [
+   -5.9246,
+   0.3081,
+   -1.3148
+  ],
+  "tris": 398,
+  "local_axes_unity": {
+   "x": [
+    0.9988,
+    -0.0471,
+    0.0106
+   ],
+   "y": [
+    0.0483,
+    0.984,
+    -0.1716
+   ],
+   "z": [
+    -0.0024,
+    0.1719,
+    0.9851
+   ]
+  },
+  "info": {
+   "kind": "airbrake_panel",
+   "part": "wing_mid_L"
+  }
+ },
+ {
+  "name": "airbrake_mid_L_bed",
+  "parent": "wing_mid_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 816,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "airbrake_bed",
+   "part": "wing_mid_L"
+  }
+ },
+ {
+  "name": "airbrake_mid_L_hinge",
+  "parent": "wing_mid_L",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -5.9246,
+   0.3081,
+   -1.3148
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    0.9988,
+    -0.0471,
+    0.0106
+   ],
+   "y": [
+    0.0483,
+    0.984,
+    -0.1716
+   ],
+   "z": [
+    -0.0024,
+    0.1719,
+    0.9851
+   ]
+  },
+  "info": {
+   "kind": "airbrake_hinge",
+   "open_deg": 55.0,
+   "hinge_axis": [
+    0.9988322854042053,
+    0.010624104179441929,
+    -0.04712942615151405
+   ],
+   "hinge_axis_unity": [
+    0.9988,
+    -0.0471,
+    0.0106
+   ],
+   "open_unity": "rotate -55.0 deg (Unity AngleAxis) about (0.9988, -0.0471, 0.0106) (parent space) from the CLOSED pose"
+  }
+ },
+ {
+  "name": "airbrake_mid_R",
+  "parent": "airbrake_mid_R_hinge",
+  "type": "MESH",
+  "pivot_unity": [
+   5.9243,
+   0.3081,
+   -1.3148
+  ],
+  "tris": 390,
+  "local_axes_unity": {
+   "x": [
+    0.9988,
+    0.0471,
+    -0.0106
+   ],
+   "y": [
+    -0.0483,
+    0.984,
+    -0.1716
+   ],
+   "z": [
+    0.0024,
+    0.1719,
+    0.9851
+   ]
+  },
+  "info": {
+   "kind": "airbrake_panel",
+   "part": "wing_mid_R"
+  }
+ },
+ {
+  "name": "airbrake_mid_R_bed",
+  "parent": "wing_mid_R",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 816,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "airbrake_bed",
+   "part": "wing_mid_R"
+  }
+ },
+ {
+  "name": "airbrake_mid_R_hinge",
+  "parent": "wing_mid_R",
+  "type": "EMPTY",
+  "pivot_unity": [
+   5.9243,
+   0.3081,
+   -1.3148
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    0.9988,
+    0.0471,
+    -0.0106
+   ],
+   "y": [
+    -0.0483,
+    0.984,
+    -0.1716
+   ],
+   "z": [
+    0.0024,
+    0.1719,
+    0.9851
+   ]
+  },
+  "info": {
+   "kind": "airbrake_hinge",
+   "open_deg": 55.0,
+   "hinge_axis": [
+    0.9988322854042053,
+    -0.010624104179441929,
+    0.04712942615151405
+   ],
+   "hinge_axis_unity": [
+    0.9988,
+    0.0471,
+    -0.0106
+   ],
+   "open_unity": "rotate -55.0 deg (Unity AngleAxis) about (0.9988, 0.0471, -0.0106) (parent space) from the CLOSED pose"
+  }
+ },
+ {
+  "name": "airbrake_out_L",
+  "parent": "airbrake_out_L_hinge",
+  "type": "MESH",
+  "pivot_unity": [
+   -8.0996,
+   0.4115,
+   -1.3389
+  ],
+  "tris": 312,
+  "local_axes_unity": {
+   "x": [
+    0.9988,
+    -0.0475,
+    0.0123
+   ],
+   "y": [
+    0.0488,
+    0.986,
+    -0.1593
+   ],
+   "z": [
+    -0.0046,
+    0.1597,
+    0.9872
+   ]
+  },
+  "info": {
+   "kind": "airbrake_panel",
+   "part": "wing_mid_L"
+  }
+ },
+ {
+  "name": "airbrake_out_L_bed",
+  "parent": "wing_mid_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 728,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "airbrake_bed",
+   "part": "wing_mid_L"
+  }
+ },
+ {
+  "name": "airbrake_out_L_hinge",
+  "parent": "wing_mid_L",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -8.0996,
+   0.4115,
+   -1.3389
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    0.9988,
+    -0.0475,
+    0.0123
+   ],
+   "y": [
+    0.0488,
+    0.986,
+    -0.1593
+   ],
+   "z": [
+    -0.0046,
+    0.1597,
+    0.9872
+   ]
+  },
+  "info": {
+   "kind": "airbrake_hinge",
+   "open_deg": 55.0,
+   "hinge_axis": [
+    0.9987971186637878,
+    0.01233296561986208,
+    -0.047458063811063766
+   ],
+   "hinge_axis_unity": [
+    0.9988,
+    -0.0475,
+    0.0123
+   ],
+   "open_unity": "rotate -55.0 deg (Unity AngleAxis) about (0.9988, -0.0475, 0.0123) (parent space) from the CLOSED pose"
+  }
+ },
+ {
+  "name": "airbrake_out_R",
+  "parent": "airbrake_out_R_hinge",
+  "type": "MESH",
+  "pivot_unity": [
+   8.0993,
+   0.4115,
+   -1.3389
+  ],
+  "tris": 312,
+  "local_axes_unity": {
+   "x": [
+    0.9988,
+    0.0475,
+    -0.0123
+   ],
+   "y": [
+    -0.0488,
+    0.986,
+    -0.1593
+   ],
+   "z": [
+    0.0046,
+    0.1597,
+    0.9872
+   ]
+  },
+  "info": {
+   "kind": "airbrake_panel",
+   "part": "wing_mid_R"
+  }
+ },
+ {
+  "name": "airbrake_out_R_bed",
+  "parent": "wing_mid_R",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 728,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "airbrake_bed",
+   "part": "wing_mid_R"
+  }
+ },
+ {
+  "name": "airbrake_out_R_hinge",
+  "parent": "wing_mid_R",
+  "type": "EMPTY",
+  "pivot_unity": [
+   8.0993,
+   0.4115,
+   -1.3389
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    0.9988,
+    0.0475,
+    -0.0123
+   ],
+   "y": [
+    -0.0488,
+    0.986,
+    -0.1593
+   ],
+   "z": [
+    0.0046,
+    0.1597,
+    0.9872
+   ]
+  },
+  "info": {
+   "kind": "airbrake_hinge",
+   "open_deg": 55.0,
+   "hinge_axis": [
+    0.9987971186637878,
+    -0.01233296561986208,
+    0.047458063811063766
+   ],
+   "hinge_axis_unity": [
+    0.9988,
+    0.0475,
+    -0.0123
+   ],
+   "open_unity": "rotate -55.0 deg (Unity AngleAxis) about (0.9988, 0.0475, -0.0123) (parent space) from the CLOSED pose"
+  }
+ },
+ {
   "name": "ant_belly_1",
   "parent": "MSB17",
   "type": "MESH",
@@ -6422,6 +7064,262 @@
   },
   "info": {
    "kind": "bay"
+  }
+ },
+ {
+  "name": "slimelight_aft_L",
+  "parent": "fus_waist",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 136,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "formation_light",
+   "part": "fus_waist"
+  }
+ },
+ {
+  "name": "slimelight_aft_R",
+  "parent": "fus_waist",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 136,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "formation_light",
+   "part": "fus_waist"
+  }
+ },
+ {
+  "name": "slimelight_fin_L",
+  "parent": "fin",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 112,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "formation_light",
+   "part": "fin"
+  }
+ },
+ {
+  "name": "slimelight_fin_R",
+  "parent": "fin",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 112,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "formation_light",
+   "part": "fin"
+  }
+ },
+ {
+  "name": "slimelight_fwd_L",
+  "parent": "fus_cockpit",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 160,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "formation_light",
+   "part": "fus_cockpit"
+  }
+ },
+ {
+  "name": "slimelight_fwd_R",
+  "parent": "fus_cockpit",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 160,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "formation_light",
+   "part": "fus_cockpit"
+  }
+ },
+ {
+  "name": "slimelight_tip_L",
+  "parent": "wing_tip_L",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 112,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "formation_light",
+   "part": "wing_tip_L"
+  }
+ },
+ {
+  "name": "slimelight_tip_R",
+  "parent": "wing_tip_R",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.0001,
+   -0.3971,
+   -0.7153
+  ],
+  "tris": 120,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "formation_light",
+   "part": "wing_tip_R"
   }
  },
  {

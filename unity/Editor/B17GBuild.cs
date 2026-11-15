@@ -71,6 +71,12 @@ namespace B25HTools
         const bool OwnFlapAirfoil = true;       // 1.6.3: flaps get their own curve (airfoil 3): CL ~2.0 at flap AoA ~33 deg, low drag (wing curve: post-stall airbrake, 27 kN at 50 m/s)
         const bool OwnAileronAirfoil = true;    // Nimrod lesson: ailerons as separate parts need a flap-like curve or they reverse roll
         const bool SpawnThreePoint = true;      // restRotation = the 3-point attitude (Hangar.cs:649 applies it on the host spawn)
+        // 1.9.12 (user: the historical aircraft get an "airbrake" effect WITHOUT airbrake parts; "whenever the throttle is below 5% the airbrakes are on, ground or sky"): the stock
+        // Airbrake on the root part, drag only, no transforms (B25HBuild.AddInvisibleAirbrake, called at the end of RootSystems; the MSB-17
+        // block of 1.9.2 with the same dragAmount 3.0 on the same airframe size: 1.10 m/s2 at 90 m/s, 0.49 at 60 m/s on 27 t at sea level).
+        // No ground gate anywhere; the plugin (AirBrake1912.cs) only widens "throttle == 0" to "throttle under 5 %". false = 1.9.11 (no component).
+        const bool InvisibleAirbrake1912 = true;
+        const float InvisibleAirbrakeDrag = 3.0f, InvisibleAirbrakeOpenSpeed = 1.0f;
 
         // ------------------------------------------------------------------ B-17G numbers (tools/flightmodel/b17g_estimate.py, docs/b17g_design.md)
         const float WingIncidence = 3.5f;       // deg, liftNormal tilt of the wing panels (1.6.3: 2.5 -> 3.5, the real B-17 root incidence; take-off lift)
@@ -2157,6 +2163,45 @@ namespace B25HTools
             S(aircraft, "dopplerSounds", doppler);
             aircraft.maxRadius = 16.5f;
             aircraft.obstacleTop = 5.1f; // fin tips above the root
+            if (InvisibleAirbrake1912) AddInvisibleAirbrake(parts["B17G"], InvisibleAirbrakeDrag, InvisibleAirbrakeOpenSpeed);
+        }
+
+        // 1.9.12: the stock Airbrake on the root object, drag only (the block the MSB-17 has shipped since 1.9.2, every field set: no
+        // transforms, maxAngle 0, no sound, empty constraints array (Airbrake.Update iterates it: it must not be null), aircraft set)
+        static void AddInvisibleAirbrake(AeroPart rootPart, float drag, float openSpeed)
+        {
+            var ab = root.AddComponent<global::Airbrake>();
+            S(ab, "transforms", new Transform[0]); S(ab, "dragAmount", drag); S(ab, "maxAngle", 0f); S(ab, "openSpeed", openSpeed);
+            S(ab, "part", rootPart); S(ab, "airbrakeSound", null); S(ab, "constraints", new UnityEngine.Animations.AimConstraint[0]);
+            S(ab, "volumeMultiplier", 0f); S(ab, "aircraft", aircraft);
+            L($"1.9.12 invisible airbrake: stock Airbrake on the root, part {rootPart.name}, dragAmount {drag} (rho V^2: {drag * 1.225f * 90f * 90f / 1000f:F1} kN at 90 m/s SL), no transforms, opens at throttle 0 in {1f / openSpeed:F1} s");
+        }
+
+        // 1.9.12 check row: "" when the prefab carries exactly the airbrake the flag asks for (on: ONE Airbrake in the whole prefab, on the
+        // root object, values, part = the root part, constraints not null; off: none at all), else what is wrong
+        static string InvisibleAirbrakeProblems(GameObject inst, bool on, float drag, float openSpeed, out string detail)
+        {
+            var abs = inst.GetComponentsInChildren<global::Airbrake>(true);
+            detail = $"{abs.Length} Airbrake component(s)";
+            if (!on) return abs.Length == 0 ? "" : "flag off but an Airbrake is present";
+            if (abs.Length != 1) return "expected exactly one Airbrake";
+            var ab = abs[0]; var bad = new List<string>();
+            var tr = G(ab, "transforms") as Transform[]; var cons = G(ab, "constraints") as UnityEngine.Animations.AimConstraint[];
+            var part = G(ab, "part") as UnitPart; var rootPart = inst.GetComponent<AeroPart>();
+            var snd = G(ab, "airbrakeSound") as AudioSource; var abAc = G(ab, "aircraft") as Aircraft;
+            detail = $"on {ab.name}, part {(part != null ? part.name : "null")}, dragAmount {G(ab, "dragAmount")}, maxAngle {G(ab, "maxAngle")}, openSpeed {G(ab, "openSpeed")}, transforms {(tr == null ? "null" : tr.Length.ToString())}, constraints {(cons == null ? "null" : cons.Length.ToString())}, sound {(snd != null ? "set" : "none")}, volumeMultiplier {G(ab, "volumeMultiplier")}, aircraft {(abAc != null ? "set" : "null")}";
+            if (ab.gameObject != inst) bad.Add("not on the root object");
+            if (!ab.enabled) bad.Add("disabled");
+            if (rootPart == null || part != rootPart) bad.Add("part is not the root part");
+            if (!Mathf.Approximately((float)G(ab, "dragAmount"), drag)) bad.Add("dragAmount");
+            if (!Mathf.Approximately((float)G(ab, "openSpeed"), openSpeed) || openSpeed <= 0f) bad.Add("openSpeed");
+            if (!Mathf.Approximately((float)G(ab, "maxAngle"), 0f)) bad.Add("maxAngle");
+            if (tr == null || tr.Length != 0) bad.Add("transforms not an empty array");
+            if (cons == null) bad.Add("constraints null");
+            if (snd != null) bad.Add("sound set");
+            if (!Mathf.Approximately((float)G(ab, "volumeMultiplier"), 0f)) bad.Add("volumeMultiplier");
+            if (abAc == null || abAc != inst.GetComponent<Aircraft>()) bad.Add("aircraft is not the root Aircraft");
+            return string.Join(", ", bad);
         }
 
         static Vector3 TipPoint(AeroPart tip, float side)
@@ -2998,7 +3043,7 @@ namespace B25HTools
                 var ckR = (Renderer[])G(ac, "cockpitRenderers");
                 R("cockpit layer copies, glass copies use the faint glass (no canopy_int)", ckR != null && ckR.Length > 10 && ckR.All(r => r.gameObject.layer == 3) && ckR.SelectMany(r => r.sharedMaterials).All(mt => mt == null || mt.shader == null || !mt.shader.name.Contains("canopy_int")), $"{ckR?.Length} renderers");
                 R("HUD kept (COIN_HUDExtras)", ((AircraftDefinition)def).aircraftParameters.HUDExtras != null, "");
-                // flight model
+                { string abBad = InvisibleAirbrakeProblems(inst, InvisibleAirbrake1912, InvisibleAirbrakeDrag, InvisibleAirbrakeOpenSpeed, out string abDet); R("1.9.12 invisible airbrake: " + (InvisibleAirbrake1912 ? $"exactly one stock Airbrake, on the root object, part = the root part, dragAmount {InvisibleAirbrakeDrag}, openSpeed {InvisibleAirbrakeOpenSpeed}, maxAngle 0, no transforms (drag only, no parts), no sound, constraints not null, aircraft set" : "flag off, no Airbrake in the prefab"), abBad == "", abDet + (abBad == "" ? "" : "; WRONG: " + abBad)); }   // 1.9.12, ONE line in place of the "// flight model" comment: msb1780_sections/compose_check.py copies blocks of this file BY LINE NUMBER, so the line count must stay 499. Flight model rows follow
                 var prm = ((AircraftDefinition)def).aircraftParameters;
                 R("airfoils: wing / tail / aileron / flap; ailerons use the aileron curve, flaps the flap curve", prm.airfoils.Length == 4 && allParts.Where(p => p.name.StartsWith("aileron")).All(p => (int)G(p, "airfoil") == 2) && allParts.Where(p => p.name.StartsWith("flap_")).All(p => (int)G(p, "airfoil") == 3), string.Join(", ", prm.airfoils.Select(a => a.name)));
                 var fbw = new SerializedObject(inst.GetComponentInChildren<ControlsFilter>(true));

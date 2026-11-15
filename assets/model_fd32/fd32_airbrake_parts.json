@@ -1,0 +1,225 @@
+[
+ {
+  "name": "FD32_root",
+  "parent": null,
+  "type": "EMPTY",
+  "pivot_unity": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "note": "CG (50 % fuel) parts 1636 kg"
+  }
+ },
+ {
+  "name": "airbrake_L",
+  "parent": "airbrake_L_hinge",
+  "type": "MESH",
+  "pivot_unity": [
+   -0.359,
+   -0.2085,
+   -2.7728
+  ],
+  "tris": 356,
+  "local_axes_unity": {
+   "x": [
+    -0.0,
+    1.0,
+    0.0
+   ],
+   "y": [
+    -0.997,
+    -0.0,
+    -0.0771
+   ],
+   "z": [
+    -0.0771,
+    -0.0,
+    0.997
+   ]
+  },
+  "info": {
+   "kind": "airbrake_panel",
+   "note": "1.9.12 flank airbrake panel: paint = the atlas texels of the fus_rear skin under it; no collider, not a part"
+  }
+ },
+ {
+  "name": "airbrake_L_hinge",
+  "parent": "FD32_root",
+  "type": "EMPTY",
+  "pivot_unity": [
+   -0.359,
+   -0.2085,
+   -2.7728
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    -0.0,
+    1.0,
+    0.0
+   ],
+   "y": [
+    -0.997,
+    -0.0,
+    -0.0771
+   ],
+   "z": [
+    -0.0771,
+    -0.0,
+    0.997
+   ]
+  },
+  "info": {
+   "kind": "airbrake_hinge",
+   "note": "1.9.12: Unity local X = hinge line, Y = outward, Z = forward; the stock Airbrake rotates +maxAngle about local X (FD32Build builds this frame from fd32_airbrake.json)"
+  }
+ },
+ {
+  "name": "airbrake_R",
+  "parent": "airbrake_R_hinge",
+  "type": "MESH",
+  "pivot_unity": [
+   0.359,
+   -0.2085,
+   -2.7728
+  ],
+  "tris": 370,
+  "local_axes_unity": {
+   "x": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "y": [
+    0.997,
+    0.0,
+    -0.0771
+   ],
+   "z": [
+    0.0771,
+    0.0,
+    0.997
+   ]
+  },
+  "info": {
+   "kind": "airbrake_panel",
+   "note": "1.9.12 flank airbrake panel: paint = the atlas texels of the fus_rear skin under it; no collider, not a part"
+  }
+ },
+ {
+  "name": "airbrake_R_hinge",
+  "parent": "FD32_root",
+  "type": "EMPTY",
+  "pivot_unity": [
+   0.359,
+   -0.2085,
+   -2.7728
+  ],
+  "tris": 0,
+  "local_axes_unity": {
+   "x": [
+    0.0,
+    -1.0,
+    0.0
+   ],
+   "y": [
+    0.997,
+    0.0,
+    -0.0771
+   ],
+   "z": [
+    0.0771,
+    0.0,
+    0.997
+   ]
+  },
+  "info": {
+   "kind": "airbrake_hinge",
+   "note": "1.9.12: Unity local X = hinge line, Y = outward, Z = forward; the stock Airbrake rotates +maxAngle about local X (FD32Build builds this frame from fd32_airbrake.json)"
+  }
+ },
+ {
+  "name": "airbrake_tray_L",
+  "parent": "FD32_root",
+  "type": "MESH",
+  "pivot_unity": [
+   0.0,
+   -0.0735,
+   -0.3024
+  ],
+  "tris": 82,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "airbrake_tray",
+   "note": "1.9.12 fixed well floor under the panel (child of fus_rear); seen only when the panel is open"
+  }
+ },
+ {
+  "name": "airbrake_tray_R",
+  "parent": "FD32_root",
+  "type": "MESH",
+  "pivot_unity": [
+   0.0,
+   -0.0735,
+   -0.3024
+  ],
+  "tris": 82,
+  "local_axes_unity": {
+   "x": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "y": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "z": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "info": {
+   "kind": "airbrake_tray",
+   "note": "1.9.12 fixed well floor under the panel (child of fus_rear); seen only when the panel is open"
+  }
+ }
+]

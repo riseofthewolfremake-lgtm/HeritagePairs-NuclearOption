@@ -19,6 +19,12 @@ import atlas_guard as AG
 AC = dict(B25H=('textures_v2', 'b25h', {}), GA25X=('textures_ga25x', 'ga25x', {'hook_mesh': 'tailhook'}), NIMROD1=('textures_nimrod', 'nimrod', {}),
           FD32=('textures_fd32', 'fd32', {}), B17G=('textures_b17g', 'b17g', {'fus_center': 'B17G'}),
           MSB17=('textures_msb1780', 'msb17', {'fus_center': 'MSB17'}))     # 1.9.0; 1.9.9: key MSB17 (folder name kept)
+# 1.9.12: airbrake panels that RIDE on another part's atlas area (thin proud plates whose paint vertices carry the UV0 of the skin point under
+# them; the atlas is not re-packed and they have no manifest row). They are left out of the part comparison, exactly as the Unity build check
+# runs AtlasGuard1816 without them, and tested on their own: every UV0 point of a rider must lie inside a UV triangle of its host's paint
+# sub-mesh in the same pack (tolerance RIDER_TOL in UV units, a quarter of a 4096 texel). A rider that is absent is not an error (flag off).
+RIDERS = dict(GA25X={'airbrake_L': 'fus_rear', 'airbrake_R': 'fus_rear'}, FD32={'airbrake_L': 'fus_rear', 'airbrake_R': 'fus_rear'})
+RIDER_TOL = 0.25 / 4096
 
 
 def load(p):
@@ -38,6 +44,7 @@ def paint_parts(env, byid):
                 if n == k + '_paint':
                     mats[o.path_id] = k
     pts = {k: collections.defaultdict(set) for k in AC}
+    uvtris = {k: collections.defaultdict(list) for k in AC}     # 1.9.12: UV triangles of the hosts of riders
     cache = {}
     for o in env.objects:
         if o.type.name != 'MeshRenderer':
@@ -66,10 +73,13 @@ def paint_parts(env, byid):
             if sm >= len(tris):
                 continue
             s = pts[key][go.m_Name]
+            host = any(go.m_Name == h or go.m_Name.startswith(h + '_') for h in RIDERS.get(key, {}).values())
             for t in tris[sm]:
                 for i in t:
                     s.add((float(uv[i][0]), float(uv[i][1])))
-    return pts
+                if host:
+                    uvtris[key][go.m_Name].append(tuple((float(uv[i][0]), float(uv[i][1])) for i in t))
+    return pts, uvtris
 
 
 def part_name(unity_name, rename, known):
@@ -109,6 +119,31 @@ def check_aircraft(raw, man, rename):
                     pack_atlas=AG.atlas_hash({n: AG.part_hash(s)[0] for n, s in pts.items()}))
 
 
+def rider_check(points, tris):
+    """-> (points outside every host triangle, worst distance outside in UV units); barycentric test with RIDER_TOL"""
+    import numpy as np
+    if not tris or not points:
+        return len(points), 1.0
+    T = np.array(tris, dtype=np.float64); P = np.array(sorted(points), dtype=np.float64)
+    a, b, c = T[:, 0], T[:, 1], T[:, 2]
+    v0, v1 = b - a, c - a
+    den = v0[:, 0] * v1[:, 1] - v0[:, 1] * v1[:, 0]
+    good = np.abs(den) > 1e-18
+    a, v0, v1, den = a[good], v0[good], v1[good], den[good]
+    scale = np.sqrt(np.abs(den))                                   # ~ triangle size: turns a barycentric margin into a UV distance
+    out, worst = 0, 0.0
+    for q in P:
+        d = q - a
+        u = (d[:, 0] * v1[:, 1] - d[:, 1] * v1[:, 0]) / den
+        v = (v0[:, 0] * d[:, 1] - v0[:, 1] * d[:, 0]) / den
+        m = np.minimum(np.minimum(u, v), 1.0 - u - v) * scale      # >= 0 inside
+        best = float(m.max())
+        if best < -RIDER_TOL:
+            out += 1
+        worst = max(worst, -best)
+    return out, max(worst, 0.0)
+
+
 def tex_hashes(env, prefix_set):
     out = {}
     for o in env.objects:
@@ -125,7 +160,7 @@ def main():
     a = sys.argv[1:]
     pack = a[0]
     env, byid = load(pack)
-    parts = paint_parts(env, byid)
+    parts, uvtris = paint_parts(env, byid)
     res = dict(pack=os.path.basename(pack), aircraft={})
     allok = True
     for k, (td, pre, _) in AC.items():
@@ -135,11 +170,20 @@ def main():
         if not os.path.exists(mf):
             print(f'{k:8s} FAIL no manifest {mf}'); allok = False; res['aircraft'][k] = dict(ok=False, error='no manifest'); continue
         man = AG.load_manifest(mf)
-        ok, d = check_aircraft(parts[k], man, AC[k][2])
+        riders = {n: h for n, h in RIDERS.get(k, {}).items() if n in parts[k] and n not in man['parts']}
+        ok, d = check_aircraft({n: s for n, s in parts[k].items() if n not in riders}, man, AC[k][2])
+        rd = {}
+        for n, h in sorted(riders.items()):
+            ht = [t for hn, tl in uvtris[k].items() if part_name(hn, AC[k][2], man['parts']) == h for t in tl]
+            outside, worst = rider_check(parts[k][n], ht)
+            rd[n] = dict(host=h, points=len(parts[k][n]), host_triangles=len(ht), outside=outside, worst_uv=round(worst, 7))
+            ok &= outside == 0 and len(ht) > 0
+        d['riders'] = rd
         allok &= ok
         res['aircraft'][k] = dict(ok=ok, manifest_atlas=man['atlas_hash'], **d)
         print(f'{k:8s} {"PASS" if ok else "FAIL"} manifest {man["atlas_hash"]} parts {d["parts"]}: exact UV0 hash {d["exact"]}, texel-cell match {d["cell_match"]}, '
-              f'moved {len(d["moved"])} {d["moved"][:4]}, missing {len(d["missing"])} {d["missing"][:3]}, new {len(d["extra"])} {d["extra"][:3]}')
+              f'moved {len(d["moved"])} {d["moved"][:4]}, missing {len(d["missing"])} {d["missing"][:3]}, new {len(d["extra"])} {d["extra"][:3]}'
+              + (''.join(f'; rider {n} on {v["host"]}: {v["points"]} UV points, {v["outside"]} outside its {v["host_triangles"]} paint triangles' for n, v in d['riders'].items())))
     if '--old' in a:
         envo, _ = load(a[a.index('--old') + 1])
         pre = {v[1] for v in AC.values()}

@@ -118,5 +118,65 @@
     "count": 7210
    }
   ]
+ },
+ "bdf_navy": {
+  "texture": "fd32_livery_bdf_navy.png",
+  "name": "BDF Navy Hex",
+  "label": "BDF Navy Hex",
+  "faction": "BDF",
+  "both": false,
+  "glossiness": 0.0,
+  "colors": [
+   {
+    "color": "#607070FF",
+    "count": 857336
+   },
+   {
+    "color": "#506060FF",
+    "count": 480545
+   },
+   {
+    "color": "#304050FF",
+    "count": 368163
+   },
+   {
+    "color": "#506070FF",
+    "count": 352876
+   },
+   {
+    "color": "#607080FF",
+    "count": 207099
+   }
+  ]
+ },
+ "pala_navy": {
+  "texture": "fd32_livery_pala_navy.png",
+  "name": "PALA Navy Splinter",
+  "label": "PALA Navy Splinter",
+  "faction": "PALA",
+  "both": false,
+  "glossiness": 0.0,
+  "colors": [
+   {
+    "color": "#304040FF",
+    "count": 705784
+   },
+   {
+    "color": "#505050FF",
+    "count": 673285
+   },
+   {
+    "color": "#808080FF",
+    "count": 553796
+   },
+   {
+    "color": "#909090FF",
+    "count": 152279
+   },
+   {
+    "color": "#404040FF",
+    "count": 146501
+   }
+  ]
  }
 }

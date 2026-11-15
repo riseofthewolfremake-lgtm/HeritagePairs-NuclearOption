@@ -14,7 +14,7 @@ using UnityEngine;
 
 namespace B25H.Instruments
 {
-    [BepInPlugin("b25h.instruments", "Heritage Pairs Instruments", "1.9.11")]   // 1.9.10: display name was "B-25H Instruments"; the GUID (and so the config file b25h.instruments.cfg) is unchanged
+    [BepInPlugin("b25h.instruments", "Heritage Pairs Instruments", "1.9.12")]   // 1.9.10: display name was "B-25H Instruments"; the GUID (and so the config file b25h.instruments.cfg) is unchanged
     // Heritage Pairs companion plugin: cockpit dials and tac-page panels the stock components do not drive, taildragger ground handling
     // (grip, taxi turn, moving-deck hold), the Nimrod / FD-32 hook and gear rules and the laser beam guard. One partial class, one file per
     // piece; each piece acts only on our own aircraft (matched by definition.jsonKey), has a config switch and disables itself on an
@@ -49,6 +49,7 @@ namespace B25H.Instruments
             DriveExtrasAll();
             DriveNimrodAll();
             DriveB17GAll();
+            DriveAirbrake1912();     // 1.9.12 (AirBrake1912.cs): airbrake on under 5 % throttle (ground and air), HUD airbrake text
             List<Aircraft> dead = null;
             foreach (var kv in tracked)
             {
@@ -97,6 +98,8 @@ namespace B25H.Instruments
 
         // 1.2.0: the GA-25X uses the stock KR-67 HUD throttle gauge (afterburner regions from 0.90 = its electric boost). On a
         // GA-25X gauge only, rename the region texts "AFTERBURNER " -> "BOOST " and "AIRBRAKE" -> "IDLE" (it has no airbrake).
+        // 1.9.12 (HudAirbrake1912, AirBrake1912.cs): an aircraft that carries a stock Airbrake keeps the region name "AIRBRAKE" (no IDLE: the gauge
+        // reads AIRBRAKE whenever the throttle is under 5 %, ground and air), and the COIN gauges of B25H / NIMROD1 / B17G / MSB17 get the stock airbrake text the same way.
         // Reflection on the gauge's own serialized region names; nothing else is touched. Any failure disables this for the session.
         public const string BoostJsonKey = "GA25X";
         public const string BoostJsonKeyFD32 = "FD32";   // 1.5.1: the FD-32 boost (JetNozzle afterburner from throttle 0.90, as the GA-25X)
@@ -119,10 +122,11 @@ namespace B25H.Instruments
                     var ac = typeof(ThrottleGauge).GetField("aircraft", BFI)?.GetValue(g) as Aircraft;
                     if (ac == null || ac.definition == null) continue;            // not initialised yet: retry next scan
                     relabelled.Add(g);
+                    if (AirbrakeIdleMath.IsCoinHudKey(ac.definition.jsonKey)) { RegisterBrakeHud1912(g, ac, null, null); continue; }   // 1.9.12
                     if (!IsBoostKey(ac.definition.jsonKey)) continue;
                     var regions = typeof(ThrottleGauge).GetField("throttleRegions", BFI)?.GetValue(g) as System.Array;
                     if (regions == null) continue;
-                    int n = 0;
+                    int n = 0; bool brake = false;
                     foreach (var r in regions)
                     {
                         if (r == null) continue;
@@ -130,10 +134,14 @@ namespace B25H.Instruments
                         if (name == null) continue;
                         var t = name.Trim().ToUpperInvariant();
                         if (t == "AFTERBURNER") { f.SetValue(r, "BOOST "); n++; }
-                        else if (t == "AIRBRAKE") { f.SetValue(r, "IDLE"); n++; }
+                        else if (t == "AIRBRAKE")
+                        {
+                            if (RegisterBrakeHud1912(g, ac, r, f)) brake = true;           // 1.9.12: the aircraft has an airbrake: the name stays
+                            else { f.SetValue(r, "IDLE"); n++; }
+                        }
                     }
                     typeof(ThrottleGauge).GetField("throttlePrev", BFI)?.SetValue(g, -1f);   // redraw on the next Refresh
-                    Logger.LogInfo($"{(ac.definition.jsonKey == BoostJsonKey ? "GA-25X" : "FD-32")} throttle gauge: {n} region label(s) renamed (BOOST / IDLE)");
+                    Logger.LogInfo($"{(ac.definition.jsonKey == BoostJsonKey ? "GA-25X" : "FD-32")} throttle gauge: {n} region label(s) renamed ({(brake ? "BOOST; AIRBRAKE kept" : "BOOST / IDLE")})");
                 }
             }
             catch (System.Exception e) { boostLabelsBroken = true; Logger.LogWarning("boost labels disabled: " + e.Message); }

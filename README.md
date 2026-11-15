@@ -18,12 +18,13 @@ agent), directed and tested by a human. Part of the art was generated with AI im
 | **B-17G Flying Fortress** (1944): four-engine heavy bomber with thirteen .50 guns in turrets and flexible mounts | **MSB-17**: four-turboshaft heavy strike aircraft with a weapons bay, wing pylons, two 20 mm turrets, two lasers |
 
 Every aircraft is a new unit added beside the stock aircraft; nothing in the game is replaced. Each has its own model, cockpit with
-working instruments or screens, damage model, flight model and liveries for both factions. Weapons are the game's own, except
+working instruments or screens, damage model, flight model and liveries for both factions; the two carrier aircraft (Nimrod Mk I and FD-32) also
+have a naval livery for each faction. Weapons are the game's own, except
 the 75 mm cannon, the Vickers guns, the 20 lb bomb and the twin 20 mm turret, which are defined by this mod from stock parts.
 
 ## Requirements
 
-- Nuclear Option 0.34.6. This release was built and tested against game 0.34.6. The manifest inside the pack, which the
+- Nuclear Option 0.34.6. This release was built against game 0.34.6; 1.9.12 was tried in the game on 0.34.6. The manifest inside the pack, which the
   Blueprinter editor project writes, says 0.34.3 (the game version that project was set up with); Blueprinter compares only the
   first two numbers, so it raises no warning on 0.34.6.
 - [BepInEx 5](https://github.com/BepInEx/BepInEx) (5.4.x, Windows x64; tested with 5.4.23.5)
@@ -48,6 +49,13 @@ The download is about 240 MB.
 To remove the mod, delete that folder. Settings are in `BepInEx\config\b25h.instruments.cfg`. The plugin shows in the BepInEx
 log as "Heritage Pairs Instruments".
 
+**Air brake.** Whenever the throttle is below 5 % the air brake of every aircraft of the mod is on, on the ground as well as
+in the air, and the throttle gauge reads AIRBRAKE. The B-25H, Nimrod Mk I and B-17G brake without visible parts; the GA-25X
+opens a panel on each upper shoulder of the rear fuselage, the FD-32 a small panel on each side of the rear fuselage, the
+MSB-17 six spoiler panels on the wing. An aircraft parked at idle therefore stands with its panels open; they close at
+5 % throttle and above. Holding the throttle exactly at 5 % makes the brake open and close about once a second. The settings are in the `[Airbrake]` section of the settings file: `AirbrakeIdle1912 = Off` gives the
+behaviour of the game's own aircraft (brake only at exactly 0), `AirbrakeThrottle1912` is the limit (0.05).
+
 ## Multiplayer
 
 **Multiplayer has not been tested with this mod.** What follows is the expected behaviour of Blueprinter aircraft mods, not a
@@ -63,6 +71,16 @@ same lobby: the aircraft and weapons exist for everyone who has the mod.
   The arrester hook is an item of the loadout (Tail Hook slot): an aircraft spawned with an empty loadout has no hook. Parking,
   riding the lift, taxiing and deck take-offs work.
 - The B-25H needs back stick to lift off; it does not fly itself off the runway at full throttle.
+- 1.9.12 air brakes: tried in the game on all six aircraft (on below 5 %, off from 5 %, panels, braking in flight, a GA-25X
+  landing roll, FD-32 and Nimrod Mk I idling on a moving carrier, which hold their place). Not tried: landings of the B-17G
+  and MSB-17 with the brake. Holding the throttle exactly at 5 % makes the brake open and close about once a second.
+- MSB-17: a thin bright line can show on the right upper wing near the inner engine, at the joint of two wing parts (already
+  in 1.9.11).
+- Computer-flown aircraft change the throttle between about 1 % and 50 % while taxiing, so their air-brake panels are
+  expected to open and close repeatedly during taxi (GA-25X, FD-32, MSB-17). Not watched in the game.
+- FD-32 naval liveries: the texture has little room beside the cockpit, at the wing, tail and rudder tips and on part of the
+  belly, so there the pattern fades to a plain colour (blue-grey on BDF Navy Hex, mid-grey on PALA Navy Splinter). Both naval
+  patterns have one straight seam along the belly centreline.
 - Computer-flown tail-wheel aircraft (B-17G, MSB-17, both Nimrods) push the stick forward while taxiing, so the tail can lift
   during AI taxi. Computer-flown Nimrod Mk I aircraft can get stuck circling at the K92 highway strip.
 - The MSB-17 has not been tested at its heaviest take-off weight (42 t), with its bays open in flight, or with one engine out
@@ -87,6 +105,10 @@ This mod is declared AI-assisted.
   `google/nano-banana-2.1/edit`, `fal-ai/z-image/turbo/tiling`, `tripo3d/h3.1/image-to-3d`, `tripo3d/tripo/remesh`,
   `fal-ai/hunyuan-3d/v3.1/pro/image-to-3d`. Every call is logged in `assets/fal_manifest.jsonl` and the `fal_manifest.jsonl`
   files in the per-aircraft folders.
+- **1.9.12:** the four naval liveries are painted by script; each pair has one AI-generated tiling dirt texture
+  (`fal-ai/z-image/turbo/tiling`) mixed in faintly as weathering. The two tiles used are recorded in
+  `assets/textures_fd32/fal_raw/fal_manifest.jsonl` and `assets/textures_nimrod/fal_raw/fal_manifest_1912.jsonl`; eight
+  further trial tiles were discarded and are not in the repository.
 - A human chose what to build, flew every aircraft in the game and accepted or rejected each version.
 
 ## Build from source
@@ -98,7 +120,7 @@ You need your own copy of the game; no game file is in this repository.
    the supported build. The `B25H.Instruments.csproj` beside the source is a convenience for IDEs; it has not been built with
    a .NET SDK and is not expected to give the same bytes.
    The build is deterministic: the same source, compiler and reference DLLs give the same DLL bytes. The released
-   `B25H.Instruments.dll` 1.9.11 has sha256 `c999b6199b390be38f9aded0bc588aa36ddeb0b29f5fc7d704bd538f9edcaef3` and was built with:
+   `B25H.Instruments.dll` 1.9.12 has sha256 `719b554457f861dcf8c28d902500a58584b5bc74b41e89d5f69b355273647c29` and was built with:
    - Nuclear Option 0.34.6, Steam build id 26327221 (`Assembly-CSharp.dll` sha256 `babdd626bbab...813c2bce`);
    - BepInEx 5.4.23.5 (`BepInEx.dll` sha256 `8255b2890288...ef14ce70`, `0Harmony.dll` sha256 `1a21cc03424f...285c1031`);
    - Unity 2022.3.62f2: its Roslyn `csc.dll` 4.3.1-3.22526.13 (41a5af9d), run by its bundled .NET runtime 6.0.21.

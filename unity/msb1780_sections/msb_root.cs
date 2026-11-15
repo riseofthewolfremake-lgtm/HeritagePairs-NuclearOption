@@ -103,6 +103,27 @@
             var tipL = parts["wing_tip_L"]; var tipR = parts["wing_tip_R"];
             Nav("navLight_L", tipL, TipPoint(tipL, -1), "navlight_L", Color.red);
             Nav("navLight_R", tipR, TipPoint(tipR, 1), "navlight_R", Color.green);
+            if (FormationLights1912)
+            {   // 1.9.12: green formation / gear-down strips (the stock slimelight pattern; the GA-25X block of GA25XBuild.RootSystems): the model's
+                // own strip meshes (material light_off = the stock light_green_off), whole-renderer swap to the stock slimelight_on while the
+                // gear is extended (NavLights Auto; the nav-light key forces them on with the gear up). A missing strip is skipped with a WARN
+                // (NavLight.Initialize has no null test on its renderer); the check row fails on a count != FormationLightCount.
+                var slimeOn = Asset<Material>("Material/slimelight_on_PLACEHOLDER.mat");
+                int nStrips = 0;
+                foreach (var lj in JList("lights", "formation"))
+                {
+                    var t = TryFind((string)lj["name"]); var r = t != null ? t.GetComponent<MeshRenderer>() : null;
+                    if (r == null) { L($"WARN formation light {(string)lj["name"]} missing"); continue; }
+                    r.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+                    var part = OwningPart(t);
+                    var e = NewElem(nl, "navLights");
+                    S(e, "renderer", r); S(e, "objects", new GameObject[0]); S(e, "litMaterial", slimeOn);
+                    S(e, "part", part); S(e, "gear", null);
+                    var fcs = Fld(e.GetType(), "controlState"); fcs.SetValue(e, Enum.ToObject(fcs.FieldType, 1));
+                    entries.Add(e); nStrips++;
+                }
+                L($"1.9.12 formation lights: {nStrips} slimelight strips (NavLights Auto, litMaterial slimelight_on)");
+            }
             SetSeq(nl, "navLights", entries);
             S(nl, "aircraft", aircraft);
 
@@ -153,6 +174,34 @@
                 S(ab, "part", parts["MSB17"]); S(ab, "airbrakeSound", null); S(ab, "constraints", new UnityEngine.Animations.AimConstraint[0]);
                 S(ab, "volumeMultiplier", 0f); S(ab, "aircraft", aircraft);
                 L($"airbrake: stock Airbrake on the root, dragAmount {AirbrakeDrag} (rho V^2: {AirbrakeDrag * 1.225f * 100f * 100f / 1000f:F0} kN at 100 m/s SL), opens at throttle 0 in {1f / AirbrakeOpenSpeed:F1} s");
+                if (AirbrakePanels1912)
+                {   // 1.9.12: the same component now also turns the six upper-wing spoiler panels (Airbrake.Update: each transform back to its
+                    // rest angles, then Rotate(openAmount x maxAngle about local X)). The panels are plain renderers under hinge empties on the
+                    // wing parts: no collider, no part, paint material = in the wing's livery list. dragAmount / part / drag point unchanged.
+                    // The hinge frame is set HERE from the contract (not taken from the FBX): +X the hinge line (+x on both sides), +Y the skin
+                    // normal, +Z forward along the skin, so a positive angle lifts the panel's rear (-Z) edge.
+                    var hinges = new List<Transform>();
+                    foreach (var pj in JList("airbrake", "panels"))
+                    {
+                        var h = TryFind((string)pj["hinge"]); var panel = TryFind((string)pj["name"]);
+                        if (h == null || panel == null || panel.GetComponent<MeshFilter>() == null) throw new Exception($"airbrake panel {(string)pj["name"]} / its hinge missing in the model");
+                        Vector3 Dir(Newtonsoft.Json.Linq.JToken t) => root.transform.TransformDirection(new Vector3((float)t[0], (float)t[2], (float)t[1])).normalized;   // Blender (x, y fwd, z up) -> Unity
+                        var kids = h.Cast<Transform>().ToList();
+                        foreach (var k in kids) k.SetParent(h.parent, true);
+                        h.rotation = Quaternion.LookRotation(Dir(pj["fwd"]), Dir(pj["up"]));
+                        foreach (var k in kids) k.SetParent(h, true);
+                        // opening sense, measured: the panel vertex farthest aft of the hinge line must rise along the skin normal
+                        var far = panel.GetComponent<MeshFilter>().sharedMesh.vertices.Select(v => h.InverseTransformPoint(panel.TransformPoint(v))).OrderBy(v => v.z).First();
+                        float rise = Vector3.Dot(h.TransformPoint(Quaternion.AngleAxis(AirbrakePanelAngle, Vector3.right) * far) - h.TransformPoint(far), h.up);
+                        if (rise < 0.2f) throw new Exception($"airbrake panel {panel.name}: opening {AirbrakePanelAngle} deg moves its free edge {rise:F3} m along the skin normal (wrong sense / hinge frame)");
+                        L($"  1.9.12 airbrake panel {panel.name} on {OwningPart(h)?.name}: hinge {h.localPosition.ToString("F3")}, free edge {far.ToString("F3")} in the hinge frame, rises {rise:F2} m at {AirbrakePanelAngle} deg");
+                        hinges.Add(h);
+                    }
+                    if (hinges.Count != AirbrakePanelCount) throw new Exception($"airbrake panels: {hinges.Count} in the contract, {AirbrakePanelCount} expected (model built with msb_spec.SPOILERS1912 = False? then set AirbrakePanels1912 = false)");
+                    if (Mathf.Abs((float)contract["airbrake"]["max_angle"] - AirbrakePanelAngle) > 0.01f) throw new Exception($"airbrake max_angle: contract {(float)contract["airbrake"]["max_angle"]} != AirbrakePanelAngle {AirbrakePanelAngle}");
+                    S(ab, "transforms", hinges.ToArray()); S(ab, "maxAngle", AirbrakePanelAngle);
+                    L($"1.9.12 airbrake panels: {hinges.Count} spoiler panels on the stock Airbrake, maxAngle {AirbrakePanelAngle}");
+                }
             }
         }
 

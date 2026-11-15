@@ -105,6 +105,14 @@ namespace B25HTools
         // (true in this candidate; false = the documented fallback):
         const bool Deck195Screens = true;       // our six MFD units: map / power + engines per pilot, attitude in the centre, standby dark (false: all six dark glass)
         const bool WarnLamps195 = true;         // the two stock EW-25 missile-warning lamps on the stock CockpitWarningLights blinker (false: lamps stay dark)
+        // 1.9.12 (user: the upgraded aircraft get real airbrake panels that deploy when the aircraft is airbraking; the MSB-17 is missing the green
+        // light strips). Geometry: blender/msb1780/msb_ext1912.py behind msb_spec.SPOILERS1912 / STRIPS1912 (false there = the 1.9.11 model);
+        // these steer the Unity side (true in this candidate; false = the 1.9.11 wiring: drag-only Airbrake, two wing-tip nav lights):
+        const bool AirbrakePanels1912 = true;   // the six upper-wing spoiler panels (contract airbrake.panels; round 2: three a side, 3.97 m2 a side) become the transforms of the 1.9.2 Airbrake, maxAngle AirbrakePanelAngle
+        const float AirbrakePanelAngle = 55f;   // deg about each hinge's local +X (the rear edge rises); the contract's airbrake.max_angle must agree
+        const int AirbrakePanelCount = 6;
+        const bool FormationLights1912 = true;  // eight slimelight_* strips (contract lights.formation) on the stock NavLights, lit with the stock slimelight_on (the GA-25X block)
+        const int FormationLightCount = 8;
 
         // ------------------------------------------------------------------ MSB numbers (tools/flightmodel/msb1780_estimate.py, msb1780_ground.py)
         // 1.9.2: aero frames only (the mesh keeps the B-17G wing): tools/flightmodel/msb1780_fm.py fits the 1.9.0 in-game level speeds (690 / 678 /
@@ -642,6 +650,7 @@ namespace B25HTools
                 em.EnableKeyword("_EMISSION"); em.SetColor("_EmissionColor", col * glow); em.globalIlluminationFlags = MaterialGlobalIlluminationFlags.None;
                 Save(em, key);
             }
+            if (JList("lights", "formation").Any()) mats["light_off"] = Asset<Material>("Material/light_green_off_PLACEHOLDER.mat");   // 1.9.12 slimelight_* strips unlit (stock light_green_off; msb_spec.STRIPS1912)
             foreach (var t in PrTextures)      // fal props: their own base colour on the generated UV (CopyMesh keeps UV0 for pr_*)
             {
                 var key = t.Replace("msb17_", "").Replace("_b", "");
@@ -2368,6 +2377,27 @@ namespace B25HTools
             var tipL = parts["wing_tip_L"]; var tipR = parts["wing_tip_R"];
             Nav("navLight_L", tipL, TipPoint(tipL, -1), "navlight_L", Color.red);
             Nav("navLight_R", tipR, TipPoint(tipR, 1), "navlight_R", Color.green);
+            if (FormationLights1912)
+            {   // 1.9.12: green formation / gear-down strips (the stock slimelight pattern; the GA-25X block of GA25XBuild.RootSystems): the model's
+                // own strip meshes (material light_off = the stock light_green_off), whole-renderer swap to the stock slimelight_on while the
+                // gear is extended (NavLights Auto; the nav-light key forces them on with the gear up). A missing strip is skipped with a WARN
+                // (NavLight.Initialize has no null test on its renderer); the check row fails on a count != FormationLightCount.
+                var slimeOn = Asset<Material>("Material/slimelight_on_PLACEHOLDER.mat");
+                int nStrips = 0;
+                foreach (var lj in JList("lights", "formation"))
+                {
+                    var t = TryFind((string)lj["name"]); var r = t != null ? t.GetComponent<MeshRenderer>() : null;
+                    if (r == null) { L($"WARN formation light {(string)lj["name"]} missing"); continue; }
+                    r.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+                    var part = OwningPart(t);
+                    var e = NewElem(nl, "navLights");
+                    S(e, "renderer", r); S(e, "objects", new GameObject[0]); S(e, "litMaterial", slimeOn);
+                    S(e, "part", part); S(e, "gear", null);
+                    var fcs = Fld(e.GetType(), "controlState"); fcs.SetValue(e, Enum.ToObject(fcs.FieldType, 1));
+                    entries.Add(e); nStrips++;
+                }
+                L($"1.9.12 formation lights: {nStrips} slimelight strips (NavLights Auto, litMaterial slimelight_on)");
+            }
             SetSeq(nl, "navLights", entries);
             S(nl, "aircraft", aircraft);
 
@@ -2418,6 +2448,34 @@ namespace B25HTools
                 S(ab, "part", parts["MSB17"]); S(ab, "airbrakeSound", null); S(ab, "constraints", new UnityEngine.Animations.AimConstraint[0]);
                 S(ab, "volumeMultiplier", 0f); S(ab, "aircraft", aircraft);
                 L($"airbrake: stock Airbrake on the root, dragAmount {AirbrakeDrag} (rho V^2: {AirbrakeDrag * 1.225f * 100f * 100f / 1000f:F0} kN at 100 m/s SL), opens at throttle 0 in {1f / AirbrakeOpenSpeed:F1} s");
+                if (AirbrakePanels1912)
+                {   // 1.9.12: the same component now also turns the six upper-wing spoiler panels (Airbrake.Update: each transform back to its
+                    // rest angles, then Rotate(openAmount x maxAngle about local X)). The panels are plain renderers under hinge empties on the
+                    // wing parts: no collider, no part, paint material = in the wing's livery list. dragAmount / part / drag point unchanged.
+                    // The hinge frame is set HERE from the contract (not taken from the FBX): +X the hinge line (+x on both sides), +Y the skin
+                    // normal, +Z forward along the skin, so a positive angle lifts the panel's rear (-Z) edge.
+                    var hinges = new List<Transform>();
+                    foreach (var pj in JList("airbrake", "panels"))
+                    {
+                        var h = TryFind((string)pj["hinge"]); var panel = TryFind((string)pj["name"]);
+                        if (h == null || panel == null || panel.GetComponent<MeshFilter>() == null) throw new Exception($"airbrake panel {(string)pj["name"]} / its hinge missing in the model");
+                        Vector3 Dir(Newtonsoft.Json.Linq.JToken t) => root.transform.TransformDirection(new Vector3((float)t[0], (float)t[2], (float)t[1])).normalized;   // Blender (x, y fwd, z up) -> Unity
+                        var kids = h.Cast<Transform>().ToList();
+                        foreach (var k in kids) k.SetParent(h.parent, true);
+                        h.rotation = Quaternion.LookRotation(Dir(pj["fwd"]), Dir(pj["up"]));
+                        foreach (var k in kids) k.SetParent(h, true);
+                        // opening sense, measured: the panel vertex farthest aft of the hinge line must rise along the skin normal
+                        var far = panel.GetComponent<MeshFilter>().sharedMesh.vertices.Select(v => h.InverseTransformPoint(panel.TransformPoint(v))).OrderBy(v => v.z).First();
+                        float rise = Vector3.Dot(h.TransformPoint(Quaternion.AngleAxis(AirbrakePanelAngle, Vector3.right) * far) - h.TransformPoint(far), h.up);
+                        if (rise < 0.2f) throw new Exception($"airbrake panel {panel.name}: opening {AirbrakePanelAngle} deg moves its free edge {rise:F3} m along the skin normal (wrong sense / hinge frame)");
+                        L($"  1.9.12 airbrake panel {panel.name} on {OwningPart(h)?.name}: hinge {h.localPosition.ToString("F3")}, free edge {far.ToString("F3")} in the hinge frame, rises {rise:F2} m at {AirbrakePanelAngle} deg");
+                        hinges.Add(h);
+                    }
+                    if (hinges.Count != AirbrakePanelCount) throw new Exception($"airbrake panels: {hinges.Count} in the contract, {AirbrakePanelCount} expected (model built with msb_spec.SPOILERS1912 = False? then set AirbrakePanels1912 = false)");
+                    if (Mathf.Abs((float)contract["airbrake"]["max_angle"] - AirbrakePanelAngle) > 0.01f) throw new Exception($"airbrake max_angle: contract {(float)contract["airbrake"]["max_angle"]} != AirbrakePanelAngle {AirbrakePanelAngle}");
+                    S(ab, "transforms", hinges.ToArray()); S(ab, "maxAngle", AirbrakePanelAngle);
+                    L($"1.9.12 airbrake panels: {hinges.Count} spoiler panels on the stock Airbrake, maxAngle {AirbrakePanelAngle}");
+                }
             }
         }
 
@@ -3359,9 +3417,84 @@ namespace B25HTools
                         Mathf.Abs(Mathf.Asin(((Transform)G(wing, "liftNormal")).forward.y) * Mathf.Rad2Deg - WingIncidence) < 0.3f && Mathf.Abs(incS - StabIncidence) < 0.1f && Mathf.Abs(AlphaLimiter + WingIncidence - WingCLmaxDeg) < 0.01f,
                         $"wing {Mathf.Asin(((Transform)G(wing, "liftNormal")).forward.y) * Mathf.Rad2Deg:F2}, stab {incS:F2}");
                     var abk = inst.GetComponentsInChildren<global::Airbrake>(true).ToList();
-                    R($"1.9.2 airbrake: one stock Airbrake on the root part, dragAmount {AirbrakeDrag} (opens at throttle 0), no transforms (drag only)",
-                        !Airbrake192 || (abk.Count == 1 && abk[0].gameObject == inst && Mathf.Approximately((float)G(abk[0], "dragAmount"), AirbrakeDrag) && G(abk[0], "part") as UnitPart == allParts.First(p => p.gameObject == inst)),
-                        $"{abk.Count} airbrakes");
+                    R($"1.9.2 airbrake: one stock Airbrake on the root part, dragAmount {AirbrakeDrag} (opens at throttle 0), " + (AirbrakePanels1912 ? $"1.9.12: it turns the {AirbrakePanelCount} spoiler panels (next row)" : "no transforms (drag only)"),
+                        !Airbrake192 || (abk.Count == 1 && abk[0].gameObject == inst && Mathf.Approximately((float)G(abk[0], "dragAmount"), AirbrakeDrag) && G(abk[0], "part") as UnitPart == allParts.First(p => p.gameObject == inst)
+                            && (AirbrakePanels1912 || (((Transform[])G(abk[0], "transforms")).Length == 0 && Mathf.Approximately((float)G(abk[0], "maxAngle"), 0f)))),
+                        $"{abk.Count} airbrakes" + (abk.Count > 0 ? $", {((Transform[])G(abk[0], "transforms"))?.Length} transforms, maxAngle {G(abk[0], "maxAngle")}" : ""));
+                    {   // 1.9.12 visible airbrake panels: the hinge transforms of the one Airbrake, plain renderers, in the wing's livery list, opening sense, clear of both lasers' fields when open
+                        var zAll = inst.GetComponentsInChildren<Transform>(true).Where(x => x.name.StartsWith("airbrake_")).ToList();
+                        var zBad = new List<string>(); var zDet = new List<string>();
+                        if (!AirbrakePanels1912)
+                        {
+                            if (abk.Count == 1 && ((Transform[])G(abk[0], "transforms")).Length != 0) zBad.Add("flag off but the Airbrake has transforms");
+                        }
+                        else if (abk.Count != 1) zBad.Add($"{abk.Count} Airbrake components");
+                        else
+                        {
+                            var zTr = (Transform[])G(abk[0], "transforms");
+                            if (zTr == null || zTr.Length != AirbrakePanelCount || zTr.Any(x => x == null) || zTr.Distinct().Count() != zTr.Length) zBad.Add($"transforms {(zTr == null ? "null" : zTr.Length.ToString())}");
+                            if (!Mathf.Approximately((float)G(abk[0], "maxAngle"), AirbrakePanelAngle) || AirbrakePanelAngle < 50f || AirbrakePanelAngle > 60f) zBad.Add($"maxAngle {G(abk[0], "maxAngle")}");
+                            if (G(abk[0], "constraints") == null) zBad.Add("constraints null");
+                            var zTop = T("top_aperture"); var zBall = T("ball_aperture");
+                            if (zTop == null || zBall == null) zBad.Add("laser apertures not found");
+                            var zLiv = allParts.ToDictionary(ap => ap, ap => new HashSet<Renderer>(((IList)G(G(ap, "damageMaterial"), "renderers")).Cast<Renderer>()));
+                            foreach (var zh in (zTr ?? new Transform[0]).Where(x => x != null))
+                            {
+                                var zPart = zh.GetComponentsInParent<AeroPart>(true).FirstOrDefault();
+                                var zKids = zh.Cast<Transform>().ToList();
+                                var zp = zKids.FirstOrDefault(k => k.name + "_hinge" == zh.name);
+                                if (!zh.name.StartsWith("airbrake_") || !zh.name.EndsWith("_hinge") || zh.GetComponents<Component>().Length != 1 || zKids.Count != 1 || zp == null) { zBad.Add($"{zh.name}: not a bare hinge with its one panel"); continue; }
+                                if (zPart == null || !(zPart.name.StartsWith("wing_inner_") || zPart.name.StartsWith("wing_mid_")) || zh.parent != zPart.transform) zBad.Add($"{zh.name}: parent {(zh.parent != null ? zh.parent.name : "none")} is not its wing part");
+                                var zmf = zp.GetComponent<MeshFilter>(); var zmr = zp.GetComponent<MeshRenderer>();
+                                if (zmf == null || zmr == null || zmf.sharedMesh == null || zp.GetComponents<Component>().Length != 3 || zp.childCount != 0) { zBad.Add($"{zp.name}: must be Transform + MeshFilter + MeshRenderer only, no children"); continue; }
+                                if (zh.GetComponentsInChildren<Collider>(true).Length != 0 || zh.GetComponentsInChildren<UnitPart>(true).Length != 0) zBad.Add($"{zp.name}: collider / part on a panel");
+                                if (zmr.sharedMaterials.Length < 1 || zmr.sharedMaterials[0] != mats["paint"]) zBad.Add($"{zp.name}: material 0 is not the paint material");
+                                if (zPart != null && !zLiv[zPart].Contains(zmr)) zBad.Add($"{zp.name}: not in the livery list of {zPart.name}");
+                                if (zLiv.Where(kv => kv.Key != zPart).Any(kv => kv.Value.Contains(zmr))) zBad.Add($"{zp.name}: in another part's livery list");
+                                var zBed = zPart != null ? zPart.transform.Find(zp.name + "_bed") : null;
+                                if (zBed == null || zBed.GetComponents<Component>().Length != 3 || zBed.GetComponent<Collider>() != null || zLiv.Values.Any(v => v.Contains(zBed.GetComponent<MeshRenderer>()))) zBad.Add($"{zp.name}_bed: missing / not a plain renderer on the wing / in a livery list");
+                                // round 2: the bed is the near-black cove plate (the seam when shut, the dark of the recess when open) carrying a frame in the plain gear steel; the panel has stiffeners and hinge arms (gear) under its inner skin, which is the same near-black cove as the bed (round 3; was the interior tile, whose frame slivers showed as blue-violet bands)
+                                else { var zbm = zBed.GetComponent<MeshRenderer>().sharedMaterials; if (zbm.Length != 2 || !zbm.Contains(mats["cove"]) || !zbm.Contains(mats["gear"])) zBad.Add($"{zp.name}_bed: materials must be cove + gear"); }
+                                if (zmr.sharedMaterials.Length != 3 || zmr.sharedMaterials.Contains(mats["interior"]) || !zmr.sharedMaterials.Contains(mats["gear"]) || !zmr.sharedMaterials.Contains(mats["cove"])) zBad.Add($"{zp.name}: materials must be paint + cove (underside and edges) + gear (stiffeners / hinge arms), no interior");
+                                // opening sense and height: the panel's vertices at maxAngle about the hinge's local +X
+                                var zLoc = zmf.sharedMesh.vertices.Select(v => zh.InverseTransformPoint(zp.TransformPoint(v))).ToList();
+                                var zFar = zLoc.OrderBy(v => v.z).First();
+                                var zRot = Quaternion.AngleAxis(AirbrakePanelAngle, Vector3.right);
+                                float zRise = Vector3.Dot(zh.TransformPoint(zRot * zFar) - zh.TransformPoint(zFar), zh.up);
+                                var zOpen = zLoc.Select(v => inst.transform.InverseTransformPoint(zh.TransformPoint(zRot * v))).ToList();
+                                float zHi = zOpen.Max(v => v.y), zLo = zOpen.Min(v => v.y);
+                                if (zRise < 0.3f || Vector3.Dot(zh.up, inst.transform.up) < 0.9f || Mathf.Abs(Vector3.Dot(zh.right, inst.transform.right)) < 0.9f || zFar.z > -0.4f) zBad.Add($"{zp.name}: opening sense / hinge frame (rise {zRise:F2} m, far edge z {zFar.z:F2})");
+                                // lasers: the dorsal laser fires at elevation >= 0 (above its aperture's horizontal plane), the ventral at <= 0: an open panel must stay between the two planes
+                                if (zTop != null && zBall != null)
+                                {
+                                    float yTop = inst.transform.InverseTransformPoint(zTop.position).y, yBall = inst.transform.InverseTransformPoint(zBall.position).y;
+                                    if (zHi > yTop - 0.3f || zLo < yBall + 0.3f) zBad.Add($"{zp.name}: open panel y {zLo:F2}..{zHi:F2} not between the laser planes {yBall:F2} / {yTop:F2} (0.3 m margin)");
+                                }
+                                zDet.Add($"{zp.name}@{zPart?.name} rise {zRise:F2} m, open top y {zHi:F2}");
+                            }
+                            if (zAll.Count != 3 * AirbrakePanelCount) zBad.Add($"{zAll.Count} airbrake_* objects, {3 * AirbrakePanelCount} expected (hinge + panel + bed each)");
+                        }
+                        R(AirbrakePanels1912 ? $"1.9.12 airbrake panels: the Airbrake turns {AirbrakePanelCount} bare hinges on wing_inner / wing_mid, maxAngle {AirbrakePanelAngle}; each panel a plain renderer (no collider, no part) with the paint material in its wing's livery list and stiffeners / hinge arms under it, a dark bed (cove plate + gear-steel frame) under it, the rear edge rises >= 0.3 m, the open panel stays between the lasers' horizontal planes"
+                                               : "1.9.12 airbrake panels: flag off, the Airbrake has no transforms",
+                            zBad.Count == 0, string.Join("; ", zDet) + (zBad.Count == 0 ? "" : " | WRONG: " + string.Join("; ", zBad)));
+                    }
+                    {   // 1.9.12 formation lights (the GA-25X row): FormationLightCount strips on the stock NavLights
+                        var zNl = inst.GetComponent<NavLights>(); var zEnt = ((IEnumerable)G(zNl, "navLights")).Cast<object>().ToList();
+                        var zStrips = zEnt.Where(ze => { var zr2 = (Renderer)G(ze, "renderer"); return zr2 != null && zr2.name.StartsWith("slimelight_"); }).ToList();
+                        var zLivAll = new HashSet<Renderer>(allParts.SelectMany(ap => ((IList)G(G(ap, "damageMaterial"), "renderers")).Cast<Renderer>()));
+                        var zWant = new Dictionary<string, string> { { "slimelight_fwd_L", "fus_cockpit" }, { "slimelight_fwd_R", "fus_cockpit" }, { "slimelight_aft_L", "fus_waist" }, { "slimelight_aft_R", "fus_waist" },
+                            { "slimelight_fin_L", "fin" }, { "slimelight_fin_R", "fin" }, { "slimelight_tip_L", "wing_tip_L" }, { "slimelight_tip_R", "wing_tip_R" } };
+                        var zGot = zStrips.ToDictionary(ze => ((Renderer)G(ze, "renderer")).name, ze => (G(ze, "part") as UnitPart)?.name);
+                        bool zOk = !FormationLights1912 ? zStrips.Count == 0
+                            : zStrips.Count == FormationLightCount && zWant.Count == FormationLightCount && zWant.All(kv => zGot.TryGetValue(kv.Key, out var zpn) && zpn == kv.Value)
+                              && zStrips.All(ze => { var zr = (Renderer)G(ze, "renderer"); return AssetDatabase.GetAssetPath((Material)G(ze, "litMaterial")).Contains("slimelight_on") && G(ze, "controlState").ToString() == "Auto"
+                                  && zr.sharedMaterials.Length == 1 && zr.sharedMaterials.All(zm => AssetDatabase.GetAssetPath(zm).Contains("light_green_off")) && !zLivAll.Contains(zr) && G(ze, "gear") == null
+                                  && ((GameObject[])G(ze, "objects")).Length == 0 && zr.GetComponents<Component>().Length == 3 && zr.GetComponentInChildren<Collider>(true) == null; })
+                              && zEnt.Count == FormationLightCount + 2;
+                        R(FormationLights1912 ? $"1.9.12 formation lights: {FormationLightCount} slimelight strips (forward fuselage, waist, fin, wing tips; both sides) on the stock NavLights, Auto, litMaterial slimelight_on, unlit light_green_off, part = the part they sit on, plain renderers, none in a livery list; {FormationLightCount + 2} entries with the two tip lights"
+                                                : "1.9.12 formation lights: flag off, no strip in NavLights",
+                            zOk, $"{zEnt.Count} entries; " + string.Join(", ", zGot.Select(kv => kv.Key + "@" + kv.Value)));
+                    }
                     var hlds = inst.GetComponentsInChildren<HighLiftDevice>(true).ToList();
                     var prm2 = ((AircraftDefinition)def).aircraftParameters;
                     R($"1.9.2 AI landing: landingSpeed {AiLandingSpeed} (1.9.3 touchdown value; 1.9.2 had 74), approach {AiApproachSpeed} (not read by the game); flaps down below {FlapSpeedDown}, up from {FlapSpeedUp} m/s (unchanged)",

@@ -132,6 +132,20 @@ namespace B25HTools
         // false = the 1.9.10 values (spawnOffset.z 0, rudder impact damage as every other airframe part).
         public const bool LiftSpawnFix1911 = true;
         public const float SpawnForward1911 = 0.7f;   // m: at 0 the Mk I's rudder aft end is 0.36 m BEHIND the Annex backstop face and 0.13 m behind the Hyperion one (clear by 0.31 / 0.24 m in height only); +0.7 puts it 0.34 / 0.57 m ahead
+        // 1.9.12 (user: the historical aircraft get an "airbrake" effect WITHOUT airbrake parts; "whenever the throttle is below 5% the airbrakes are on, ground or sky"). The stock
+        // Airbrake component (opens while ControlInputs.throttle == 0 over 1 / openSpeed s; force = dragAmount x airDensity x V^2 against the
+        // velocity of its part's rigidbody) on the root object with an empty transforms array: drag only, nothing moves, nothing to see (the
+        // stock UFO carries it the same way; our MSB-17 since 1.9.2). No ground gate anywhere; the plugin (AirBrake1912.cs) only widens "throttle == 0" to
+        // "throttle under 5 %". 0.4: 0.49 x V^2 N at sea level = 1.2 kN at 50 m/s, 0.74 m/s2 on the 1,650 kg Mk I (2.4 at 90 m/s). false = 1.9.11.
+        public const bool InvisibleAirbrake1912 = true;
+        public const float InvisibleAirbrakeDrag = 0.4f, InvisibleAirbrakeOpenSpeed = 1.0f;
+        // 1.9.12 (user: naval liveries for both factions): the two entries of nimrod_liveries.json whose file ends in _navy ("BDF Navy Gray",
+        // "PALA Navy") are APPENDED after the six 1.9.11 list entries, BDF then PALA (saved missions store the list index: 0-5 must not move).
+        // false = they are not imported and not listed (the pack = 1.9.11 even with the entries and PNGs present in the repo).
+        public const bool NavalLiveries1912 = true;
+        static readonly string[] LiveryList1911 = { "FAA Silver (1934)", "BDF Matte Gray", "BDF Temperate Camo", "FAA Silver (1934)", "PALA Matte Black", "PALA Desert Camo" };
+        static readonly string[] LiveryListNaval1912 = { "BDF Navy Gray", "PALA Navy" };
+        static bool IsNaval(string file) => file.EndsWith("_navy");
         const float FabricImpactG = 20f, FabricImpactMult = 1.5f, MetalImpactG = 30f, MetalImpactMult = 1f;
 
         static readonly BindingFlags BF = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
@@ -287,6 +301,7 @@ namespace B25HTools
             {
                 var e = (Newtonsoft.Json.Linq.JObject)kv.Value;
                 var file = Path.GetFileNameWithoutExtension((string)e["texture"]);
+                if (IsNaval(file) && !NavalLiveries1912) { L($"livery table: {file} skipped (NavalLiveries1912 off)"); continue; }
                 Liveries.Add((file, (string)e["name"], ((string)e["faction"]).ToUpperInvariant().Contains("PALA") ? "PALA" : "BDF", e["both"] != null && (bool)e["both"]));
                 L($"livery table: {file} '{(string)e["name"]}' ({(string)e["faction"]}{(e["both"] != null && (bool)e["both"] ? ", both factions" : " only")})");
             }
@@ -457,6 +472,7 @@ namespace B25HTools
             Weapons();
             Cockpit();
             RootSystems();
+            if (InvisibleAirbrake1912) AddInvisibleAirbrake(parts["NIMROD1"], InvisibleAirbrakeDrag, InvisibleAirbrakeOpenSpeed);
             FlyByWire(gears[0]);
 
             int dropped = 0;
@@ -1086,6 +1102,44 @@ namespace B25HTools
             S(aircraft, "groundEquipment", new GameObject[0]);
         }
 
+        // 1.9.12: the stock Airbrake on the root object, drag only (the block the MSB-17 has shipped since 1.9.2, every field set: no
+        // transforms, maxAngle 0, no sound, empty constraints array (Airbrake.Update iterates it: it must not be null), aircraft set)
+        static void AddInvisibleAirbrake(AeroPart rootPart, float drag, float openSpeed)
+        {
+            var ab = root.AddComponent<global::Airbrake>();
+            S(ab, "transforms", new Transform[0]); S(ab, "dragAmount", drag); S(ab, "maxAngle", 0f); S(ab, "openSpeed", openSpeed);
+            S(ab, "part", rootPart); S(ab, "airbrakeSound", null); S(ab, "constraints", new UnityEngine.Animations.AimConstraint[0]);
+            S(ab, "volumeMultiplier", 0f); S(ab, "aircraft", aircraft);
+            L($"1.9.12 invisible airbrake: stock Airbrake on the root, part {rootPart.name}, dragAmount {drag} (rho V^2: {drag * 1.225f * 50f * 50f / 1000f:F2} kN at 50 m/s SL), no transforms, opens at throttle 0 in {1f / openSpeed:F1} s");
+        }
+
+        // 1.9.12 check row: "" when the prefab carries exactly the airbrake the flag asks for (on: ONE Airbrake in the whole prefab, on the
+        // root object, values, part = the root part, constraints not null; off: none at all), else what is wrong
+        static string InvisibleAirbrakeProblems(GameObject inst, bool on, float drag, float openSpeed, out string detail)
+        {
+            var abs = inst.GetComponentsInChildren<global::Airbrake>(true);
+            detail = $"{abs.Length} Airbrake component(s)";
+            if (!on) return abs.Length == 0 ? "" : "flag off but an Airbrake is present";
+            if (abs.Length != 1) return "expected exactly one Airbrake";
+            var ab = abs[0]; var bad = new List<string>();
+            var tr = G(ab, "transforms") as Transform[]; var cons = G(ab, "constraints") as UnityEngine.Animations.AimConstraint[];
+            var part = G(ab, "part") as UnitPart; var rootPart = inst.GetComponent<AeroPart>();
+            var snd = G(ab, "airbrakeSound") as AudioSource; var abAc = G(ab, "aircraft") as Aircraft;
+            detail = $"on {ab.name}, part {(part != null ? part.name : "null")}, dragAmount {G(ab, "dragAmount")}, maxAngle {G(ab, "maxAngle")}, openSpeed {G(ab, "openSpeed")}, transforms {(tr == null ? "null" : tr.Length.ToString())}, constraints {(cons == null ? "null" : cons.Length.ToString())}, sound {(snd != null ? "set" : "none")}, volumeMultiplier {G(ab, "volumeMultiplier")}, aircraft {(abAc != null ? "set" : "null")}";
+            if (ab.gameObject != inst) bad.Add("not on the root object");
+            if (!ab.enabled) bad.Add("disabled");
+            if (rootPart == null || part != rootPart) bad.Add("part is not the root part");
+            if (!Mathf.Approximately((float)G(ab, "dragAmount"), drag)) bad.Add("dragAmount");
+            if (!Mathf.Approximately((float)G(ab, "openSpeed"), openSpeed) || openSpeed <= 0f) bad.Add("openSpeed");
+            if (!Mathf.Approximately((float)G(ab, "maxAngle"), 0f)) bad.Add("maxAngle");
+            if (tr == null || tr.Length != 0) bad.Add("transforms not an empty array");
+            if (cons == null) bad.Add("constraints null");
+            if (snd != null) bad.Add("sound set");
+            if (!Mathf.Approximately((float)G(ab, "volumeMultiplier"), 0f)) bad.Add("volumeMultiplier");
+            if (abAc == null || abAc != inst.GetComponent<Aircraft>()) bad.Add("aircraft is not the root Aircraft");
+            return string.Join(", ", bad);
+        }
+
         // ------------------------------------------------------------------ root systems
         static void RootSystems()
         {
@@ -1233,9 +1287,14 @@ namespace B25HTools
                 AssetDatabase.CreateAsset(ld, p);
                 livGuid[file] = AssetDatabase.AssetPathToGUID(p);
             }
+            // 1.9.12: the 1.9.11 list first, built exactly as before from the entries that are not naval; then the naval entries in file order
+            // (BDF, PALA), each for its own faction only. Indexes 0-5 stay what saved missions hold.
+            var oldLiv = Liveries.Where(x => !IsNaval(x.file)).ToList();
             foreach (var side in new[] { "BDF", "PALA" })
-                foreach (var (file, label, fac, _) in Liveries.Where(x => x.both).Concat(Liveries.Where(x => !x.both && x.faction == side)))
+                foreach (var (file, label, fac, _) in oldLiv.Where(x => x.both).Concat(oldLiv.Where(x => !x.both && x.faction == side)))
                     livs.Add(new AircraftParameters.Livery { name = label, faction = side == "BDF" ? facBDF : facPALA, assetReference = new AssetReferenceLiveryData(livGuid[file]) });
+            foreach (var (file, label, fac, _) in Liveries.Where(x => IsNaval(x.file)))   // 1.9.12: the naval liveries, appended after the 1.9.11 list
+                livs.Add(new AircraftParameters.Livery { name = label, faction = fac == "BDF" ? facBDF : facPALA, assetReference = new AssetReferenceLiveryData(livGuid[file]) });
 
             var prm = Object.Instantiate(coinParams);
             prm.HUDExtras = StockHUDExtras ? Asset<GameObject>("GameObject/COIN_HUDExtras_PLACEHOLDER.prefab") : null;
@@ -1555,6 +1614,18 @@ namespace B25HTools
                 // liveries
                 var lv = prm.liveries;
                 R("liveries: 3 per faction (FAA Silver first for both + 2 faction schemes)", lv.Count(l => l.faction == lv[0].faction) >= 3 && lv.Count >= 6 && lv[0].name.Contains("FAA"), string.Join(", ", lv.Select(l => l.name).Distinct()));
+                {   // 1.9.12: saved missions store the list index, so the six 1.9.11 entries keep their indexes; the naval pair is appended
+                    var names = lv.Select(l => l.name).ToList();
+                    var want = NavalLiveries1912 ? LiveryList1911.Concat(LiveryListNaval1912).ToList() : LiveryList1911.ToList();
+                    bool facOk = lv.Count == want.Count && Enumerable.Range(0, lv.Count).All(i => (lv[i].faction == lv[0].faction) == (i < 3 || i == 6));
+                    bool refOk = lv.All(l => l.assetReference != null && !string.IsNullOrEmpty(l.assetReference.AssetGUID) && AssetDatabase.LoadAssetAtPath<LiveryData>(AssetDatabase.GUIDToAssetPath(l.assetReference.AssetGUID)) is LiveryData d && d.Texture != null);
+                    R(NavalLiveries1912 ? "1.9.12 liveries: indexes 0-5 = the 1.9.11 list (names and factions), 6 'BDF Navy Gray' (BDF), 7 'PALA Navy' (PALA), every entry with a LiveryData + texture"
+                                        : "1.9.12 liveries: flag off, the list = the six 1.9.11 entries",
+                      names.SequenceEqual(want) && facOk && refOk, string.Join(" | ", names.Select((n, i) => $"{i} {n}")) + (facOk ? "" : "; WRONG faction order") + (refOk ? "" : "; WRONG: an entry without LiveryData / texture"));
+                    string abBad = InvisibleAirbrakeProblems(inst, InvisibleAirbrake1912, InvisibleAirbrakeDrag, InvisibleAirbrakeOpenSpeed, out string abDet);
+                    string abName = InvisibleAirbrake1912 ? $"exactly one stock Airbrake, on the root object, part = the root part, dragAmount {InvisibleAirbrakeDrag}, openSpeed {InvisibleAirbrakeOpenSpeed}, maxAngle 0, no transforms (drag only, no parts), no sound, constraints not null, aircraft set" : "flag off, no Airbrake in the prefab";
+                    R("1.9.12 invisible airbrake: " + abName, abBad == "", abDet + (abBad == "" ? "" : "; WRONG: " + abBad));
+                }
                 // ours only
                 var stockMesh = inst.GetComponentsInChildren<MeshFilter>(true).Where(m => m.sharedMesh != null && !AssetDatabase.GetAssetPath(m.sharedMesh).StartsWith(Folder)).Select(m => m.name).ToList();
                 R("every mesh is ours (mesh bank in the mod folder)", stockMesh.Count == 0, string.Join(", ", stockMesh.Take(6)));
