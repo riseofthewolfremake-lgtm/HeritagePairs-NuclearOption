@@ -143,6 +143,28 @@ namespace B25HTools
         // "PALA Navy") are APPENDED after the six 1.9.11 list entries, BDF then PALA (saved missions store the list index: 0-5 must not move).
         // false = they are not imported and not listed (the pack = 1.9.11 even with the entries and PNGs present in the repo).
         public const bool NavalLiveries1912 = true;
+        // 1.9.13 (the FD-32 Discord report: upper outer wing panels "shift at the break off points" in rolls / pulls): same airframe layout and joint code
+        // as the FD-32 (30 kg wing_upper_C between the root and two 60 kg panels, every joint solverIterations 6); the offline PhysX benches
+        // (study\fd32_wingflex_1913*) show the same one-sided hinge, about half the FD-32 value (0.7-1.0 deg at 6-9 g). PartJoint.solverIterations
+        // != 6 sets rb.solverIterations of the joint's OWNER (AeroPart.CreateJoints); stock: A-19 wing3 joints 12. true = every joint OWNED by a
+        // wing_* part carries WingSolverIterations1913; nothing else changes. false = 1.9.12 (all joints 6).
+        public const bool WingSolver1913 = true;
+        // 1.9.13 in game (2026-11-16, study\ingame_1913\test): the Mk I itself was flown at 6 and 20 passes only (6.0-6.15 g at ~102 m/s: upper kink
+        // 0.50 deg / lower 0.74 deg on 1.9.12 -> under 0.05 deg / 1-2 mm at 20); it was NOT flown at 60 or 100. The pass count follows the FD-32 sweep
+        // (FD-32 only, one aircraft, runtime setting on the 20-pass test build): 20 -> 0.41 deg / 18 mm, 60 -> under ~0.04 deg / 1.2 mm, 100 -> 0.00 deg / 0 mm;
+        // no frame cost measurable with one aircraft, many aircraft not measured. Velocity iterations stay 1. Round 4 (final): 100.
+        public const int WingSolverIterations1913 = 100;
+        static bool WingSolverOwner1913(string part) => part.StartsWith("wing_");
+        // 1.9.13 final (seam cosmetics, SeamCove1913.cs; same double-skin construction as the FD-32, break planes x = +-0.80 measured on the built
+        // prefab): (A) wing_upper_C/L/R_struct triangles at the break planes x = +-0.80 (end faces
+        // within 1 mm of the plane; round 5: also the break-seam stringer stubs that cross the cut, 0.4-3.3 mm under the skin, and their end caps)
+        // move into a last submesh drawn with NIMROD1_cove; (B) round 5: two dark NIMROD1_cove band halves per cut, all round the aerofoil, no collider,
+        // no shadows: the inner half (20 mm inboard to the cut, 4.5 mm under the skin) is a child of wing_upper_C, the outer half (8 mm inboard of
+        // the cut under the centre skin to 20 mm outboard, 5.0 mm under) a child of wing_upper_L/R, so each half leaves with its own part when a
+        // panel is shot off (round 4 had one band under wing_upper_C: a 20 mm dark lip after a panel loss). No texture, atlas, paint mesh,
+        // collider or physics change. false = 1.9.12 meshes.
+        public const bool SeamCove1913 = true;
+        const float SeamBreakX1913 = 0.80f;
         static readonly string[] LiveryList1911 = { "FAA Silver (1934)", "BDF Matte Gray", "BDF Temperate Camo", "FAA Silver (1934)", "PALA Matte Black", "PALA Desert Camo" };
         static readonly string[] LiveryListNaval1912 = { "BDF Navy Gray", "PALA Navy" };
         static bool IsNaval(string file) => file.EndsWith("_navy");
@@ -475,6 +497,7 @@ namespace B25HTools
             if (InvisibleAirbrake1912) AddInvisibleAirbrake(parts["NIMROD1"], InvisibleAirbrakeDrag, InvisibleAirbrakeOpenSpeed);
             FlyByWire(gears[0]);
 
+            if (SeamCove1913) ApplySeamCove1913();   // 1.9.13 final: last, so the bands are the last children of wing_upper_C / L / R (no sibling index moves)
             int dropped = 0;
             foreach (var c in root.GetComponentsInChildren<Component>(true))
             {
@@ -489,6 +512,14 @@ namespace B25HTools
                 if (changed) so.ApplyModifiedPropertiesWithoutUndo();
             }
             L($"final sweep dropped {dropped} stock refs");
+        }
+
+        // 1.9.13 final: dark end faces + dark backing band at the upper-wing break lines (SeamCove1913.cs)
+        static void ApplySeamCove1913()
+        {
+            var sl = new List<string>();
+            B25HTools.SeamCove1913.Apply(root.transform, Find, mats["cove"], generatedMeshes, sl, SeamBreakX1913);
+            foreach (var s in sl) L(s);
         }
 
         // ------------------------------------------------------------------ parts
@@ -589,8 +620,9 @@ namespace B25HTools
             var joined = new HashSet<(string, string)>();
             var jl = specs.ToDictionary(s => s.name, s => new List<PartJoint>());
             var breakSnd = TplComp<AeroPart>("CAS1:wing2_L").Joints[0].breakSound;
-            PartJoint J(string to, string tensor, float force) => new PartJoint { connectedPart = parts[to], tensor = tensor == null ? null : parts[tensor], solverIterations = 6, breakForce = force, breakTorque = force, breakSound = breakSnd };
-            void Add(string a, string b, string tensor, float f) { jl[a].Add(J(b, tensor, f)); joined.Add((a, b)); joined.Add((b, a)); }
+            PartJoint J(string owner, string to, string tensor, float force) => new PartJoint { connectedPart = parts[to], tensor = tensor == null ? null : parts[tensor],
+                solverIterations = WingSolver1913 && WingSolverOwner1913(owner) ? WingSolverIterations1913 : 6, breakForce = force, breakTorque = force, breakSound = breakSnd };
+            void Add(string a, string b, string tensor, float f) { jl[a].Add(J(a, b, tensor, f)); joined.Add((a, b)); joined.Add((b, a)); }
             foreach (var s in specs)
             {
                 if (s.parent == null) continue;
@@ -1586,6 +1618,32 @@ namespace B25HTools
                 R("biplane: upper lift points 0.7-1.0 m ahead (stagger) and 1.3-1.5 m above (gap) the lower", upZ - loZ > 0.7f && upZ - loZ < 1.0f && upY - loY > 1.3f && upY - loY < 1.5f, $"stagger {upZ - loZ:F3}, gap {upY - loY:F3}, total lifting area {area:F2} m^2");
                 R("wing areas: upper 14.8 (centre + panels + ailerons) + lower 10.8 = 25.6 m^2", Mathf.Abs(up.Sum(p => (float)G(p, "wingArea")) + aps.Where(p => p.name.StartsWith("aileron")).Sum(p => (float)G(p, "wingArea")) - 14.8f) < 0.2f && Mathf.Abs(lo.Sum(p => (float)G(p, "wingArea")) - 10.8f) < 0.1f, "");
                 R("joints: every part joined; strut joints upper <-> lower each side", aps.All(p => p.gameObject == inst || ((PartJoint[])G(p, "joints")).Length > 0) && new[] { "L", "R" }.All(s => ((PartJoint[])G(aps.First(p => p.name == "wing_upper_" + s), "joints")).Any(j => j.connectedPart != null && j.connectedPart.name == "wing_lower_" + s)), $"{aps.Sum(p => ((PartJoint[])G(p, "joints")).Length)} joints");
+                {   // 1.9.13 wing joint solver iterations (fails on 1.9.12: every joint 6)
+                    var zj = aps.SelectMany(p => ((PartJoint[])G(p, "joints")).Select(j => (owner: p.gameObject == inst ? "NIMROD1" : p.name, j))).ToList();
+                    var zWingOwners = new[] { "wing_upper_C", "wing_upper_L", "wing_upper_R", "wing_lower_L", "wing_lower_R" };
+                    var zBad = zj.Where(x => x.j.solverIterations != (WingSolver1913 && WingSolverOwner1913(x.owner) ? WingSolverIterations1913 : 6)).Select(x => $"{x.owner}->{(x.j.connectedPart ? x.j.connectedPart.name : "null")} {x.j.solverIterations}").ToList();
+                    var zUC = zj.Where(x => x.owner == "wing_upper_C").ToList();
+                    bool zOwnersOk = zWingOwners.All(o => zj.Any(x => x.owner == o)) && zj.Where(x => WingSolverOwner1913(x.owner)).All(x => zWingOwners.Contains(x.owner));
+                    R($"1.9.13 wing joints: every joint owned by wing_upper_C / wing_upper_L/R / wing_lower_L/R has solverIterations {(WingSolver1913 ? WingSolverIterations1913 : 6)} (AeroPart.CreateJoints -> rb.solverIterations; PhysX solves the aircraft's island at the largest), "
+                        + "every other joint 6; wing_upper_C -> NIMROD1 present; 31 joints as in 1.9.12",
+                        zBad.Count == 0 && zOwnersOk && zj.Count == 31 && zUC.Any(x => x.j.connectedPart != null && x.j.connectedPart.gameObject == inst),
+                        zBad.Count == 0 ? $"{zj.Count(x => x.j.solverIterations != 6)} of {zj.Count} joints at {WingSolverIterations1913}: " + string.Join(", ", zj.Where(x => x.j.solverIterations != 6).Select(x => $"{x.owner}->{x.j.connectedPart.name}")) : "wrong: " + string.Join("; ", zBad.Take(8)));
+                }
+                {   // 1.9.13 final seam cosmetics (fails on 1.9.12: light end faces, no band)
+                    var sIt = inst.GetComponentsInChildren<Transform>(true);
+                    Transform sT(string n) => sIt.First(t => t.name == n);
+                    var sCove = AssetDatabase.LoadAssetAtPath<Material>($"{Folder}/Materials/NIMROD1_cove.mat");
+                    var sStructs = new[] { "wing_upper_C_struct", "wing_upper_L_struct", "wing_upper_R_struct" }.Select(n => sT(n).GetComponent<MeshRenderer>()).ToList();
+                    var sStrips = inst.GetComponentsInChildren<MeshRenderer>(true).Where(r => r.name.Contains(B25HTools.SeamCove1913.StripSuffix)).ToList();
+                    if (SeamCove1913)
+                    {
+                        var sAll = B25HTools.SeamCove1913.CheckAll(inst.transform, sCove, "NIMROD1_fabric_in", SeamBreakX1913);
+                        R("1.9.13 seam cove: wing_upper_C/L/R_struct end faces at x = +-0.80 and the stringer-stub faces / end caps at the cut drawn with NIMROD1_cove (last submesh, material[0] unchanged, none left light); "
+                            + "four NIMROD1_cove band halves per aircraft: inner under wing_upper_C (x 0.78-0.80, ends at the cut), outer under wing_upper_L/R (x 0.792-0.82), 3.9-6.5 mm inside the paint skin and enclosed by it, no collider, no shadows",
+                            sAll.ok, sAll.msg);
+                    }
+                    else R("1.9.13 seam cove off: no band, no NIMROD1_cove on the wing struct renderers (= 1.9.12)", sStrips.Count == 0 && sStructs.All(r => !r.sharedMaterials.Contains(sCove)), $"{sStrips.Count} bands");
+                }
                 // crew, cockpit, HUD
                 R("1 pilot (bail-out, no canopy), cockpit view point set", ac.pilots.Length == 1 && !(bool)G(ac.pilots[0], "ejectionSeat") && ac.cockpitViewPoint != null && ((Canopy[])G(ac, "canopies")).Length == 0, $"eye {ac.cockpitViewPoint?.position.ToString("F3")}");
                 var cr = (Renderer[])G(ac, "cockpitRenderers");
@@ -2097,6 +2155,7 @@ namespace B25HTools
             foreach (var mr in PartRenderers(p.gameObject))
             {
                 if (mr.gameObject.layer == 3) continue;
+                if (SeamCove1913 && mr.name.Contains(B25HTools.SeamCove1913.StripSuffix)) continue;   // 1.9.13: the hidden seam band stays out of the damage diagram / map icon
                 var mf = mr.GetComponent<MeshFilter>(); if (mf == null || mf.sharedMesh == null) continue;
                 if (mr.sharedMaterials.Length > 0 && mr.sharedMaterials[0] == mats["propdisc"]) continue;
                 var m = mf.sharedMesh; var v = m.vertices; var tr = mf.transform;

@@ -2,6 +2,36 @@
 
 Heritage Pairs, newest first. Versions before 1.9.10 were private test builds and were never released.
 
+## 1.9.13
+
+- FD-32 and Nimrod Mk I: the outer panels of the upper wing kinked at the joint with the centre section when the aircraft
+  rolled or pulled up hard at speed (reported on Discord for the FD-32). Each wing panel is a separate part held to its
+  neighbours by the game's physics joints; the game solved these joints 6 times per physics step, which was not enough to
+  hold the light upper wing against its lift. The wing joints of both biplanes are now solved 100 times per step, the game's
+  own setting for this (the stock A-19 uses 12 on its outer wing joints).
+- Dark seam backing at the same joints: the cut ends of the wing skin and the short spar / stringer stubs that cross the
+  joint are now dark matte instead of light grey, and a thin dark band hidden just under the skin on both sides of each joint
+  means a small opening in a hard pull shows dark, not a light line or light specks (offline pictures, 1.2 mm and 5 mm gap or
+  step). No texture or livery changed; at rest the band is covered by the skin. The band is in two halves and the outer half
+  belongs to the outer panel, so a shot-off panel takes it along and leaves no band edge on the centre section; the centre
+  section's own spar stubs still stick out of the broken end as in 1.9.12, now dark.
+- Measured in the game so far (FD-32 full pull at 8-9 g, one aircraft): 1.9.12 2.21 degrees with a 99 mm step at 8.3 g; the
+  first test build (20 solves) 0.41 degrees / 18 mm; with the setting changed during flight on that test build, 60 solves gave
+  under about 0.04 degrees / 1.2 mm (a thin light hairline could still show in BDF Temperate Camo) and 100 solves
+  0.00 degrees / 0 mm. The Nimrod Mk I went from 0.5-0.7 degrees to under 0.05 at 20 solves; on the final download (100) it reads 0.0019 degrees or less at 6.5 g.
+  With one aircraft there was no measurable frame-time cost up to 100; many aircraft were not measured.
+- Tried in the game on the final download (pack sha256 db92912e41ed..., one aircraft): it loads once with no errors; 100 solves
+  read on the five wing parts of the FD-32 and the Mk I. FD-32 parked: no line or band at the joint. FD-32 full pull at 8.07 g
+  (BDF Temperate Camo) and 8.10 g (BDF Navy Hex): right upper panel 0.0072 / 0.0069 degrees, 0.24 mm; the chase pictures show
+  a closed seam, no light line or specks. Mk I at 6.5 g: 0.0019 degrees / 0.2 mm or less. Panel shot off at 122 m/s: panel
+  and aileron come off, the centre section's broken end shows a grey ribbed face with no dark strip. Take-off FD-32 5.3 s /
+  65 m, Mk I 6.2 s / 88 m. The previous candidate with the same wing joints (only the seam backing differs) gave 0.0072
+  degrees at 8.1 g, straight taxi for both aircraft and no frame-time cost (4.07 vs 4.06 ms); its two scripted landings did
+  not reach the runway (our approach script, not the aircraft), so a landing has not been shown. Landings, carrier traps, PALA
+  liveries at the joint, a Mk I panel shot off and missions with many FD-32s or Mk Is were not tried on any 1.9.13 build.
+- Nothing else changed: masses, centre of gravity, flight models, joint break strengths, weapons, liveries, textures and the
+  plugin's behaviour are those of 1.9.12. The other four aircraft are byte-identical to 1.9.12.
+
 ## 1.9.12
 
 - Air brakes on all six aircraft. Whenever the throttle is below 5 % the air brake is on, on the ground as well as in the

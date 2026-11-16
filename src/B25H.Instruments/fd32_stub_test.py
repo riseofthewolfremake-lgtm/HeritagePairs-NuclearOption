@@ -26,7 +26,7 @@ def cf(name):
 
 
 # ---- (1) routing in the C#
-T('plugin version 1.5.1+ (1.5.3: + FD32Tac.cs; 1.6.0: + B17G.cs)', re.search(r'BepInPlugin\("b25h.instruments", "(B-25H|Heritage Pairs) Instruments", "1\.(5\.[135]|6\.0|8\.([04679]|1[0125])|9.([02789]|1[012]))"\)', plug) is not None)
+T('plugin version 1.5.1+ (1.5.3: + FD32Tac.cs; 1.6.0: + B17G.cs)', re.search(r'BepInPlugin\("b25h.instruments", "(B-25H|Heritage Pairs) Instruments", "1\.(5\.[135]|6\.0|8\.([04679]|1[0125])|9.([02789]|1[0123]))"\)', plug) is not None)
 T('IsFixedGearKey is NIMROD1 only (FD32 retracts in v2)', re.search(r'IsFixedGearKey\(string k\) => k == NimrodKey;', cs) is not None
   and not re.search(r'IsFixedGearKey\(string k\) =>[^\n]*FD32Key', cs))
 T('IsFixedGear(a) = definition key through IsFixedGearKey', 'IsFixedGear(Aircraft a) => a != null && a.definition != null && IsFixedGearKey(a.definition.jsonKey)' in cs)

@@ -14,7 +14,7 @@ using UnityEngine;
 
 namespace B25H.Instruments
 {
-    [BepInPlugin("b25h.instruments", "Heritage Pairs Instruments", "1.9.12")]   // 1.9.10: display name was "B-25H Instruments"; the GUID (and so the config file b25h.instruments.cfg) is unchanged
+    [BepInPlugin("b25h.instruments", "Heritage Pairs Instruments", "1.9.13")]   // 1.9.10: display name was "B-25H Instruments"; the GUID (and so the config file b25h.instruments.cfg) is unchanged
     // Heritage Pairs companion plugin: cockpit dials and tac-page panels the stock components do not drive, taildragger ground handling
     // (grip, taxi turn, moving-deck hold), the Nimrod / FD-32 hook and gear rules and the laser beam guard. One partial class, one file per
     // piece; each piece acts only on our own aircraft (matched by definition.jsonKey), has a config switch and disables itself on an

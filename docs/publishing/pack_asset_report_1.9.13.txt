@@ -1,4 +1,4 @@
-Asset report: Heritage Pairs_1.9.12.nobp (255148036 bytes)
+Asset report: Heritage Pairs_1.9.13.nobp (255178227 bytes)
 Made by tools/pack_asset_report.py from the pack itself. Names, sizes and counts only.
 
 SCOPE AND LIMITS. This report is an inventory of the payload objects in the pack (meshes, textures, sprites, materials, shaders,
@@ -11,21 +11,21 @@ they remain the property of Shockfront (CREDITS.md, "The game"). The renderer an
 ParticleSystem check against the game install on the build PC (serialized bytes minus the owner pointer): 105 of 107 are byte-identical to a stock ParticleSystem (772256 of 786976 bytes, 16 distinct stock configurations); not identical: ['flash_gun_L_muzzleFlash', 'flash_gun_R_muzzleFlash']
 
 Objects by type (count, serialized bytes; texture pixels are streamed and counted per texture below):
-  Mesh                       1507    104749896
+  Mesh                       1515    104782584
   Shader                        3      2825240
   TextAsset                     1      1600604
   ParticleSystem              107       786976
-  AssetBundle                   1       651280
+  AssetBundle                   1       653120
   Material                    219       342164
   MonoBehaviour               863       257812
-  Transform                  3008       240400
-  MeshRenderer               1256       207276
-  GameObject                 3207       188009
+  Transform                  3016       241040
+  MeshRenderer               1264       208596
+  GameObject                 3215       188609
   Sprite                      191       146160
   Texture2D                   469       105384
   AudioSource                 167        61620
   ParticleSystemRenderer      107        31796
-  MeshFilter                 1257        30168
+  MeshFilter                 1265        30360
   RectTransform               199        23808
   MeshCollider                188        12032
   SkinnedMeshRenderer          23         9016
@@ -39,7 +39,7 @@ Objects by type (count, serialized bytes; texture pixels are streamed and counte
 
 Payload objects by type and origin:
   Material         ours            219
-  Mesh             ours           1507
+  Mesh             ours           1515
   MonoScript       script-ref       49
   Shader           unity             3
   Sprite           ours            191
@@ -296,11 +296,11 @@ Mesh	ours:b17g	aileron_R_col	748	19 verts, 17 tris	assets/blueprinter/mods/herit
 Mesh	ours:b17g	ball_ring	38956	636 verts, 480 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	ball_yoke	17948	284 verts, 264 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	ballturret_body	291936	4841 verts, 3380 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
-Mesh	ours:b17g	bay_door_L	23388	367 verts, 388 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	bay_door_L	22884	367 verts, 312 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
+Mesh	ours:b17g	bay_door_L	23388	367 verts, 388 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	bay_door_L_struct	5244	84 verts, 76 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
-Mesh	ours:b17g	bay_door_R	23388	367 verts, 388 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	bay_door_R	22884	367 verts, 312 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
+Mesh	ours:b17g	bay_door_R	23388	367 verts, 388 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	bay_door_R_struct	5244	84 verts, 76 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	bay_hinge_strips	34400	576 verts, 288 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	bay_liner	17236	264 verts, 164 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
@@ -333,8 +333,8 @@ Mesh	ours:b17g	engine_1	251672	4072 verts, 3832 tris	assets/blueprinter/mods/her
 Mesh	ours:b17g	engine_1_col	1696	72 verts, 70 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	engine_1_hullsrc	171648	2759 verts, 2764 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	engine_1_struct	30856	548 verts, 324 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
-Mesh	ours:b17g	engine_2	231656	3730 verts, 3688 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	engine_2	232856	3730 verts, 3880 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
+Mesh	ours:b17g	engine_2	231656	3730 verts, 3688 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	engine_2_col	1752	75 verts, 73 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	engine_2_hullsrc	177504	2855 verts, 2844 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	engine_2_struct	21536	384 verts, 192 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
@@ -352,8 +352,8 @@ Mesh	ours:b17g	engine_face_1	581104	11539 verts, 4469 tris	assets/blueprinter/mo
 Mesh	ours:b17g	engine_face_2	581104	11539 verts, 4469 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	engine_face_3	581104	11539 verts, 4469 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	engine_face_4	581104	11539 verts, 4469 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
-Mesh	ours:b17g	fin	67480	1042 verts, 1430 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	fin	66732	1042 verts, 1313 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
+Mesh	ours:b17g	fin	67480	1042 verts, 1430 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	fin_col	848	25 verts, 23 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	fin_struct	7824	129 verts, 117 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	flap_inner_L	13276	204 verts, 232 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
@@ -367,8 +367,8 @@ Mesh	ours:b17g	flap_outer_R_col	728	18 verts, 16 tris	assets/blueprinter/mods/he
 Mesh	ours:b17g	fork_tail	11284	180 verts, 124 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	fus_center	493732	8427 verts, 3560 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	fus_center_struct	342620	6134 verts, 3872 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
-Mesh	ours:b17g	fus_cockpit	965068	16284 verts, 8760 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	fus_cockpit	957136	16284 verts, 7446 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
+Mesh	ours:b17g	fus_cockpit	965068	16284 verts, 8760 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	fus_cockpit_col	1592	66 verts, 64 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	fus_cockpit_struct	117400	2098 verts, 1314 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	fus_nose	1880340	31320 verts, 20970 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
@@ -379,8 +379,8 @@ Mesh	ours:b17g	fus_radio	234084	4057 verts, 1072 tris	assets/blueprinter/mods/he
 Mesh	ours:b17g	fus_radio	246540	4057 verts, 3140 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	fus_radio_col	1504	61 verts, 59 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	fus_radio_struct	187856	3366 verts, 2068 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
-Mesh	ours:b17g	fus_tail	475336	7775 verts, 6572 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	fus_tail	452800	7775 verts, 2824 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
+Mesh	ours:b17g	fus_tail	475336	7775 verts, 6572 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	fus_tail_col	1336	52 verts, 50 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	fus_tail_struct	332616	5956 verts, 3748 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	fus_waist	582524	9998 verts, 3688 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
@@ -431,29 +431,29 @@ Mesh	ours:b17g	gear_main_L	14108	224 verts, 184 tris	assets/blueprinter/mods/her
 Mesh	ours:b17g	gear_main_R	14108	224 verts, 184 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	gear_tail	9980	158 verts, 120 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	gear_tail_well	6496	100 verts, 80 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
-Mesh	ours:b17g	gear_well_L	49056	808 verts, 550 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	gear_well_L	48648	808 verts, 490 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
+Mesh	ours:b17g	gear_well_L	49056	808 verts, 550 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	gear_well_L_struct	7020	120 verts, 60 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	gear_well_R	49056	808 verts, 550 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	gear_well_R	48648	808 verts, 490 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	gear_well_R_struct	7020	120 verts, 60 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
-Mesh	ours:b17g	nacelle_1	233056	3636 verts, 4814 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	nacelle_1	231808	3636 verts, 4614 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
+Mesh	ours:b17g	nacelle_1	233056	3636 verts, 4814 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	nacelle_1_col	1648	69 verts, 67 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	nacelle_1_hullsrc	256172	3979 verts, 5488 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	nacelle_1_struct	13992	238 verts, 200 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
-Mesh	ours:b17g	nacelle_2	352356	5473 verts, 7560 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	nacelle_2	354252	5473 verts, 7868 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
+Mesh	ours:b17g	nacelle_2	352356	5473 verts, 7560 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	nacelle_2_col	1792	77 verts, 75 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	nacelle_2_hullsrc	379040	5824 verts, 8746 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	nacelle_2_struct	20776	356 verts, 308 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
-Mesh	ours:b17g	nacelle_3	354196	5472 verts, 7868 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	nacelle_3	352300	5472 verts, 7560 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
+Mesh	ours:b17g	nacelle_3	354196	5472 verts, 7868 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	nacelle_3_col	1808	78 verts, 76 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	nacelle_3_hullsrc	379040	5824 verts, 8746 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	nacelle_3_struct	20776	356 verts, 308 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
-Mesh	ours:b17g	nacelle_4	233168	3638 verts, 4814 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	nacelle_4	231920	3638 verts, 4614 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
+Mesh	ours:b17g	nacelle_4	233168	3638 verts, 4814 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	nacelle_4_col	1648	69 verts, 67 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	nacelle_4_hullsrc	256172	3979 verts, 5488 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	nacelle_4_struct	14096	240 verts, 200 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
@@ -511,12 +511,12 @@ Mesh	ours:b17g	stab_L	63544	976 verts, 1389 tris	assets/blueprinter/mods/heritag
 Mesh	ours:b17g	stab_L	62768	976 verts, 1268 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	stab_L_col	1048	36 verts, 34 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	stab_L_struct	8164	135 verts, 121 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
-Mesh	ours:b17g	stab_R	63544	976 verts, 1389 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	stab_R	62768	976 verts, 1268 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
+Mesh	ours:b17g	stab_R	63544	976 verts, 1389 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	stab_R_col	1032	35 verts, 33 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	stab_R_struct	8164	135 verts, 121 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
-Mesh	ours:b17g	tail_gun	656944	11105 verts, 5760 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	tail_gun	665776	11105 verts, 7224 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
+Mesh	ours:b17g	tail_gun	656944	11105 verts, 5760 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	tail_gun_col	1392	55 verts, 53 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	tail_gun_struct	127604	2277 verts, 1464 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	tailmantlet_body	207264	3458 verts, 2184 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
@@ -525,36 +525,36 @@ Mesh	ours:b17g	topturret_body	323408	5427 verts, 3156 tris	assets/blueprinter/mo
 Mesh	ours:b17g	wheel_main_L	62604	976 verts, 1248 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	wheel_main_R	62604	976 verts, 1248 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	wheel_tail	41580	640 verts, 880 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
-Mesh	ours:b17g	wing_inner_L	264068	4343 verts, 3368 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	wing_inner_L	255416	4343 verts, 1934 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
+Mesh	ours:b17g	wing_inner_L	264068	4343 verts, 3368 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	wing_inner_L_col	1108	39 verts, 37 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	wing_inner_L_struct	145368	2622 verts, 1434 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
-Mesh	ours:b17g	wing_inner_R	264460	4350 verts, 3368 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	wing_inner_R	255808	4350 verts, 1934 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
+Mesh	ours:b17g	wing_inner_R	264460	4350 verts, 3368 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	wing_inner_R_col	1144	41 verts, 39 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	wing_inner_R_struct	145784	2630 verts, 1434 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	wing_mid_L	306596	5054 verts, 3820 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	wing_mid_L	295856	5054 verts, 2038 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	wing_mid_L_col	1052	36 verts, 34 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	wing_mid_L_struct	181776	3282 verts, 1782 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
-Mesh	ours:b17g	wing_mid_R	297032	5075 verts, 2038 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	wing_mid_R	307772	5075 verts, 3820 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
+Mesh	ours:b17g	wing_mid_R	297032	5075 verts, 2038 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	wing_mid_R_col	1072	37 verts, 35 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	wing_mid_R_struct	182920	3304 verts, 1782 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	wing_outer_L	330500	5456 verts, 4060 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	wing_outer_L	317576	5456 verts, 1914 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	wing_outer_L_col	1000	33 verts, 31 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	wing_outer_L_struct	222232	4018 verts, 2146 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
-Mesh	ours:b17g	wing_outer_R	330948	5464 verts, 4060 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	wing_outer_R	318024	5464 verts, 1914 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
+Mesh	ours:b17g	wing_outer_R	330948	5464 verts, 4060 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	wing_outer_R_col	980	32 verts, 30 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	wing_outer_R_struct	222856	4030 verts, 2146 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	wing_tip_L	87732	1506 verts, 489 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	wing_tip_L	91516	1506 verts, 1112 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	wing_tip_L_col	1088	38 verts, 36 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	wing_tip_L_struct	61308	1099 verts, 623 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
-Mesh	ours:b17g	wing_tip_R	87508	1502 verts, 489 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	wing_tip_R	91292	1502 verts, 1112 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
+Mesh	ours:b17g	wing_tip_R	87508	1502 verts, 489 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	wing_tip_R_col	1108	39 verts, 37 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b17g	wing_tip_R_struct	61100	1095 verts, 623 tris	assets/blueprinter/mods/heritage_pairs/b17g/generated/b17g_meshes.asset
 Mesh	ours:b25h	B25H_anm2_flex_L	201164	4014 verts, 1338 tris	assets/blueprinter/mods/heritage_pairs/b25h/anm2/b25h_anm2_flex_l.asset
@@ -570,8 +570,8 @@ Mesh	ours:b25h	aileron_L_col	2696	120 verts, 140 tris	assets/blueprinter/mods/he
 Mesh	ours:b25h	aileron_R	7972	120 verts, 140 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	aileron_R_col	2696	120 verts, 140 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	b25h_propdisc_full	59812	896 verts, 1536 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
-Mesh	ours:b25h	bomb_door_L	14084	224 verts, 180 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	bomb_door_L	14468	224 verts, 236 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
+Mesh	ours:b25h	bomb_door_L	14084	224 verts, 180 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	bomb_door_L_struct	4084	64 verts, 56 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	bomb_door_R	14468	224 verts, 236 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	bomb_door_R	14084	224 verts, 180 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
@@ -588,17 +588,17 @@ Mesh	ours:b25h	cockpit_yoke_L	150896	2538 verts, 1392 tris	assets/blueprinter/mo
 Mesh	ours:b25h	cowl_flap_L_01	3224	48 verts, 12 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	cowl_flap_L_01	3368	48 verts, 28 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	cowl_flap_L_01_struct	1768	24 verts, 16 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
-Mesh	ours:b25h	cowl_flap_L_02	3224	48 verts, 12 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	cowl_flap_L_02	3368	48 verts, 28 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
+Mesh	ours:b25h	cowl_flap_L_02	3224	48 verts, 12 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	cowl_flap_L_02_struct	1768	24 verts, 16 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
-Mesh	ours:b25h	cowl_flap_L_03	3224	48 verts, 12 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	cowl_flap_L_03	3368	48 verts, 28 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
+Mesh	ours:b25h	cowl_flap_L_03	3224	48 verts, 12 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	cowl_flap_L_03_struct	1768	24 verts, 16 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	cowl_flap_L_04	3368	48 verts, 28 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	cowl_flap_L_04	3224	48 verts, 12 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	cowl_flap_L_04_struct	1768	24 verts, 16 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
-Mesh	ours:b25h	cowl_flap_L_05	3368	48 verts, 28 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	cowl_flap_L_05	3224	48 verts, 12 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
+Mesh	ours:b25h	cowl_flap_L_05	3368	48 verts, 28 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	cowl_flap_L_05_struct	1768	24 verts, 16 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	cowl_flap_L_06	3368	48 verts, 28 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	cowl_flap_L_06	3224	48 verts, 12 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
@@ -606,23 +606,23 @@ Mesh	ours:b25h	cowl_flap_L_06_struct	1768	24 verts, 16 tris	assets/blueprinter/m
 Mesh	ours:b25h	cowl_flap_L_07	3368	48 verts, 28 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	cowl_flap_L_07	3224	48 verts, 12 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	cowl_flap_L_07_struct	1768	24 verts, 16 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
-Mesh	ours:b25h	cowl_flap_L_08	3224	48 verts, 12 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	cowl_flap_L_08	3368	48 verts, 28 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
+Mesh	ours:b25h	cowl_flap_L_08	3224	48 verts, 12 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	cowl_flap_L_08_struct	1768	24 verts, 16 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	cowl_flap_L_09	3224	48 verts, 12 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	cowl_flap_L_09	3368	48 verts, 28 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	cowl_flap_L_09_struct	1768	24 verts, 16 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
-Mesh	ours:b25h	cowl_flap_L_10	3224	48 verts, 12 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	cowl_flap_L_10	3368	48 verts, 28 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
+Mesh	ours:b25h	cowl_flap_L_10	3224	48 verts, 12 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	cowl_flap_L_10_struct	1768	24 verts, 16 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
-Mesh	ours:b25h	cowl_flap_L_11	3224	48 verts, 12 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	cowl_flap_L_11	3368	48 verts, 28 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
+Mesh	ours:b25h	cowl_flap_L_11	3224	48 verts, 12 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	cowl_flap_L_11_struct	1768	24 verts, 16 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	cowl_flap_L_12	3368	48 verts, 28 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	cowl_flap_L_12	3224	48 verts, 12 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	cowl_flap_L_12_struct	1768	24 verts, 16 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
-Mesh	ours:b25h	cowl_flap_L_13	3224	48 verts, 12 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	cowl_flap_L_13	3368	48 verts, 28 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
+Mesh	ours:b25h	cowl_flap_L_13	3224	48 verts, 12 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	cowl_flap_L_13_struct	1768	24 verts, 16 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	cowl_flap_L_14	3224	48 verts, 12 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	cowl_flap_L_14	3368	48 verts, 28 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
@@ -630,8 +630,8 @@ Mesh	ours:b25h	cowl_flap_L_14_struct	1768	24 verts, 16 tris	assets/blueprinter/m
 Mesh	ours:b25h	cowl_flap_R_01	3368	48 verts, 28 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	cowl_flap_R_01	3224	48 verts, 12 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	cowl_flap_R_01_struct	1768	24 verts, 16 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
-Mesh	ours:b25h	cowl_flap_R_02	3368	48 verts, 28 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	cowl_flap_R_02	3224	48 verts, 12 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
+Mesh	ours:b25h	cowl_flap_R_02	3368	48 verts, 28 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	cowl_flap_R_02_struct	1768	24 verts, 16 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	cowl_flap_R_03	3224	48 verts, 12 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	cowl_flap_R_03	3368	48 verts, 28 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
@@ -645,8 +645,8 @@ Mesh	ours:b25h	cowl_flap_R_05_struct	1768	24 verts, 16 tris	assets/blueprinter/m
 Mesh	ours:b25h	cowl_flap_R_06	3368	48 verts, 28 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	cowl_flap_R_06	3224	48 verts, 12 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	cowl_flap_R_06_struct	1768	24 verts, 16 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
-Mesh	ours:b25h	cowl_flap_R_07	3224	48 verts, 12 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	cowl_flap_R_07	3368	48 verts, 28 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
+Mesh	ours:b25h	cowl_flap_R_07	3224	48 verts, 12 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	cowl_flap_R_07_struct	1768	24 verts, 16 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	cowl_flap_R_08	3368	48 verts, 28 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	cowl_flap_R_08	3224	48 verts, 12 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
@@ -657,17 +657,17 @@ Mesh	ours:b25h	cowl_flap_R_09_struct	1768	24 verts, 16 tris	assets/blueprinter/m
 Mesh	ours:b25h	cowl_flap_R_10	3224	48 verts, 12 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	cowl_flap_R_10	3368	48 verts, 28 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	cowl_flap_R_10_struct	1768	24 verts, 16 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
-Mesh	ours:b25h	cowl_flap_R_11	3368	48 verts, 28 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	cowl_flap_R_11	3224	48 verts, 12 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
+Mesh	ours:b25h	cowl_flap_R_11	3368	48 verts, 28 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	cowl_flap_R_11_struct	1768	24 verts, 16 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
-Mesh	ours:b25h	cowl_flap_R_12	3368	48 verts, 28 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	cowl_flap_R_12	3224	48 verts, 12 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
+Mesh	ours:b25h	cowl_flap_R_12	3368	48 verts, 28 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	cowl_flap_R_12_struct	1768	24 verts, 16 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
-Mesh	ours:b25h	cowl_flap_R_13	3368	48 verts, 28 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	cowl_flap_R_13	3224	48 verts, 12 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
+Mesh	ours:b25h	cowl_flap_R_13	3368	48 verts, 28 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	cowl_flap_R_13_struct	1768	24 verts, 16 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
-Mesh	ours:b25h	cowl_flap_R_14	3368	48 verts, 28 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	cowl_flap_R_14	3224	48 verts, 12 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
+Mesh	ours:b25h	cowl_flap_R_14	3368	48 verts, 28 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	cowl_flap_R_14_struct	1768	24 verts, 16 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	crew_seat_radio	4664	72 verts, 36 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	crew_seat_tail	4664	72 verts, 36 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
@@ -679,8 +679,8 @@ Mesh	ours:b25h	engine_L	338868	5541 verts, 4678 tris	assets/blueprinter/mods/her
 Mesh	ours:b25h	engine_L	339432	5541 verts, 4764 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	engine_L_col	95488	5541 verts, 4764 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	engine_L_struct	5508	88 verts, 86 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
-Mesh	ours:b25h	engine_R	339432	5541 verts, 4764 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	engine_R	338868	5541 verts, 4678 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
+Mesh	ours:b25h	engine_R	339432	5541 verts, 4764 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	engine_R_col	95488	5541 verts, 4764 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	engine_R_struct	5508	88 verts, 86 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	exhaust_L	44596	735 verts, 504 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
@@ -700,24 +700,24 @@ Mesh	ours:b25h	flap_outer_R_col	2696	120 verts, 140 tris	assets/blueprinter/mods
 Mesh	ours:b25h	fus_center	426692	7298 verts, 2916 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	fus_center	446588	7298 verts, 6224 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	fus_center_struct	251980	4456 verts, 3308 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
-Mesh	ours:b25h	fus_cockpit	218508	3565 verts, 3052 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	fus_cockpit	208740	3565 verts, 1432 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
+Mesh	ours:b25h	fus_cockpit	218508	3565 verts, 3052 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	fus_cockpit_col	61508	3565 verts, 3052 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	fus_cockpit_struct	138060	2460 verts, 1620 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	fus_forward	343884	5809 verts, 3012 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	fus_forward	356976	5809 verts, 5186 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	fus_forward_col	101240	5809 verts, 5186 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	fus_forward_struct	171336	3036 verts, 2174 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
-Mesh	ours:b25h	fus_nose	154908	2499 verts, 2410 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	fus_nose	158316	2499 verts, 2970 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
+Mesh	ours:b25h	fus_nose	154908	2499 verts, 2410 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	fus_nose_col	48220	2499 verts, 2970 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	fus_nose_struct	48184	854 verts, 560 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	fus_rear	596044	9575 verts, 9882 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	fus_rear	564016	9575 verts, 4552 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	fus_rear_col	174604	9575 verts, 9882 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	fus_rear_struct	378716	6660 verts, 5330 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
-Mesh	ours:b25h	fus_tail	472112	7570 verts, 7932 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	fus_tail	453248	7570 verts, 4796 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
+Mesh	ours:b25h	fus_tail	472112	7570 verts, 7932 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	fus_tail_col	138844	7570 verts, 7932 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	fus_tail_struct	233784	4126 verts, 3136 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	gauge_airspeed_needle	1400	16 verts, 13 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
@@ -752,23 +752,23 @@ Mesh	ours:b25h	gauge_suction_C_needle	1400	16 verts, 13 tris	assets/blueprinter/
 Mesh	ours:b25h	gauge_suction_L_needle	1400	16 verts, 13 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	gauge_volts_needle	1396	16 verts, 13 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	gauge_vsi_needle	1392	16 verts, 13 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
-Mesh	ours:b25h	gear_door_main_L_a	19460	322 verts, 160 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	gear_door_main_L_a	19916	322 verts, 228 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
+Mesh	ours:b25h	gear_door_main_L_a	19460	322 verts, 160 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	gear_door_main_L_a_struct	5204	84 verts, 68 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	gear_door_main_L_b	19916	322 verts, 228 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	gear_door_main_L_b	19460	322 verts, 160 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	gear_door_main_L_b_struct	5204	84 verts, 68 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
-Mesh	ours:b25h	gear_door_main_R_a	18452	304 verts, 160 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	gear_door_main_R_a	18908	304 verts, 228 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
+Mesh	ours:b25h	gear_door_main_R_a	18452	304 verts, 160 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	gear_door_main_R_a_struct	5204	84 verts, 68 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
-Mesh	ours:b25h	gear_door_main_R_b	18452	304 verts, 160 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	gear_door_main_R_b	18908	304 verts, 228 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
+Mesh	ours:b25h	gear_door_main_R_b	18452	304 verts, 160 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	gear_door_main_R_b_struct	5204	84 verts, 68 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	gear_door_nose_L	8744	132 verts, 140 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	gear_door_nose_L	8384	132 verts, 88 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	gear_door_nose_L_struct	3856	60 verts, 52 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
-Mesh	ours:b25h	gear_door_nose_R	8744	132 verts, 140 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	gear_door_nose_R	8384	132 verts, 88 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
+Mesh	ours:b25h	gear_door_nose_R	8744	132 verts, 140 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	gear_door_nose_R_struct	3856	60 verts, 52 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	gear_main_L_strut	29004	474 verts, 340 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	gear_main_L_wheel	51780	810 verts, 992 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
@@ -788,8 +788,8 @@ Mesh	ours:b25h	hatch_cockpit_top	103052	1630 verts, 1876 tris	assets/blueprinter
 Mesh	ours:b25h	hatch_entry_fwd	4320	62 verts, 56 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	hatch_entry_fwd	4128	62 verts, 32 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	hatch_entry_fwd_struct	2232	32 verts, 24 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
-Mesh	ours:b25h	hatch_entry_rear	5008	76 verts, 48 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	hatch_entry_rear	5224	76 verts, 76 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
+Mesh	ours:b25h	hatch_entry_rear	5008	76 verts, 48 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	hatch_entry_rear_struct	2464	36 verts, 28 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	hatch_waist_L	35744	552 verts, 712 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	hatch_waist_R	35744	552 verts, 712 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
@@ -802,12 +802,12 @@ Mesh	ours:b25h	mfd_left_tac	1480	20 verts, 10 tris	assets/blueprinter/mods/herit
 Mesh	ours:b25h	mfd_right	648	4 verts, 2 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	mfd_right_tac	1484	20 verts, 10 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	mfd_right_tac	1484	20 verts, 10 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
-Mesh	ours:b25h	nacelle_L	161892	2530 verts, 3284 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	nacelle_L	163188	2530 verts, 3492 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
+Mesh	ours:b25h	nacelle_L	161892	2530 verts, 3284 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	nacelle_L_col	51728	2530 verts, 3492 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	nacelle_L_struct	13780	233 verts, 208 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
-Mesh	ours:b25h	nacelle_R	161892	2530 verts, 3284 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	nacelle_R	163188	2530 verts, 3492 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
+Mesh	ours:b25h	nacelle_R	161892	2530 verts, 3284 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	nacelle_R_col	51728	2530 verts, 3492 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	nacelle_R_struct	13780	233 verts, 208 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	navLight_L	604	6 verts, 8 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
@@ -848,11 +848,11 @@ Mesh	ours:b25h	pylon_rail_L4_struct	2876	44 verts, 28 tris	assets/blueprinter/mo
 Mesh	ours:b25h	pylon_rail_R1	8472	131 verts, 112 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	pylon_rail_R1	8256	131 verts, 84 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	pylon_rail_R1_struct	2772	42 verts, 28 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
-Mesh	ours:b25h	pylon_rail_R2	8528	132 verts, 112 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	pylon_rail_R2	8312	132 verts, 84 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
+Mesh	ours:b25h	pylon_rail_R2	8528	132 verts, 112 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	pylon_rail_R2_struct	2824	43 verts, 28 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
-Mesh	ours:b25h	pylon_rail_R3	8368	133 verts, 84 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	pylon_rail_R3	8584	133 verts, 112 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
+Mesh	ours:b25h	pylon_rail_R3	8368	133 verts, 84 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	pylon_rail_R3_struct	2876	44 verts, 28 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	pylon_rail_R4	8368	133 verts, 84 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	pylon_rail_R4	8584	133 verts, 112 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
@@ -873,22 +873,22 @@ Mesh	ours:b25h	stab_L	20948	324 verts, 391 tris	assets/blueprinter/mods/heritage
 Mesh	ours:b25h	stab_L	21108	324 verts, 410 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	stab_L_col	6760	324 verts, 410 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	stab_L_struct	1624	21 verts, 19 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
-Mesh	ours:b25h	stab_R	21108	324 verts, 410 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	stab_R	20948	324 verts, 391 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
+Mesh	ours:b25h	stab_R	21108	324 verts, 410 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	stab_R_col	6760	324 verts, 410 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	stab_R_struct	1624	21 verts, 19 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	tail_guns	5364	82 verts, 60 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	tail_turret_az	9192	146 verts, 100 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
-Mesh	ours:b25h	turret_dorsal	233216	3681 verts, 4412 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	turret_dorsal	234320	3681 verts, 4588 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
+Mesh	ours:b25h	turret_dorsal	233216	3681 verts, 4412 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	turret_dorsal_guns	6788	106 verts, 72 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	turret_dorsal_struct	13124	224 verts, 176 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	waist_gun_L	24300	388 verts, 360 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	waist_gun_L_az	3456	50 verts, 40 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	waist_gun_R	24300	388 verts, 360 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	waist_gun_R_az	3456	50 verts, 40 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
-Mesh	ours:b25h	wing_inner_L	64484	1073 verts, 648 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	wing_inner_L	67328	1073 verts, 1114 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
+Mesh	ours:b25h	wing_inner_L	64484	1073 verts, 648 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	wing_inner_L_col	19976	1073 verts, 1114 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	wing_inner_L_struct	32440	562 verts, 466 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	wing_inner_R	67328	1073 verts, 1114 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
@@ -903,12 +903,12 @@ Mesh	ours:b25h	wing_outer_R	65816	1055 verts, 1030 tris	assets/blueprinter/mods/
 Mesh	ours:b25h	wing_outer_R	63464	1055 verts, 646 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	wing_outer_R_col	19256	1055 verts, 1030 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	wing_outer_R_struct	30908	542 verts, 384 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
-Mesh	ours:b25h	wing_tip_L	84216	1353 verts, 1323 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	wing_tip_L	85776	1353 verts, 1575 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
+Mesh	ours:b25h	wing_tip_L	84216	1353 verts, 1323 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	wing_tip_L_col	26104	1353 verts, 1575 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	wing_tip_L_struct	21692	380 verts, 252 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
-Mesh	ours:b25h	wing_tip_R	85776	1353 verts, 1575 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	wing_tip_R	84216	1353 verts, 1323 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
+Mesh	ours:b25h	wing_tip_R	85776	1353 verts, 1575 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	wing_tip_R_col	26104	1353 verts, 1575 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:b25h	wing_tip_R_struct	21692	380 verts, 252 tris	assets/blueprinter/mods/heritage_pairs/b25h/generated/b25h_meshes.asset
 Mesh	ours:fd32	FD32_col	57108	2715 verts, 4020 tris	assets/blueprinter/mods/heritage_pairs/fd32/generated/fd32_meshes.asset
@@ -1031,13 +1031,17 @@ Mesh	ours:fd32	wing_lower_R_col	17144	843 verts, 1102 tris	assets/blueprinter/mo
 Mesh	ours:fd32	wing_lower_R_root	12588	188 verts, 140 tris	assets/blueprinter/mods/heritage_pairs/fd32/generated/fd32_meshes.asset
 Mesh	ours:fd32	wing_upper_C	36204	544 verts, 888 tris	assets/blueprinter/mods/heritage_pairs/fd32/generated/fd32_meshes.asset
 Mesh	ours:fd32	wing_upper_C_col	12272	544 verts, 888 tris	assets/blueprinter/mods/heritage_pairs/fd32/generated/fd32_meshes.asset
-Mesh	ours:fd32	wing_upper_C_struct	82524	1230 verts, 1376 tris	assets/blueprinter/mods/heritage_pairs/fd32/generated/fd32_meshes.asset
+Mesh	ours:fd32	wing_upper_C_seam1913_L	3236	74 verts, 74 tris	assets/blueprinter/mods/heritage_pairs/fd32/generated/fd32_meshes.asset
+Mesh	ours:fd32	wing_upper_C_seam1913_R	3236	74 verts, 74 tris	assets/blueprinter/mods/heritage_pairs/fd32/generated/fd32_meshes.asset
+Mesh	ours:fd32	wing_upper_C_struct	82572	1230 verts, 1376 tris	assets/blueprinter/mods/heritage_pairs/fd32/generated/fd32_meshes.asset
 Mesh	ours:fd32	wing_upper_L	64704	1002 verts, 1355 tris	assets/blueprinter/mods/heritage_pairs/fd32/generated/fd32_meshes.asset
 Mesh	ours:fd32	wing_upper_L_col	20572	1002 verts, 1355 tris	assets/blueprinter/mods/heritage_pairs/fd32/generated/fd32_meshes.asset
-Mesh	ours:fd32	wing_upper_L_struct	32820	500 verts, 392 tris	assets/blueprinter/mods/heritage_pairs/fd32/generated/fd32_meshes.asset
+Mesh	ours:fd32	wing_upper_L_seam1913_L	4864	111 verts, 148 tris	assets/blueprinter/mods/heritage_pairs/fd32/generated/fd32_meshes.asset
+Mesh	ours:fd32	wing_upper_L_struct	32868	500 verts, 392 tris	assets/blueprinter/mods/heritage_pairs/fd32/generated/fd32_meshes.asset
 Mesh	ours:fd32	wing_upper_R	64704	1002 verts, 1355 tris	assets/blueprinter/mods/heritage_pairs/fd32/generated/fd32_meshes.asset
 Mesh	ours:fd32	wing_upper_R_col	20572	1002 verts, 1355 tris	assets/blueprinter/mods/heritage_pairs/fd32/generated/fd32_meshes.asset
-Mesh	ours:fd32	wing_upper_R_struct	32820	500 verts, 392 tris	assets/blueprinter/mods/heritage_pairs/fd32/generated/fd32_meshes.asset
+Mesh	ours:fd32	wing_upper_R_seam1913_R	4864	111 verts, 148 tris	assets/blueprinter/mods/heritage_pairs/fd32/generated/fd32_meshes.asset
+Mesh	ours:fd32	wing_upper_R_struct	32868	500 verts, 392 tris	assets/blueprinter/mods/heritage_pairs/fd32/generated/fd32_meshes.asset
 Mesh	ours:ga25x	GA25X_col	108616	6242 verts, 5550 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	GA25X_meshes	59804	896 verts, 1536 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	aileron_L	7972	120 verts, 140 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
@@ -1047,8 +1051,8 @@ Mesh	ours:ga25x	aileron_R_col	2696	120 verts, 140 tris	assets/blueprinter/mods/h
 Mesh	ours:ga25x	airbrake_L	131760	2134 verts, 1950 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	airbrake_L	125088	2134 verts, 846 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	airbrake_L_struct	73812	1284 verts, 1104 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
-Mesh	ours:ga25x	airbrake_R	130000	2106 verts, 1918 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	airbrake_R	123472	2106 verts, 838 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
+Mesh	ours:ga25x	airbrake_R	130000	2106 verts, 1918 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	airbrake_R_struct	72732	1266 verts, 1080 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	airbrake_tray_L	35776	577 verts, 500 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	airbrake_tray_L	34072	577 verts, 224 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
@@ -1059,16 +1063,16 @@ Mesh	ours:ga25x	airbrake_tray_R_struct	20332	351 verts, 276 tris	assets/blueprin
 Mesh	ours:ga25x	bomb_door_L	19740	316 verts, 264 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	bomb_door_L	20196	316 verts, 332 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	bomb_door_L_struct	4780	76 verts, 68 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
-Mesh	ours:ga25x	bomb_door_R	20196	316 verts, 332 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	bomb_door_R	19740	316 verts, 264 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
+Mesh	ours:ga25x	bomb_door_R	20196	316 verts, 332 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	bomb_door_R_struct	4780	76 verts, 68 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	cannon	40836	660 verts, 570 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	canopy_frame	166564	2688 verts, 2596 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	canopy_glass	140700	2128 verts, 3520 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	canopy_jettison_L	141316	2204 verts, 2896 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	canopy_jettison_R	141316	2204 verts, 2896 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
-Mesh	ours:ga25x	chin_turret	75976	1203 verts, 1342 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	chin_turret	74680	1203 verts, 1134 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
+Mesh	ours:ga25x	chin_turret	75976	1203 verts, 1342 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	chin_turret_struct	13732	232 verts, 208 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	cockpit_gauges	2008	27 verts, 13 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	cockpit_interior	566468	8842 verts, 5890 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
@@ -1081,15 +1085,15 @@ Mesh	ours:ga25x	engine_L	192984	3254 verts, 1717 tris	assets/blueprinter/mods/he
 Mesh	ours:ga25x	engine_L	199368	3254 verts, 2773 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	engine_L_col	56100	3254 verts, 2773 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	engine_L_struct	77368	1358 verts, 1056 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
-Mesh	ours:ga25x	engine_R	192984	3254 verts, 1717 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	engine_R	199368	3254 verts, 2773 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
+Mesh	ours:ga25x	engine_R	192984	3254 verts, 1717 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	engine_R_col	56100	3254 verts, 2773 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	engine_R_struct	77368	1358 verts, 1056 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	exhaust_L	18916	306 verts, 204 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	exhaust_L	18436	306 verts, 132 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	exhaust_L_struct	8336	144 verts, 72 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
-Mesh	ours:ga25x	exhaust_R	18916	306 verts, 204 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	exhaust_R	18436	306 verts, 132 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
+Mesh	ours:ga25x	exhaust_R	18916	306 verts, 204 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	exhaust_R_struct	8336	144 verts, 72 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	fin_L	25884	396 verts, 542 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	fin_L_col	8416	396 verts, 542 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
@@ -1103,27 +1107,27 @@ Mesh	ours:ga25x	flap_outer_L	7972	120 verts, 140 tris	assets/blueprinter/mods/he
 Mesh	ours:ga25x	flap_outer_L_col	2696	120 verts, 140 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	flap_outer_R	7972	120 verts, 140 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	flap_outer_R_col	2696	120 verts, 140 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
-Mesh	ours:ga25x	fus_center	383408	6242 verts, 5550 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	fus_center	365036	6242 verts, 2496 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
+Mesh	ours:ga25x	fus_center	383408	6242 verts, 5550 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	fus_center_struct	234232	4144 verts, 3054 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
-Mesh	ours:ga25x	fus_cockpit	155292	2512 verts, 2352 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	fus_cockpit	148548	2512 verts, 1236 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
+Mesh	ours:ga25x	fus_cockpit	155292	2512 verts, 2352 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	fus_cockpit_col	44672	2512 verts, 2352 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	fus_cockpit_struct	93540	1662 verts, 1116 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	fus_forward	261756	4249 verts, 3884 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	fus_forward	247644	4249 verts, 1540 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	fus_forward_col	74708	4249 verts, 3884 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	fus_forward_struct	181092	3204 verts, 2344 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
-Mesh	ours:ga25x	fus_nose	137940	2214 verts, 2250 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	fus_nose	141132	2214 verts, 2774 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
+Mesh	ours:ga25x	fus_nose	137940	2214 verts, 2250 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	fus_nose_col	43624	2214 verts, 2774 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	fus_nose_struct	44224	782 verts, 524 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
-Mesh	ours:ga25x	fus_rear	603008	10192 verts, 5284 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	fus_rear	635288	10192 verts, 10656 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
+Mesh	ours:ga25x	fus_rear	603008	10192 verts, 5284 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	fus_rear_col	186652	10192 verts, 10656 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	fus_rear_struct	378760	6656 verts, 5372 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
-Mesh	ours:ga25x	fus_tail	524100	8784 verts, 5274 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	fus_tail	548868	8784 verts, 9394 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
+Mesh	ours:ga25x	fus_tail	524100	8784 verts, 5274 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	fus_tail_col	162184	8784 verts, 9394 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	fus_tail_struct	289920	5092 verts, 4120 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	ga25x_propdisc_full	59812	896 verts, 1536 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
@@ -1144,8 +1148,8 @@ Mesh	ours:ga25x	gear_door_main_R_a_struct	4996	80 verts, 68 tris	assets/blueprin
 Mesh	ours:ga25x	gear_door_main_R_b	20908	344 verts, 196 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	gear_door_main_R_b	21364	344 verts, 264 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	gear_door_main_R_b_struct	4996	80 verts, 68 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
-Mesh	ours:ga25x	gear_door_nose_L	8384	132 verts, 88 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	gear_door_nose_L	8744	132 verts, 140 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
+Mesh	ours:ga25x	gear_door_nose_L	8384	132 verts, 88 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	gear_door_nose_L_struct	3856	60 verts, 52 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	gear_door_nose_R	8744	132 verts, 140 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	gear_door_nose_R	8384	132 verts, 88 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
@@ -1158,8 +1162,8 @@ Mesh	ours:ga25x	gear_nose_strut	23912	390 verts, 276 tris	assets/blueprinter/mod
 Mesh	ours:ga25x	gear_nose_wheel	51776	810 verts, 992 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	gunsight_combiner	9508	152 verts, 96 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	gunsight_pilot	6376	100 verts, 60 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
-Mesh	ours:ga25x	hatch_entry_fwd	4128	62 verts, 32 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	hatch_entry_fwd	4320	62 verts, 56 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
+Mesh	ours:ga25x	hatch_entry_fwd	4128	62 verts, 32 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	hatch_entry_fwd_struct	2232	32 verts, 24 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	hatch_entry_rear	5224	76 verts, 76 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	hatch_entry_rear	5008	76 verts, 48 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
@@ -1200,11 +1204,11 @@ Mesh	ours:ga25x	prop_L_blade1_struct	2020	28 verts, 24 tris	assets/blueprinter/m
 Mesh	ours:ga25x	prop_L_blade2	17152	262 verts, 336 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	prop_L_blade2	16960	262 verts, 312 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	prop_L_blade2_struct	2020	28 verts, 24 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
-Mesh	ours:ga25x	prop_L_blade3	17072	264 verts, 312 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	prop_L_blade3	17264	264 verts, 336 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
+Mesh	ours:ga25x	prop_L_blade3	17072	264 verts, 312 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	prop_L_blade3_struct	2020	28 verts, 24 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
-Mesh	ours:ga25x	prop_L_blade4	17264	264 verts, 336 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	prop_L_blade4	17072	264 verts, 312 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
+Mesh	ours:ga25x	prop_L_blade4	17264	264 verts, 336 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	prop_L_blade4_struct	2020	28 verts, 24 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	prop_L_blade5	17152	262 verts, 336 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	prop_L_blade5	16960	262 verts, 312 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
@@ -1219,11 +1223,11 @@ Mesh	ours:ga25x	prop_R_blade1_dmg50	17212	263 verts, 336 tris	assets/blueprinter
 Mesh	ours:ga25x	prop_R_blade1_dmg75	17212	263 verts, 336 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	prop_R_blade1_dmg94	17212	263 verts, 336 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	prop_R_blade1_struct	2020	28 verts, 24 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
-Mesh	ours:ga25x	prop_R_blade2	16960	262 verts, 312 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	prop_R_blade2	17152	262 verts, 336 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
+Mesh	ours:ga25x	prop_R_blade2	16960	262 verts, 312 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	prop_R_blade2_struct	2020	28 verts, 24 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
-Mesh	ours:ga25x	prop_R_blade3	17072	264 verts, 312 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	prop_R_blade3	17264	264 verts, 336 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
+Mesh	ours:ga25x	prop_R_blade3	17072	264 verts, 312 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	prop_R_blade3_struct	2020	28 verts, 24 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	prop_R_blade4	17072	264 verts, 312 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	prop_R_blade4	17264	264 verts, 336 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
@@ -1238,14 +1242,14 @@ Mesh	ours:ga25x	prop_hub_L	65796	1045 verts, 1128 tris	assets/blueprinter/mods/h
 Mesh	ours:ga25x	prop_hub_R	65796	1045 verts, 1128 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	prop_strike_L	1988	48 verts, 70 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	prop_strike_R	1988	48 verts, 70 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
-Mesh	ours:ga25x	pylon_inner_L	9144	143 verts, 112 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	pylon_inner_L	8928	143 verts, 84 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
+Mesh	ours:ga25x	pylon_inner_L	9144	143 verts, 112 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	pylon_inner_L_struct	3396	54 verts, 28 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
-Mesh	ours:ga25x	pylon_inner_R	9144	143 verts, 112 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	pylon_inner_R	8928	143 verts, 84 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
+Mesh	ours:ga25x	pylon_inner_R	9144	143 verts, 112 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	pylon_inner_R_struct	3396	54 verts, 28 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
-Mesh	ours:ga25x	pylon_mid_L	8916	139 verts, 112 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	pylon_mid_L	8700	139 verts, 84 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
+Mesh	ours:ga25x	pylon_mid_L	8916	139 verts, 112 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	pylon_mid_L_struct	3188	50 verts, 28 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	pylon_mid_R	8972	140 verts, 112 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	pylon_mid_R	8756	140 verts, 84 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
@@ -1256,8 +1260,8 @@ Mesh	ours:ga25x	pylon_outer_L_struct	3240	51 verts, 28 tris	assets/blueprinter/m
 Mesh	ours:ga25x	pylon_outer_R	8760	140 verts, 84 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	pylon_outer_R	8976	140 verts, 112 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	pylon_outer_R_struct	3240	51 verts, 28 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
-Mesh	ours:ga25x	pylon_root_L	8924	143 verts, 84 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	pylon_root_L	9140	143 verts, 112 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
+Mesh	ours:ga25x	pylon_root_L	8924	143 verts, 84 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	pylon_root_L_struct	3396	54 verts, 28 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	pylon_root_R	9196	144 verts, 112 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	pylon_root_R	8980	144 verts, 84 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
@@ -1283,12 +1287,12 @@ Mesh	ours:ga25x	stab_R	20948	324 verts, 391 tris	assets/blueprinter/mods/heritag
 Mesh	ours:ga25x	stab_R_col	6760	324 verts, 410 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	stab_R_struct	1624	21 verts, 19 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	tailhook	8944	140 verts, 108 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
-Mesh	ours:ga25x	wing_inner_L	64484	1073 verts, 648 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	wing_inner_L	67328	1073 verts, 1114 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
+Mesh	ours:ga25x	wing_inner_L	64484	1073 verts, 648 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	wing_inner_L_col	19976	1073 verts, 1114 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	wing_inner_L_struct	32440	562 verts, 466 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
-Mesh	ours:ga25x	wing_inner_R	67328	1073 verts, 1114 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	wing_inner_R	64484	1073 verts, 648 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
+Mesh	ours:ga25x	wing_inner_R	67328	1073 verts, 1114 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	wing_inner_R_col	19976	1073 verts, 1114 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	wing_inner_R_struct	32440	562 verts, 466 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	wing_outer_L	65816	1055 verts, 1030 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
@@ -1299,8 +1303,8 @@ Mesh	ours:ga25x	wing_outer_R	63464	1055 verts, 646 tris	assets/blueprinter/mods/
 Mesh	ours:ga25x	wing_outer_R	65816	1055 verts, 1030 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	wing_outer_R_col	19256	1055 verts, 1030 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	wing_outer_R_struct	30908	542 verts, 384 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
-Mesh	ours:ga25x	wing_tip_L	85776	1353 verts, 1575 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	wing_tip_L	84216	1353 verts, 1323 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
+Mesh	ours:ga25x	wing_tip_L	85776	1353 verts, 1575 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	wing_tip_L_col	26104	1353 verts, 1575 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	wing_tip_L_struct	21692	380 verts, 252 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
 Mesh	ours:ga25x	wing_tip_R	84216	1353 verts, 1323 tris	assets/blueprinter/mods/heritage_pairs/ga25x/generated/ga25x_meshes.asset
@@ -1339,14 +1343,14 @@ Mesh	ours:msb17	bay_door_R	32332	510 verts, 552 tris	assets/blueprinter/mods/her
 Mesh	ours:msb17	bay_door_R	33076	510 verts, 668 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	bay_door_R_struct	7668	126 verts, 116 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	bay_hinge_strips	34400	576 verts, 288 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
-Mesh	ours:msb17	bay_liner	16708	256 verts, 156 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	bay_liner	15684	256 verts, 156 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
-Mesh	ours:msb17	carry_through	23072	384 verts, 192 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
+Mesh	ours:msb17	bay_liner	16708	256 verts, 156 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	carry_through	24608	384 verts, 192 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
+Mesh	ours:msb17	carry_through	23072	384 verts, 192 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	chin_ball	195404	3218 verts, 2440 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	chin_body	223100	3725 verts, 2340 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
-Mesh	ours:msb17	chin_gun0	216948	3634 verts, 2156 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	chin_gun0	219924	3634 verts, 2644 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
+Mesh	ours:msb17	chin_gun0	216948	3634 verts, 2156 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	chin_gun0_struct	34128	592 verts, 488 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	chin_race	10892	170 verts, 160 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	chin_ring	21868	348 verts, 320 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
@@ -1394,20 +1398,20 @@ Mesh	ours:msb17	elevator_L	17444	266 verts, 356 tris	assets/blueprinter/mods/her
 Mesh	ours:msb17	elevator_L_col	692	16 verts, 14 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	elevator_R	17444	266 verts, 356 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	elevator_R_col	692	16 verts, 14 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
-Mesh	ours:msb17	engine_1	339852	5574 verts, 4510 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	engine_1	335580	5574 verts, 3814 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
+Mesh	ours:msb17	engine_1	339852	5574 verts, 4510 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	engine_1_col	1696	72 verts, 70 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	engine_1_struct	57112	1010 verts, 696 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
-Mesh	ours:msb17	engine_2	340748	5590 verts, 4510 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	engine_2	336476	5590 verts, 3814 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
+Mesh	ours:msb17	engine_2	340748	5590 verts, 4510 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	engine_2_col	1660	70 verts, 68 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	engine_2_struct	57112	1010 verts, 696 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	engine_3	336476	5590 verts, 3814 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	engine_3	340748	5590 verts, 4510 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	engine_3_col	1680	71 verts, 69 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	engine_3_struct	57112	1010 verts, 696 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
-Mesh	ours:msb17	engine_4	335580	5574 verts, 3814 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	engine_4	339852	5574 verts, 4510 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
+Mesh	ours:msb17	engine_4	335580	5574 verts, 3814 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	engine_4_col	1752	75 verts, 73 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	engine_4_struct	57112	1010 verts, 696 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	eo_ball	33216	510 verts, 700 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
@@ -1430,28 +1434,28 @@ Mesh	ours:msb17	flare_disp_R2	7400	114 verts, 92 tris	assets/blueprinter/mods/he
 Mesh	ours:msb17	fork_tail	11284	180 verts, 124 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	fus_center	641396	10988 verts, 4268 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	fus_center_struct	462944	8300 verts, 5154 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
-Mesh	ours:msb17	fus_cockpit	962164	16221 verts, 8864 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	fus_cockpit	954208	16221 verts, 7546 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
+Mesh	ours:msb17	fus_cockpit	962164	16221 verts, 8864 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	fus_cockpit_col	1592	66 verts, 64 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	fus_cockpit_struct	117632	2102 verts, 1318 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
-Mesh	ours:msb17	fus_nose	1306828	22025 verts, 12154 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	fus_nose	1322584	22025 verts, 14772 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
+Mesh	ours:msb17	fus_nose	1306828	22025 verts, 12154 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	fus_nose_col	1860	81 verts, 79 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	fus_nose_struct	240868	4322 verts, 2618 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	fus_tail	482104	7889 verts, 6636 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	fus_tail	459184	7889 verts, 2824 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	fus_tail_col	1408	56 verts, 54 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	fus_tail_struct	339344	6078 verts, 3812 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
-Mesh	ours:msb17	fus_waist	464220	7954 verts, 3048 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	fus_waist	487116	7954 verts, 6856 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
+Mesh	ours:msb17	fus_waist	464220	7954 verts, 3048 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	fus_waist_col	1504	61 verts, 59 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	fus_waist_struct	335264	6000 verts, 3808 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	gear_main_L	14108	224 verts, 184 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	gear_main_R	14108	224 verts, 184 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	gear_tail	9980	158 verts, 120 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	gear_tail_well	6496	100 verts, 80 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
-Mesh	ours:msb17	gear_well_L	43496	716 verts, 490 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	gear_well_L	43904	716 verts, 550 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
+Mesh	ours:msb17	gear_well_L	43496	716 verts, 490 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	gear_well_L_struct	7020	120 verts, 60 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	gear_well_R	44128	720 verts, 550 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	gear_well_R	43720	720 verts, 490 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
@@ -1466,12 +1470,12 @@ Mesh	ours:msb17	mws_nose_L	11784	181 verts, 198 tris	assets/blueprinter/mods/her
 Mesh	ours:msb17	mws_nose_R	11784	181 verts, 198 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	mws_tail_L	11784	181 verts, 198 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	mws_tail_R	11784	181 verts, 198 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
-Mesh	ours:msb17	nacelle_1	243480	3829 verts, 4758 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	nacelle_1	245880	3829 verts, 5150 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
+Mesh	ours:msb17	nacelle_1	243480	3829 verts, 4758 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	nacelle_1_col	1504	61 verts, 59 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	nacelle_1_struct	34904	618 verts, 392 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
-Mesh	ours:msb17	nacelle_2	377708	5894 verts, 7856 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	nacelle_2	380900	5894 verts, 8380 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
+Mesh	ours:msb17	nacelle_2	377708	5894 verts, 7856 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	nacelle_2_col	1396	55 verts, 53 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	nacelle_2_struct	44328	784 verts, 524 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	nacelle_3	377708	5894 verts, 7856 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
@@ -1624,8 +1628,8 @@ Mesh	ours:msb17	stab_L	63544	976 verts, 1389 tris	assets/blueprinter/mods/herita
 Mesh	ours:msb17	stab_L	62768	976 verts, 1268 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	stab_L_col	1048	36 verts, 34 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	stab_L_struct	8164	135 verts, 121 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
-Mesh	ours:msb17	stab_R	62768	976 verts, 1268 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	stab_R	63544	976 verts, 1389 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
+Mesh	ours:msb17	stab_R	62768	976 verts, 1268 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	stab_R_col	1032	35 verts, 33 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	stab_R_struct	8164	135 verts, 121 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	tail_ball	193900	3192 verts, 2432 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
@@ -1643,36 +1647,36 @@ Mesh	ours:msb17	top_race	26952	432 verts, 384 tris	assets/blueprinter/mods/herit
 Mesh	ours:msb17	wheel_main_L	61372	954 verts, 1248 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	wheel_main_R	61372	954 verts, 1248 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	wheel_tail	40572	622 verts, 880 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
-Mesh	ours:msb17	wing_inner_L	263732	4337 verts, 3368 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	wing_inner_L	255080	4337 verts, 1934 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
+Mesh	ours:msb17	wing_inner_L	263732	4337 verts, 3368 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	wing_inner_L_col	1108	39 verts, 37 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	wing_inner_L_struct	145368	2622 verts, 1434 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	wing_inner_R	255472	4344 verts, 1934 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	wing_inner_R	264124	4344 verts, 3368 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	wing_inner_R_col	1144	41 verts, 39 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	wing_inner_R_struct	145784	2630 verts, 1434 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
-Mesh	ours:msb17	wing_mid_L	306596	5054 verts, 3820 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	wing_mid_L	295856	5054 verts, 2038 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
+Mesh	ours:msb17	wing_mid_L	306596	5054 verts, 3820 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	wing_mid_L_col	1052	36 verts, 34 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	wing_mid_L_struct	181776	3282 verts, 1782 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
-Mesh	ours:msb17	wing_mid_R	307716	5074 verts, 3820 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	wing_mid_R	296976	5074 verts, 2038 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
+Mesh	ours:msb17	wing_mid_R	307716	5074 verts, 3820 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	wing_mid_R_col	1072	37 verts, 35 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	wing_mid_R_struct	182920	3304 verts, 1782 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
-Mesh	ours:msb17	wing_outer_L	317576	5456 verts, 1914 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	wing_outer_L	330500	5456 verts, 4060 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
+Mesh	ours:msb17	wing_outer_L	317576	5456 verts, 1914 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	wing_outer_L_col	1000	33 verts, 31 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	wing_outer_L_struct	222232	4018 verts, 2146 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
-Mesh	ours:msb17	wing_outer_R	330948	5464 verts, 4060 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	wing_outer_R	318024	5464 verts, 1914 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
+Mesh	ours:msb17	wing_outer_R	330948	5464 verts, 4060 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	wing_outer_R_col	980	32 verts, 30 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	wing_outer_R_struct	222856	4030 verts, 2146 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	wing_tip_L	87732	1506 verts, 489 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	wing_tip_L	91516	1506 verts, 1112 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	wing_tip_L_col	1088	38 verts, 36 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	wing_tip_L_struct	61308	1099 verts, 623 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
-Mesh	ours:msb17	wing_tip_R	91292	1502 verts, 1112 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	wing_tip_R	87508	1502 verts, 489 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
+Mesh	ours:msb17	wing_tip_R	91292	1502 verts, 1112 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	wing_tip_R_col	1108	39 verts, 37 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:msb17	wing_tip_R_struct	61100	1095 verts, 623 tris	assets/blueprinter/mods/heritage_pairs/msb17/generated/msb17_meshes.asset
 Mesh	ours:nimrod	NIMROD1_col	36832	1795 verts, 2480 tris	assets/blueprinter/mods/heritage_pairs/nimrod/generated/nimrod1_meshes.asset
@@ -1781,13 +1785,17 @@ Mesh	ours:nimrod	wing_lower_R_col	11272	513 verts, 783 tris	assets/blueprinter/m
 Mesh	ours:nimrod	wing_lower_R_root	12588	188 verts, 140 tris	assets/blueprinter/mods/heritage_pairs/nimrod/generated/nimrod1_meshes.asset
 Mesh	ours:nimrod	wing_upper_C	36204	544 verts, 888 tris	assets/blueprinter/mods/heritage_pairs/nimrod/generated/nimrod1_meshes.asset
 Mesh	ours:nimrod	wing_upper_C_col	12272	544 verts, 888 tris	assets/blueprinter/mods/heritage_pairs/nimrod/generated/nimrod1_meshes.asset
-Mesh	ours:nimrod	wing_upper_C_struct	82524	1230 verts, 1376 tris	assets/blueprinter/mods/heritage_pairs/nimrod/generated/nimrod1_meshes.asset
+Mesh	ours:nimrod	wing_upper_C_seam1913_L	3236	74 verts, 74 tris	assets/blueprinter/mods/heritage_pairs/nimrod/generated/nimrod1_meshes.asset
+Mesh	ours:nimrod	wing_upper_C_seam1913_R	3236	74 verts, 74 tris	assets/blueprinter/mods/heritage_pairs/nimrod/generated/nimrod1_meshes.asset
+Mesh	ours:nimrod	wing_upper_C_struct	82572	1230 verts, 1376 tris	assets/blueprinter/mods/heritage_pairs/nimrod/generated/nimrod1_meshes.asset
 Mesh	ours:nimrod	wing_upper_L	64704	1002 verts, 1355 tris	assets/blueprinter/mods/heritage_pairs/nimrod/generated/nimrod1_meshes.asset
 Mesh	ours:nimrod	wing_upper_L_col	20572	1002 verts, 1355 tris	assets/blueprinter/mods/heritage_pairs/nimrod/generated/nimrod1_meshes.asset
-Mesh	ours:nimrod	wing_upper_L_struct	32820	500 verts, 392 tris	assets/blueprinter/mods/heritage_pairs/nimrod/generated/nimrod1_meshes.asset
+Mesh	ours:nimrod	wing_upper_L_seam1913_L	4864	111 verts, 148 tris	assets/blueprinter/mods/heritage_pairs/nimrod/generated/nimrod1_meshes.asset
+Mesh	ours:nimrod	wing_upper_L_struct	32868	500 verts, 392 tris	assets/blueprinter/mods/heritage_pairs/nimrod/generated/nimrod1_meshes.asset
 Mesh	ours:nimrod	wing_upper_R	64704	1002 verts, 1355 tris	assets/blueprinter/mods/heritage_pairs/nimrod/generated/nimrod1_meshes.asset
 Mesh	ours:nimrod	wing_upper_R_col	20572	1002 verts, 1355 tris	assets/blueprinter/mods/heritage_pairs/nimrod/generated/nimrod1_meshes.asset
-Mesh	ours:nimrod	wing_upper_R_struct	32820	500 verts, 392 tris	assets/blueprinter/mods/heritage_pairs/nimrod/generated/nimrod1_meshes.asset
+Mesh	ours:nimrod	wing_upper_R_seam1913_R	4864	111 verts, 148 tris	assets/blueprinter/mods/heritage_pairs/nimrod/generated/nimrod1_meshes.asset
+Mesh	ours:nimrod	wing_upper_R_struct	32868	500 verts, 392 tris	assets/blueprinter/mods/heritage_pairs/nimrod/generated/nimrod1_meshes.asset
 MonoScript	script-ref	AeroPart	72	Assembly-CSharp.dll:.AeroPart	
 MonoScript	script-ref	Airbrake	72	Assembly-CSharp.dll:.Airbrake	
 MonoScript	script-ref	Aircraft	72	Assembly-CSharp.dll:.Aircraft	

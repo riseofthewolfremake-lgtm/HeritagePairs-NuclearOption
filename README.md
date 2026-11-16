@@ -24,7 +24,7 @@ the 75 mm cannon, the Vickers guns, the 20 lb bomb and the twin 20 mm turret, wh
 
 ## Requirements
 
-- Nuclear Option 0.34.6. This release was built against game 0.34.6; 1.9.12 was tried in the game on 0.34.6. The manifest inside the pack, which the
+- Nuclear Option 0.34.6. This release was built against game 0.34.6; 1.9.12 and the 1.9.13 test builds were tried in the game on 0.34.6. The manifest inside the pack, which the
   Blueprinter editor project writes, says 0.34.3 (the game version that project was set up with); Blueprinter compares only the
   first two numbers, so it raises no warning on 0.34.6.
 - [BepInEx 5](https://github.com/BepInEx/BepInEx) (5.4.x, Windows x64; tested with 5.4.23.5)
@@ -74,6 +74,25 @@ same lobby: the aircraft and weapons exist for everyone who has the mod.
 - 1.9.12 air brakes: tried in the game on all six aircraft (on below 5 %, off from 5 %, panels, braking in flight, a GA-25X
   landing roll, FD-32 and Nimrod Mk I idling on a moving carrier, which hold their place). Not tried: landings of the B-17G
   and MSB-17 with the brake. Holding the throttle exactly at 5 % makes the brake open and close about once a second.
+- 1.9.13 upper wing of the FD-32 and Nimrod Mk I: the wing joints are solved 100 times per physics step (was 6), and the
+  joints have a dark seam backing (dark cut ends and a hidden dark band under the skin) so a small opening in a hard pull
+  shows dark. The in-game figures so far come from test builds with the setting changed during flight: on 1.9.12 an 8.3 g
+  pull bent the FD-32's right upper panel 2.21 degrees with a 99 mm step; 20 solves 0.41 degrees / 18 mm; 60 solves under
+  about 0.04 degrees / 1.2 mm, with a thin light hairline still showing in the green "BDF Temperate Camo" livery; 100 solves
+  0.00 degrees / 0 mm. The Mk I went from 0.5-0.7 degrees to under 0.05 at 20; on the final download (100) it reads 0.0019 degrees or less at 6.5 g. Frame
+  time showed no measurable cost with one aircraft; a mission with many FD-32s or Mk Is has not been measured. Tried in the game on the final download (pack sha256 db92912e41ed...,
+  one aircraft): 100 solves read on the wing parts of both aircraft; FD-32 full pull at 8.07-8.10 g in BDF Temperate Camo and
+  BDF Navy Hex: right upper panel 0.0072 degrees / 0.24 mm, closed seam in the chase pictures; Mk I at 6.5 g 0.0019 degrees
+  or less; a panel shot off at 122 m/s takes its aileron along and leaves a grey end face with no dark strip; take-off FD-32
+  5.3 s / 65 m, Mk I 6.2 s / 88 m. The previous candidate with the same wing joints added straight taxi and no frame-time
+  cost (4.07 vs 4.06 ms); its two scripted landings did not reach the runway (our approach script), so landings and
+  carrier traps were not re-tested; nor were a Mk I panel shot off, PALA liveries at the joint or a mission with many
+  FD-32s or Mk Is. The fix applies to
+  an aircraft simulated in full detail (your own aircraft, and computer-flown aircraft on the host).
+- FD-32 / Mk I wing seam: offline pictures with the joint opened or stepped 1.2 mm or 5 mm show a dark line, without the
+  light specks of the earlier test build, where 1.9.12 showed a light one. If an outer upper panel is shot off, the outer half
+  of the dark seam band goes with it; the centre section keeps its short spar stubs at the broken end (as in 1.9.12), now dark
+  instead of light grey. In the game on the final download the broken end showed a grey ribbed face with no dark strip.
 - MSB-17: a thin bright line can show on the right upper wing near the inner engine, at the joint of two wing parts (already
   in 1.9.11).
 - Computer-flown aircraft change the throttle between about 1 % and 50 % while taxiing, so their air-brake panels are
@@ -120,7 +139,7 @@ You need your own copy of the game; no game file is in this repository.
    the supported build. The `B25H.Instruments.csproj` beside the source is a convenience for IDEs; it has not been built with
    a .NET SDK and is not expected to give the same bytes.
    The build is deterministic: the same source, compiler and reference DLLs give the same DLL bytes. The released
-   `B25H.Instruments.dll` 1.9.12 has sha256 `719b554457f861dcf8c28d902500a58584b5bc74b41e89d5f69b355273647c29` and was built with:
+   `B25H.Instruments.dll` 1.9.13 has sha256 `918a36cebccd00cf51a242738ceac8f3977c08a9acadce9ff759bfcac4c2bbb9` and was built with:
    - Nuclear Option 0.34.6, Steam build id 26327221 (`Assembly-CSharp.dll` sha256 `babdd626bbab...813c2bce`);
    - BepInEx 5.4.23.5 (`BepInEx.dll` sha256 `8255b2890288...ef14ce70`, `0Harmony.dll` sha256 `1a21cc03424f...285c1031`);
    - Unity 2022.3.62f2: its Roslyn `csc.dll` 4.3.1-3.22526.13 (41a5af9d), run by its bundled .NET runtime 6.0.21.
