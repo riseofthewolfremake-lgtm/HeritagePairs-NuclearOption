@@ -124,6 +124,18 @@
                 }
                 L($"1.9.12 formation lights: {nStrips} slimelight strips (NavLights Auto, litMaterial slimelight_on)");
             }
+            if (GearLight1914.Enabled)
+            {   // 1.9.14: gear light = a modelled lamp clamped to each main strut (tail-wheel aircraft: aimed 5 deg down at the ground attitude)
+                float gp = GearLight1914.GroundPitch(root.transform, new[] { gears[0], gears[1] }, gears[2]);
+                foreach (var (mg, sd) in new[] { (gears[0], "L"), (gears[1], "R") })
+                {
+                    var b = GearLight1914.Make(DNS, mg, Find("gear_main_" + sd), root.transform, "main_" + sd, gp, GearLight1914.StrutMaterial(Find("gear_main_" + sd), mats["metal_dark"]), mats["navlight"], generatedMeshes, 0.045f, 0.30f);
+                    var e1 = NewElem(nl, "navLights"); var e2 = NewElem(nl, "navLights");
+                    GearLight1914.Entries(e1, e2, b, (UnitPart)G(mg, "attachedPart"), mg, DNS);
+                    entries.Add(e1); entries.Add(e2);
+                    L($"gear light: lamp {b.lamp.name} on {b.lamp.transform.parent.name}, lens at {b.lensCentre.ToString("F3")}, ground pitch {gp:F1}, aim {b.pitchDown:F1} deg down, housing {b.lamp.GetComponent<MeshRenderer>().sharedMaterial.name}, tyre gap {GearLight1914.TyreGap(b, mg, root.transform):F3} m");
+                }
+            }
             SetSeq(nl, "navLights", entries);
             S(nl, "aircraft", aircraft);
 

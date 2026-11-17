@@ -1,6 +1,6 @@
 {
  "meta": {
-  "generated": "2026-11-08T06:57:14",
+  "generated": "2026-11-17T23:08:00",
   "model": "assets/model_ga25x/ga25x.fbx",
   "extras_fbx": "assets/model_ga25x/ga25x_propdisc.fbx",
   "coords": "Unity: x right, y up, z forward (nose); metres; relative to GA25X_root (CG, FBX origin, gear down)",

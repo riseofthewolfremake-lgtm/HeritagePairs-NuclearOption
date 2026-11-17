@@ -30,7 +30,7 @@ INCLUDE = ['README.md', 'LICENSE', 'LICENSE-ASSETS', 'CREDITS.md', 'CHANGELOG.md
            'assets/*',
            'tools/build_instruments.sh', 'tools/make_release_zip.py', 'tools/pack_asset_report.py', 'tools/pack_strings199.py', 'tools/atlas_pack_check1816.py',
            'tools/nomnom_schema_check.py', 'tools/make_public_tree.py', 'tools/paint_out_marks1910.py', 'tools/pack_texture_diff1910.py',
-           'docs/publishing/HeritagePairs.json', 'docs/publishing/pack_asset_report_1.9.13.txt',      # the current release's report only
+           'docs/publishing/HeritagePairs.json', 'docs/publishing/pack_asset_report_1.9.14.txt',      # the current release's report only
            'docs/publishing/RELEASE_NOTES_*.md', 'docs/publishing/HOW_TO_RELEASE.md']
 EXCLUDE = ['*/__pycache__/*', '*.pyc', '*.blend1',
            'blender/*/study/*',                      # study scripts that read the user's game export

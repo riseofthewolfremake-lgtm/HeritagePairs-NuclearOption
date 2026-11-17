@@ -74,15 +74,15 @@
   },
   "no floating cabin part: every mesh island touches or overlaps another part (<= 3 mm)": {
    "ok": true,
-   "detail": "{\"islands\": 6694, \"floating\": []}"
+   "detail": "{\"islands\": 7379, \"floating\": []}"
   },
   "panel art: >= 0.6 m2 of labelled switch-panel / bezel / annunciator / console art and >= 9 different art panels in the cabin": {
    "ok": true,
-   "detail": "{\"labelled_m2\": 0.645, \"panels\": {\"placard_danger\": 0.0031, \"placard_canopy\": 0.0036, \"placard_nostep\": 0.0013, \"pedestal_gate\": 0.0507, \"pedestal_radio\": 0.045, \"console_left\": 0.0556, \"breakers\": 0.1112, \"subpanel\": 0.1168, \"placard_glimit\": 0.0005, \"console_right\": 0.0556, \"placard_fuel\": 0.0018, \"blank\": 0.6635, \"mfd_bezel\": 0.1584, \"annunciator\": 0.0388, \"placard_data\": 0.002}}"
+   "detail": "{\"labelled_m2\": 0.642, \"panels\": {\"placard_danger\": 0.0031, \"placard_canopy\": 0.0036, \"placard_nostep\": 0.0013, \"pedestal_gate\": 0.0507, \"pedestal_radio\": 0.045, \"console_left\": 0.057, \"breakers\": 0.1112, \"subpanel\": 0.1084, \"placard_glimit\": 0.0005, \"console_right\": 0.0601, \"placard_fuel\": 0.0018, \"blank\": 0.6635, \"mfd_bezel\": 0.1584, \"annunciator\": 0.038, \"placard_data\": 0.002}}"
   },
   "z-fight: no coplanar overlapping faces in the cabin (other part / island, same-facing, < 1 mm apart, >= 0.25 cm2)": {
    "ok": true,
-   "detail": "{\"pairs\": 0, \"below_threshold\": 132, \"worst\": []}"
+   "detail": "{\"pairs\": 0, \"below_threshold\": 382, \"worst\": []}"
   },
   "laser envelope (el -2..-90, gear down, doors closed): only the extended gear and prop blades in the beam path (Turret linecast holds fire; gear up = clear)": {
    "ok": true,

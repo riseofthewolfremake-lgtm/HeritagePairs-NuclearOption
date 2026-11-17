@@ -2398,6 +2398,18 @@ namespace B25HTools
                 }
                 L($"1.9.12 formation lights: {nStrips} slimelight strips (NavLights Auto, litMaterial slimelight_on)");
             }
+            if (GearLight1914.Enabled)
+            {   // 1.9.14: gear light = a modelled lamp clamped to each main strut (tail-wheel aircraft: aimed 5 deg down at the ground attitude)
+                float gp = GearLight1914.GroundPitch(root.transform, new[] { gears[0], gears[1] }, gears[2]);
+                foreach (var (mg, sd) in new[] { (gears[0], "L"), (gears[1], "R") })
+                {
+                    var b = GearLight1914.Make(DNS, mg, Find("gear_main_" + sd), root.transform, "main_" + sd, gp, GearLight1914.StrutMaterial(Find("gear_main_" + sd), mats["metal_dark"]), mats["navlight"], generatedMeshes, 0.045f, 0.30f);
+                    var e1 = NewElem(nl, "navLights"); var e2 = NewElem(nl, "navLights");
+                    GearLight1914.Entries(e1, e2, b, (UnitPart)G(mg, "attachedPart"), mg, DNS);
+                    entries.Add(e1); entries.Add(e2);
+                    L($"gear light: lamp {b.lamp.name} on {b.lamp.transform.parent.name}, lens at {b.lensCentre.ToString("F3")}, ground pitch {gp:F1}, aim {b.pitchDown:F1} deg down, housing {b.lamp.GetComponent<MeshRenderer>().sharedMaterial.name}, tyre gap {GearLight1914.TyreGap(b, mg, root.transform):F3} m");
+                }
+            }
             SetSeq(nl, "navLights", entries);
             S(nl, "aircraft", aircraft);
 
@@ -3479,6 +3491,7 @@ namespace B25HTools
                             zBad.Count == 0, string.Join("; ", zDet) + (zBad.Count == 0 ? "" : " | WRONG: " + string.Join("; ", zBad)));
                     }
                     {   // 1.9.12 formation lights (the GA-25X row): FormationLightCount strips on the stock NavLights
+                        { bool glOk = GearLight1914.Check(inst, GearLight1914.Enabled ? 2 : 0, out var glMsg); R("1.9.14 gear lights: the stock CI-22 gear light (spot + glow, lights_runway) on each main leg, NavLights Never (on with the gear)", glOk, glMsg); }
                         var zNl = inst.GetComponent<NavLights>(); var zEnt = ((IEnumerable)G(zNl, "navLights")).Cast<object>().ToList();
                         var zStrips = zEnt.Where(ze => { var zr2 = (Renderer)G(ze, "renderer"); return zr2 != null && zr2.name.StartsWith("slimelight_"); }).ToList();
                         var zLivAll = new HashSet<Renderer>(allParts.SelectMany(ap => ((IList)G(G(ap, "damageMaterial"), "renderers")).Cast<Renderer>()));
@@ -3490,7 +3503,7 @@ namespace B25HTools
                               && zStrips.All(ze => { var zr = (Renderer)G(ze, "renderer"); return AssetDatabase.GetAssetPath((Material)G(ze, "litMaterial")).Contains("slimelight_on") && G(ze, "controlState").ToString() == "Auto"
                                   && zr.sharedMaterials.Length == 1 && zr.sharedMaterials.All(zm => AssetDatabase.GetAssetPath(zm).Contains("light_green_off")) && !zLivAll.Contains(zr) && G(ze, "gear") == null
                                   && ((GameObject[])G(ze, "objects")).Length == 0 && zr.GetComponents<Component>().Length == 3 && zr.GetComponentInChildren<Collider>(true) == null; })
-                              && zEnt.Count == FormationLightCount + 2;
+                              && zEnt.Count(ze => !(G(ze, "renderer") is Renderer zr3 && zr3.name.StartsWith(GearLight1914.Prefix))) == FormationLightCount + 2;   // 1.9.14: the gear lights are checked on their own
                         R(FormationLights1912 ? $"1.9.12 formation lights: {FormationLightCount} slimelight strips (forward fuselage, waist, fin, wing tips; both sides) on the stock NavLights, Auto, litMaterial slimelight_on, unlit light_green_off, part = the part they sit on, plain renderers, none in a livery list; {FormationLightCount + 2} entries with the two tip lights"
                                                 : "1.9.12 formation lights: flag off, no strip in NavLights",
                             zOk, $"{zEnt.Count} entries; " + string.Join(", ", zGot.Select(kv => kv.Key + "@" + kv.Value)));

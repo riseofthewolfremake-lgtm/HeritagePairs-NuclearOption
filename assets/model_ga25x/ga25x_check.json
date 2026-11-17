@@ -1,6 +1,11 @@
 {
  "checks": [
   {
+   "name": "1.8.16 livery atlas == texture manifest (skin / liveries / damage painted on this atlas; re-bake the textures when it fails)",
+   "ok": true,
+   "detail": "atlas 0f681742dc5b46ed == manifest (62 paint parts, 11 textures) ga25x_atlas_manifest.json"
+  },
+  {
    "name": "required object names present",
    "ok": true,
    "detail": "134 names"
@@ -168,7 +173,7 @@
   {
    "name": "triangle budget (<= 180k incl. interiors)",
    "ok": true,
-   "detail": "96763"
+   "detail": "98069"
   },
   {
    "name": "livery UVs non-overlapping (raster 2048, <0.3% overlap px)",
@@ -189,9 +194,24 @@
    "name": "exterior normals: first hit from outside is front-facing (6000 rays)",
    "ok": true,
    "detail": "1 back-face hits of 2011: {'wing_inner_L:paint': 1}"
+  },
+  {
+   "name": "1.8.14 roof skin round the dorsal opening: no open edge except the opening itself (welded fus_* paint, r <= 0.90 m, roof)",
+   "ok": false,
+   "detail": "opening 0 edges (all r < 0.62, under the trim ring), other open edges 0 [], odd-degree opening vertices 0"
+  },
+  {
+   "name": "1.8.14 torn fuselage seams: dark lap strip <= 2.5 mm under every two-sided seam edge, no structure face within 2.5 mm of the outer skin",
+   "ok": false,
+   "detail": "668 samples on 224 seam edges ({'4.55': {'seam_edges': 28, 'samples': 82}, '2.62': {'seam_edges': 46, 'samples': 136}, '1.3': {'seam_edges': 50, 'samples': 150}, '-1.8': {'seam_edges': 50, 'samples': 150}, '-6.1': {'seam_edges': 50, 'samples': 150}}); structure near the skin 668 [(4.55, (-0.139, 4.571, -0.85), 0.01), (4.55, (-0.07, 4.532, -0.85), 0.01), (4.55, (0.0, 4.494, -0.85), 0.01)]; no lap 668 [(4.55, (-0.139, 4.571, -0.85), 9000), (4.55, (-0.07, 4.532, -0.85), 9000), (4.55, (0.0, 4.494, -0.85), 9000)]"
+  },
+  {
+   "name": "1.8.14 lap strips stay under the skin: every lap vertex 0.4-3.5 mm below the outer skin along its normal",
+   "ok": false,
+   "detail": "0 lap vertices, 0 not under the skin []"
   }
  ],
- "fail": 0,
+ "fail": 3,
  "bbox_unity_size": [
   20.6,
   4.979,
@@ -909,12 +929,12 @@
    -0.1206
   ]
  },
- "tris_total": 96763,
+ "tris_total": 98069,
  "tris_by_group": {
   "wings+controls": 8230,
   "gear+doors": 5932,
   "armament+glazing": 4584,
-  "cockpit": 21813,
+  "cockpit": 23119,
   "tail": 2800,
   "engines+cowl flaps+exhaust": 5954,
   "fuselage": 34610,
@@ -941,5 +961,401 @@
  "exterior_ray_hits": 2011,
  "exterior_backface_hits": {
   "wing_inner_L:paint": 1
+ },
+ "roof_dorsal_boundary_1814": {
+  "opening_edges": 0,
+  "other_edges": [],
+  "odd_vertices": 0
+ },
+ "seams_1814": {
+  "per_seam": {
+   "4.55": {
+    "seam_edges": 28,
+    "samples": 82
+   },
+   "2.62": {
+    "seam_edges": 46,
+    "samples": 136
+   },
+   "1.3": {
+    "seam_edges": 50,
+    "samples": 150
+   },
+   "-1.8": {
+    "seam_edges": 50,
+    "samples": 150
+   },
+   "-6.1": {
+    "seam_edges": 50,
+    "samples": 150
+   }
+  },
+  "samples": 668,
+  "structure_near_skin": [
+   [
+    4.55,
+    [
+     -0.139,
+     4.571,
+     -0.85
+    ],
+    0.01
+   ],
+   [
+    4.55,
+    [
+     -0.07,
+     4.532,
+     -0.85
+    ],
+    0.01
+   ],
+   [
+    4.55,
+    [
+     0.0,
+     4.494,
+     -0.85
+    ],
+    0.01
+   ],
+   [
+    4.55,
+    [
+     -0.278,
+     4.504,
+     -0.85
+    ],
+    0.04
+   ],
+   [
+    4.55,
+    [
+     -0.209,
+     4.538,
+     -0.85
+    ],
+    0.02
+   ],
+   [
+    4.55,
+    [
+     -0.139,
+     4.571,
+     -0.85
+    ],
+    0.01
+   ],
+   [
+    4.55,
+    [
+     -0.418,
+     4.576,
+     -0.85
+    ],
+    0.04
+   ],
+   [
+    4.55,
+    [
+     -0.348,
+     4.54,
+     -0.85
+    ],
+    0.0
+   ],
+   [
+    4.55,
+    [
+     -0.278,
+     4.504,
+     -0.85
+    ],
+    0.04
+   ],
+   [
+    4.55,
+    [
+     -0.511,
+     4.576,
+     -0.835
+    ],
+    0.04
+   ],
+   [
+    4.55,
+    [
+     -0.464,
+     4.576,
+     -0.843
+    ],
+    0.04
+   ],
+   [
+    4.55,
+    [
+     -0.418,
+     4.576,
+     -0.85
+    ],
+    0.04
+   ],
+   [
+    4.55,
+    [
+     -0.595,
+     4.529,
+     -0.792
+    ],
+    0.01
+   ],
+   [
+    4.55,
+    [
+     -0.553,
+     4.553,
+     -0.814
+    ],
+    0.0
+   ],
+   [
+    4.55,
+    [
+     -0.511,
+     4.576,
+     -0.835
+    ],
+    0.04
+   ],
+   [
+    4.55,
+    [
+     -0.662,
+     4.608,
+     -0.725
+    ],
+    0.01
+   ],
+   [
+    4.55,
+    [
+     -0.629,
+     4.568,
+     -0.759
+    ],
+    0.0
+   ],
+   [
+    4.55,
+    [
+     -0.595,
+     4.529,
+     -0.792
+    ],
+    0.01
+   ],
+   [
+    4.55,
+    [
+     -0.705,
+     4.608,
+     -0.641
+    ],
+    0.03
+   ],
+   [
+    4.55,
+    [
+     -0.684,
+     4.608,
+     -0.683
+    ],
+    0.01
+   ]
+  ],
+  "no_lap": [
+   [
+    4.55,
+    [
+     -0.139,
+     4.571,
+     -0.85
+    ],
+    9000
+   ],
+   [
+    4.55,
+    [
+     -0.07,
+     4.532,
+     -0.85
+    ],
+    9000
+   ],
+   [
+    4.55,
+    [
+     0.0,
+     4.494,
+     -0.85
+    ],
+    9000
+   ],
+   [
+    4.55,
+    [
+     -0.278,
+     4.504,
+     -0.85
+    ],
+    9000
+   ],
+   [
+    4.55,
+    [
+     -0.209,
+     4.538,
+     -0.85
+    ],
+    9000
+   ],
+   [
+    4.55,
+    [
+     -0.139,
+     4.571,
+     -0.85
+    ],
+    9000
+   ],
+   [
+    4.55,
+    [
+     -0.418,
+     4.576,
+     -0.85
+    ],
+    9000
+   ],
+   [
+    4.55,
+    [
+     -0.348,
+     4.54,
+     -0.85
+    ],
+    9000
+   ],
+   [
+    4.55,
+    [
+     -0.278,
+     4.504,
+     -0.85
+    ],
+    9000
+   ],
+   [
+    4.55,
+    [
+     -0.511,
+     4.576,
+     -0.835
+    ],
+    9000
+   ],
+   [
+    4.55,
+    [
+     -0.464,
+     4.576,
+     -0.843
+    ],
+    9000
+   ],
+   [
+    4.55,
+    [
+     -0.418,
+     4.576,
+     -0.85
+    ],
+    9000
+   ],
+   [
+    4.55,
+    [
+     -0.595,
+     4.529,
+     -0.792
+    ],
+    9000
+   ],
+   [
+    4.55,
+    [
+     -0.553,
+     4.553,
+     -0.814
+    ],
+    9000
+   ],
+   [
+    4.55,
+    [
+     -0.511,
+     4.576,
+     -0.835
+    ],
+    9000
+   ],
+   [
+    4.55,
+    [
+     -0.662,
+     4.608,
+     -0.725
+    ],
+    9000
+   ],
+   [
+    4.55,
+    [
+     -0.629,
+     4.568,
+     -0.759
+    ],
+    9000
+   ],
+   [
+    4.55,
+    [
+     -0.595,
+     4.529,
+     -0.792
+    ],
+    9000
+   ],
+   [
+    4.55,
+    [
+     -0.705,
+     4.608,
+     -0.641
+    ],
+    9000
+   ],
+   [
+    4.55,
+    [
+     -0.684,
+     4.608,
+     -0.683
+    ],
+    9000
+   ]
+  ],
+  "lap_vertices": 0,
+  "lap_not_under_skin": []
  }
 }

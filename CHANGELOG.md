@@ -2,6 +2,31 @@
 
 Heritage Pairs, newest first. Versions before 1.9.10 were private test builds and were never released.
 
+## 1.9.14
+
+- GA-25X propellers: when the propellers switched to their blur disc, pieces of the blade tips stayed visible and kept
+  spinning (reported by players). The grey metal band near each blade tip was a separate part, and the game hides only the
+  blade itself when the blur disc shows; the band is now part of the blade and hides with it. Tried in the game: with the
+  propellers spinning, all twelve blades and their tip bands are hidden. Also changed: the blur disc no longer has a yellow
+  band at the tip radius (a leftover from the B-25H's yellow-tipped propeller; the GA-25X blades have no yellow).
+- GA-25X cockpit art (reported by players with pictures): the painted panels and the modelled switches and knobs did not
+  line up. Every modelled switch, knob, guard and button on both side consoles, the radio panel, the HUD panel and the plates
+  beside the main panel now sits on its painted counterpart (measured within 2 mm on the model). The painted levers under
+  modelled toggle switches were removed from the art, so each switch shows one lever; doubled labels were removed; the radio
+  is relabelled (FREQ, VOL, SQL, PWR, TEST, T/R+G); the LIGHTS plate, which was hidden behind the side console, was moved up
+  so all three plates by the main panel read whole; the caution boxes on the glare shield show whole MASTER CAUTION and
+  FIRE R lamps; the placards on the rear bulkhead now face the crew. Controls that were painted only (ignition, de-ice,
+  battery, flaps, engine start, the keypad) are now modelled. The liveries are not affected: the cockpit art is a separate
+  texture, and only the cockpit mesh of the GA-25X changed.
+- Cockpit lamps glow (player suggestion): on the GA-25X the painted warning lamps (MASTER CAUTION, GEAR) and the green
+  frequency and counter digits now give off a little light; placards and labels do not.
+- Gear lights on the GA-25X (nose leg), FD-32 and MSB-17 (both main legs) (player suggestion), using the game's own gear
+  light from the CI-22: a small lamp housing with a lens on the front of the leg, a lens glow and a spot light that is on
+  while the gear is down. The light does not shine on the aircraft itself. The FD-32 and MSB-17 sit nose-up on their tail
+  wheel, so their lights are aimed down to light the ground ahead rather than the sky.
+- Nothing else changed: flight models, masses, weapons, liveries and the plugin's behaviour are those of 1.9.13. The B-25H,
+  Nimrod Mk I and B-17G are identical to 1.9.13.
+
 ## 1.9.13
 
 - FD-32 and Nimrod Mk I: the outer panels of the upper wing kinked at the joint with the centre section when the aircraft

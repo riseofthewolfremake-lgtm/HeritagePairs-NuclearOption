@@ -634,7 +634,7 @@ namespace B25HTools
             Engine();
             Weapons();
             Cockpit();
-            RootSystems();
+            RootSystems(gears);
             FlyByWire(gears[0]);
 
             if (SeamCove1913) ApplySeamCove1913();   // 1.9.13 final: last, so the bands are the last children of wing_upper_C / L / R (no sibling index moves)
@@ -1452,7 +1452,7 @@ namespace B25HTools
         }
 
         // ------------------------------------------------------------------ root systems
-        static void RootSystems()
+        static void RootSystems(List<LandingGear> gears)
         {
             var coin = tpl["COIN"];
             var ball = Find("sensor_ball"); var mount = Find("sensor_mount");
@@ -1518,6 +1518,18 @@ namespace B25HTools
                 entries.Add(e);
             }
             L($"gear lights: {contract["lights"]["gear"].Count()} slimelight strips (NavLights Auto, slimelight_on)");
+            if (GearLight1914.Enabled)
+            {   // 1.9.14: gear light = a modelled lamp clamped to each main strut (tail-wheel aircraft: aimed 5 deg down at the ground attitude)
+                float gp = GearLight1914.GroundPitch(root.transform, new[] { gears[0], gears[1] }, gears[2]);
+                foreach (var (mg, sd) in new[] { (gears[0], "L"), (gears[1], "R") })
+                {
+                    var b = GearLight1914.Make(DNS, mg, Find($"gear_main_{sd}_strut"), root.transform, "main_" + sd, gp, mats["metal_dark"], mats["navlight"], generatedMeshes);
+                    var e1 = NewElem(nl, "navLights"); var e2 = NewElem(nl, "navLights");
+                    GearLight1914.Entries(e1, e2, b, (UnitPart)G(mg, "attachedPart"), mg, DNS);
+                    entries.Add(e1); entries.Add(e2);
+                    L($"gear light: lamp {b.lamp.name} on {b.lamp.transform.parent.name}, lens at {b.lensCentre.ToString("F3")}, ground pitch {gp:F1}, aim {b.pitchDown:F1} deg down");
+                }
+            }
             SetSeq(nl, "navLights", entries);
             S(nl, "aircraft", aircraft);
             if (KeepFlareEjector)
@@ -1894,6 +1906,7 @@ namespace B25HTools
                 var strips = nlc != null ? ((IEnumerable)G(nlc, "navLights")).Cast<object>().Where(e => G(e, "renderer") is Renderer rr && rr.name.StartsWith("slimelight_")).ToList() : new List<object>();
                 R("1.8.0 gear-down lights: 9 green strips (2 under the cockpit + rear fuselage sides, spine, upper wing tips, fin sides; stock light_green_off, slimelight_on while the gear is down; GA-25X pattern)", strips.Count == 9 && strips.All(e => AssetDatabase.GetAssetPath((Material)G(e, "litMaterial")).Contains("slimelight_on")
                     && ((Renderer)G(e, "renderer")).sharedMaterials.All(m => AssetDatabase.GetAssetPath(m).Contains("light_green_off"))), $"{strips.Count} strips");
+                { bool glOk = GearLight1914.Check(inst, GearLight1914.Enabled ? 2 : 0, out var glMsg); R("1.9.14 gear lights: the stock CI-22 gear light (spot + glow, lights_runway) on each main leg, NavLights Never (on with the gear)", glOk, glMsg); }
                 R("weapons arm with the gear up: stock pylon mounts keep GearSafety (as on every stock aircraft), the gear can retract", inner != null && inner.weaponOptions.Where(o => o != null).All(o => o.GearSafety) && lgs.Where(g => !IsTailW(g)).All(g => Mathf.Abs((float)G(g, "foldDegrees")) >= 20f), "");
                 R("crash impact damage (Mk I 1.4.1): every airframe part has its own impactDamage (1.9.11: the rudder's is switched off)", !CrashImpactDamage || parts.Where(kv => kv.Key != "prop" && !(LiftSpawnFix1911 && kv.Key == "rudder")).All(kv => { var dd = G(kv.Value, "impactDamage"); return dd != null && (float)G(dd, "threshold") > 0f && (float)G(dd, "multiplier") > 0f; }) && parts.Where(kv => kv.Key != "prop").Select(kv => G(kv.Value, "impactDamage")).Distinct().Count() == parts.Count - 1, "");
                 // mass, CoM, wing geometry

@@ -117,6 +117,9 @@ namespace B25HTools
                 var mf = r.GetComponent<MeshFilter>();
                 if (mf == null || mf.sharedMesh == null) continue;
                 if (r.gameObject.layer == 3) continue;     // cockpit-layer copies (*_int) keep the approved cockpit look
+                // 1.9.14: never split a prop blade. ConstantSpeedProp hides only the blade's own renderer when the blur disc shows;
+                // a split-off child (GA-25X nickel tip sheath, 'structure' faces at r 1.80-1.86 m) kept spinning visibly over the disc.
+                if (r.gameObject.name.Contains("_blade")) { res.log.Add($"{r.gameObject.name}: prop blade, not split"); continue; }
                 var mats = r.sharedMaterials;
                 var idx = Enumerable.Range(0, mats.Length).Where(i => mats[i] != null && internals.ContainsKey(mats[i]) && i < mf.sharedMesh.subMeshCount).ToList();
                 if (idx.Count == 0) continue;

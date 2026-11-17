@@ -103,6 +103,151 @@ def leg_points(key, side):
     return out
 
 
+# 1.9.14: painted knobs / toggles on subpanel_strip.png, measured on the art (u right, v up, knob radius in strip heights).
+# In game 1.9.13 the modelled ones sat beside the painted ones (user report: "textures don't match the model").
+SUB_KNOBS = [(0.094, 0.473, 0.132),      # HUD MODE (round 7: was 0.490 / 0.140, see SUB_KNOB_LOW)
+             (0.1817, 0.305, 0.078),     # HUD BRT (round 7: was 0.180 / 0.335 / 0.090, 30 px above the painted knob)
+             (0.276, 0.667, 0.070),      # MFD BRT upper
+             (0.276, 0.335, 0.070),      # MFD BRT lower
+             (0.359, 0.505, 0.077)]      # ALT baro
+# 1.9.14 round 7 (in-game review: the HUD MODE knob hid the inner ends of its OFF / NAV / A-A / A-G ticks and crowded "A-G").
+# Measured on subpanel_strip.png: the five tick marks lie on a circle centred (389, 551) px, r 157-181 px; the painted knob dome
+# + white pointer bar reach 132 px from (389, 540). The round-6 knob (centre (388, 522), r 143 px, 9 mm proud) touched the tick
+# ends even head-on. Now centred on the dome, r 135 px (pointer bar covered, 13 px clear of the ticks), a low tapered disc.
+# HUD BRT: the painted knurled knob is centred (750, 712) px, r ~80 px, inside its white OFF-BRT arc (circle fit (753, 706),
+# r 98-132 px); the round-6 knob sat at (743, 681) r 92 px, 9 mm proud, over the arc's top: the check measured 23-52 % of the
+# arc's text pixels hidden from the eye that uses each copy. Now on the painted knob, r 80 px, low.
+# index -> (height on the main strip, height on the outboard column crop, top radius ratio, pointer stub height)
+SUB_KNOB_LOW = {0: (0.004, 0.003, 0.80, 0.001), 1: (0.004, 0.003, 0.80, 0.001)}
+SUB_TOGGLES = [(0.5189, 0.4961), (0.5870, 0.4971), (0.6839, 0.4971)]   # LDG LT, TAXI LT, STBY INST (nut centre, round 6: measured by paint_out_levers1914.py)
+
+# 1.9.14 round 4: painted controls on the side-console and radio art, measured on the fal art (console_left.png /
+# console_right.png 2528 x 1696, pedestal.png radio crop (0, 1240, 1696, 2528); u right, v up, 0-1 over the WHOLE panel art).
+# Toggles = centre of the painted bezel ring (the lever pivot), knobs = knob axis, guards = centre of the striped cover,
+# rockers = paddle centre, flap lever = handle centre. Read off zoomed crops with a 4 mm circle drawn on the candidate
+# (study: nuclearoption-ref\study\tex_1914\ga25x_cockpit\r4\verify.py). 1.9.13 / 1.9.14 r3 put the modelled controls on a
+# made-up grid 8-30 mm beside these (user: "textures clearly do not match the underlying model").
+# kind: 'dn' / 'up' toggle with the MODELLED lever pointing down / up the panel (round 6: the painted levers are painted out of
+# the art; before round 6 this was the painted lever's direction), ('guard', (u0, v0, u1, v1)) guarded toggle whose
+# lid carries the painted striped cover (that sub-rect of the art, measured), ('knob', r m),
+# ('cap', du, dv, height m, sunk m): a raised cap the size of the painted one (du x dv of panel u / v, centred on (u, v)) whose
+# top shows that crop of the art (rocker paddles, push-buttons, keypad keys, the flap handle).
+# Round 5 (verifier findings on round 4): the 18 mm toggle levers stood ~23 mm proud and, seen from the near crew eye ~60 deg off
+# the panel normal, lay across the painted ON / OFF labels; the plain black 6 mm rocker paddles hid the ON / STBY / OFF labels and
+# the painted rocker shading; the 16 mm guard lids showed a black cheek and the stripes twice. Now: short low levers, art-topped
+# caps 3-4 mm proud, closed 3.5 mm lids with striped sides. ENG START L / R and the 12 keypad keys (painted only) get caps too.
+_ROCKER = ('cap', 0.0336, 0.1651, 0.0035, 0.001)           # painted paddle 85 x 280 px of 2528 x 1696 (9.2 x 33.6 mm)
+_KEY = ('cap', 0.0566, 0.0784, 0.0030, 0.0015)             # painted key cap 143 x 133 px (15.4 x 16.0 mm)
+_ENG = ('cap', 0.0633, 0.0955, 0.0035, 0.001)              # painted ENG START cap 160 x 162 px (17.3 x 19.5 mm)
+# Round 6b (verifier on round 6): the APU / NAV LT / FORM LT knobs (r 9 / 8 mm, 12 mm proud) hid 26-43 % of their painted
+# OFF-BRT scale arcs from the pilot eye (a point h proud shows 1.2-1.7 h further along art +u). Measured on the raw art
+# (0.108 mm / px): scale arc inner radius APU 82 px (8.9 mm), NAV / FORM 88-92 px (9.5-9.9 mm); painted pointer line of
+# NAV / FORM out to 65 px (7.0 mm); painted knob skirt ~75-80 px. Knobs now low tapered discs: NAV / FORM r 7.5 mm (covers the
+# painted pointer) to 0.76 r at 3 mm proud, pointer stub 1 mm; APU r 7 mm (the painted skirt shows round it as a rim, like
+# CHNL / FREQ) to 0.70 r at 2.5 mm. Kind: ('knob', r, h, top ratio, pointer height).
+_LT_KNOB = ('knob', 0.0075, 0.0030, 0.76, 0.001)
+_APU_KNOB = ('knob', 0.0070, 0.0025, 0.70, 0.001)
+CONSOLE_CTRLS = {
+    'console_left': [('MASTER ARM', ('guard', (0.155, 0.684, 0.199, 0.857)), 0.177, 0.770), ('GEAR', 'dn', 0.5000, 0.7759),
+                     ('FLAPS', ('cap', 0.0366, 0.0785, 0.008, 0.001), 0.8135, 0.720),
+                     ('FUEL PUMP L', 'up', 0.1626, 0.4923), ('FUEL PUMP R', 'up', 0.3311, 0.4923), ('X-FEED', 'up', 0.5000, 0.4923),
+                     ('ANTI-SKID', 'up', 0.6693, 0.4923), ('NWS', 'up', 0.8378, 0.4923),
+                     ('ENG START L', _ENG, 0.1206, 0.1751), ('ENG START R', _ENG, 0.2255, 0.1751),
+                     ('IGN', 'up', 0.3224, 0.1757), ('APU', _APU_KNOB, 0.423, 0.174), ('NAV LT', _LT_KNOB, 0.5645, 0.185),
+                     ('FORM LT', _LT_KNOB, 0.690, 0.190), ('DE-ICE', 'up', 0.8054, 0.1757), ('BATT', 'up', 0.8948, 0.1757)],
+    'console_right': [('LASER ARM', ('guard', (0.1565, 0.2436, 0.230, 0.364)), 0.193, 0.304), ('CHAFF', ('knob', 0.0075), 0.761, 0.795), ('FLARE', ('knob', 0.0075), 0.8845, 0.795),
+                      ('TGP PWR', _ROCKER, 0.585, 0.500), ('RADAR', _ROCKER, 0.6875, 0.500),
+                      ('ECM', _ROCKER, 0.7875, 0.500), ('IFF', _ROCKER, 0.8925, 0.500),
+                      ('RDR MODE', ('knob', 0.0095), 0.590, 0.197), ('CHNL', ('knob', 0.0065, 0.0035), 0.750, 0.197), ('FREQ', ('knob', 0.0065, 0.0035), 0.8825, 0.197)]
+                     + [(f'KEY {k}', _KEY, u, v) for k, (u, v) in zip(('1', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'CLR', 'ENT'),
+                                                                   [(u, v) for v in (0.8753, 0.7686, 0.6630, 0.5569) for u in (0.1675, 0.2403, 0.3129)])],
+}
+# toggle levers (round 5): boss r / height, lever tip height above the art face and its offset along the painted lever direction.
+# The painted levers reach ~10 mm (console) / ~8 mm (radio) from the pivot; a tall lever seen ~60 deg off the panel normal lies
+# across the labels beside it, so the lever is short and low. Radio: the lever stands nearly straight out: seen from either crew
+# eye (44 deg off the normal, from above) its image falls on the painted lever, above the painted lower label.
+# Round 6: the painted levers are painted OUT of the art (blender/ga25x/textures/paint_out_levers1914.py: the art keeps the bezel,
+# the lever is the model only), and the toggle positions are the bezel centres measured there (console_left, radio, sub strip;
+# <= 1.4 mm from the round-4 reading). Console: the pilot eye is aft of the console and ~64 deg off its normal, so a point h above
+# the art shows 1.2-1.7 h further forward (art +u), where the ON / OFF labels start 9.2 mm from the bezel centre: boss r 4.5 mm,
+# 2.5 mm proud (image <= 8.7 mm), lever thrown toward ON (+v, up the panel; GEAR: down, toward DN), tip 4 mm above the art and
+# 6.5 mm along the panel (image of the tip <= 8.6 mm forward, beside the ON label, not on it).
+TG_BOSS = {'console': (0.0045, 0.0025), 'radio': (0.0060, 0.004)}
+TG_TIP = {'console': (0.0040, 0.0065), 'radio': (0.0085, 0.003)}
+# round 7: the COMM big knobs (now the FREQ selectors, label painted under them) 10 -> 7 mm proud: from the eye of their side the
+# 10 mm knob's image clipped the top of the new FREQ label (check: 5-6 % of its text pixels); kind ('knob', r, h)
+RADIO_CTRLS = [('COMM 1', ('knob', 0.0100, 0.007), 0.150, 0.532), ('COMM 2', ('knob', 0.0100, 0.007), 0.850, 0.532),
+               ('VOL 1', ('knob', 0.0072), 0.150, 0.370), ('SQL 1', ('knob', 0.0072), 0.260, 0.370),
+               ('VOL 2', ('knob', 0.0072), 0.740, 0.370), ('SQL 2', ('knob', 0.0072), 0.852, 0.370),
+               ('IFF MODE', ('knob', 0.0110), 0.500, 0.196),
+               ('PWR 1', 'dn', 0.1486, 0.1871), ('TEST 1', 'dn', 0.2606, 0.1871), ('PWR 2', 'dn', 0.7400, 0.1871), ('T/R+G 2', 'dn', 0.8526, 0.1871)]
+# outboard panel columns: plate centres (world z). 1.9.14 r3 stacked them at 0.865 / 0.750 / 0.635: the LIGHTS plate
+# (z 0.598-0.672) sat below the side-console top line seen from the crew eyes (100 % occluded). Round 4 stacks the three
+# whole-panel crops down from z 0.922 (under the glare-shield lip line from the eyes) with 5 mm gaps: LIGHTS bottom 0.696.
+COLUMN_TOP_Z, COLUMN_GAP = 0.922, 0.005
+
+
+def art_cap(m, base, n, up, art, sub, mm_u, mm_v, height, sunk, striped=False):
+    """raised cap over the painted control sub-rect `sub` (u0, v0, u1, v1) of panel art `art`: walls from `sunk` behind the art face
+    to `height` in front, top = that crop of the art. Walls ck_black, or (striped) bands of the crop's own edge (a guard lid whose
+    sides carry on the painted red / black stripes). mm_u / mm_v: metres per art u / v on this panel."""
+    n, up = V(n).normalized(), V(up).normalized()
+    side = up.cross(n).normalized()                     # = art right (n = right x up)
+    u0, v0, u1, v1 = sub
+    w, h = (u1 - u0) * mm_u, (v1 - v0) * mm_v
+    d = height + sunk
+    if not striped:
+        obox_open(m, base + n * ((height - sunk) / 2), side, up, (w, h, d), 'ck_black')
+    else:
+        bu, bv = min(d / mm_u, (u1 - u0) / 3), min(d / mm_v, (v1 - v0) / 3)    # band of the crop as wide as the wall is tall
+        P = lambda a, b, c_: base + side * (a * w / 2) + up * (b * h / 2) + n * (height if c_ > 0 else -sunk)
+        for (q, uv, tw) in (
+                ([P(-1, -1, 1), P(1, -1, 1), P(1, -1, -1), P(-1, -1, -1)], [(u0, v0), (u1, v0), (u1, v0 + bv), (u0, v0 + bv)], -up),
+                ([P(-1, 1, 1), P(1, 1, 1), P(1, 1, -1), P(-1, 1, -1)], [(u0, v1), (u1, v1), (u1, v1 - bv), (u0, v1 - bv)], up),
+                ([P(-1, -1, 1), P(-1, 1, 1), P(-1, 1, -1), P(-1, -1, -1)], [(u0, v0), (u0, v1), (u0 + bu, v1), (u0 + bu, v0)], -side),
+                ([P(1, -1, 1), P(1, 1, 1), P(1, 1, -1), P(1, -1, -1)], [(u1, v0), (u1, v1), (u1 - bu, v1), (u1 - bu, v0)], side)):
+            oriented_quad(m, q, 'ck_art', tw, [LY.uv(art, a, b) for a, b in uv])
+    art_quad(m, base + n * height, side, up, w, h, art, u0, v0, u1, v1)
+
+
+def guard_cover(m, base, n, up, art, sub, mm_u, mm_v):
+    """guarded toggle: boss under a closed lid exactly the size of the painted striped cover, 3.5 mm proud, top = that crop of the
+    art, sides = the crop's edge bands (striped). Round 5: the round-4 lid (16 mm proud on two black cheeks, open ends, 2.5 mm
+    margin) showed a black cheek over half the guard from the near eye and the painted stripes again beside / under it.
+    Closed and footprint = painted cover: the painted stripes are all under it; the painted guard frame round it stays seen."""
+    n = V(n).normalized()
+    cylinder(m, base - n * 0.002, base + n * 0.0015, 0.0055, N=10, mat='ck_black')     # boss (the control the checks find), 2 mm under the lid top
+    art_cap(m, base, n, up, art, sub, mm_u, mm_v, 0.0035, 0.0005, striped=True)
+
+
+def ctrl_toggle(m, base, n, d, tip, boss=None):
+    """console / radio toggle on its painted bezel (round 5 / 6): low boss + short lever whose tip is `tip` = (height above the art
+    face, offset along the lever direction d)."""
+    n, d = V(n).normalized(), V(d).normalized()
+    br, bh = boss or TG_BOSS['radio']
+    cylinder(m, base - n * 0.002, base + n * bh, br, N=10, mat='ck_black')
+    cylinder(m, base + n * (bh - 0.001), base + n * tip[0] + d * tip[1], 0.0022, 0.0018, N=6, mat='ck_struct')
+
+
+def place_ctrl(m, kind, base, n, up, art=None, mm=None, u=None, v=None, tip='console'):
+    """one modelled control at `base` (on the art face) of a panel facing n, art up = up, centred on painted (u, v) (see
+    CONSOLE_CTRLS kinds)."""
+    if kind == 'dn':
+        ctrl_toggle(m, base, n, -V(up), TG_TIP[tip], TG_BOSS[tip])
+    elif kind == 'up':
+        ctrl_toggle(m, base, n, V(up), TG_TIP[tip], TG_BOSS[tip])
+    elif kind[0] == 'guard':
+        guard_cover(m, base, n, up, art, kind[1], *mm)
+    elif kind[0] == 'knob':
+        knob(m, base, n, r=kind[1], h=kind[2] if len(kind) > 2 else 0.012, top=kind[3] if len(kind) > 3 else 0.86,
+             ptr=kind[4] if len(kind) > 4 else 0.002)
+    elif kind[0] == 'cap':
+        du, dv, hgt, sunk = kind[1:]
+        art_cap(m, base, n, up, art, (u - du / 2, v - dv / 2, u + du / 2, v + dv / 2), *mm, hgt, sunk)
+    else:
+        raise ValueError(kind)
+
+
 def basis(ux, uy):
     ux, uy = V(ux).normalized(), V(uy).normalized()
     n = ux.cross(uy).normalized()
@@ -158,10 +303,12 @@ def toggle(m, base, n, up, lever=0.022, guard=False):
         obox(m, base + n * 0.025 - up * 0.002, side, up, (0.024, 0.030, 0.002), 'ck_black')
 
 
-def knob(m, base, n, r=0.009, h=0.012):
+def knob(m, base, n, r=0.009, h=0.012, top=0.86, ptr=0.002):
+    """knob: skirt r at the face tapering to top * r at h proud, centre pointer stub ptr high (defaults = every knob before
+    round 6b; the left-console APU / NAV LT / FORM LT knobs are low, tapered discs, see CONSOLE_CTRLS)."""
     n = V(n).normalized()
-    cylinder(m, base - n * 0.002, base + n * h, r, r * 0.86, N=14, mat='ck_black')
-    cylinder(m, base + n * h, base + n * (h + 0.002), r * 0.3, N=6, mat='ck_struct')
+    cylinder(m, base - n * 0.002, base + n * h, r, r * top, N=14, mat='ck_black')
+    cylinder(m, base + n * h, base + n * (h + ptr), r * 0.3, N=6, mat='ck_struct')
 
 
 def screen_in_bezel(m, c, ux, uy, w, h, face_mb, face_mat='screen', face_uv=None, art='mfd_bezel'):
@@ -332,9 +479,11 @@ def rear_bulkhead(m):
     box(m, (0.17, y + 0.024, (dz0 + dz1) / 2), (0.025, 0.012, 0.16), 'ck_black')
     # placards on the bulkhead (behind the seats, seen when looking back)
     # placards at real size (0.3.2 fix pass: text cap height ~5-8 mm)
-    art_plate(m, V((-0.40, y + 0.020, 0.80)), X_, UP, 0.075, 0.045, 'placard_danger', depth=0.004, proud=0.002)
-    art_plate(m, V((0.40, y + 0.020, 0.80)), X_, UP, 0.046, 0.029, 'placard_canopy', depth=0.004, proud=0.002)
-    art_plate(m, V((0.40, y + 0.020, 0.75)), X_, UP, 0.060, 0.025, 'placard_nostep', depth=0.004, proud=0.002)
+    # 1.9.14 round 4: art right = -x so the plate normal (ux x up) points FORWARD (+y, toward the crew); 1.9.13 / r3 used +x:
+    # the art faced aft, 0.5 mm behind the bulkhead front face (y + 0.018) and back-face culled -> never seen
+    for (x, z, w, h, name) in ((-0.40, 0.80, 0.075, 0.045, 'placard_danger'), (0.40, 0.80, 0.046, 0.029, 'placard_canopy'),
+                               (0.40, 0.75, 0.060, 0.025, 'placard_nostep')):
+        art_plate(m, V((x, y + 0.020, z)), -X_, UP, w, h, name, depth=0.004, proud=0.002)
 
 
 def tub(m):
@@ -408,24 +557,12 @@ def side_panels(m, key):
     n = ux.cross(uy).normalized()
     lowc = V((s * (0.540 + WALL_X) / 2 + s * 0.02, yc, 0.56))
     box(m, lowc, ((WALL_X - 0.540) - 0.04, L, 0.10), 'ck_panel')
-    # relief: a few modelled toggles / knobs / one guard on the console (positions in art coordinates u, v)
+    # relief: one modelled control on every painted one (CONSOLE_CTRLS, measured on the art). The art quad is the plate
+    # less 1 mm a side (art_plate), so art (u, v) maps over L - 0.002 x slope - 0.002 (r3 used the plate size: <= 0.8 mm off)
     def at(u, v):
-        return c + ux * ((u - 0.5) * L) + uy * ((v - 0.5) * slope.length) + n * 0.0045
-    if key == 'pilot':
-        toggle(m, at(0.12, 0.76), n, uy, guard=True)                     # MASTER ARM
-        toggle(m, at(0.52, 0.76), n, uy)                                 # GEAR
-        for u in (0.16, 0.36, 0.58, 0.78, 0.92):
-            toggle(m, at(u, 0.47), n, uy)                                # pumps / x-feed / anti-skid / NWS
-        for u in (0.44, 0.62, 0.74):
-            knob(m, at(u, 0.16), n)                                      # APU / NAV LT / FORM LT
-    else:
-        toggle(m, at(0.27, 0.36), n, uy, guard=True)                     # LASER ARM
-        for u in (0.62, 0.73, 0.84, 0.95):
-            toggle(m, at(u, 0.52), n, uy)                                # TGP / RADAR / ECM / IFF
-        for u in (0.62, 0.79, 0.93):
-            knob(m, at(u, 0.16), n)                                      # RDR MODE / CHNL / FREQ
-        for u in (0.80, 0.93):
-            knob(m, at(u, 0.80), n, r=0.007)                             # CHAFF / FLARE
+        return c + ux * ((u - 0.5) * (L - 0.002)) + uy * ((v - 0.5) * (slope.length - 0.002)) + n * 0.0045
+    for name, kind, u, v in CONSOLE_CTRLS[art]:
+        place_ctrl(m, kind, at(u, v), n, uy, art=art, mm=(L - 0.002, slope.length - 0.002), u=u, v=v)
     # circuit-breaker panel on the wall beside the seat (vertical, facing inboard), above the seat side, under the sill
     bx = s * (WALL_X - 0.002)
     bux = Y_ if s < 0 else -Y_
@@ -437,6 +574,11 @@ def side_panels(m, key):
     for yy in (3.17, 3.55):
         art_plate(m, V((bx, yy, 0.800)), bux, UP, BW_, BH_, 'breakers', depth=0.012, proud=0.004)
     art_plate(m, V((bx, 3.36, 0.700)), bux, UP, 0.30, 0.30 / LY.aspect('subpanel'), 'subpanel', depth=0.012, proud=0.004)
+    # round 6: the sub-strip art no longer carries the LDG / TAXI / STBY toggle levers (painted out; the lever is the model), so
+    # this wall copy of the strip gets the same modelled toggles on the painted nuts (it had painted levers only)
+    wn, ww, wh = bux.cross(UP).normalized(), 0.30 - 0.002, 0.30 / LY.aspect('subpanel') - 0.002
+    for (u, v) in SUB_TOGGLES:
+        toggle(m, V((bx, 3.36, 0.700)) + bux * ((u - 0.5) * ww) + UP * ((v - 0.5) * wh) + wn * 0.0045, wn, -UP, lever=0.012)
     if s < 0:
         art_plate(m, V((bx, 3.80, 0.805)), bux, UP, 0.031, 0.020, 'placard_glimit', depth=0.004, proud=0.002)
     else:
@@ -520,8 +662,14 @@ def centre_pedestal(m, thr, arm):
     for sx in (-1, 1):
         oriented_quad(m, [V((sx * hx, f0.y, fz)), V((sx * hx, f0.y, f0.z)), V((sx * hx, RADIO_Y, f0.z)), V((sx * hx, RADIO_Y, fz))], 'ck_panel', V((sx, 0, 0)))
         oriented_quad(m, [V((sx * hx, RADIO_Y, f0.z)), V((sx * hx, RADIO_Y, zt)), V((sx * hx, 4.33, zt)), V((sx * hx, 4.33, f0.z))], 'ck_panel', V((sx, 0, 0)))
-    for p_ in ((0.06, 0.70), (0.30, 0.70), (0.70, 0.70), (0.94, 0.70), (0.50, 0.18)):
-        knob(m, rc + X_ * ((p_[0] - 0.5) * 2 * hx) + UP * ((p_[1] - 0.5) * rh) - Y_ * 0.0005, -Y_, r=0.0075, h=0.010)
+    # 1.9.14 round 4: one modelled control on every painted one (RADIO_CTRLS, measured); r3 had four knobs on the blank top
+    # border by COMM 1 / COMM 2 (~30 mm above the painted VOL / SQL knobs)
+    for name, kind, u, v in RADIO_CTRLS:
+        base = rc + X_ * ((u - 0.5) * 2 * hx) + UP * ((v - 0.5) * rh) - Y_ * 0.0005
+        if kind[0] == 'knob':
+            knob(m, base, -Y_, r=kind[1], h=kind[2] if len(kind) > 2 else 0.010)
+        else:
+            place_ctrl(m, kind, base, -Y_, UP, tip='radio')
     # friction knob on the quadrant side
     cylinder(m, V((hx, thr.y + 0.02, thr.z + 0.10)), V((hx + 0.018, thr.y + 0.02, thr.z + 0.10)), 0.013, N=14, mat='ck_black')
     # 0.3.4 SPLIT THROTTLE HANDLE = fal-generated model (user: all art assets through fal / the Universal Modder pipeline):
@@ -800,10 +948,13 @@ def build_cockpit():
         n = PN
         cz = C3.panel_pt(x, 0.500) + n * 0.0105
         w_ = sp_h * LY.aspect('subpanel')
-        for (u, v) in ((0.10, 0.45), (0.22, 0.62), (0.22, 0.30), (0.33, 0.55)):
-            knob(m, cz + X_ * ((u - 0.5) * w_) + PU * ((v - 0.5) * sp_h), n, r=0.0065, h=0.009)
-        for u in (0.50, 0.555, 0.665):
-            toggle(m, cz + X_ * ((u - 0.5) * w_) + PU * ((0.45 - 0.5) * sp_h), n, PU, lever=0.016)
+        # 1.9.14: knobs / toggles on the painted ones of subpanel_strip.png (measured; u right, v up, radius in strip heights)
+        for i_, (u, v, rr) in enumerate(SUB_KNOBS):
+            lo_ = SUB_KNOB_LOW.get(i_)
+            knob(m, cz + X_ * ((u - 0.5) * w_) + PU * ((v - 0.5) * sp_h), n, r=rr * sp_h, h=lo_[0] if lo_ else 0.009,
+                 top=lo_[2] if lo_ else 0.86, ptr=lo_[3] if lo_ else 0.002)
+        for (u, v) in SUB_TOGGLES:
+            toggle(m, cz + X_ * ((u - 0.5) * w_) + PU * ((v - 0.5) * sp_h), n, -PU, lever=0.016)   # painted levers point down
     # centre column: three ISIS standby displays between the main displays (cockpit_gauges, atlas cells 0, 1, 2)
     isis = {}
     for (z, cell) in ((0.835, 0), (0.745, 1), (0.655, 2)):
@@ -821,18 +972,33 @@ def build_cockpit():
     # sub-panel strip art (HUD / MFD BRT / LIGHTS / STBY), with modelled knobs and toggles: no flat grey slab on the panel face
     OUT_X0, OUT_X1 = 0.605, 0.655
     cw = OUT_X1 - OUT_X0
-    crops = [((0.00, 0.13), 'knob'), ((0.355, 0.475), 'toggle'), ((0.53, 0.65), 'toggle')]
+    # 1.9.14: each crop's modelled control sits on its painted one (SUB_KNOBS / SUB_TOGGLES); 1.9.13 put a toggle on the ALT
+    # knob crop and centred the knob beside the painted HUD knob
+    # 1.9.14 in-game round: crops are WHOLE painted panels (the 0.00-0.13 HUD crop read "HUI" / "A-/" in game), each with all of
+    # its controls: HUD (MODE + BRT knobs), ALT (baro knob), LIGHTS (LDG + TAXI toggles). Panel edges measured on subpanel_strip.png.
+    crops = [((0.000, 0.229), [('knob', SUB_KNOBS[0]), ('knob', SUB_KNOBS[1])]),
+             ((0.328, 0.468), [('knob', SUB_KNOBS[4])]),
+             ((0.468, 0.636), [('toggle', SUB_TOGGLES[0] + (0.0,)), ('toggle', SUB_TOGGLES[1] + (0.0,))])]
+    zcs, ztop = [], COLUMN_TOP_Z                          # round 4: stacked down from COLUMN_TOP_Z (LIGHTS clear of the console)
+    for (u0, u1), _ in crops:
+        ch = cw / ((u1 - u0) * LY.aspect('subpanel'))
+        zcs.append(ztop - ch * PU.z / 2)
+        ztop -= ch * PU.z + COLUMN_GAP
     for s_ in (-1, 1):
         xc = s_ * (OUT_X0 + OUT_X1) / 2
-        for k, ((u0, u1), kind) in enumerate(crops):
+        for k, ((u0, u1), ctrls) in enumerate(crops):
             ch = cw / ((u1 - u0) * LY.aspect('subpanel'))
-            zc = 0.865 - k * 0.115
+            zc = zcs[k]
             art_plate(m, C3.panel_pt(xc, zc), X_, PU, cw, ch, 'subpanel', depth=0.010, proud=0.006, sub=(u0, 0.0, u1, 1.0))
-            base = C3.panel_pt(xc, zc) + PN * 0.0065
-            if kind == 'knob':
-                knob(m, base - PU * (ch * 0.12), PN, r=0.0065, h=0.009)
-            else:
-                toggle(m, base - PU * (ch * 0.05), PN, PU, lever=0.014)
+            for kind, (fu, fv, fr) in ctrls:
+                base = C3.panel_pt(xc, zc) + PN * 0.0065 + X_ * (((fu - u0) / (u1 - u0) - 0.5) * cw) + PU * ((fv - 0.5) * ch)
+                lo_ = SUB_KNOB_LOW.get(SUB_KNOBS.index((fu, fv, fr))) if kind == 'knob' else None
+                if lo_:                                    # round 7: HUD MODE / BRT low tapered discs (SUB_KNOB_LOW)
+                    knob(m, base, PN, r=fr * ch, h=lo_[1], top=lo_[2], ptr=lo_[3])
+                elif kind == 'knob':
+                    knob(m, base, PN, r=fr * ch, h=0.007)
+                else:
+                    toggle(m, base, PN, -PU, lever=0.010)
     g = P.Part('cockpit_gauges', 'fus_cockpit', (0, S.PANEL_Y, 0.70), gf,
                info=dict(note='ISIS standby displays (attitude, engine/power, nav/clock) stacked in the centre column; own UVs in the GA-25X gauge atlas'))
     g.own_uv = True
@@ -840,14 +1006,16 @@ def build_cockpit():
     parts.extend(isis_movers)
     # caution lights on top of the glareshield (MASTER CAUTION amber + FIRE red cells of the annunciator art), both crew
     for x in (-0.13, 0.13):
-        for k, (u0, u1) in enumerate(((0.012, 0.072), (0.585, 0.645))):
-            c = V((x + (k - 0.5) * 0.062, LIP_Y + 0.045, GZ + 0.022))
+        # 1.9.14: crops measured on annunciator.png (MASTER CAUTION frame u 0.044-0.106, FIRE R 0.586-0.646, frames v 0.30-0.95);
+        # the old crops (0.012-0.072, v 0.12-0.88) cut the cells in half ("MAS CAU" in game). Quad keeps the cell aspect (~0.84).
+        for k, (u0, u1) in enumerate(((0.044, 0.106), (0.586, 0.646))):
+            c = V((x + (k - 0.5) * 0.050, LIP_Y + 0.045, GZ + 0.022))
             uy_ = V((0, math.sin(math.radians(30)), math.cos(math.radians(30))))
-            obox_open(m, c - (X_.cross(uy_)) * 0.006, X_, uy_, (0.054, 0.036, 0.024), 'ck_black')
+            obox_open(m, c - (X_.cross(uy_)) * 0.006, X_, uy_, (0.040, 0.044, 0.024), 'ck_black')
             n_ = X_.cross(uy_)
             if n_.y > 0:
                 n_ = -n_
-            art_quad(m, c + n_ * 0.0065, X_, uy_, 0.048, 0.032, 'annunciator', u0, 0.12, u1, 0.88)
+            art_quad(m, c + n_ * 0.0065, X_, uy_, 0.034, 0.038, 'annunciator', u0, 0.30, u1, 0.95)
 
     # ---------------------------------------------------------------- HUD (pilot): flush projector + thin combiner frame (no glass pane)
     gx = S.CREW['pilot']['eye'][0]

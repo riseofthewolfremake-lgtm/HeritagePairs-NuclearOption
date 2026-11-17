@@ -340,6 +340,7 @@
                             zBad.Count == 0, string.Join("; ", zDet) + (zBad.Count == 0 ? "" : " | WRONG: " + string.Join("; ", zBad)));
                     }
                     {   // 1.9.12 formation lights (the GA-25X row): FormationLightCount strips on the stock NavLights
+                        { bool glOk = GearLight1914.Check(inst, GearLight1914.Enabled ? 2 : 0, out var glMsg); R("1.9.14 gear lights: the stock CI-22 gear light (spot + glow, lights_runway) on each main leg, NavLights Never (on with the gear)", glOk, glMsg); }
                         var zNl = inst.GetComponent<NavLights>(); var zEnt = ((IEnumerable)G(zNl, "navLights")).Cast<object>().ToList();
                         var zStrips = zEnt.Where(ze => { var zr2 = (Renderer)G(ze, "renderer"); return zr2 != null && zr2.name.StartsWith("slimelight_"); }).ToList();
                         var zLivAll = new HashSet<Renderer>(allParts.SelectMany(ap => ((IList)G(G(ap, "damageMaterial"), "renderers")).Cast<Renderer>()));
@@ -351,7 +352,7 @@
                               && zStrips.All(ze => { var zr = (Renderer)G(ze, "renderer"); return AssetDatabase.GetAssetPath((Material)G(ze, "litMaterial")).Contains("slimelight_on") && G(ze, "controlState").ToString() == "Auto"
                                   && zr.sharedMaterials.Length == 1 && zr.sharedMaterials.All(zm => AssetDatabase.GetAssetPath(zm).Contains("light_green_off")) && !zLivAll.Contains(zr) && G(ze, "gear") == null
                                   && ((GameObject[])G(ze, "objects")).Length == 0 && zr.GetComponents<Component>().Length == 3 && zr.GetComponentInChildren<Collider>(true) == null; })
-                              && zEnt.Count == FormationLightCount + 2;
+                              && zEnt.Count(ze => !(G(ze, "renderer") is Renderer zr3 && zr3.name.StartsWith(GearLight1914.Prefix))) == FormationLightCount + 2;   // 1.9.14: the gear lights are checked on their own
                         R(FormationLights1912 ? $"1.9.12 formation lights: {FormationLightCount} slimelight strips (forward fuselage, waist, fin, wing tips; both sides) on the stock NavLights, Auto, litMaterial slimelight_on, unlit light_green_off, part = the part they sit on, plain renderers, none in a livery list; {FormationLightCount + 2} entries with the two tip lights"
                                                 : "1.9.12 formation lights: flag off, no strip in NavLights",
                             zOk, $"{zEnt.Count} entries; " + string.Join(", ", zGot.Select(kv => kv.Key + "@" + kv.Value)));

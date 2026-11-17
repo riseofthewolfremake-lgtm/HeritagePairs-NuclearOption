@@ -93,6 +93,11 @@ same lobby: the aircraft and weapons exist for everyone who has the mod.
   light specks of the earlier test build, where 1.9.12 showed a light one. If an outer upper panel is shot off, the outer half
   of the dark seam band goes with it; the centre section keeps its short spar stubs at the broken end (as in 1.9.12), now dark
   instead of light grey. In the game on the final download the broken end showed a grey ribbed face with no dark strip.
+- 1.9.14 gear lights (GA-25X nose leg, FD-32 and MSB-17 main legs): tried in the game on the ground by day and night. Switching
+  off with the gear up was last checked in the air on a test build before the final lamp design; the final download was not
+  flown with the gear up. The lights are the game's own CI-22 gear light; the GA-25X beam is a little stronger near the
+  aircraft than the CI-22's at noon, the FD-32 and MSB-17 beams reach a little further ahead.
+- GA-25X cockpit art: the IFF MODE dial on the radio panel reads OFF twice (a painting slip in the panel art).
 - MSB-17: a thin bright line can show on the right upper wing near the inner engine, at the joint of two wing parts (already
   in 1.9.11).
 - Computer-flown aircraft change the throttle between about 1 % and 50 % while taxiing, so their air-brake panels are
@@ -139,7 +144,7 @@ You need your own copy of the game; no game file is in this repository.
    the supported build. The `B25H.Instruments.csproj` beside the source is a convenience for IDEs; it has not been built with
    a .NET SDK and is not expected to give the same bytes.
    The build is deterministic: the same source, compiler and reference DLLs give the same DLL bytes. The released
-   `B25H.Instruments.dll` 1.9.13 has sha256 `918a36cebccd00cf51a242738ceac8f3977c08a9acadce9ff759bfcac4c2bbb9` and was built with:
+   `B25H.Instruments.dll` 1.9.14 has sha256 `5f1e3c7155ea780fb5e6902eb54c21629474c57876de9ba805d1ec8502baf0fc` and was built with:
    - Nuclear Option 0.34.6, Steam build id 26327221 (`Assembly-CSharp.dll` sha256 `babdd626bbab...813c2bce`);
    - BepInEx 5.4.23.5 (`BepInEx.dll` sha256 `8255b2890288...ef14ce70`, `0Harmony.dll` sha256 `1a21cc03424f...285c1031`);
    - Unity 2022.3.62f2: its Roslyn `csc.dll` 4.3.1-3.22526.13 (41a5af9d), run by its bundled .NET runtime 6.0.21.

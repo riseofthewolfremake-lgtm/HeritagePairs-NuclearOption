@@ -50,6 +50,8 @@ namespace B25HTools
         const bool KeepFlareEjector = true;
         const bool StockHUDExtras = true;        // CI-22 COIN_HUDExtras (prop aircraft HUD apps), as the B-25H
         const bool OwnPropBlur = true;
+        const bool CockpitEmission1914 = true;      // 1.9.14: lit annunciator lamps / LED digits of the panel art glow (emission map)
+        const float CockpitEmissionGain1914 = 0.9f;
         const bool CockpitAnimators = true;      // side sticks (Cockpit.Joystick), pedals (ControlSurface yaw), throttle levers
         const bool MFDScreens = true;
         const bool TwoCrew = true;               // pilot + weapons officer, bail-out hatches as stock Canopy components
@@ -481,7 +483,7 @@ namespace B25HTools
         {
             tex.Clear();
             LoadLiveryTable();
-            var want = SkinMaps.Select(m => "ga25x_skin_" + m).Concat(Liveries.Select(l => l.file)).Concat(new[] { "ga25x_gauges" }).Concat(Tiles).Concat(CockpitPanelArt ? new[] { "ga25x_ckart_b", "ga25x_ckart_n", "ga25x_throttle_b", "ga25x_throttle_n" } : new string[0]).Distinct().ToList();
+            var want = SkinMaps.Select(m => "ga25x_skin_" + m).Concat(Liveries.Select(l => l.file)).Concat(new[] { "ga25x_gauges" }).Concat(Tiles).Concat(CockpitPanelArt ? new[] { "ga25x_ckart_b", "ga25x_ckart_n", "ga25x_throttle_b", "ga25x_throttle_n" }.Concat(CockpitEmission1914 ? new[] { "ga25x_ckart_e" } : new string[0]).ToArray() : new string[0]).Distinct().ToList();
             foreach (var n in want)
             {
                 var src = TextureSource(n);
@@ -523,7 +525,9 @@ namespace B25HTools
         {
             const int W = 512, H = 1024;
             var px = new Color32[W * H];
-            Color dark = new Color(0.07f, 0.07f, 0.07f), tipC = new Color(0.86f, 0.70f, 0.06f);
+            // 1.9.14: no yellow tip band. The GA-25X blades are black composite with a grey sheath and black tips; the old
+            // yellow ring (r > 0.92, +0.16 alpha) showed over the blur disc as "the blade tips are still there" (user report).
+            Color dark = new Color(0.07f, 0.07f, 0.07f), tipC = dark;
             for (int y = 0; y < H; y++)
                 for (int x = 0; x < W; x++)
                 {
@@ -544,7 +548,7 @@ namespace B25HTools
                         }
                         else
                         {
-                            a = 0.20f + 0.03f * Mathf.Sin(r * 60f) + (r > 0.92f ? 0.16f : 0f);
+                            a = 0.20f + 0.03f * Mathf.Sin(r * 60f);   // 1.9.14: no brighter tip ring
                         }
                         a *= edge;
                     }
@@ -734,7 +738,14 @@ namespace B25HTools
             Save(LitMat(lit, "GA25X_ck_panel", new Color(0.16f, 0.165f, 0.175f), 0.1f, 0.3f), "ck_panel");
             Save(LitMat(lit, "GA25X_ck_black", new Color(0.035f, 0.035f, 0.04f), 0.0f, 0.35f), "ck_black");
             // 0.3.2: panel art (our fal-generated atlas) on its own UVs (UV0 = the 'livery' layer, like the gauge atlas)
-            if (CockpitPanelArt) { var art = LitMat(lit, "GA25X_ck_art", Color.white, 0.15f, 0.35f); Tiled(art, "ga25x_ckart_b", "ga25x_ckart_n"); art.SetFloat("_BumpScale", 1.0f); Save(art, "ck_art"); }
+            if (CockpitPanelArt) { var art = LitMat(lit, "GA25X_ck_art", Color.white, 0.15f, 0.35f); Tiled(art, "ga25x_ckart_b", "ga25x_ckart_n"); art.SetFloat("_BumpScale", 1.0f);
+                if (CockpitEmission1914)
+                {   // 1.9.14 (user suggestion): the painted lit lamps glow - MASTER CAUTION, GEAR, the green LED digits (ga25x_ckart_e: base colour
+                    // where lit, black elsewhere; blender/ga25x/textures/make_ckart_emission1914.py). Placards and hazard stripes stay unlit.
+                    art.SetTexture("_EmissionMap", tex["ga25x_ckart_e"]); art.EnableKeyword("_EMISSION");
+                    art.SetColor("_EmissionColor", Color.white * CockpitEmissionGain1914); art.globalIlluminationFlags = MaterialGlobalIlluminationFlags.None;
+                }
+                Save(art, "ck_art"); }
             else mats["ck_art"] = mats["ck_panel"];
             // 0.3.4: fal-generated split throttle handle (tripo bake: base colour + normal, own UVs on UV0)
             if (CockpitPanelArt) { var th = LitMat(lit, "GA25X_ck_throttle", Color.white, 0.3f, 0.45f); Tiled(th, "ga25x_throttle_b", "ga25x_throttle_n"); Save(th, "ck_throttle"); }
@@ -2320,6 +2331,15 @@ namespace B25HTools
                 }
                 L($"formation lights: {nStrips} slimelight strips (NavLights Auto, litMaterial slimelight_on)");
             }
+            if (GearLight1914.Enabled)
+            {   // 1.9.14: gear light = a modelled lamp clamped to the nose strut (GearLight1914: lens + stock glow + spot that skips aircraft layers)
+                var ng = gears[0];
+                var b = GearLight1914.Make(DNS, ng, Find("gear_nose_strut"), root.transform, "nose", 1f, mats["metal_dark"], mats["navlight"], generatedMeshes, 0.040f, 0.16f, false);
+                var e1 = NewElem(nl, "navLights"); var e2 = NewElem(nl, "navLights");
+                GearLight1914.Entries(e1, e2, b, (UnitPart)G(ng, "attachedPart"), ng, DNS);
+                entries.Add(e1); entries.Add(e2);
+                L($"gear light: lamp {b.lamp.name} on gear_nose_strut, lens at {b.lensCentre.ToString("F3")}, aim {b.pitchDown:F1} deg down");
+            }
             SetSeq(nl, "navLights", entries);
             S(nl, "aircraft", aircraft);
 
@@ -3303,7 +3323,31 @@ namespace B25HTools
                     R("1.8.3 fuel: 4 wing tanks (inner / outer, both sides) with the AB-4 wing-tank settings (rupture 50 g), inner <-> outer linked",
                       !BomberFuelTanks183 || linked, string.Join("; ", ftk.Select(f => $"{f.name} {G(f, "fuelCapacity")} kg rupt {G(f, "ruptureGMin")} links {((FuelTank[])G(f, "connectedTanks")).Length}")));
                     var rs_ = inst.GetComponentsInChildren<MeshRenderer>(true);
-                    var ourStruct = rs_.Where(r_ => r_.gameObject.layer != 3 && r_.sharedMaterials.Any(m_ => m_ != null && m_.name == "GA25X_structure")).Select(r_ => r_.name).ToList();
+                    var ourStruct = rs_.Where(r_ => r_.gameObject.layer != 3 && !r_.name.Contains("_blade") && r_.sharedMaterials.Any(m_ => m_ != null && m_.name == "GA25X_structure")).Select(r_ => r_.name).ToList();   // 1.9.14: blades keep their tip sheath in one renderer
+                    // 1.9.14 (user report: blade tips visible over the blur disc): each ConstantSpeedProp blade is ONE renderer, nothing under it
+                    var bladeExtra = inst.GetComponentsInChildren<ConstantSpeedProp>(true).SelectMany(p_ => ((IEnumerable)G(p_, "blades")).Cast<ConstantSpeedProp.PropBlade>())
+                        .SelectMany(b_ => b_.renderer.GetComponentsInChildren<Renderer>(true).Where(x_ => x_ != b_.renderer).Select(x_ => x_.name)).ToList();
+                    var bladeCount = inst.GetComponentsInChildren<ConstantSpeedProp>(true).Sum(p_ => ((IEnumerable)G(p_, "blades")).Cast<object>().Count());
+                    R("1.9.14 prop blades: one renderer per blade, no child renderer left visible when the blur disc shows", bladeExtra.Count == 0 && bladeCount == 12,
+                      $"{bladeCount} blades, extra renderers: {string.Join(", ", bladeExtra.Take(6))}");
+                    // 1.9.14 (in game r6: a yellow ring over the blur disc at the tip radius): the blur atlas carries no coloured tip band
+                    var pbPath = $"{Folder}/Textures/ga25x_propblur.png"; var pb = new Texture2D(2, 2);
+                    int pbYellow = -1, pbRing = -1;
+                    if (File.Exists(pbPath) && pb.LoadImage(File.ReadAllBytes(pbPath)))
+                    {
+                        var pbp = pb.GetPixels32();
+                        pbYellow = pbp.Count(c_ => c_.a > 8 && c_.r - c_.b > 40);
+                        // disc half (y < 512): mean alpha just inside vs at the tip radius must not jump
+                        float A(float r0, float r1) { var v_ = new List<float>(); for (int y_ = 0; y_ < 512; y_++) for (int x_ = 0; x_ < 512; x_++) { float cx_ = (x_ + 0.5f - 256f) / 250f, cy_ = (y_ + 0.5f - 256f) / 250f, rr_ = Mathf.Sqrt(cx_ * cx_ + cy_ * cy_); if (rr_ > r0 && rr_ < r1) v_.Add(pbp[y_ * 512 + x_].a); } return v_.Average(); }
+                        pbRing = Mathf.RoundToInt(A(0.93f, 0.97f) - A(0.85f, 0.90f));
+                    }
+                    R("1.9.14 prop blur: no yellow / brighter ring at the tip radius on the GA-25X blur disc", pbYellow == 0 && pbRing <= 15,   // old ring = +41
+                      $"coloured px {pbYellow}, tip-ring alpha step {pbRing}");
+                    var ckArt = rs_.SelectMany(r_ => r_.sharedMaterials).FirstOrDefault(m_ => m_ != null && m_.name == "GA25X_ck_art");
+                    R("1.9.14 cockpit: the painted lit lamps / LED digits glow (ck_art emission map ga25x_ckart_e)", !CockpitEmission1914 || (ckArt != null && ckArt.IsKeywordEnabled("_EMISSION") && ckArt.GetTexture("_EmissionMap") != null),
+                      ckArt == null ? "no ck_art" : $"emission {ckArt.IsKeywordEnabled("_EMISSION")}, map {ckArt.GetTexture("_EmissionMap")?.name}, colour {ckArt.GetColor("_EmissionColor")}");
+                    bool glOk = GearLight1914.Check(inst, GearLight1914.Enabled ? 1 : 0, out var glMsg);
+                    R("1.9.14 gear light: the stock CI-22 gear light (spot + glow, lights_runway) on the nose leg, NavLights Never (on with the gear)", glOk, glMsg);
                     var stockStruct = rs_.Where(r_ => r_.sharedMaterials.Any(m_ => StockStructure.IsStructMat(m_))).ToList();
                     bool vcolS = stockStruct.All(r_ => { var mm = r_.GetComponent<MeshFilter>().sharedMesh; return mm.colors32.Length == mm.vertexCount; });
                     R("1.8.3 internals: frames / ribs / stubs drawn with the stock aircraft_structure (vertex colour), none left on our tiled structure material",
