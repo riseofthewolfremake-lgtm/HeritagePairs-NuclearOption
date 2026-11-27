@@ -13,8 +13,11 @@ For the person who publishes (the repository owner). Every step that uploads som
    Do not change the plugin GUID `b25h.instruments`: the players' config file is named after it.
 2. Build the plugin: `bash tools/build_instruments.sh <build>\instruments_X.Y.Z`.
 3. Build the pack: copy `unity/Editor/*.cs` into the Blueprinter project's `Assets/Editor`, then run Unity in batch mode with
-   `-executeMethod B25HTools.FamilyBuild.BuildAll`. All six aircraft must report `CHECK ALL PASS`. The result is
-   `Heritage Pairs_X.Y.Z.nobp` and an install folder with the pack, the DLL and `meta.json`.
+   `-executeMethod B25HTools.FamilyBuild.BuildAll`. All seven aircraft must report `CHECK ALL PASS` (since 1.9.15 the
+   A6M2 is one of them). The result is `Heritage Pairs_X.Y.Z.nobp` and an install folder with the pack, the DLL and `meta.json`.
+   **Ship gate:** the pack must go to `build\heritage_pairs` (not a `build\heritage_pairs_dev*` folder) and its `FAMILY PACK` line must
+   not say `DEV`; if an unreleased aircraft is listed in `FamilyBuild.ShipGated`, the `FAMILY CHECKS ...` line ends with
+   `<key> not built (release: ship gate)`. See "Ship gate (unreleased aircraft)" below.
 4. Run the tests (README, "Build from source", step 4) and try the build in the game before releasing it.
 
 ## 2. Freeze and zip
@@ -75,3 +78,25 @@ hash differs. Publish a new version instead.
   `modManifests/HeritagePairs.json`; then delete the releases or make the repository private.
 - GitHub keeps a deleted release's tag unless you delete the tag too. A deleted tag name can be used again, but do not reuse
   a version number that players may already have installed.
+
+## Ship gate (unreleased aircraft)
+
+An aircraft the user has not yet called done never goes into a release. **The A6M2 Zero (jsonKey `A6M2`) was gated from 2026-11-18 and
+was released in 1.9.15** (user approval 2026-11-27, after testing the r8 dev pack). Its modernised twin and any later aircraft are gated
+the same way until the user says that aircraft is done. Since 1.9.15 the gate is a list that is empty:
+
+- **`unity/Editor/FamilyBuild.cs`:** `ShipGated` lists each unreleased aircraft as `new GatedAircraft(key, folder, generatorType)`.
+  The generator is called by name, so the public tree compiles without its source. `ReleasedKeys` lists the definitions every release
+  pack must contain (1.9.15: the seven aircraft and the mod's own weapon definitions); add a released aircraft's keys there.
+- **Building a dev pack (development only):** set the environment variable `HP_DEV=1` (the older `HP_DEV_A6M2=1` still works) for the
+  Unity run, or call `B25HTools.FamilyBuild.EnableDevPack` once (EditorPrefs `HeritagePairs.DevPack`; `DisableDevPack` switches it off).
+  A dev pack builds the gated aircraft too, goes to `build\heritage_pairs_dev` (or `HP_DEV_OUT`), may carry a dev DLL (`HP_DEV_DLL`)
+  and says `DEV (NOT FOR RELEASE)` in its `FAMILY PACK` line. Never freeze, zip or upload a pack from a dev folder.
+- **Release builds:** no switch is set. `BuildAll` deletes each gated aircraft's folder before packing; `FamilyBuild.Pack` stops with
+  `SHIP GATE: ...` when any asset under the family folder belongs to a gated aircraft (its folder, or a definition / mount jsonKey
+  starting with its key) and deletes a pack that lists a gated definition or misses a released one.
+- **Check on the built file:** `tools/pack_asset_report.py` (step 2.3) prints `SHIP GATE: unreleased-aircraft assets in the pack: N`
+  for the folder names in its `SHIP_GATED` list (empty since 1.9.15) and exits 1 when N is not 0 (`--allow-dev` for a dev report).
+- **Public tree:** add the aircraft's path patterns to `EXCLUDE` in `tools/make_public_tree.py` while it is gated, and keep its plugin
+  hooks out of shared files (or behind partial methods in its own files), so the public source still builds the released DLL. Since
+  1.9.15 nothing is excluded for the A6M2: the public tree is the repository's files as they are, and it builds the released DLL.

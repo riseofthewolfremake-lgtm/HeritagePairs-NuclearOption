@@ -106,11 +106,11 @@ def kestrel(mb):
     # carburettor + induction pipe under the crankcase
     rbox(mb, (0, 0.35, -0.40), (0.20, 0.18, 0.16))
     body(mb, (0, 0.40, -0.40), (0, 1.20, -0.36), up, [(0.0, 0.05, 0.05), (1.0, 0.05, 0.05)], n=2.0, N=8)
-    # engine bearers: two tubular A-frames per side from the firewall corners (y 0.0) to the crankcase feet
+    # engine bearers: two tubular A-frames per side from the firewall corners (y 0.035: 2026-11-22, ends 20+ mm short of the y 0 break) to the crankcase feet
     for s in (-1, 1):
         for zf, zc in ((0.30, -0.06), (-0.40, -0.26)):
-            bar(mb, (s * 0.34, 0.02, zf), (s * 0.21, 0.70, zc), 0.016)
-            bar(mb, (s * 0.34, 0.02, zf), (s * 0.21, 1.30, zc), 0.016)
+            bar(mb, (s * 0.34, 0.035, zf), (s * 0.21, 0.70, zc), 0.016)
+            bar(mb, (s * 0.34, 0.035, zf), (s * 0.21, 1.30, zc), 0.016)
         bar(mb, (s * 0.21, 0.70, -0.06), (s * 0.21, 1.30, -0.26), 0.012)
     # fuel tank behind the engine, under the gun decking, between the Vickers bodies (FuelTank on fus_engine)
     fuel_tank(mb)
@@ -125,13 +125,18 @@ def front_bulkhead(mb, y=2.34):
     fan_cap(mb, r, c, 'structure', V((0, -1, 0)))
 
 
+TANK_MAT = 'tank'
+
+
 def fuel_tank(mb, y0=0.05, y1=0.13, x=0.30, z0=0.12, z1=0.37):
     """saddle tank behind the engine (stock: tanks are FuelTank components; the mesh is only what a torn-off section shows)."""
-    rbox(mb, (0, (y0 + y1) / 2 + 0.06, (z0 + z1) / 2), (2 * x, (y1 - y0) + 0.12, z1 - z0), n=5.0)
+    # 2026-11-22 (r8o C5 lesson: a light 'structure' box 50 mm behind the fus_engine break read as the "box"): plain tank metal
+    # ('tank', Unity <prefix>_tank: lit 0.55 grey), dark straps
+    rbox(mb, (0, (y0 + y1) / 2 + 0.06, (z0 + z1) / 2), (2 * x, (y1 - y0) + 0.12, z1 - z0), n=5.0, mat=TANK_MAT)
     for s in (-1, 1):                                  # straps
         for yy in (y0 + 0.04, y1 + 0.08):
             p0, p1 = V((s * (x + 0.006), yy, z0 + 0.02)), V((s * (x + 0.006), yy, z1 - 0.02))
-            bar(mb, p0, p1, 0.008, N=4)
+            bar(mb, p0, p1, 0.008, N=4, mat='metal_dark' if TANK_MAT == 'tank' else 'structure')
 
 
 # ------------------------------------------------------------------------------------------- FD-32: turbo-electric power plant
@@ -170,7 +175,7 @@ def fd32_power(mb, bay_y=0.46, bay_r=0.205, bay_cap_z=-0.18):
     # mounts: tube frame from the firewall line to the motor / generator
     for s in (-1, 1):
         for zf, zc in ((0.30, 0.10), (-0.40, -0.14)):
-            bar(mb, (s * 0.34, 0.02, zf), (s * 0.17, 1.30, zc), 0.016)
+            bar(mb, (s * 0.34, 0.035, zf), (s * 0.17, 1.30, zc), 0.016)
         bar(mb, (s * 0.17, 1.30, 0.10), (s * 0.17, 1.30, -0.14), 0.012)
 
 

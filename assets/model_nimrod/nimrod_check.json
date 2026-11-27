@@ -1,7 +1,7 @@
 {
  "1.8.16 livery atlas == texture manifest (skin / liveries / damage painted on this atlas; re-bake the textures when it fails)": {
   "ok": true,
-  "detail": "atlas 07f0f30a3e33b5ed == manifest (32 paint parts, 11 textures) nimrod_atlas_manifest.json"
+  "detail": "atlas 07f0f30a3e33b5ed == manifest (32 paint parts, 13 textures) nimrod_atlas_manifest.json"
  },
  "span within 3 % of 10.29 m": {
   "ok": true,
@@ -99,9 +99,9 @@
   "ok": true,
   "detail": "0 verts []; nearest behind the head: cockpit_coaming 0.115 m (only seen when looking back)"
  },
- "vertex/triangle budget (1.4.0: + hook A-frame, radiator slats, oil cooler, sights, skid): welded verts < 48k, tris < 75k (B-25H: 117k tris)": {
+ "vertex/triangle budget (1.4.0: + hook A-frame, radiator slats, oil cooler, sights, skid; 2026-11-22: + the open break cavities liners, cap strips and bay-end walls, about 4.5k tris; 2026-11-27 round 2: + the fus_center bay truss / stringers / wall frames, about 1.5k tris): welded verts < 52k, tris < 83k (B-25H: 117k tris)": {
   "ok": true,
-  "detail": "verts 46662, tris 74812"
+  "detail": "verts 50985, tris 82469"
  },
  "functional geometry as 1.2.3: part mesh bounds within 25 mm (colliders, CoM, lift points), wheel vertical extent (= radius) within 1.5 mm, pivots within 1 mm": {
   "ok": true,
@@ -117,7 +117,7 @@
  },
  "no floating exterior parts: every mesh island of every exterior object within 10 mm of another island / object": {
   "ok": true,
-  "detail": "{\"islands\": 2210, \"floating\": []}"
+  "detail": "{\"islands\": 2271, \"floating\": []}"
  },
  "see-through (backface culling ON): zero holes from 42 directions and from inside every break, for every part as it falls away": {
   "ok": true,
@@ -133,6 +133,38 @@
  },
  "1.8.3 internals: Kestrel body + fuel tank in fus_engine_struct (structure material, stock aircraft_structure in Unity), every vertex inside the cowl skin": {
   "ok": true,
-  "detail": "{\"structure_faces\": 1216, \"outside\": []}"
+  "detail": "{\"structure_faces\": 1036, \"outside\": []}"
+ },
+ "2026-11-22 break C1 break_flat (no disc / cap in any break plane): at every break end the non-paint faces in the plane (within 12 mm, normal within 30 deg) more than 10 mm inside the skin sum to <= 0.03 m2": {
+  "ok": true,
+  "detail": "13 ends; over {}; fus +0.00 aft end 0.0089, fus +0.00 front end 0.0, fus -1.50 aft end 0.0, fus -1.50 front end 0.0, upper wing L centre end 0.0, upper wing L root end 0.0, lower wing L root 0.0, stab L root 0.0006, upper wing R centre end 0.0, upper wing R root end 0.0, lower wing R root 0.0, stab R root 0.0006, fin root 0.0"
+ },
+ "2026-11-22 break C10 break_one_plane (no full rib / bulkhead just behind the plane): at every break end <= 30 % of the axial rays (15 mm grid) have their first hit on one plane across the axis within 0.15 m": {
+  "ok": true,
+  "detail": "bad []; fus +0.00 aft end 0.147, fus +0.00 front end 0.245, fus -1.50 aft end 0.167, fus -1.50 front end 0.095, upper wing L centre end 0.082, upper wing L root end 0.078, lower wing L root 0.0, stab L root 0.0, upper wing R centre end 0.087, upper wing R root end 0.073, lower wing R root 0.0, stab R root 0.0, fin root 0.034"
+ },
+ "2026-11-22 break C11 break_deep_wall: no single non-paint plane across the axis is the first hit of > 60 % of the axial rays within 0.5 m of any break, except the documented walls (cockpit walls, bay-end walls in the liner paint; never structure)": {
+  "ok": true,
+  "detail": "over, not allowed: []; allowed: ['upper wing L centre end 0.89 at 0.40 m fabric_in [bay-end wall of the lined wing cavity (liner paint, 0.40 m in)]', 'upper wing L root end 0.90 at 0.40 m fabric_in [bay-end wall of the lined wing cavity (liner paint, 0.40 m in)]', 'stab L root 0.95 at 0.39 m fabric_in [bay-end wall of the lined stab root cavity (liner paint)]', 'upper wing R centre end 0.89 at 0.40 m fabric_in [bay-end wall of the lined wing cavity (liner paint, 0.40 m in)]', 'upper wing R root end 0.90 at 0.40 m fabric_in [bay-end wall of the lined wing cavity (liner paint, 0.40 m in)]', 'stab R root 0.94 at 0.39 m fabric_in [bay-end wall of the lined stab root cavity (liner paint)]', 'fin root 0.85 at 0.25 m fabric_in [bay-end wall of the lined fin root cavity (liner paint)]']; max plane per end: fus +0.00 aft end 0.147@0.05tan, fus +0.00 front end 0.272@0.217met, fus -1.50 aft end 0.463@0.217met, fus -1.50 front end 0.095@0.061str, upper wing L centre end 0.89@0.398fab, upper wing L root end 0.901@0.398fab, lower wing L root 0.014@0.338met, stab L root 0.95@0.385fab, upper wing R centre end 0.886@0.398fab, upper wing R root end 0.904@0.398fab, lower wing R root 0.014@0.338met, stab R root 0.942@0.385fab, fin root 0.852@0.248fab"
+ },
+ "2026-11-22 break C12 cockpit_wall_share (round 3, review of round 2: a dark cockpit wall over 0.64 / 0.81 of the view is still the divider): at every fuselage end the largest non-paint plane within 0.5 m (the cockpit wall included) is the first hit of <= 0.50 of the axial rays; the bays in front of the walls carry their fittings (tank / radio / frames / truss)": {
+  "ok": true,
+  "detail": "bad []; ok ['fus +0.00 aft end tank 0.15 at 0.05 m, structure in front 0.00', 'fus +0.00 front end metal_dark 0.27 at 0.22 m, structure in front 0.54', 'fus -1.50 aft end metal_dark 0.46 at 0.22 m, structure in front 0.23', 'fus -1.50 front end structure 0.10 at 0.06 m, structure in front 0.00']"
+ },
+ "2026-11-22 break C8 seam_dark (seam backing): at every break end the lining within 25 mm of the plane (liner band, skin edge strips) is dark (metal_dark / cove) and present": {
+  "ok": true,
+  "detail": "bad {}; fus +0.00 aft end 280, fus +0.00 front end 280, fus -1.50 aft end 209, fus -1.50 front end 280, upper wing L centre end 148, upper wing L root end 148, lower wing L root 46, stab L root 1, upper wing R centre end 148, upper wing R root end 148, lower wing R root 46, stab R root 1, fin root 62"
+ },
+ "2026-11-22 break C6 stubs_short: no structure face inside the section reaches within 15 mm of a break plane or past it (tank 40 mm)": {
+  "ok": true,
+  "detail": "bad {}; nearest per end (mm): fus +0.00 aft end 24.8, fus +0.00 front end 15.8, fus -1.50 aft end 18.6, fus -1.50 front end 23.9, upper wing L centre end 22.9, upper wing L root end 24.9, lower wing L root 264.8, stab L root 9000.0, upper wing R centre end 24.5, upper wing R root end 24.9, lower wing R root 275.7, stab R root 9000.0, fin root 17.0"
+ },
+ "2026-11-27 break eye_bay (round 3: nothing of the break-bay structure inside the cockpit; round 2 put the wall-station truss 10 mm on the pilot side of the walls): from the eye +-5 cm, 60000 rays, no first front-face hit on fus_center_struct (ck_lining strips / opening fabric_in lining aside) between the cockpit walls y -1.280 .. -0.220 (more than 10 mm inside the skin)": {
+  "ok": true,
+  "detail": "{\"hits\": 0, \"rays\": 60000, \"rim_strip_hits\": 18, \"where\": []}"
+ },
+ "2026-11-27 break poke_sky (round 3: no new struct vertex through the skin; round 2 wall frame poked out of the gun troughs): fus_center_struct vertices more than 1.5 mm outside the fus_center paint that see the sky <= 0 (round 1 / 1.9.14 baseline)": {
+  "ok": true,
+  "detail": "{\"n\": 0, \"worst_mm\": 0.0, \"pts\": []}"
  }
 }

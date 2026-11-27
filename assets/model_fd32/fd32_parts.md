@@ -33,7 +33,7 @@ Unity coordinates: x right, y up, z forward (nose). Pivot = object origin in mod
 | elevator_R_nose | elevator_R | (0.13, 0.0865, -5.0824) | identity | 280 | kind=control_nose; note=round nose concentric with the hinge; not in the elevator collider |
 | exhaust_point | fus_engine | (0.47, -0.0035, 0.6976) | identity | 0 | kind=ir_source |
 | fin | fus_rear | (0.0, 0.6265, -4.7024) | identity | 473 |  |
-| fin_struct | fin | (0.0, 0.1265, -4.7024) | identity | 62 | kind=structure; note=root rib + post stubs; not in the fin collider |
+| fin_struct | fin | (0.0, 0.1265, -4.7024) | identity | 419 | kind=structure; note=root rib + post stubs; not in the fin collider |
 | flaperon_L | wing_lower_L | (-1.0, -0.5931, -0.8816) | (0.9994, -0.0349, 0.0) / (0.0349, 0.9994, 0.0) / (0.0, 0.0, 1.0) | 176 | kind=control; hinge_axis=[0.9993908405303955, -0.0, -0.0348995067179203]; note=lower-wing flaperon: roll + flap droop (ControlSurface flap mode on a pivot above it); hinge_axis_unity=(0.9994, -0.0349, -0.0) |
 | flaperon_L_nose | flaperon_L | (-1.0, -0.5931, -0.8816) | (0.9994, -0.0349, 0.0) / (0.0349, 0.9994, 0.0) / (0.0, 0.0, 1.0) | 252 | kind=control_nose; note=round nose concentric with the hinge; not in the flaperon collider |
 | flaperon_R | wing_lower_R | (1.0, -0.5931, -0.8816) | (0.9994, 0.0349, 0.0) / (-0.0349, 0.9994, 0.0) / (0.0, 0.0, 1.0) | 176 | kind=control; hinge_axis=[0.9993908405303955, 0.0, 0.0348995067179203]; note=lower-wing flaperon: roll + flap droop (ControlSurface flap mode on a pivot above it); hinge_axis_unity=(0.9994, 0.0349, 0.0) |
@@ -43,11 +43,11 @@ Unity coordinates: x right, y up, z forward (nose). Pivot = object origin in mod
 | flash_gun_L | fus_engine | (-0.165, 0.3815, 0.6676) | identity | 0 | kind=muzzle_flash |
 | flash_gun_R | fus_engine | (0.165, 0.3815, 0.6676) | identity | 0 | kind=muzzle_flash |
 | fus_center | FD32_root | (0.0, -0.0735, -1.0524) | identity | 4020 | attach=[['cabane', [-0.36, 0.62, 0.34961], ['fus_center', 'fus_engine']], ['cabane', [-0.56, 1.01248, 0.90311], ['wing_upper_C']], ['cabane', [-0.36, -0.1, 0.39486], ['fus_center', 'fus_engine']], ['cabane', [-0.56, 0.22209, 0.91235], ['wing_upper_C']], ['cabane', [0.36, 0.62, 0.34961], ['fus_center', 'fus_engine']], ['cabane', [0.56, 1.01248, 0.90311], ['wing_upper_C']], ['cabane', [0.36, -0.1, 0.39486], ['fus_center', 'fus_engine']], ['cabane', [0.56, 0.22209, 0.91235], ['wing_upper_C']], ['struts_L', [-3.02, 0.18479, -0.36417], ['wing_lower_L']], ['struts_L', [-3.45, 1.0354, 0.94977], ['wing_upper_L']], ['struts_L', [-3.02, -0.46764, -0.3852], ['wing_lower_L']], ['struts_L', [-3.45, 0.36403, 0.95637], ['wing_upper_L']], ['rigging_L', [-0.62, 0.17068, -0.44598], ['wing_lower_L', 'wing_lower_L_root']], ['rigging_L', [-3.45, 1.0354, 0.94977], ['struts_L', 'wing_upper_L']], ['rigging_L', [-0.56, 0.97702, 0.90278], ['wing_upper_C', 'cabane']], ['rigging_L', [-3.02, 0.18479, -0.36417], ['struts_L', 'wing_lower_L']], ['rigging_L', [-0.62, -0.60841, -0.49113], ['wing_lower_L', 'wing_lower_L_root']], ['rigging_L', [-3.45, 0.36403, 0.95637], ['struts_L', 'wing_upper_L']], ['rigging_L', [-0.56, 0.18692, 0.91283], ['wing_upper_C', 'cabane']], ['rigging_L', [-3.02, -0.46764, -0.3852], ['struts_L', 'wing_lower_L']], ['rigging_L', [-3.02, 0.18479, -0.33417], ['struts_L']], ['rigging_L', [-3.45, 0.36403, 0.92637], ['struts_L']], ['rigging_L', [-0.42229, 1.55, -0.2], ['fus_engine']], ['stab_strut_L', [-0.13773, -4.2700000000000005, -0.349], ['fus_rear']], ['stab_strut_L', [-0.69, -4.2700000000000005, 0.11663], ['stab_L']], ['stab_strut_L', [-0.035, -4.7, -0.39092], ['fus_rear']], ['stab_strut_L', [-0.69, -4.7, 0.11697], ['stab_L']], ['stab_strut_L', [-0.69, -4.7, 0.20303], ['stab_L']], ['gear_main_L_strut', [-0.706, 0.34, -0.64401], ['gear_mount_L']], ['struts_R', [3.02, 0.18479, -0.36417], ['wing_lower_R']], ['struts_R', [3.45, 1.0354, 0.94977], ['wing_upper_R']], ['struts_R', [3.02, -0.46764, -0.3852], ['wing_lower_R']], ['struts_R', [3.45, 0.36403, 0.95637], ['wing_upper_R']], ['rigging_R', [0.62, 0.17068, -0.44598], ['wing_lower_R', 'wing_lower_R_root']], ['rigging_R', [3.45, 1.0354, 0.94977], ['struts_R', 'wing_upper_R']], ['rigging_R', [0.56, 0.97702, 0.90278], ['wing_upper_C', 'cabane']], ['rigging_R', [3.02, 0.18479, -0.36417], ['struts_R', 'wing_lower_R']], ['rigging_R', [0.62, -0.60841, -0.49113], ['wing_lower_R', 'wing_lower_R_root']], ['rigging_R', [3.45, 0.36403, 0.95637], ['struts_R', 'wing_upper_R']], ['rigging_R', [0.56, 0.18692, 0.91283], ['wing_upper_C', 'cabane']], ['rigging_R', [3.02, -0.46764, -0.3852], ['struts_R', 'wing_lower_R']], ['rigging_R', [3.02, 0.18479, -0.33417], ['struts_R']], ['rigging_R', [3.45, 0.36403, 0.92637], ['struts_R']], ['rigging_R', [0.42229, 1.55, -0.2], ['fus_engine']], ['stab_strut_R', [0.13773, -4.2700000000000005, -0.349], ['fus_rear']], ['stab_strut_R', [0.69, -4.2700000000000005, 0.11663], ['stab_R']], ['stab_strut_R', [0.035, -4.7, -0.39092], ['fus_rear']], ['stab_strut_R', [0.69, -4.7, 0.11697], ['stab_R']], ['stab_strut_R', [0.69, -4.7, 0.20303], ['stab_R']], ['gear_main_R_strut', [0.706, 0.34, -0.64401], ['gear_mount_R']], ['gear_tail_strut', [0.0, -4.3100000000000005, -0.44463], ['fus_rear']], ['gear_tail_strut', [0.0, -4.48264, -0.42679], ['fus_rear']], ['gear_mount_L', [-0.6675, 0.34, -0.57257], ['wing_lower_L']], ['gear_mount_R', [0.6675, 0.34, -0.57257], ['wing_lower_R']]]; tear={'y=0.0': 140, 'y=-1.5': 140} |
-| fus_center_struct | fus_center | (0.0, -0.0735, -1.0524) | identity | 6424 | kind=structure; note=tank / rear bulkheads, longeron stubs, inner skin |
+| fus_center_struct | fus_center | (0.0, -0.0735, -1.0524) | identity | 9844 | kind=structure; note=tank / rear bulkheads, longeron stubs, inner skin |
 | fus_engine | fus_center | (0.0, -0.0735, 0.7976) | identity | 10200 |  |
-| fus_engine_struct | fus_engine | (0.0, -0.0735, -0.3024) | identity | 10648 | kind=structure; note=firewall, bearer stubs, inner skin; not in the collider |
+| fus_engine_struct | fus_engine | (0.0, -0.0735, -0.3024) | identity | 10880 | kind=structure; note=firewall, bearer stubs, inner skin; not in the collider |
 | fus_rear | fus_center | (0.0, -0.0735, -3.5024) | identity | 2122 |  |
-| fus_rear_struct | fus_rear | (0.0, -0.0735, -3.5024) | identity | 3910 | kind=structure; note=Warren tube truss, former, inner skin |
+| fus_rear_struct | fus_rear | (0.0, -0.0735, -3.5024) | identity | 4190 | kind=structure; note=Warren tube truss, former, inner skin |
 | gear_main_L_strut | fus_center | (-0.7695, -0.7175, 0.0376) | identity | 328 |  |
 | gear_main_L_wheel | gear_main_L_strut | (-0.905, -1.7235, 0.5476) | identity | 1016 | kind=wheel; radius=0.355 |
 | gear_main_R_strut | fus_center | (0.7695, -0.7175, 0.0376) | identity | 328 |  |
@@ -96,12 +96,12 @@ Unity coordinates: x right, y up, z forward (nose). Pivot = object origin in mod
 | slimelight_spine | fus_rear | (0.0, 0.6939, -2.8524) | identity | 52 | kind=gear_light; note=1.8.0 green strip (stock slimelight_on while the gear is down) |
 | slimelight_wing_L | wing_upper_L | (-4.58, 1.0498, 0.3141) | identity | 34 | kind=gear_light; note=1.8.0 green strip (stock slimelight_on while the gear is down) |
 | slimelight_wing_R | wing_upper_R | (4.58, 1.0498, 0.3141) | identity | 34 | kind=gear_light; note=1.8.0 green strip (stock slimelight_on while the gear is down) |
-| spine_aft | fus_rear | (0.0, 0.5265, -3.2924) | identity | 546 | kind=spine; note=1.8.3 raised spine to the fin leading edge; not in the collider |
-| spine_fwd | fus_center | (0.0, 0.7265, -2.0599) | identity | 194 | kind=spine; note=1.8.3 raised spine behind the hood; not in the collider |
+| spine_aft | fus_rear | (0.0, 0.5265, -3.2924) | identity | 1169 | kind=spine; note=1.8.3 raised spine to the fin leading edge; not in the collider |
+| spine_fwd | fus_center | (0.0, 0.7265, -2.0599) | identity | 438 | kind=spine; note=1.8.3 raised spine behind the hood; not in the collider |
 | stab_L | fus_rear | (-0.8, 0.0865, -4.7024) | identity | 916 |  |
-| stab_L_root | stab_L | (-0.12, 0.0865, -4.6024) | identity | 152 | kind=fillet; note=root fillet to the tail cone |
+| stab_L_root | stab_L | (-0.12, 0.0865, -4.6024) | identity | 654 | kind=fillet; note=root fillet to the tail cone |
 | stab_R | fus_rear | (0.8, 0.0865, -4.7024) | identity | 916 |  |
-| stab_R_root | stab_R | (0.12, 0.0865, -4.6024) | identity | 152 | kind=fillet; note=root fillet to the tail cone |
+| stab_R_root | stab_R | (0.12, 0.0865, -4.6024) | identity | 654 | kind=fillet; note=root fillet to the tail cone |
 | stab_strut_L | stab_L | (-0.5, -0.1735, -4.6024) | identity | 160 | kind=struts |
 | stab_strut_R | stab_R | (0.5, -0.1735, -4.6024) | identity | 160 | kind=struts |
 | struts_L | wing_upper_L | (-3.45, 0.1765, -0.0024) | identity | 242 | kind=struts; note=interplane struts; not in the part collider |
@@ -110,12 +110,12 @@ Unity coordinates: x right, y up, z forward (nose). Pivot = object origin in mod
 | windscreen | fus_center | (0.0, 0.3727, -0.5224) | identity | 316 | kind=glass |
 | windscreen_frame | fus_center | (0.0, 0.3727, -0.5224) | identity | 356 | kind=frame; note=1.8.3 slim painted arch + base lip |
 | wing_lower_L | fus_center | (-2.4, -0.55, -0.6024) | identity | 1102 |  |
-| wing_lower_L_root | wing_lower_L | (-0.4, -0.6199, -0.6024) | identity | 140 | kind=fillet; note=root fillet to the fuselage skin; not in the wing collider |
+| wing_lower_L_root | wing_lower_L | (-0.4, -0.6199, -0.6024) | identity | 755 | kind=fillet; note=root fillet to the fuselage skin; not in the wing collider |
 | wing_lower_R | fus_center | (2.4, -0.55, -0.6024) | identity | 1102 |  |
-| wing_lower_R_root | wing_lower_R | (0.4, -0.6199, -0.6024) | identity | 140 | kind=fillet; note=root fillet to the fuselage skin; not in the wing collider |
+| wing_lower_R_root | wing_lower_R | (0.4, -0.6199, -0.6024) | identity | 755 | kind=fillet; note=root fillet to the fuselage skin; not in the wing collider |
 | wing_upper_C | fus_center | (0.0, 0.8815, 0.2376) | identity | 888 |  |
-| wing_upper_C_struct | wing_upper_C | (0.0, 0.8815, 0.1976) | identity | 1376 | kind=structure |
+| wing_upper_C_struct | wing_upper_C | (0.0, 0.8815, 0.1976) | identity | 1874 | kind=structure |
 | wing_upper_L | wing_upper_C | (-2.9, 0.9182, 0.2476) | identity | 1355 |  |
-| wing_upper_L_struct | wing_upper_L | (-1.0, 0.885, 0.2476) | identity | 392 | kind=structure |
+| wing_upper_L_struct | wing_upper_L | (-1.0, 0.885, 0.2476) | identity | 715 | kind=structure |
 | wing_upper_R | wing_upper_C | (2.9, 0.9182, 0.2476) | identity | 1355 |  |
-| wing_upper_R_struct | wing_upper_R | (1.0, 0.885, 0.2476) | identity | 392 | kind=structure |
+| wing_upper_R_struct | wing_upper_R | (1.0, 0.885, 0.2476) | identity | 715 | kind=structure |

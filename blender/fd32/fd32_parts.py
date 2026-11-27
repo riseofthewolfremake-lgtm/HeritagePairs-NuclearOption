@@ -672,8 +672,12 @@ def build_exterior():
     NP.main_gear = main_gear_fd32
     NP.centre_fittings = no_fittings
     NP.HOOK_SLOT = True
+    NP.BAY_STYLE = 'modern'                                    # 2026-11-27 break faces round 3: avionics unit behind the cockpit
     NP.RUDDER_BALANCE = False                                  # round 9/10: a 2080s aircraft has no aerial mast / external mass balance
     NP.ENGINE_BODY = IN.fd32_power                             # 1.8.3: turbo-electric power plant in fus_engine_struct (stock internals)
+    import nimrod_cockpit as NC_
+    NC_.FOOT_FRONT_Y = -0.068                                  # 2026-11-22: build_fd32 clips the cockpit lining at y -0.068; the
+                                                               # fus_center tank disc (gone) closed the footwell there
     EXTRA.clear()
     sl = G6.hook_slot(hook_mesh_fd32())                       # round 6: slot from the hook's swept envelope (pre-stretch frame)
     print('[fd32] hook slot y %.3f .. %.3f, half width %.3f (pre-stretch)' % sl)

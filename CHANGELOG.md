@@ -2,6 +2,55 @@
 
 Heritage Pairs, newest first. Versions before 1.9.10 were private test builds and were never released.
 
+## 1.9.15
+
+New aircraft:
+
+- **Mitsubishi A6M2 Zero Model 21** (key `A6M2`), the historical carrier fighter of the fourth pair (its rebuilt 2080s twin is not
+  made yet and is not in this release). Own model, period cockpit with working dials, flight model tuned for top speed (about
+  520 km/h at 4.5 km), retracting main gear and tail wheel, arrester hook, folding wing tips, damage model with open break ends
+  and internals; it takes off from airfields and carriers. Its four weapons are made by this mod from stock parts: two
+  Type 97 7.7 mm machine guns in the cowl (500 rounds each, with tracers), two Type 99 20 mm cannons in the wings (60 rounds
+  each), two Type 97 No.6 60 kg bombs under the wings, and a fixed 250 kg special-attack charge. The charge is **Event
+  Content**, like the game's own UFO and AIR-2 Genie: it shows in the loadout only when the mission's Event Content box is
+  ticked, it is never part of a standard loadout, and it goes off when fired, when the aircraft crashes, is shot down or is
+  abandoned, not when parked. Seven liveries: IJN Grey-White (1941) for both factions; BDF Temperate Camo, BDF Matte Gray and
+  BDF Navy; PALA Desert Camo, PALA Matte Black and PALA Navy Splinter.
+
+Bug fixes (all in the companion plugin unless said otherwise; reported by the owner on 2026-11-26):
+
+- **B-17G tail falling off while taxiing** (8 of 11 computer-flown B-17Gs lost it on the ground; the B-25H and GA-25X could drop
+  an engine nacelle, the Nimrod its engine). The cause was a weak extra joint that only keeps parts from rubbing: it snapped under
+  normal ground loads, and the game's rule "when a part's joint breaks, loosen everything that leans on it" then dropped the whole
+  tail. These weak joints are now removed when the physics starts, an aircraft's own parts no longer collide with each other,
+  and the second joint every part has to the part two steps up can no longer break while the part is undamaged. Real damage still
+  breaks parts off as before. In the game tests of the final fix rounds every computer-flown B-17G taxied out and took off with its tail on (before the fix
+  8 of 11 lost it).
+- **Computer-flown aircraft taxiing in circles.** This is a bug of the game itself (stock CI-22 and VT-7 do it too): when the taxi
+  path runs out the AI never plans a new one, and its "pull aside" step can aim at a point it cannot reach. Now an AI aircraft that
+  circles is caught (circling its target, circling its pull-aside point, or more than two full turns in 90 s in a small area),
+  re-plans its route at a crawl, and if it still cannot get there it stops and parks the game's own way. An aircraft that waits
+  beside the runway start for over a minute without getting onto it gets a new route. This applies to every computer-flown
+  aircraft, stock ones included. In the last game test no aircraft circled without being caught in 48 game minutes.
+- **Stuck-together and wrecked aircraft now get their crews out.** A computer-flown aircraft on the ground that loses a part or a
+  wheel, or is damaged (10 hit points or more after its first 20 s), bails out at once; one that makes no progress, or is stuck
+  against another aircraft for 10 s, is re-routed, sent on to take off, or bails out, so the spot clears. A wheel standing on
+  another aircraft is no longer treated as a moving carrier deck (that held the pair together). Aircraft in a normal take-off
+  queue and parked aircraft are left alone. **Player-flown aircraft are never touched.**
+- **The mod's light bombs can be shot down.** The Nimrod Mk I's 20 lb Cooper bomb and the Zero's No.6 60 kg bomb can now be
+  destroyed by lasers and anti-air blasts, like stock missiles; one destroyed before it arms shows a small puff. The game's own
+  bombs are unchanged (lasers cannot hurt them in the game either).
+- AI take-off: an AI aircraft is handed over to its take-off run only when it is actually on the runway and the runway is free;
+  the runway line-up of the FD-32, Mk I, B-17G, MSB-17 and Zero also works on a second take-off after a resupply.
+- **Nimrod Mk I and FD-32 break ends** (pack change): when these biplanes break apart, the broken ends are open like the game's
+  own aircraft (dark edges, a set-back frame or rib, short stubs, the fuel tank, radio, oxygen bottle and battery in their bays)
+  instead of solid metal discs. Paint and liveries are unchanged.
+- Every new plugin piece has its own setting (`Auto` = on, `On`, `Off`) in `b25h.instruments.cfg`, sections `[Ground]`,
+  `[Physics]` and `[Weapons]`, and switches itself off for the rest of the session if it ever hits an error. The plugin writes a
+  short "1.9.15 counters" line to the BepInEx log every two minutes while something has changed.
+- Nothing else changed: the B-25H, GA-25X, B-17G and MSB-17 models, all flight models, masses, weapons and liveries of the six
+  1.9.14 aircraft are those of 1.9.14.
+
 ## 1.9.14
 
 - GA-25X propellers: when the propellers switched to their blur disc, pieces of the blade tips stayed visible and kept

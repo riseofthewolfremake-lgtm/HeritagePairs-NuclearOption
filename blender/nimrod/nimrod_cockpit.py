@@ -39,7 +39,7 @@ SCALES = L.SCALES
 TAC = L.TAC
 YA, YB = -1.28, -0.22                           # cockpit bay: aft bulkhead / forward (fuel tank) bulkhead
 FOOT_Z = -0.28                                  # footwell roof under the fuel tank
-FW_Y = 0.02                                     # footwell front wall
+FW_Y = -0.03                                    # footwell front wall (2026-11-22: was +0.02, 20 mm past the y 0 break)
 
 
 # =========================================================================================== small helpers
@@ -629,6 +629,55 @@ def build_shell():
     face_o(m, [V((-wx, FW_Y, fz)), V((wx, FW_Y, fz)), V((wx, FW_Y, FOOT_Z)), V((-wx, FW_Y, FOOT_Z))], 'ck_lining', V((0, -1, 0)))
     face_o(m, [V((-wx, YB, FOOT_Z)), V((wx, YB, FOOT_Z)), V((wx, FW_Y, FOOT_Z)), V((-wx, FW_Y, FOOT_Z))], 'ck_lining', V((0, 0, -1)))
     return m
+
+
+BREAK_WALL_MAT = 'metal_dark'                   # 2026-11-27 round 2 (review: the interior-paint wall read as a light full-section plate): dark
+FOOT_WX = 0.26                                  # footwell half width (build_shell wx)
+FOOT_FRONT_Y = None                             # FD-32: -0.068 (fd32 build clips the cockpit lining there; break_walls closes the footwell)
+
+
+def break_walls(m, wx, fz, gap=0.003, edge=0.002):
+    """2026-11-22 (user: "the cockpit is different from the fuselage"; Nimrod / FD-32 break faces opened, r8o pattern): the fuselage
+    tank / rear bulkhead discs 60-65 mm inside the y 0 / -1.5 breaks are gone, so the cockpit's own walls (YB front, YA rear, 0.22 m
+    from the breaks) are what one sees from a break. They faced the pilot only: here their break-facing sides, `gap` toward the
+    break, over the whole fuselage section (outline `edge` inside the skin, past the 2.5 mm inner skin: no slit), the front one with
+    the footwell's opening left out; the footwell box gets outward faces. Round 1 drew them in interior paint and the review found
+    one uniform light plate over 78-95 % of the section (the rejected 'divider'); round 2: metal_dark (a shadowed cavity end) with
+    the longerons, a frame and stringers in front of it (nimrod_parts.cen_stringers). Built into
+    fus_center_struct by nimrod_parts.fus_struct (not cockpit_interior: the cockpit's 4 mm tuck would open a slit at the inner skin)."""
+    from nimrod_structure import fus_params
+    for y, toward, hole in ((YB + gap, V((0, 1, 0)), True), (YA - gap, V((0, -1, 0)), False)):
+        hw, zt, zb, n_ = fus_params(y)
+        c = V((0, y, (zt + zb) / 2))
+        ring = [V((p.x, y, p.z)) for p in fus_ring(y, 72)]
+        ring = [p + (c - p).normalized() * edge for p in ring]
+        loops = [ring]
+        if hole:
+            loops.append([V((-wx - 0.002, y, fz - 0.002)), V((wx + 0.002, y, fz - 0.002)), V((wx + 0.002, y, FOOT_Z + 0.002)),
+                          V((-wx - 0.002, y, FOOT_Z + 0.002))])
+        flat = [[V((p.x, p.z, 0.0)) for p in lp] for lp in loops]
+        allp = [p for lp in loops for p in lp]
+        for t in tessellate_polygon(flat):
+            face_o(m, [allp[k] for k in t], BREAK_WALL_MAT, toward)
+    # footwell box (YB .. FW_Y, |x| < wx, fz .. FOOT_Z): outward faces 2 mm outside its lining faces
+    o = 0.002
+    fw = FW_Y if FOOT_FRONT_Y is None else FOOT_FRONT_Y
+    yb_, yf_ = YB + gap, fw + o
+    # the front wall's cut edge (FOOT_Z) can sit up to 1 mm over the footwell roof after the cockpit tuck: a 2.5 mm cockpit-side strip
+    # closes the slab between the roof lining and its outward twin there (seen from the cockpit through that slit: a back face)
+    face_o(m, [V((-wx - o, YB - 0.0005, FOOT_Z - 0.001)), V((wx + o, YB - 0.0005, FOOT_Z - 0.001)), V((wx + o, YB - 0.0005, FOOT_Z + 0.0015)),
+               V((-wx - o, YB - 0.0005, FOOT_Z + 0.0015))], 'ck_lining', V((0, -1, 0)))
+    if FOOT_FRONT_Y is not None:        # FD-32: its builder clips the cockpit lining at y -0.068 (the footwell front wall went with it)
+        face_o(m, [V((-wx, fw, fz)), V((wx, fw, fz)), V((wx, fw, FOOT_Z)), V((-wx, fw, FOOT_Z))], 'ck_lining', V((0, -1, 0)))
+    for s in (-1, 1):
+        face_o(m, [V((s * (wx + o), yb_, fz - o)), V((s * (wx + o), yf_, fz - o)), V((s * (wx + o), yf_, FOOT_Z + o)),
+                   V((s * (wx + o), yb_, FOOT_Z + o))], BREAK_WALL_MAT, V((s, 0, 0)))
+    face_o(m, [V((-wx - o, yf_, fz - o)), V((wx + o, yf_, fz - o)), V((wx + o, yf_, FOOT_Z + o)), V((-wx - o, yf_, FOOT_Z + o))],
+           BREAK_WALL_MAT, V((0, 1, 0)))
+    face_o(m, [V((-wx - o, yb_, FOOT_Z + o)), V((wx + o, yb_, FOOT_Z + o)), V((wx + o, yf_, FOOT_Z + o)), V((-wx - o, yf_, FOOT_Z + o))],
+           BREAK_WALL_MAT, V((0, 0, 1)))
+    face_o(m, [V((-wx - o, yb_, fz - o)), V((wx + o, yb_, fz - o)), V((wx + o, yf_, fz - o)), V((-wx - o, yf_, fz - o))],
+           BREAK_WALL_MAT, V((0, 0, -1)))
 
 
 FRAME_Y = [-1.20, -0.78, -0.36]

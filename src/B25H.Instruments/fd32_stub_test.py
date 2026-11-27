@@ -11,6 +11,7 @@ Run: python src/B25H.Instruments/fd32_stub_test.py      Expected: 'ALL PASS'."""
 import os, re
 HERE = os.path.dirname(os.path.abspath(__file__))
 cs = open(os.path.join(HERE, 'Nimrod.cs'), encoding='utf-8').read()
+# 1.9.15: Nimrod.cs is read as it is (the A6M2 is released; until 1.9.15 its hooks were stripped through tools/a6m2_devstrip.py)
 plug = open(os.path.join(HERE, 'Plugin.cs'), encoding='utf-8').read()
 fails = 0
 
@@ -26,7 +27,7 @@ def cf(name):
 
 
 # ---- (1) routing in the C#
-T('plugin version 1.5.1+ (1.5.3: + FD32Tac.cs; 1.6.0: + B17G.cs)', re.search(r'BepInPlugin\("b25h.instruments", "(B-25H|Heritage Pairs) Instruments", "1\.(5\.[135]|6\.0|8\.([04679]|1[0125])|9.([02789]|1[01234]))"\)', plug) is not None)
+T('plugin version 1.5.1+ (1.5.3: + FD32Tac.cs; 1.6.0: + B17G.cs)', re.search(r'BepInPlugin\("b25h.instruments", "(B-25H|Heritage Pairs) Instruments", "1\.(5\.[135]|6\.0|8\.([04679]|1[0125])|9.([02789]|1[012345]))"\)', plug) is not None)
 T('IsFixedGearKey is NIMROD1 only (FD32 retracts in v2)', re.search(r'IsFixedGearKey\(string k\) => k == NimrodKey;', cs) is not None
   and not re.search(r'IsFixedGearKey\(string k\) =>[^\n]*FD32Key', cs))
 T('IsFixedGear(a) = definition key through IsFixedGearKey', 'IsFixedGear(Aircraft a) => a != null && a.definition != null && IsFixedGearKey(a.definition.jsonKey)' in cs)
@@ -34,7 +35,7 @@ for site, pat in (('crash rule', r'if \(!IsFixedGear\(a\)\) return;\s*var n = __
                   ('gear guard', r'var a = LgAcF\.GetValue\(__instance\) as Aircraft;\s*if \(!IsFixedGear\(a\)\) return true;'),
                   ('keeper / hook scan', r'!IsFixedGearKey\(a\.definition\.jsonKey\)')):
     T(f'{site} still routed through IsFixedGear (NIMROD1 unchanged, FD32 now excluded)', re.search(pat, cs) is not None)
-T('no other FD32 reference on a fixed-gear path (FD32Key declared + the 1.5.5 hook-logic key only)', cs.count('FD32Key') == 2 and 'IsHookFixKey(string k) => k == NimrodKey || k == FD32Key;' in cs)
+T('no other FD32 reference on a fixed-gear path (FD32Key declared + the 1.5.5 hook-logic key only; 1.9.15: the hook key list also has the A6M2)', cs.count('FD32Key') == 2 and re.search(r'IsHookFixKey\(string k\) => k == NimrodKey \|\| k == FD32Key( \|\| k == "A6M2")?;', cs) is not None)
 T('1.9.9: the HUD fixed-gear patches and the Cooper log are removed (they were the only other fixed-gear / NIMROD1-only sites); needle attach rule unchanged',
   'UsesFixedGearHacks' not in cs and 'NIMROD1_cooper' not in cs and 'if (g.t.Count == 0 && a.definition.jsonKey == NimrodKey)' in cs)
 STOW, DEP = cf('HookStow'), cf('HookDeploy')

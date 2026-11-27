@@ -484,7 +484,7 @@
   "opening": {
    "jc": 19,
    "skin_faces_dropped": 100,
-   "struct_faces_dropped": 234,
+   "struct_faces_dropped": 272,
    "patch_faces": 1050,
    "edge_pts": [
     52,

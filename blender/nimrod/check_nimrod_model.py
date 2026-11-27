@@ -331,7 +331,9 @@ put('nothing inside the 0.2 m camera near plane ahead of the eye (CameraCockpitS
 # budget
 vt = sum(len(o.data.vertices) for o in O if o.type == 'MESH')
 tt = sum(len(p.vertices) - 2 for o in O if o.type == 'MESH' for p in o.data.polygons)
-put('vertex/triangle budget (1.4.0: + hook A-frame, radiator slats, oil cooler, sights, skid): welded verts < 48k, tris < 75k (B-25H: 117k tris)', vt < 48000 and tt < 75000, f'verts {vt}, tris {tt}')
+put('vertex/triangle budget (1.4.0: + hook A-frame, radiator slats, oil cooler, sights, skid; 2026-11-22: + the open break cavities liners, '
+    'cap strips and bay-end walls, about 4.5k tris; 2026-11-27 round 2: + the fus_center bay truss / stringers / wall frames, about 1.5k tris): '
+    'welded verts < 52k, tris < 83k (B-25H: 117k tris)', vt < 52000 and tt < 83000, f'verts {vt}, tris {tt}')
 
 # ======================================================================================== 2026-11-02 rebuild (user review 1) checks
 # (a) functional geometry unchanged against the 1.2.3 snapshot: every Unity part's own-mesh bounds (collider, CoM, lift point), the
@@ -635,7 +637,8 @@ pk = IN_.poke_count({o.name: o for o in O if o.type == 'MESH'})
 put('1.8.3 no cockpit part pokes through the skin or sits < 1 mm under it (the dark specks on the side skin)', not pk,
     {k: (len(v), v[:3]) for k, v in pk.items()})
 # 1.8.3 internals (stock way): engine body + fuel tank inside fus_engine_struct, inside the cowl, and the aft end of a torn-off engine
-# section shows structure (no firewall disc on the engine side; the fuselage keeps its tank bulkhead)
+# section shows structure (no firewall disc on the engine side; 2026-11-22: no tank bulkhead on the fuselage side either - open ends; the
+# saddle tank is in the plain 'tank' material)
 es = O.get('fus_engine_struct')
 nst = 0; outside = []
 if es is not None:
@@ -662,6 +665,57 @@ if es is not None:
     nst = sum(1 for pl in es.data.polygons if mi[pl.material_index] == 'structure')
 put('1.8.3 internals: Kestrel body + fuel tank in fus_engine_struct (structure material, stock aircraft_structure in Unity), every vertex inside the cowl skin',
     es is not None and nst > 400 and not outside, dict(structure_faces=nst, outside=outside[:6]))
+
+# 2026-11-22 break faces (user: "The Nimrod and FD-32 need to be changed as well"): the r8o checks C1 / C10 / C11 / C8 / C6 on every
+# break end (blender/breakface_r8o_checks.py). The 1.9.14 blend fails C1 (fin root 0.078 m2), C10 (fus_center 0.91 / 0.88, upper wing
+# 0.85-0.93, fin 0.99) and C11.
+import breakface_r8o_checks as BF
+
+
+def break_ends(yA, yB, label_y=None):
+    """the Mk I / FD-32 break ends: (key, part, plane point, normal out of the part, slice depth)."""
+    def xmin(n_, axis=0):
+        o_ = O.get(n_)
+        if o_ is None:
+            return None
+        mi = [m.name if m else '' for m in o_.data.materials]
+        M_ = o_.matrix_world
+        return min(abs((M_ @ o_.data.vertices[i].co)[axis]) for p_ in o_.data.polygons if mi[p_.material_index] == 'paint' for i in p_.vertices)
+    out = [(f'fus {yA:+.2f} aft end', 'fus_engine', Vector((0, yA, 0)), Vector((0, -1, 0)), 0.03),
+           (f'fus {yA:+.2f} front end', 'fus_center', Vector((0, yA, 0)), Vector((0, 1, 0)), 0.03),
+           (f'fus {yB:+.2f} aft end', 'fus_center', Vector((0, yB, 0)), Vector((0, -1, 0)), 0.03),
+           (f'fus {yB:+.2f} front end', 'fus_rear', Vector((0, yB, 0)), Vector((0, 1, 0)), 0.03)]
+    for sd, L in ((-1, 'L'), (1, 'R')):
+        out.append((f'upper wing {L} centre end', 'wing_upper_C', Vector((sd * S.UP_CENTRE_X, 0, 0)), Vector((sd, 0, 0)), 0.03))
+        out.append((f'upper wing {L} root end', f'wing_upper_{L}', Vector((sd * S.UP_CENTRE_X, 0, 0)), Vector((-sd, 0, 0)), 0.03))
+        xi = xmin(f'wing_lower_{L}_root'); xr = xmin(f'wing_lower_{L}')
+        out.append((f'lower wing {L} root', f'wing_lower_{L}', Vector((sd * xi, 0, 0)), Vector((-sd, 0, 0)), xr + 0.02 - xi))
+        xi = xmin(f'stab_{L}_root'); xr = xmin(f'stab_{L}')
+        out.append((f'stab {L} root', f'stab_{L}', Vector((sd * xi, 0, 0)), Vector((-sd, 0, 0)), xr + 0.02 - xi))
+    fo = O['fin']; fmi = [m.name if m else '' for m in fo.data.materials]
+    z0 = min((fo.matrix_world @ fo.data.vertices[i].co).z for p_ in fo.data.polygons if fmi[p_.material_index] == 'paint' for i in p_.vertices)
+    out.append(('fin root', 'fin', Vector((0, 0, z0)), Vector((0, 0, -1)), 0.03))
+    return out
+
+
+BREAK_DET = set(UNITY_PARTS) | {'prop'}
+# round 2 (2026-11-27, review of round 1: the break-facing cockpit walls in interior paint read as one light full-section plate, 78-95 %
+# of the view, and passed C11 only by their 'cockpit' label): the cockpit wall is allowed only dark (metal_dark), over <= 85 % of the
+# view, with frames / longerons / stringers in front of it on >= 10 % of the rays (C12 cockpit_wall_relief)
+# round 3 (2026-11-27, review of round 2: the dark wall still covered 0.64 / 0.81 = the divider, darker): max_cover 0.50, i.e. no
+# exemption is left for the cockpit walls (C11 allows them only above 0.60); C12 cockpit_wall_share holds every fuselage end to 0.50
+COCKPIT_WALL_RULE = dict(max_cover=0.50, min_relief=0.10)
+BREAK_ALLOW = (('fus', ('metal_dark',), 0.20, "the cockpit's own wall, dark, structure in front (0.22 m from the break; the user: the cockpit is different)", COCKPIT_WALL_RULE),
+               ('upper wing', ('fabric_in', 'interior'), 0.24, 'bay-end wall of the lined wing cavity (liner paint, 0.40 m in)'),
+               ('lower wing', ('fabric_in', 'interior'), 0.24, 'bay-end wall of the lined root cavity (liner paint, 0.40 m past the root)'),
+               ('stab', ('fabric_in', 'interior'), 0.24, 'bay-end wall of the lined stab root cavity (liner paint)'),
+               ('fin', ('fabric_in', 'interior'), 0.24, 'bay-end wall of the lined fin root cavity (liner paint)'))
+if __name__ == '__main__' and not os.environ.get('BREAKFACE_SKIP'):
+    bf = BF.run(put, break_ends(S.ENGINE_AFT_Y, S.CENTRE_AFT_Y), BREAK_DET, BREAK_ALLOW, label='2026-11-22 ')
+    import nimrod_cockpit as NC_
+    bf['eye_bay'] = BF.eye_bay(put, S.EYE, NC_.YA, NC_.YB, label='2026-11-27 ')        # round 3: no bay structure in the cockpit
+    bf['poke_sky'] = BF.poke_sky(put, 'fus_center', 'fus_center_struct', 0, BREAK_DET, label='2026-11-27 ')   # round 1 baseline 0
+    json.dump(bf, open(os.path.join(os.path.dirname(os.path.abspath(OUTP)), 'nimrod_breakfaces.json'), 'w'), indent=1, default=str)
 
 os.makedirs(os.path.dirname(os.path.abspath(OUTP)), exist_ok=True)
 json.dump(res, open(OUTP, 'w'), indent=1)

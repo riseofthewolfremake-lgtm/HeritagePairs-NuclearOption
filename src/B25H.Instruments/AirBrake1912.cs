@@ -39,9 +39,9 @@ namespace B25H.Instruments
         public const float MaxThreshold = 0.2f;        // config clamp; the stock parking brake / DeckHold198 let go at 0.1
         public const string HudText = "AIRBRAKE";      // the game's own text (ThrottleGauge.UpdateThrottleDisplay)
 
-        public static bool IsKey(string k) => k == "B25H" || k == "GA25X" || k == "NIMROD1" || k == "FD32" || k == "B17G" || k == "MSB17";
+        public static bool IsKey(string k) => k == "B25H" || k == "GA25X" || k == "NIMROD1" || k == "FD32" || k == "B17G" || k == "MSB17" || k == "A6M2";   // 2026-11-18: + A6M2 (memory airbrake-works-on-landing: every aircraft)
         /// the four on the stock COIN HUD (no throttle regions): the gauge's airbrake flag is set
-        public static bool IsCoinHudKey(string k) => k == "B25H" || k == "NIMROD1" || k == "B17G" || k == "MSB17";
+        public static bool IsCoinHudKey(string k) => k == "B25H" || k == "NIMROD1" || k == "B17G" || k == "MSB17" || k == "A6M2";   // A6M2: COIN_HUDExtras
 
         /// the threshold in force: 0 (= stock) with the switch off or a bad value, else the config value clamped to 0..MaxThreshold
         public static float Threshold(bool on, float cfg) => !on || float.IsNaN(cfg) ? 0f : Mathf.Clamp(cfg, 0f, MaxThreshold);

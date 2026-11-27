@@ -83,6 +83,15 @@ namespace B25H.Instruments
         static readonly System.Reflection.FieldInfo HookField = typeof(TailHook).GetField("hook", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Public);
         static readonly System.Reflection.FieldInfo StowField = typeof(TailHook).GetField("stowedAngle", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Public);
         static BepInEx.Logging.ManualLogSource Log;
+        // A6M2 pieces (A6M2KamikazeFuze.cs, A6M2EventRowHide.cs; ship-gated, absent from the public tree): partial methods, dropped when not implemented
+        partial void PatchKamikazeFuze();
+        partial void PatchEventRowHide();
+        partial void KamikazeStep();
+        partial void ScanA6M2();               // A6M2Cockpit.cs (round 4 dials)
+        partial void DriveA6M2All();
+        partial void PatchA6M2AiTaxi();        // A6M2 r6: AI taxi speed cap (A6M2AiTaxi.cs)
+        partial void PatchA6M2RollQ();         // A6M2 r7: aileron authority vs dynamic pressure (A6M2RollQ.cs)
+        partial void PatchA6M2WingFold();      // A6M2 r8: folding tips, spawn folded on the ground (A6M2WingFold.cs)
 
         void Awake()
         {
@@ -91,7 +100,13 @@ namespace B25H.Instruments
             PatchCrashGear();
             PatchGearGuard();
             PatchHookDeploy();
+            Patch1915();             // 1.9.15: the bug list of 2026-11-26 (Bugs1915.cs: overlap joints, AI ground watch / taxi dead end / line-up, deck filter, bomb armour)
             PatchLaserGuard();       // 1.9.7: GA-25X / MSB lasers never fire through their own aircraft (LaserGuard197.cs)
+            PatchKamikazeFuze();     // A6M2 round 3: crash / shoot-down fuze for the Event Content charge (A6M2KamikazeFuze.cs)
+            PatchEventRowHide();     // A6M2 round 3: Special row hidden when the mission has no Event Content (A6M2EventRowHide.cs)
+            PatchA6M2AiTaxi();       // A6M2 r6: AI taxi speed cap for the taildragger (A6M2AiTaxi.cs)
+            PatchA6M2RollQ();        // A6M2 r7: aileron authority falls with dynamic pressure (A6M2RollQ.cs)
+            PatchA6M2WingFold();     // A6M2 r8: folding tips (A6M2WingFold.cs)
         }
 
         static bool IsNimrod(Aircraft a) => a != null && a.definition != null && a.definition.jsonKey == NimrodKey;
@@ -175,7 +190,7 @@ namespace B25H.Instruments
                 bool crash = crashTime.TryGetValue(a, out var ct) && Time.time - ct < 1f;
                 bool detached = part == null || part.IsDetached();
                 bool hard = Mathf.Abs(v.y) > GuardCrashVy;
-                bool allow = gearGuard == null || !gearGuard.Value || crash || detached || hard;
+                bool allow = gearGuard == null || !gearGuard.Value || crash || detached || hard || GearJam1915(__instance, a);   // 1.9.15 (DeckFilter1915.cs): a leg standing on another aircraft is a jam, not a landing
                 if (allow || !lastGuardLog.TryGetValue(__instance, out var lt) || Time.time - lt > 1f)
                 {
                     lastGuardLog[__instance] = Time.time;
@@ -201,7 +216,7 @@ namespace B25H.Instruments
         //    descending, and stows only above 100 m/s or below 2 m/s. The Mk I (max ~82 m/s) and the FD-32 (cruise ~90 m/s) never pass 100, so
         //    the hook stayed out for the rest of the flight (user shot 102). For NIMROD1 / FD32 only: deploy at radarAlt 30-120 m, speed < 50 m/s,
         //    descending, gear down; stow above 60 m/s, with the gear up, or below 2 m/s. Other aircraft run the stock method. Config [Nimrod] HookLogic.
-        public static bool IsHookFixKey(string k) => k == NimrodKey || k == FD32Key;
+        public static bool IsHookFixKey(string k) => k == NimrodKey || k == FD32Key || k == "A6M2";   // 2026-11-18: + A6M2 (stock deploys in any descent under 100 m/s, gear up too; approach 44 m/s fits the 50 / 60 law)
         public const float HookDeployBelow = 50f, HookStowAbove = 60f;
         public static int HookDecision(bool deployed, float radarAlt, float speed, float vy, bool gearDown)   // +1 deploy, -1 stow, 0 keep
         {

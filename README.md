@@ -1,7 +1,8 @@
 # Heritage Pairs
 
-Six new flyable aircraft for [Nuclear Option](https://store.steampowered.com/app/2168680/Nuclear_Option/), in three pairs: a
-historical aircraft and its rebuild with the game's 2080s technology.
+Seven new flyable aircraft for [Nuclear Option](https://store.steampowered.com/app/2168680/Nuclear_Option/): three pairs of a
+historical aircraft and its rebuild with the game's 2080s technology, and the first aircraft of a fourth pair, the A6M2 Zero
+(its rebuilt twin is not made yet).
 
 > This project is an unofficial community modification and is not affiliated with, sponsored by, or endorsed by Shockfront Studios Pty Ltd. Original Nuclear Option assets, vehicle designs, audio, and code are Copyright (c) 2026 Shockfront Studios Pty Ltd. All rights reserved. Nuclear Option and Shockfront Studios are trademarks or registered trademarks of Shockfront Studios Pty Ltd. Original mod content and all other trademarks belong to their respective owners.
 
@@ -16,21 +17,37 @@ agent), directed and tested by a human. Part of the art was generated with AI im
 | **B-25H Mitchell** (1944): twin-engine gunship with a 75 mm nose cannon, eight forward .50 guns, bombs and rockets | **GA-25X**: heavy gunship with a guided 76 mm nose gun, a belly laser turret against missiles, tail hook |
 | **Hawker Nimrod Mk I** (1932): carrier biplane fighter with two Vickers guns, four 20 lb bombs, arrester hook | **FD-32 Nimrod**: fleet-defence biplane with electric drive, retracting gear, light missiles and guided bombs |
 | **B-17G Flying Fortress** (1944): four-engine heavy bomber with thirteen .50 guns in turrets and flexible mounts | **MSB-17**: four-turboshaft heavy strike aircraft with a weapons bay, wing pylons, two 20 mm turrets, two lasers |
+| **Mitsubishi A6M2 Zero Model 21** (1941, new in 1.9.15): carrier fighter with two 7.7 mm guns, two 20 mm cannons, two 60 kg bombs and an Event-Content special-attack charge, arrester hook, folding wing tips | (not made yet) |
 
 Every aircraft is a new unit added beside the stock aircraft; nothing in the game is replaced. Each has its own model, cockpit with
-working instruments or screens, damage model, flight model and liveries for both factions; the two carrier aircraft (Nimrod Mk I and FD-32) also
-have a naval livery for each faction. Weapons are the game's own, except
-the 75 mm cannon, the Vickers guns, the 20 lb bomb and the twin 20 mm turret, which are defined by this mod from stock parts.
+working instruments or screens, damage model, flight model and liveries for both factions; the carrier aircraft (Nimrod Mk I, FD-32 and
+A6M2 Zero) also have a naval livery for each faction. Weapons are the game's own, except the 75 mm cannon, the Vickers guns, the 20 lb
+bomb, the twin 20 mm turret and the four weapons of the Zero, which are defined by this mod from stock parts.
+
+### A6M2 Zero (1.9.15)
+
+- **Weapons:** two Type 97 7.7 mm machine guns in the cowl (500 rounds each, tracers), two Type 99 20 mm cannons in the wings (60
+  rounds each), two Type 97 No.6 60 kg bombs on the underwing racks, and a fixed 250 kg special-attack charge on the centreline.
+- **The special-attack charge is Event Content**, like the game's UFO and AIR-2 Genie: its "Special" loadout row shows only when the
+  mission's Event Content box is ticked, and no standard loadout carries it, so computer-flown Zeros never take it unless a mission
+  gives it to them. It goes off when fired, when the aircraft crashes, is shot down or is abandoned, and not when it is parked. It
+  is fixed to the aircraft and is not dropped.
+- **Liveries (seven):** IJN Grey-White (1941) for both factions; BDF Temperate Camo, BDF Matte Gray and BDF Navy; PALA Desert Camo,
+  PALA Matte Black and PALA Navy Splinter.
+- Period cockpit with working dials, retracting main gear and tail wheel, arrester hook, wing tips that are folded when it spawns on the ground and unfold a few seconds later (visual only), open
+  break ends and internals when it is shot apart. Settings for its plugin pieces are in the `[A6M2]` section of the settings file
+  (`Auto` = on).
 
 ## Requirements
 
-- Nuclear Option 0.34.6. This release was built against game 0.34.6; 1.9.12 and the 1.9.13 test builds were tried in the game on 0.34.6. The manifest inside the pack, which the
+- Nuclear Option 0.34.6. This release was built against game 0.34.6, and its test builds were tried in the game on 0.34.6. The manifest inside the pack, which the
   Blueprinter editor project writes, says 0.34.3 (the game version that project was set up with); Blueprinter compares only the
   first two numbers, so it raises no warning on 0.34.6.
 - [BepInEx 5](https://github.com/BepInEx/BepInEx) (5.4.x, Windows x64; tested with 5.4.23.5)
-- [Blueprinter](https://github.com/nikkorap/NOBlueprinter-Releases) 2.1.1 by nikkorap (`com.nikkorap.blueprinter`)
+- [Blueprinter](https://github.com/nikkorap/NOBlueprinter-Releases) 2.1.1 by nikkorap (`com.nikkorap.blueprinter`); 1.9.15 was
+  tested in the game with Blueprinter 2.1.2.
 
-The download is about 240 MB.
+The download is about 264 MB.
 
 ## Install
 
@@ -56,6 +73,13 @@ MSB-17 six spoiler panels on the wing. An aircraft parked at idle therefore stan
 5 % throttle and above. Holding the throttle exactly at 5 % makes the brake open and close about once a second. The settings are in the `[Airbrake]` section of the settings file: `AirbrakeIdle1912 = Off` gives the
 behaviour of the game's own aircraft (brake only at exactly 0), `AirbrakeThrottle1912` is the limit (0.05).
 
+**Computer-flown aircraft on the ground (1.9.15).** The plugin watches computer-flown aircraft while they taxi: one that circles, makes
+no progress or is stuck against another aircraft is re-routed, sent on to take off, or made to park or bail out; one that loses a part
+or is damaged on the ground bails out. Player-flown aircraft are never touched. The taxi fixes for circling apply to every
+computer-flown aircraft, the game's own included (the circling is a bug of the game). The settings are in `[Ground]`
+(`AiGroundWatch1915`, `AiGroundWatchScope`, `AiTaxiDeadEnd1915`, `AiLineUp1915`, `DeckAircraft1915`), `[Physics]` (`OverlapJoint1915`,
+`NoseJoint1915`, `GrandJoint1915`) and `[Weapons]` (`BombArmor1915`); `Off` gives the 1.9.14 behaviour of each piece.
+
 ## Multiplayer
 
 **Multiplayer has not been tested with this mod.** What follows is the expected behaviour of Blueprinter aircraft mods, not a
@@ -66,12 +90,21 @@ same lobby: the aircraft and weapons exist for everyone who has the mod.
 ## Known issues
 
 - **Not tested:** multiplayer; placing these aircraft in the mission editor; NOMM's own install of the zip.
+- 1.9.15 A6M2 Zero: tried in the game on test builds with the same plugin code and aircraft as this release (the version number is the
+  only difference); the final download itself was not flown. Not tested: a carrier landing of the Zero by a computer pilot, a mission
+  saved with the special-attack charge and then loaded with Event Content off.
+- 1.9.15 ground fixes, from the test builds: no B-17G lost its tail while taxiing; no aircraft circled without being caught in the last
+  48-minute test. Not seen in the game yet: the "give up after a second circle" step, the two-circles-in-90-seconds check and the
+  "stuck against another aircraft for 10 seconds" rule (each was covered by an earlier rule in the tests). A computer-flown aircraft
+  that is caught circling or stuck may bail out and leave its aircraft on the taxiway for the game to clear. A computer-flown aircraft
+  whose taxi path runs out right after its landing roll heads straight for its exit point, at 17-27 m/s in the last test; one
+  FD-32 hit a road that way and its crew bailed out.
 - Carrier landings: the FD-32 catches a wire and stops (tested with a scripted approach). The Nimrod Mk I catches a wire but
   tipped onto its nose in the one scripted test, in which the stick was held back; a hand-flown landing has not been tested.
   The arrester hook is an item of the loadout (Tail Hook slot): an aircraft spawned with an empty loadout has no hook. Parking,
   riding the lift, taxiing and deck take-offs work.
 - The B-25H needs back stick to lift off; it does not fly itself off the runway at full throttle.
-- 1.9.12 air brakes: tried in the game on all six aircraft (on below 5 %, off from 5 %, panels, braking in flight, a GA-25X
+- 1.9.12 air brakes: tried in the game on the six aircraft of 1.9.12 (on below 5 %, off from 5 %, panels, braking in flight, a GA-25X
   landing roll, FD-32 and Nimrod Mk I idling on a moving carrier, which hold their place). Not tried: landings of the B-17G
   and MSB-17 with the brake. Holding the throttle exactly at 5 % makes the brake open and close about once a second.
 - 1.9.13 upper wing of the FD-32 and Nimrod Mk I: the wing joints are solved 100 times per physics step (was 6), and the
@@ -106,7 +139,7 @@ same lobby: the aircraft and weapons exist for everyone who has the mod.
   belly, so there the pattern fades to a plain colour (blue-grey on BDF Navy Hex, mid-grey on PALA Navy Splinter). Both naval
   patterns have one straight seam along the belly centreline.
 - Computer-flown tail-wheel aircraft (B-17G, MSB-17, both Nimrods) push the stick forward while taxiing, so the tail can lift
-  during AI taxi. Computer-flown Nimrod Mk I aircraft can get stuck circling at the K92 highway strip.
+  during AI taxi.
 - The MSB-17 has not been tested at its heaviest take-off weight (42 t), with its bays open in flight, or with one engine out
   below 75 m/s.
 - The GA-25X belly laser only looks downward: it does not engage missiles that come in level or from above.
@@ -144,7 +177,7 @@ You need your own copy of the game; no game file is in this repository.
    the supported build. The `B25H.Instruments.csproj` beside the source is a convenience for IDEs; it has not been built with
    a .NET SDK and is not expected to give the same bytes.
    The build is deterministic: the same source, compiler and reference DLLs give the same DLL bytes. The released
-   `B25H.Instruments.dll` 1.9.14 has sha256 `5f1e3c7155ea780fb5e6902eb54c21629474c57876de9ba805d1ec8502baf0fc` and was built with:
+   `B25H.Instruments.dll` 1.9.15 has sha256 `eea726f82bc8f068f7d0b6358288fcb2410ef6f8ef6d104897a69cb8e9afc497` and was built with:
    - Nuclear Option 0.34.6, Steam build id 26327221 (`Assembly-CSharp.dll` sha256 `babdd626bbab...813c2bce`);
    - BepInEx 5.4.23.5 (`BepInEx.dll` sha256 `8255b2890288...ef14ce70`, `0Harmony.dll` sha256 `1a21cc03424f...285c1031`);
    - Unity 2022.3.62f2: its Roslyn `csc.dll` 4.3.1-3.22526.13 (41a5af9d), run by its bundled .NET runtime 6.0.21.
@@ -154,7 +187,7 @@ You need your own copy of the game; no game file is in this repository.
    `export_*.py`, `check_*_model.py`). The built models and textures are in `assets/`.
 3. **Pack:** set up the Blueprinter editor project (Unity 2022.3.62f2, Blueprinter editor package, your game's assemblies
    imported by Blueprinter's setup window), copy `unity/Editor/*.cs` into its `Assets/Editor`, and run
-   `Unity -batchmode -executeMethod B25HTools.FamilyBuild.BuildAll`. It builds the six aircraft, runs their checks and writes the
+   `Unity -batchmode -executeMethod B25HTools.FamilyBuild.BuildAll`. It builds the seven aircraft, runs their checks and writes the
    `.nobp`.
 4. **Tests:** the plugin's offline tests are `src/B25H.Instruments/stub_test.py`, `nimrod_stub_test.py`, `fd32_stub_test.py`,
    `fd32tac_stub_test.py` and `b17g_stub_test.py` (run each with `python`). Rows that compare against earlier private builds
@@ -185,7 +218,7 @@ working name). Some comments mention design notes and study folders that are pri
   Shockfront allows for custom liveries (the same way Steam Workshop liveries use them). You may use and share these liveries
   freely with the emblems on them; the emblem designs themselves remain Shockfront's, so our CC0 dedication covers our
   paintwork, not ownership of the emblems. In the same way, the national insignia of real air forces on the historical
-  liveries (RAF roundel and fin flash, US star-and-bar) remain their owners'; our dedication covers our paintwork.
+  liveries (RAF roundel and fin flash, US star-and-bar, the Japanese hinomaru) remain their owners'; our dedication covers our paintwork.
 
   The pack refers to the game's own parts (stock weapons, seats, displays, materials, sounds) by name and the game supplies
   them at load; they are not contained in it.

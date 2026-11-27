@@ -26,7 +26,7 @@ namespace B25H.Instruments
         static bool hudHooked, registryBroken;
         Aircraft[] passAircraft = new Aircraft[0];
         int scanStep = -1;                       // -1 = idle; 0..ScanSteps-1 = next step of the current pass
-        const int ScanSteps = 7;
+        const int ScanSteps = 8;                 // A6M2 round 4: + step 6 (ScanA6M2)
 
         static void ThrottleInitPostfix(ThrottleGauge __instance) { if (__instance != null) throttleSeen.Add(__instance); }
         static void PropInitPostfix(PropGauge __instance) { if (__instance != null) propSeen.Add(__instance); }
@@ -95,6 +95,7 @@ namespace B25H.Instruments
                 case 3: FD32TacPanels(); break;
                 case 4: ScanB17G(); break;          // 1.6.0: B-17G (B17G.cs, jsonKey B17G only)
                 case 5: ScanExtras(); break;        // 1.8.4: B-25H extra dials + GA-25X standby cards (Dials184.cs); 1.8.9 grip registration
+                case 6: ScanA6M2(); break;          // A6M2 round 4 dials (A6M2Cockpit.cs; partial method, dropped from the public build)
                 default: break;
             }
             scanStep++;

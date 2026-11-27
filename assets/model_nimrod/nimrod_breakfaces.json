@@ -1,0 +1,447 @@
+{
+ "fus +0.00 aft end": {
+  "part": "fus_engine",
+  "objects": 3,
+  "C1": [
+   0.0089,
+   {
+    "pr_exhaust": 0.0023,
+    "pr_vickers": 0.0067
+   }
+  ],
+  "rays": 3723,
+  "first": {
+   "interior": 0.404,
+   "structure": 0.359,
+   "tank": 0.165,
+   "paint": 0.053,
+   "pr_exhaust": 0.012,
+   "metal_dark": 0.008
+  },
+  "C10": 0.147,
+  "C11": [
+   0.147,
+   0.05,
+   "tank",
+   {
+    "tank": 1.0
+   }
+  ],
+  "relief": 0.003,
+  "C8": [
+   280,
+   {}
+  ],
+  "C6": [
+   24.8,
+   0,
+   []
+  ]
+ },
+ "fus +0.00 front end": {
+  "part": "fus_center",
+  "objects": 38,
+  "C1": [
+   0.0,
+   {}
+  ],
+  "rays": 3737,
+  "first": {
+   "metal_dark": 0.456,
+   "tank": 0.329,
+   "structure": 0.213,
+   "paint": 0.001
+  },
+  "C10": 0.245,
+  "C11": [
+   0.272,
+   0.217,
+   "metal_dark",
+   {
+    "metal_dark": 1.0
+   }
+  ],
+  "relief": 0.542,
+  "C8": [
+   280,
+   {}
+  ],
+  "C6": [
+   15.8,
+   0,
+   []
+  ]
+ },
+ "fus -1.50 aft end": {
+  "part": "fus_center",
+  "objects": 38,
+  "C1": [
+   0.0,
+   {}
+  ],
+  "rays": 3312,
+  "first": {
+   "metal_dark": 0.56,
+   "structure": 0.231,
+   "interior": 0.209
+  },
+  "C10": 0.167,
+  "C11": [
+   0.463,
+   0.217,
+   "metal_dark",
+   {
+    "metal_dark": 1.0
+   }
+  ],
+  "relief": 0.231,
+  "C8": [
+   209,
+   {}
+  ],
+  "C6": [
+   18.6,
+   0,
+   []
+  ]
+ },
+ "fus -1.50 front end": {
+  "part": "fus_rear",
+  "objects": 6,
+  "C1": [
+   0.0,
+   {}
+  ],
+  "rays": 3218,
+  "first": {
+   "fabric_in": 0.599,
+   "structure": 0.396,
+   "metal_dark": 0.004
+  },
+  "C10": 0.095,
+  "C11": [
+   0.095,
+   0.061,
+   "structure",
+   {
+    "structure": 1.0
+   }
+  ],
+  "relief": 0.002,
+  "C8": [
+   280,
+   {}
+  ],
+  "C6": [
+   23.9,
+   0,
+   []
+  ]
+ },
+ "upper wing L centre end": {
+  "part": "wing_upper_C",
+  "objects": 3,
+  "C1": [
+   0.0,
+   {}
+  ],
+  "rays": 575,
+  "first": {
+   "fabric_in": 0.89,
+   "metal_dark": 0.082,
+   "structure": 0.023,
+   "paint": 0.005
+  },
+  "C10": 0.082,
+  "C11": [
+   0.89,
+   0.398,
+   "fabric_in",
+   {
+    "fabric_in": 1.0
+   }
+  ],
+  "relief": 0.023,
+  "C8": [
+   148,
+   {}
+  ],
+  "C6": [
+   22.9,
+   0,
+   []
+  ]
+ },
+ "upper wing L root end": {
+  "part": "wing_upper_L",
+  "objects": 4,
+  "C1": [
+   0.0,
+   {}
+  ],
+  "rays": 577,
+  "first": {
+   "fabric_in": 0.901,
+   "metal_dark": 0.078,
+   "structure": 0.021
+  },
+  "C10": 0.078,
+  "C11": [
+   0.901,
+   0.398,
+   "fabric_in",
+   {
+    "fabric_in": 1.0
+   }
+  ],
+  "relief": 0.021,
+  "C8": [
+   148,
+   {}
+  ],
+  "C6": [
+   24.9,
+   0,
+   []
+  ]
+ },
+ "lower wing L root": {
+  "part": "wing_lower_L",
+  "objects": 3,
+  "C1": [
+   0.0,
+   {}
+  ],
+  "rays": 506,
+  "first": {
+   "fabric_in": 0.905,
+   "paint": 0.057,
+   "structure": 0.024,
+   "metal_dark": 0.014
+  },
+  "C10": 0.0,
+  "C11": [
+   0.014,
+   0.338,
+   "metal_dark",
+   {
+    "metal_dark": 1.0
+   }
+  ],
+  "relief": 0.024,
+  "C8": [
+   46,
+   {}
+  ],
+  "C6": [
+   264.8,
+   0,
+   []
+  ]
+ },
+ "stab L root": {
+  "part": "stab_L",
+  "objects": 3,
+  "C1": [
+   0.0006,
+   {
+    "metal_dark": 0.0006
+   }
+  ],
+  "rays": 121,
+  "first": {
+   "fabric_in": 0.95,
+   "(none)": 0.041,
+   "paint": 0.008
+  },
+  "C10": 0.0,
+  "C11": [
+   0.95,
+   0.385,
+   "fabric_in",
+   {
+    "fabric_in": 1.0
+   }
+  ],
+  "relief": 0.0,
+  "C8": [
+   1,
+   {}
+  ],
+  "C6": [
+   9000.0,
+   0,
+   []
+  ]
+ },
+ "upper wing R centre end": {
+  "part": "wing_upper_C",
+  "objects": 3,
+  "C1": [
+   0.0,
+   {}
+  ],
+  "rays": 577,
+  "first": {
+   "fabric_in": 0.886,
+   "metal_dark": 0.087,
+   "structure": 0.021,
+   "paint": 0.007
+  },
+  "C10": 0.087,
+  "C11": [
+   0.886,
+   0.398,
+   "fabric_in",
+   {
+    "fabric_in": 1.0
+   }
+  ],
+  "relief": 0.021,
+  "C8": [
+   148,
+   {}
+  ],
+  "C6": [
+   24.5,
+   0,
+   []
+  ]
+ },
+ "upper wing R root end": {
+  "part": "wing_upper_R",
+  "objects": 4,
+  "C1": [
+   0.0,
+   {}
+  ],
+  "rays": 575,
+  "first": {
+   "fabric_in": 0.904,
+   "metal_dark": 0.073,
+   "structure": 0.023
+  },
+  "C10": 0.073,
+  "C11": [
+   0.904,
+   0.398,
+   "fabric_in",
+   {
+    "fabric_in": 1.0
+   }
+  ],
+  "relief": 0.023,
+  "C8": [
+   148,
+   {}
+  ],
+  "C6": [
+   24.9,
+   0,
+   []
+  ]
+ },
+ "lower wing R root": {
+  "part": "wing_lower_R",
+  "objects": 3,
+  "C1": [
+   0.0,
+   {}
+  ],
+  "rays": 507,
+  "first": {
+   "fabric_in": 0.929,
+   "paint": 0.057,
+   "metal_dark": 0.014
+  },
+  "C10": 0.0,
+  "C11": [
+   0.014,
+   0.338,
+   "metal_dark",
+   {
+    "metal_dark": 1.0
+   }
+  ],
+  "relief": 0.0,
+  "C8": [
+   46,
+   {}
+  ],
+  "C6": [
+   275.7,
+   0,
+   []
+  ]
+ },
+ "stab R root": {
+  "part": "stab_R",
+  "objects": 3,
+  "C1": [
+   0.0006,
+   {
+    "metal_dark": 0.0006
+   }
+  ],
+  "rays": 120,
+  "first": {
+   "fabric_in": 0.942,
+   "(none)": 0.042,
+   "metal_dark": 0.017
+  },
+  "C10": 0.0,
+  "C11": [
+   0.942,
+   0.385,
+   "fabric_in",
+   {
+    "fabric_in": 1.0
+   }
+  ],
+  "relief": 0.0,
+  "C8": [
+   1,
+   {}
+  ],
+  "C6": [
+   9000.0,
+   0,
+   []
+  ]
+ },
+ "fin root": {
+  "part": "fin",
+  "objects": 2,
+  "C1": [
+   0.0,
+   {}
+  ],
+  "rays": 88,
+  "first": {
+   "fabric_in": 0.955,
+   "structure": 0.034,
+   "metal_dark": 0.011
+  },
+  "C10": 0.034,
+  "C11": [
+   0.852,
+   0.248,
+   "fabric_in",
+   {
+    "fabric_in": 1.0
+   }
+  ],
+  "relief": 0.034,
+  "C8": [
+   62,
+   {}
+  ],
+  "C6": [
+   17.0,
+   0,
+   []
+  ]
+ },
+ "eye_bay": 0,
+ "poke_sky": 0
+}

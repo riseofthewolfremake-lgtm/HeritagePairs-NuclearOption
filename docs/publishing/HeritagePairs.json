@@ -1,7 +1,7 @@
 {
   "id": "HeritagePairs",
   "displayName": "Heritage Pairs",
-  "description": "Six new flyable aircraft in three pairs, a historical aircraft and its rebuild with the game's 2080s technology: B-25H Mitchell and GA-25X, Hawker Nimrod Mk I and FD-32 Nimrod, B-17G Flying Fortress and MSB-17. Own models, cockpits with working instruments and screens, flight and damage models, BDF and PALA liveries, stock weapons plus a few period guns. Needs Blueprinter; every player in a lobby and the host are expected to need the mod (multiplayer untested). Made with AI assistance (see the README).",
+  "description": "Seven new flyable aircraft: three pairs of a historical aircraft and its rebuild with the game's 2080s technology (B-25H Mitchell and GA-25X, Hawker Nimrod Mk I and FD-32 Nimrod, B-17G Flying Fortress and MSB-17) and the A6M2 Zero Model 21. Own models, cockpits with working instruments and screens, flight and damage models, BDF and PALA liveries, stock weapons plus a few period guns. Needs Blueprinter; every player in a lobby and the host are expected to need the mod (multiplayer untested). Made with AI assistance (see the README).",
   "tags": [
     "mod",
     "aircraft",
@@ -23,13 +23,13 @@
   "isAiAssisted": "True",
   "artifacts": [
     {
-      "fileName": "HeritagePairs_1.9.14.zip",
-      "version": "1.9.14",
+      "fileName": "HeritagePairs_1.9.15.zip",
+      "version": "1.9.15",
       "category": "release",
       "type": "addon",
       "gameVersion": "0.34.6",
-      "downloadUrl": "https://github.com/riseofthewolfremake-lgtm/HeritagePairs-NuclearOption/releases/download/v1.9.14/HeritagePairs_1.9.14.zip",
-      "hash": "sha256:6a10bcbb4df8dbd4ca59c9a6ab8b060cb02a92b53e51f80a5b000938b314ae04",
+      "downloadUrl": "https://github.com/riseofthewolfremake-lgtm/HeritagePairs-NuclearOption/releases/download/v1.9.15/HeritagePairs_1.9.15.zip",
+      "hash": "sha256:dc550e51cb32a4c86f3d6d32ccf7304dd1e51d8ef45d7a5b240bc3aba855b0c7",
       "extends": {
         "id": "com.nikkorap.blueprinter",
         "version": "2.1.1"

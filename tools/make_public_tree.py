@@ -30,9 +30,12 @@ INCLUDE = ['README.md', 'LICENSE', 'LICENSE-ASSETS', 'CREDITS.md', 'CHANGELOG.md
            'assets/*',
            'tools/build_instruments.sh', 'tools/make_release_zip.py', 'tools/pack_asset_report.py', 'tools/pack_strings199.py', 'tools/atlas_pack_check1816.py',
            'tools/nomnom_schema_check.py', 'tools/make_public_tree.py', 'tools/paint_out_marks1910.py', 'tools/pack_texture_diff1910.py',
-           'docs/publishing/HeritagePairs.json', 'docs/publishing/pack_asset_report_1.9.14.txt',      # the current release's report only
+           'docs/publishing/HeritagePairs.json', 'docs/publishing/pack_asset_report_1.9.15.txt',      # the current release's report only
            'docs/publishing/RELEASE_NOTES_*.md', 'docs/publishing/HOW_TO_RELEASE.md']
 EXCLUDE = ['*/__pycache__/*', '*.pyc', '*.blend1',
+           # ship gate: an aircraft the user has not released yet is listed here by path pattern (none since 1.9.15: the A6M2 Zero was
+           # excluded from 2026-11-18 until its release in 1.9.15, and from then on goes out like the other aircraft)
+
            'blender/*/study/*',                      # study scripts that read the user's game export
            'assets/*/renders/*', 'assets/*/previews/*', 'assets/*/drafts/*',      # review renders and drafts: not needed to rebuild
            'assets/*/concepts/*.png', 'assets/*/ck_concepts/*.png', 'assets/*/fal/raw/*.png',    # AI concept images / model preview renders (the manifests stay)
@@ -130,6 +133,8 @@ def main():
         print('out dir is not empty:', out); sys.exit(2)
     tracked = [f for f in subprocess.run(['git', '-C', REPO, 'ls-files'], capture_output=True, text=True).stdout.split('\n') if f]
     take = [f for f in tracked + EXTRA if match(f, INCLUDE) and not match(f, EXCLUDE) and os.path.exists(os.path.join(REPO, f))]
+    # 1.9.15: every file goes out as it is in the repository (the A6M2 dev strip of 1.9.14-1.9.15 development is no longer applied: the released
+    # DLL is built from exactly this source)
     for f in take:
         dst = os.path.join(out, f)
         os.makedirs(os.path.dirname(dst), exist_ok=True)

@@ -69,6 +69,7 @@ MATERIALS = {   # name: (base colour RGBA, metallic, roughness)  - Unity builds 
     'bombband': ((0.80, 0.62, 0.08, 1.0), 0.1, 0.5),
     'navred': ((0.55, 0.03, 0.02, 1.0), 0.0, 0.08),          # 1.4.0 period wing-tip lamp glass (no light source)
     'navgreen': ((0.03, 0.42, 0.10, 1.0), 0.0, 0.08),
+    'tank': ((0.55, 0.55, 0.55, 1.0), 0.3, 0.5),             # 2026-11-22: fuel tank metal (Unity <prefix>_tank, plain lit grey)
 }
 COCKPIT_ONLY = {'cockpit_interior', 'cockpit_seat', 'cockpit_throttle', 'cockpit_stick', 'cockpit_rudderbar', 'mfd_center', 'windscreen',
                 'cockpit_coaming', 'cockpit_frame', 'cockpit_panel', 'cockpit_compass', 'cockpit_breech_L', 'cockpit_breech_R', 'cockpit_quadrant',

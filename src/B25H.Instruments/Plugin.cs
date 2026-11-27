@@ -14,7 +14,7 @@ using UnityEngine;
 
 namespace B25H.Instruments
 {
-    [BepInPlugin("b25h.instruments", "Heritage Pairs Instruments", "1.9.14")]   // 1.9.10: display name was "B-25H Instruments"; the GUID (and so the config file b25h.instruments.cfg) is unchanged
+    [BepInPlugin("b25h.instruments", "Heritage Pairs Instruments", "1.9.15")]   // 1.9.10: display name was "B-25H Instruments"; the GUID (and so the config file b25h.instruments.cfg) is unchanged
     // Heritage Pairs companion plugin: cockpit dials and tac-page panels the stock components do not drive, taildragger ground handling
     // (grip, taxi turn, moving-deck hold), the Nimrod / FD-32 hook and gear rules and the laser beam guard. One partial class, one file per
     // piece; each piece acts only on our own aircraft (matched by definition.jsonKey), has a config switch and disables itself on an
@@ -48,6 +48,7 @@ namespace B25H.Instruments
             DiscoveryStep();         // 1.8.10 (Scan1810.cs): every 2 s, one step per frame, aircraft from UnitRegistry (was: 6 scene searches in one frame)
             DriveExtrasAll();
             DriveNimrodAll();
+            DriveA6M2All();          // A6M2 round 4 dials (A6M2Cockpit.cs)
             DriveB17GAll();
             DriveAirbrake1912();     // 1.9.12 (AirBrake1912.cs): airbrake on under 5 % throttle (ground and air), HUD airbrake text
             List<Aircraft> dead = null;

@@ -56,6 +56,7 @@ FRAME = dict(arch=0.022, rear=0.020, sill=0.015, out=0.005)     # slim dark fram
 HOOD_TOP = TOP_LINE
 SPINE_TOP = TOP_LINE
 SPINE_END_Y = -4.08
+SPINE_OPEN = True                   # 2026-11-22: no structure caps at the y -1.90 split (open, dark-lined fairing)
 SPINE_SPLIT_Y = None                # = S.CENTRE_AFT_Y after the stretch (-1.90)
 WALL_DEPTH = 0.10
 N_SEC = 16                          # points per canopy section (sill to sill)
@@ -400,14 +401,30 @@ def build_spine():
     ys_f = [y0 + (ysplit - y0) * k / n_f for k in range(n_f + 1)]
     ys_a = [ysplit + (SPINE_END_Y - ysplit) * (k / n_a) ** 1.0 for k in range(n_a + 1)]
     out = []
-    for ys, caps in ((ys_f, ('paint', 'structure')), (ys_a, ('structure', 'structure'))):
+    capset = ((ys_f, ('paint', None)), (ys_a, (None, 'structure'))) if SPINE_OPEN else ((ys_f, ('paint', 'structure')), (ys_a, ('structure', 'structure')))
+    for ys, caps in capset:
         mb = MeshBuf()
         secs = [spine_section(y) for y in ys]
         rings = [s[0] for s in secs]
         loft(mb, rings, 'paint', closed=False, smooth=True)
         _fix_out(mb, lambda c: V((0, c.y, deck_z(0.0, c.y) - 0.10)))
+        if SPINE_OPEN:
+            # 2026-11-22 (break faces opened, r8o pattern): no 'structure' cap in the y -1.90 split plane (each was 0.22 m2, 46 % of
+            # the fuselage end). The fairing is lined in metal_dark (a dark cavity, its band and skin edge dark at the split); the
+            # forward piece's painted front cap 0.29 m in gets a dark back (the cavity's end wall).
+            import nimrod_structure as _ST
+            tmp = MeshBuf(); tmp.verts = list(mb.verts); tmp.faces = [dict(f) for f in mb.faces]; n0 = len(tmp.faces)
+            _ST.double_skin(tmp, t=0.0015, mats=('paint',), inner=lambda f, c: 'metal_dark', edge_mat='metal_dark')
+            add = MeshBuf(); add.verts = tmp.verts; add.faces = tmp.faces[n0:]
+            mb.extend(add)
+            if caps[0] == 'paint':
+                r0 = rings[0]
+                cc0 = sum(r0, V()) / len(r0)
+                fan_cap(mb, [p - V((0, 0.002, 0)) + (cc0 - p).normalized() * 0.0015 for p in r0], cc0 - V((0, 0.002, 0)), 'metal_dark', V((0, -1, 0)))
         for r, c_, mat, toward, dome in ((rings[0], secs[0][1], caps[0], V((0, 1, 0)), 0.0),
                                          (rings[-1], secs[-1][1], caps[1], V((0, -1, 0)), 0.0)):
+            if mat is None:
+                continue
             cc = sum(r, V()) / len(r)
             if dome:                                         # painted front bulkhead, domed 3.5 cm forward under the hood's rear bow
                 mid = [p.lerp(cc, 0.45) + toward * dome * 0.7 for p in r]

@@ -33,8 +33,12 @@ namespace B25H.Instruments
     public static class GroundGripMath
     {
         public const float GripMu = 0.6f, GripResp = 1.0f, YawDamp = 6.0f;
-        public static float IzzFor(string key) => key == "B17G" ? 800000f : key == "NIMROD1" ? 4962f * 1714f / 1567f : key == "FD32" ? 6060f * 1830f / 1486f : key == MsbKey ? MsbIzz : 0f;
-        public static bool IsGripKey(string key) => key == "B17G" || key == "NIMROD1" || key == "FD32";
+        public static float IzzFor(string key) => key == "B17G" ? 800000f : key == "NIMROD1" ? 4962f * 1714f / 1567f : key == "FD32" ? 6060f * 1830f / 1486f : key == MsbKey ? MsbIzz : key == A6M2Key ? A6M2Izz : 0f;
+        public static bool IsGripKey(string key) => key == "B17G" || key == "NIMROD1" || key == "FD32" || key == A6M2Key;
+        // 2026-11-18 A6M2 Zero (design 6: the accepted Mk I / FD-32 taildragger stack from day one; DeckRelative197, TaxiTurn1811 and DeckHold198
+        // ride on IsGripKey). Izz = the root rigidbody's yaw inertia of the BUILT prefab (A6M2Build log 'Izz', the Nimrod method), see A6M2Izz.
+        public const string A6M2Key = "A6M2";
+        public const float A6M2Izz = 9227f * 1948f / 1641f;   // A6M2Build log 2026-11-18: root rigidbody inertiaTensor.y 9,227 kg m^2 at the 1,641 kg parts mass, scaled to 1,948 kg (80 % fuel), as the Mk I entry
         // 1.9.0: the MSB-17/80 (the upgraded B-17G, same gear on the B-17G stations, 34-43 t): Izz = the B-17G's x mass ratio (34 / 28.47) x 1.10
         // (tools/flightmodel/msb1780_ground.py); registered only with [Ground] MsbGround190 on (Plugin.MsbGroundOn)
         public const string MsbKey = "MSB17";   // 1.9.9: was "MSB1780"
@@ -132,6 +136,7 @@ namespace B25H.Instruments
             public float yawDamp = GroundGripMath.YawDamp;   // 1.9.2: per aircraft (MSB 24)
             public bool k; public LandingGear[] castors = new LandingGear[0]; public float[] castorBuilt = new float[0]; public LandingGear tail; public float tailBuilt;   // 1.8.11 (TaxiTurn1811.cs)
             public Collider[] lastCol; public AnimatedPhysicsSurface[] lastAps; public bool deck;   // 1.9.7 (DeckRelative197)
+            public bool[] lastOnAc;   // 1.9.15 (DeckFilter1915.cs): the leg's contact collider belongs to another aircraft
             public bool hold; public Vector3 holdAnchor; public float holdYaw, holdForce;   // 1.9.8 (DeckHold198.cs)
         }
         readonly Dictionary<Aircraft, Grip> grips = new Dictionary<Aircraft, Grip>();
@@ -163,6 +168,7 @@ namespace B25H.Instruments
                 var g = new Grip { a = a, rb = a.rb, gear = gear.ToArray(), izz = GroundGripMath.IzzFor(a.definition.jsonKey), yawDamp = GroundGripMath.YawDampFor(a.definition.jsonKey) };
                 g.comLocal = a.rb.transform.InverseTransformPoint(a.GetCenterOfMass());
                 g.lastCol = new Collider[g.gear.Length]; g.lastAps = new AnimatedPhysicsSurface[g.gear.Length];
+                g.lastOnAc = new bool[g.gear.Length];   // 1.9.15 (DeckFilter1915.cs)
                 grips[a] = g;
                 SetupTaxiTurn(g);                                                  // 1.8.11: off -> exactly the 1.8.10 behaviour
                 Logger.LogInfo($"1.8.9 ground grip on {a.name} ({a.definition.jsonKey}): {g.gear.Length} gear legs, Izz {g.izz:F0}, mu {GroundGripMath.GripMu}, damper {g.yawDamp}/s");
@@ -172,6 +178,7 @@ namespace B25H.Instruments
 
         void FixedUpdate()
         {
+            KamikazeStep();          // A6M2 round 3 (A6M2KamikazeFuze.cs): arming latch + wreck watch, server only; off unless [A6M2] KamikazeFuze = On
             if (gripBroken || grips.Count == 0) return;
             List<Aircraft> dead = null;
             try
@@ -206,7 +213,8 @@ namespace B25H.Instruments
                             if (c == null) continue;
                             var grb = c.attachedRigidbody;
                             if (grb == null) continue;                               // static ground: v = 0
-                            if (!ReferenceEquals(c, g.lastCol[i])) { g.lastCol[i] = c; g.lastAps[i] = c.GetComponent<AnimatedPhysicsSurface>(); }
+                            if (!ReferenceEquals(c, g.lastCol[i])) { g.lastCol[i] = c; g.lastAps[i] = c.GetComponent<AnimatedPhysicsSurface>(); g.lastOnAc[i] = OtherAircraft1915(c, a) != null; }   // 1.9.15: + another aircraft?
+                            if (!DeckFilterMath1915.CountsAsDeck(true, g.lastOnAc[i], DeckAircraftOn1915)) { DeckOnAircraft1915(g, c); continue; }   // 1.9.15 (DeckFilter1915.cs): another aircraft under a wheel is static ground, never a deck
                             onBody = true;
                             var pv = grb.GetPointVelocity(com);
                             if (g.lastAps[i] != null) pv += g.lastAps[i].GetVelocity();

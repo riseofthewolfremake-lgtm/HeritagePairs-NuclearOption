@@ -1,0 +1,263 @@
+{
+ "ok": true,
+ "rows": [
+  {
+   "name": "connectivity: attachment points <= 10 mm from their targets; adjacent parts touch (<= 10 mm)",
+   "ok": true,
+   "detail": "9 points; far: []; part gaps: []"
+  },
+  {
+   "name": "orientation: per connected part of every mesh, closed shells enclose positive volume and open surfaces face out (inverted area <= 1 %)",
+   "ok": true,
+   "detail": "71 meshes; over 1 %: []"
+  },
+  {
+   "name": "blades: 3 blade objects, ONE mesh each, one material (prop), no children",
+   "ok": true,
+   "detail": "prop_blade_0: mats ['prop'] children 0, prop_blade_1: mats ['prop'] children 0, prop_blade_2: mats ['prop'] children 0"
+  },
+  {
+   "name": "guns: Type 97 bullet origins >= 0.15 m ahead of the blades (synchroniser) and off the spinner; Type 99 origins outside the wing and > 0.3 m outside the disc",
+   "ok": true,
+   "detail": "blade front y 2.065; T97 dy [0.167, 0.167] r [0.584, 0.584]; T99 r [1.946, 1.946] vs disc 1.505, inside wing [False, False]"
+  },
+  {
+   "name": "CoM 27-30 % MAC (the Unity check rule: parts at their collider-bounds centres + fuel 70 % in its tank part)",
+   "ok": true,
+   "detail": "2228 kg y +0.060 = 28.3 % MAC (MAC 2.016 m, LE y 0.631)"
+  },
+  {
+   "name": "gear sweep: legs + wheels at 0..85 deg (10 deg steps) never cut the wing / body skins, wheels apart, stowed wheel inside its well",
+   "ok": true,
+   "detail": "skin overlaps: []; buried hinge-region contacts (max tri pairs): {('L', 'wheel'): 0, ('L', 'leg'): 218, ('R', 'wheel'): 0, ('R', 'leg'): 217}; liner contacts (well wall, informative): ['L leg 0: 66', 'R leg 0: 67', 'L leg 10: 68', 'R leg 10: 67', 'L leg 20: 71', 'R leg 20: 71']; min wheel-to-centreline sum 0.192 m"
+  },
+  {
+   "name": "hook: stowed A-frame visible under the belly (> 60 % of its vertices outside the tail skin), hinge axle end on the slot wall (within 30 mm of the tail skin)",
+   "ok": true,
+   "detail": "100 % outside, pivot 0 mm from the skin"
+  },
+  {
+   "name": "prop attachment: spinner back within 5 mm of the nose case (no gap), hub on the thrust axis",
+   "ok": true,
+   "detail": "spinner back y 1.871, nearest engine surface 4.0 mm, hub off-axis 0.00 mm"
+  },
+  {
+   "name": "z-fight: no coplanar overlapping paint faces between different objects (< 0.6 mm, parallel)",
+   "ok": true,
+   "detail": "0 pairs []; samples []"
+  },
+  {
+   "name": "no refs: no A6M2 generator opens anything under nuclearoption-ref\\refs (numbers live in a6m2_spec.py)",
+   "ok": true,
+   "detail": "23 sources; offending []"
+  },
+  {
+   "name": "tub (r8 review: gaps in the front panel into the engine): rays from the eye over the forward hemisphere (2 deg grid) end on cockpit geometry inside the tub or on glass; none reaches the engine, an exterior part, an outer skin or the bay ahead of the bulkhead",
+   "ok": true,
+   "detail": "6461 rays, 0 fail"
+  },
+  {
+   "name": "r8m sight mount (user review r8l: frame floated over the sight): 1 connected (one solid body), 2 glass corners held (<= 1.5 mm), 3 bottom edge forward / top leaning aft 25-45 mm, within 3 mm of WT, aft normal down, 4 eye rays over the glass clear 81/81, 5 rays along both frame arms and under the glass bottom edge all end on the sight (0 gaps), 6 centred + mirror-symmetric",
+   "ok": true,
+   "detail": "islands 1; worst glass corner 0.5 mm; lean 36.2 mm, WT bottom 1.2 / top 0.4 mm, normal z -0.64; clear 81/81; gap rays 0 of 102 arm + 288 fan; centre x 0.00 mm, mirror 0.00 mm"
+  },
+  {
+   "name": "r8m stick sweep (user review r8l: base moved with the stick, rod through the front): fixed cockpit_stick_base under fus_center; cockpit_stick at the true Joystick rotation (range 14, 17x17 pitch/roll) touches nothing, grip >= 10 mm off the panel at full push, above the floor, no forward rod",
+   "ok": true,
+   "detail": "gimbal (0.000, -0.503, zf+0.054); hit poses 0/289; grip at full push 22.1 mm; lowest zf+0.0327; fwd +0.055"
+  },
+  {
+   "name": "canopy frames (r8 review: \"rectangles glued together\"): every member one swept mesh, 0 open boundary edges; every member end inside the member it meets (gap <= 1 mm) or buried in the fuselage / sill",
+   "ok": true,
+   "detail": "45 members, open edges 0, joint gaps 0"
+  },
+  {
+   "name": "wing-root seam (r8 review: open gap between wing and fuselage; r8c: LE strip + 20 mm steps over the LE root): ray sweep from 72 external directions at the root band, both sides: no inside face and no see-through at any angle",
+   "ok": true,
+   "detail": "383040 rays, 0 fail"
+  },
+  {
+   "name": "fillet smooth (r8c, game r8b LE-root spike / crease): the visible fairing surface (quarter round + foot) moves <= 2.5 x the row spacing between consecutive rows",
+   "ok": true,
+   "detail": "worst slope 1.27 at ('R', 0.743, 15)"
+  },
+  {
+   "name": "root junction (r8d, r8c sheets: shards at the wing / fillet / fuselage junction): no VISIBLE intersecting triangles of two parts at a near-coplanar (< 8 deg) angle, and no visible flipped paint normal, both sides, |x| 0.25-0.85, y -2.4..1.1",
+   "ok": true,
+   "detail": "0 shallow crossings, 0 flipped"
+  },
+  {
+   "name": "root unified (r8e: ONE mesh at the wing-fuselage junction): within 0.4 m of the root every visible skin hit is fus_center, no other skin within 5 mm of it, manifold (no edge with > 2 faces, no open edge off the designed openings); r8g: no shading normal > 60 deg off its face and no shading seam > 20 deg on smooth (< 20 deg) surface",
+   "ok": true,
+   "detail": "39727 visible hits, foreign {}, layered 0 [], visible >2-face edges 0 [], visible open edges 0 []; buried fragment edges (not seen from outside) 17, open edges on the cowl / rear joint rings 0; off-face shading normals 0 [], shading seams 0 []"
+  },
+  {
+   "name": "livery UV sanity (r8h: sealed slits spanned the atlas and painted over other islands): no paint face above 10x the median texel density",
+   "ok": true,
+   "detail": "median 173 texels/m, 55564 faces, over 10x: 0 []"
+  },
+  {
+   "name": "LE-root ray sweep, gear up (r8j: in game r8i a teal sliver + dark notch under the LE root): vertical sweeps hit no back face, lateral sweeps find no see-through slot or back face, 6 cameras see no back face, no enclosed sky and no aotake on a gear cover / door",
+   "ok": true,
+   "detail": "vertical 500x350x2 rays: back 0 []; lateral: enclosed miss 0 [], back 0; cameras (back, enclosed, cover aotake px): {'below_front': (0, 0, 0), 'front_low': (0, 0, 0), 'side_front': (0, 0, 0), 'below_front_R': (0, 0, 0), 'front_low_R': (0, 0, 0), 'side_front_R': (0, 0, 0)} {}"
+  },
+  {
+   "name": "gear bay sweep, gear up (r8k: in game r8j a light-blue crescent at the inboard edge of each closed well): parallel rays from below (up, +-30 deg in / out / fwd / aft) see no well band wider than 12 mm past the closed covers and no sky",
+   "ok": true,
+   "detail": "per grid (well cells, widest band mm, enclosed sky): {'R_up': (866, 8, 0), 'R_in': (229, 8, 0), 'R_out': (394, 8, 0), 'R_fwd': (69, 4, 0), 'R_aft': (166, 4, 0), 'L_up': (866, 8, 0), 'L_in': (229, 8, 0), 'L_out': (394, 8, 0), 'L_fwd': (69, 4, 0), 'L_aft': (166, 4, 0)}; widest 8 mm"
+  },
+  {
+   "name": "well detail (r8l: ribs + rim lip in each main well) present (>= 200 bars) and clear of the main legs / wheels at every retraction step",
+   "ok": true,
+   "detail": "detail faces 1462; contacts []"
+  },
+  {
+   "name": "r8m throttle sweep (user review r8l: full throttle clipped the levers): cockpit_throttle at the true Throttle rotation 0..40 deg (every 2) overlaps nothing, >= 10 mm from the mixture / pitch / supercharger levers, grip moves forward, knobs >= 3 mm off the wall",
+   "ok": true,
+   "detail": "overlaps 0; lever gap min 30.8 mm at 10 deg (532 lever tris); grip y -0.655 -> -0.580 (+75 mm); knobs to wall 7.5 mm"
+  },
+  {
+   "name": "r8n throttle lever (user review r8m: the handle was two rectangles with a gap at the elbow): ONE closed shell from the pivot hub to the grip (welded 0.2 mm, no overlap merging), 0 open / non-manifold edges, no self-intersection, outward",
+   "ok": true,
+   "detail": "lever shells 1 (gear shells 2); lever 52 tris spans 8.1 .. 159.8 mm from the pivot (grip centre 182.9 mm, lever end 4.3 mm from the grip surface); open edges 0, non-manifold 0, self-intersecting pairs 0, volume 17.88 cm3"
+  },
+  {
+   "name": "cockpit parts inside the fuselage skin (r8: r7 console box and floor edges poked through the side)",
+   "ok": true,
+   "detail": "9977 vertices, 0 outside"
+  },
+  {
+   "name": "r8o C1 break_flat (user test r8n: a SOLID metal disc closed every break): at every break end the non-paint faces lying in the plane (all vertices within 12 mm, normal within 30 deg of the axis) more than 10 mm inside the skin sum to <= 0.03 m2",
+   "ok": true,
+   "detail": "21 ends, worst wing R br0 outboard end 0.001 m2 {'well': 0.0, 'metal_dark': 0.001}; "
+  },
+  {
+   "name": "r8o C2 break_see_into (stock: one looks into a hollow shell): rays along the axis through a 15 mm grid inside every break ring: >= 60 % travel >= 0.08 m past the plane before the first front face, <= 15 % hit within 0.05 m (every end, the stab / fin roots too)",
+   "ok": true,
+   "detail": "bad []; fus 0.955 aft end n4234 far 0.976 near 0.024, fus 0.955 front end n4295 far 0.983 near 0.006, fus -2.715 aft end n3224 far 1.0 near 0.0, fus -2.715 front end n3175 far 0.998 near 0.002, fus -4.143 aft end n1938 far 0.995 near 0.005, fus -4.143 front end n1865 far 0.997 near 0.003, wing R br0 outboard end n2632 far 0.991 near 0.008, wing R br0 root end n2601 far 0.983 near 0.013, wing R br1 outboard end n1439 far 0.992 near 0.008, wing R br1 root end n1393 far 0.999 near 0.001, wing R br2 outboard end n442 far 1.0 near 0.0, wing R br2 root end n412 far 0.993 near 0.005, stab R root n302 far 0.983 near 0.017, wing L br0 outboard end n2635 far 0.997 near 0.003, wing L br0 root end n2602 far 0.979 near 0.015, wing L br1 outboard end n1441 far 0.999 near 0.001, wing L br1 root end n1390 far 0.978 near 0.013, wing L br2 outboard end n444 far 0.966 near 0.032, wing L br2 root end n410 far 1.0 near 0.0, stab L root n302 far 0.997 near 0.0, fin root n327 far 0.982 near 0.015"
+  },
+  {
+   "name": "r8o C11 break_deep_wall (review of r8o round 2: the firewall disc sat 0.17 m in, 2 cm past the 0.15 m windows of C3 / C10): at every break end no single plane across the axis - any non-paint material, metal_dark and interior included - is the first hit of > 60 % of the axial rays within 0.5 m of the break, except the documented DEEP_WALL_ALLOW walls",
+   "ok": true,
+   "detail": "over, not allowed: []; allowed: ['fus 0.955 aft end 0.84 at 0.38 m metal_dark [the firewall: plain dark plate 0.38 m in, behind the open end frame and the engine-mount truss]', 'wing R br1 outboard end 0.94 at 0.40 m interior [bay-end wall of the lined wing cavity in the liner paint (round 2; stock: first full rib 0.4 m or more in)]', 'wing R br1 root end 0.87 at 0.40 m interior [bay-end wall of the lined wing cavity in the liner paint (round 2; stock: first full rib 0.4 m or more in)]', 'wing R br2 outboard end 0.96 at 0.40 m interior [bay-end wall of the lined wing cavity in the liner paint (round 2; stock: first full rib 0.4 m or more in)]', 'wing R br2 root end 0.92 at 0.47 m interior [bay-end wall of the lined wing cavity in the liner paint (round 2; stock: first full rib 0.4 m or more in)]', 'stab R root 0.98 at 0.30 m interior [bay-end wall of the lined stab root cavity (TAIL_CAVITY 0.30 m), liner paint]', 'wing L br1 outboard end 0.94 at 0.40 m interior [bay-end wall of the lined wing cavity in the liner paint (round 2; stock: first full rib 0.4 m or more in)]', 'wing L br1 root end 0.87 at 0.40 m interior [bay-end wall of the lined wing cavity in the liner paint (round 2; stock: first full rib 0.4 m or more in)]', 'wing L br2 outboard end 0.95 at 0.40 m interior [bay-end wall of the lined wing cavity in the liner paint (round 2; stock: first full rib 0.4 m or more in)]', 'wing L br2 root end 0.93 at 0.47 m interior [bay-end wall of the lined wing cavity in the liner paint (round 2; stock: first full rib 0.4 m or more in)]', 'stab L root 0.99 at 0.30 m interior [bay-end wall of the lined stab root cavity (TAIL_CAVITY 0.30 m), liner paint]', 'fin root 0.89 at 0.30 m interior [bay-end wall of the lined fin root cavity (TAIL_CAVITY 0.30 m), liner paint]']; max plane per end: fus 0.955 aft end 0.839@0.38me, fus 0.955 front end 0.032@0.1st, fus -2.715 aft end 0.052@0.1st, fus -2.715 front end 0.088@0.45st, fus -4.143 aft end 0.054@0.1st, fus -4.143 front end 0.128@0.1st, wing R br0 outboard end 0.595@0.421in, wing R br0 root end 0.037@0.106me, wing R br1 outboard end 0.937@0.4in, wing R br1 root end 0.869@0.4in, wing R br2 outboard end 0.962@0.4in, wing R br2 root end 0.917@0.475in, stab R root 0.977@0.298in, wing L br0 outboard end 0.593@0.421in, wing L br0 root end 0.037@0.106me, wing L br1 outboard end 0.942@0.4in, wing L br1 root end 0.873@0.4in, wing L br2 outboard end 0.946@0.4in, wing L br2 root end 0.927@0.475in, stab L root 0.993@0.298in, fin root 0.887@0.298in"
+  },
+  {
+   "name": "r8o C10 break_one_plane (review of r8o round 1: 84-94 % of the axial rays into every wing / stab / fin end stopped on ONE rib plane): at every break end <= 30 % of the axial rays have their first hit on one plane across the axis within 0.15 m of the break",
+   "ok": true,
+   "detail": "bad []; fus 0.955 aft end 0.043, fus 0.955 front end 0.032, fus -2.715 aft end 0.052, fus -2.715 front end 0.083, fus -4.143 aft end 0.054, fus -4.143 front end 0.128, wing R br0 outboard end 0.003, wing R br0 root end 0.015, wing R br1 outboard end 0.002, wing R br1 root end 0.011, wing R br2 outboard end 0.0, wing R br2 root end 0.007, stab R root 0.017, wing L br0 outboard end 0.002, wing L br0 root end 0.015, wing L br1 outboard end 0.003, wing L br1 root end 0.01, wing L br2 outboard end 0.0, wing L br2 root end 0.005, stab L root 0.003, fin root 0.003"
+  },
+  {
+   "name": "r8o C3 struct_no_plate (stock aircraft_structure only on thin members): every coplanar connected structure region AND the union of every plane of structure faces (connected or not, 5 mm raster) has w_eff = 2 A / perimeter <= 0.25 m, and seen head-on from every break end structure within 0.5 m (round 3; round 2: 0.15 m) covers <= 30 % of the section (projected: first axial hits; r8o round 1 84-94 %)",
+   "ok": true,
+   "detail": "over: []; coverage over 30 %: []; max per part connected {'fin': 0.022, 'fus_center': 0.03, 'fus_engine': 0.028, 'fus_rear': 0.03, 'fus_tail': 0.03, 'stab_L': 0.019, 'stab_R': 0.018, 'wing_inner_L': 0.232, 'wing_inner_R': 0.232, 'wing_mid_L': 0.195, 'wing_mid_R': 0.195, 'wing_tip_L': 0.019, 'wing_tip_R': 0.018}; union {'fus_center': 0.024, 'fus_engine': 0.022, 'fus_rear': 0.024, 'fus_tail': 0.024, 'wing_inner_L': 0.214, 'wing_inner_R': 0.214, 'wing_mid_L': 0.182, 'wing_mid_R': 0.181}; coverage {'fus 0.955 aft end': 0.043, 'fus 0.955 front end': 0.034, 'fus -2.715 aft end': 0.052, 'fus -2.715 front end': 0.188, 'fus -4.143 aft end': 0.058, 'fus -4.143 front end': 0.292, 'wing R br0 outboard end': 0.0, 'wing R br0 root end': 0.026, 'wing R br1 outboard end': 0.022, 'wing R br1 root end': 0.028, 'wing R br2 outboard end': 0.038, 'wing R br2 root end': 0.007, 'stab R root': 0.017, 'wing L br0 outboard end': 0.0, 'wing L br0 root end': 0.031, 'wing L br1 outboard end': 0.015, 'wing L br1 root end': 0.029, 'wing L br2 outboard end': 0.054, 'wing L br2 root end': 0.0, 'stab L root': 0.0, 'fin root': 0.015}"
+  },
+  {
+   "name": "r8o C4 struct_no_volume (r8n: the tank boxes, firewall and oil tank were structure solids): no closed structure component encloses > 0.005 m3",
+   "ok": true,
+   "detail": "0 []"
+  },
+  {
+   "name": "r8o C5 tanks_material (user test r8n: a \"box\" in the structure texture through the damage holes): every face inside the fuselage, oil and wing tank bounds is tank metal or a dark strap, >= 1 tank cell in fus_center, fus_engine and each wing_inner, fuselage tank >= 15 mm clear of the skin / guns / cockpit",
+   "ok": true,
+   "detail": "wrong faces {}; tank cells {'wing_tank_R': 1, 'wing_tank_L': 1, 'fus_tank': 1, 'oil_tank': 1}; fus tank clearance {'fus_tank': 0.0599} m"
+  },
+  {
+   "name": "r8o C6 internals_in_own_part (r8n: the wing tank stood 94 mm through the root break): no internal vertex past its part's break planes; structure (stubs, spars, longerons) ends >= 15 mm short, tanks / frames >= 0.10 m inside",
+   "ok": true,
+   "detail": "0 []; nearest structure 15.1 mm, tank 127.4 mm inside; not counted: the Type 97 barrels of fus_engine reach +215 mm past the cowl joint to the receivers"
+  },
+  {
+   "name": "r8o C7 hole_view_fwd (user test r8n: the \"box\" through the holes): rays into the upper forward fuselage (y -0.30..1.10, z > 0, 20 mm grid, skin + inner skin removed = HP 0 holes): structure <= 25 % of the first hits, none on a structure plate (w_eff > 0.25)",
+   "ok": true,
+   "detail": "3781 hits, structure 6.7 %, on plates 0; by material {'interior': 1829, 'tank': 1341, 'structure': 255, 'metal_dark': 154, 'ck_dark': 80, 'ck_gun': 52, 'gunmetal': 49, 'gear': 21}"
+  },
+  {
+   "name": "r8o C8 seam_dark (r8g / 1.9.13 seam backing): at every joint the lining within 25 mm of the plane (inner-skin band, wing liner band, skin edge) is 100 % metal_dark",
+   "ok": true,
+   "detail": "6225 lining faces; not dark {}"
+  },
+  {
+   "name": "r8o C9 break_view_with_children (open breaks: the cockpit backs / hollow fuselage seen through the open ends): see-through with culling ON <= 0.05 % for fus_center with every cockpit_* / gauge_* part from the front break, and fus_rear alone from both ends",
+   "ok": true,
+   "detail": "fus_center + cockpit from the front break: 0 / 32968 px = 0.000 %; fus_rear from both ends: 1 / 110601 px = 0.001 %"
+  },
+  {
+   "name": "see-through with backface culling ON: whole model 14 views and every part alone 6 views (detached part): enclosed hole pixels <= 0.05 % of the silhouette (0.1 % on wing_C / wing_inner: the open well seen through the root notch)",
+   "ok": true,
+   "detail": "whole 0 / 342503 px = 0.000 %; parts over 0.05 %: []"
+  }
+ ],
+ "orientation": {
+  "aerial": 0.0,
+  "aileron_L": 0.0,
+  "aileron_R": 0.0,
+  "cannon_L": 0.0,
+  "cannon_R": 0.0,
+  "ckcanopy_fixed": 0.0,
+  "ckcanopy_hood": 0.0,
+  "cockpit_breech_L": 0.0,
+  "cockpit_breech_R": 0.0,
+  "cockpit_coaming": 0.0,
+  "cockpit_consoles": 0.0,
+  "cockpit_headpad": 0.0,
+  "cockpit_panel": 0.0,
+  "cockpit_ringsight": 0.0,
+  "cockpit_seat": 0.0,
+  "cockpit_sight": 0.0003,
+  "cockpit_stick": 0.0,
+  "cockpit_stick_base": 0.0,
+  "cockpit_throttle": 0.0,
+  "cockpit_walls": 0.0,
+  "elevator_L": 0.0,
+  "elevator_R": 0.0,
+  "fin": 0.0,
+  "flap_L": 0.0053,
+  "flap_R": 0.0055,
+  "fus_center": 0.0004,
+  "fus_engine": 0.0,
+  "fus_rear": 0.0,
+  "fus_tail": 0.0,
+  "gauge_alt_needle": 0.0,
+  "gauge_alt_needle_short": 0.0,
+  "gauge_asi_needle": 0.0,
+  "gauge_boost_needle": 0.0,
+  "gauge_compass_card": 0.0,
+  "gauge_fuel_needle": 0.0,
+  "gauge_horizon_card": 0.0,
+  "gauge_oilp_needle": 0.0,
+  "gauge_oilt_needle": 0.0,
+  "gauge_rpm_needle": 0.0,
+  "gauge_turn_needle": 0.0,
+  "gauge_turn_slip": 0.0,
+  "gauge_vsi_needle": 0.0,
+  "gear_door_L": 0.0,
+  "gear_door_R": 0.0,
+  "gear_main_L_strut": 0.0,
+  "gear_main_L_wheel": 0.0,
+  "gear_main_R_strut": 0.0,
+  "gear_main_R_wheel": 0.0,
+  "gear_tail_strut": 0.0,
+  "gear_tail_wheel": 0.0,
+  "pitot": 0.0,
+  "prop_blade_0": 0.0,
+  "prop_blade_1": 0.0,
+  "prop_blade_2": 0.0,
+  "prop_hub": 0.0,
+  "rudder": 0.0,
+  "stab_L": 0.0,
+  "stab_R": 0.0,
+  "store_no6_bomb": 0.0,
+  "store_no6_rack": 0.0,
+  "store_tokko_bomb": 0.0,
+  "store_tokko_rack": 0.0,
+  "tailhook": 0.0,
+  "wing_fold_L": 0.0,
+  "wing_fold_R": 0.0,
+  "wing_inner_L": 0.0041,
+  "wing_inner_R": 0.0006,
+  "wing_mid_L": 0.0,
+  "wing_mid_R": 0.0,
+  "wing_tip_L": 0.0048,
+  "wing_tip_R": 0.0048
+ }
+}

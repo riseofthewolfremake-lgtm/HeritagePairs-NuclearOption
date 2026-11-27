@@ -404,6 +404,7 @@ namespace B25HTools
                 Save(Tiled(LitMat(lit, "NIMROD1_ck_art", Color.white, 0.1f, 0.45f), "nimrod_ckart_b", "nimrod_ckart_n"), "ck_art");
             }
             Save(LitMat(lit, "NIMROD1_cove", new Color(0.045f, 0.045f, 0.048f), 0f, 0.1f), "cove");   // 1.3.1: hinge coves, control-surface fronts (dark matte)
+            Save(LitMat(lit, "NIMROD1_tank", new Color(0.55f, 0.55f, 0.55f), 0.3f, 0.4f), "tank");   // 2026-11-22: fuel tank metal (the r8o tank metal; was the light structure look)
             foreach (var pm in PropMats)
                 Save(Tiled(LitMat(lit, "NIMROD1_" + pm, Color.white, pm == "pr_vickers" ? 0.6f : pm == "pr_wheel" || pm == "pr_tailwheel" ? 0.1f : 0.35f, 0.45f), $"nimrod_{pm}_b", $"nimrod_{pm}_n"), pm);
             Save(LitMat(lit, "NIMROD1_radiator", new Color(0.10f, 0.10f, 0.09f), 0.6f, 0.4f), "radiator");

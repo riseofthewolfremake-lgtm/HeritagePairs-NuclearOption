@@ -319,7 +319,8 @@ put('nothing inside the 0.2 m camera near plane ahead of the eye (CameraCockpitS
 # budget
 vt = sum(len(o.data.vertices) for o in O if o.type == 'MESH')
 tt = sum(len(p.vertices) - 2 for o in O if o.type == 'MESH' for p in o.data.polygons)
-put('vertex/triangle budget: welded verts < 48k, tris < 75k (Mk I 1.4.2: 45k / 72k; B-25H: 117k tris)', vt < 48000 and tt < 75000, f'verts {vt}, tris {tt}')
+put('vertex/triangle budget: welded verts < 50k, tris < 84k (2026-11-27 round 2: + the fus_center bay truss / stringers / wall frames; Mk I 1.4.2: 45k / 72k; B-25H: 117k tris; 2026-11-22: + the open break cavities liners, '
+    'cap strips and bay-end walls, about 5.5k tris)', vt < 50000 and tt < 84000, f'verts {vt}, tris {tt}')
 
 # (b) connectivity: every strut / cabane / wire / gear-leg / stabiliser-strut end lies within 10 mm of the surface of its target part or
 #     inside it (the generator records each end and its targets: nimrod_parts.ATTACH)
@@ -1107,6 +1108,51 @@ if CAN_.ENABLED:
     hl = con_.get('collider_fus_center', {})
     put('1.8.3 root collider: contract carries the convex hull of the 1.8.2 fus_center skin (FD32Build bakes the FD32 collider from it: same CoM / inertia)',
         len(hl.get('verts', [])) > 50 and len(hl.get('tris', [])) > 50, dict(verts=len(hl.get('verts', [])), tris=len(hl.get('tris', []))))
+
+# 2026-11-22 break faces (user: "The Nimrod and FD-32 need to be changed as well"): the r8o checks C1 / C10 / C11 / C8 / C6 on every
+# break end (blender/breakface_r8o_checks.py; ends as the Mk I, the y -1.5 split stretched to -1.90). The 1.9.14 blend fails them
+# (fus_center discs 98 %, upper wing full ribs 92 %, fin root rib in the plane 0.078 m2, spine caps in the -1.90 plane).
+import breakface_r8o_checks as BF
+
+
+def _paint_min(n_, axis):
+    o_ = O.get(n_)
+    mi = [m.name if m else '' for m in o_.data.materials]
+    M_ = o_.matrix_world
+    return min(abs((M_ @ o_.data.vertices[i].co)[axis]) for p_ in o_.data.polygons if mi[p_.material_index] == 'paint' for i in p_.vertices)
+
+
+yA_ = S.ENGINE_AFT_Y
+yB_ = S.CENTRE_AFT_Y if getattr(S, '_fd32_stretched', False) else S.CENTRE_AFT_Y - FS.STRETCH_L
+fd_breaks = [(f'fus {yA_:+.2f} aft end', 'fus_engine', Vector((0, yA_, 0)), Vector((0, -1, 0)), 0.03),
+             (f'fus {yA_:+.2f} front end', 'fus_center', Vector((0, yA_, 0)), Vector((0, 1, 0)), 0.03),
+             (f'fus {yB_:+.2f} aft end', 'fus_center', Vector((0, yB_, 0)), Vector((0, -1, 0)), 0.03),
+             (f'fus {yB_:+.2f} front end', 'fus_rear', Vector((0, yB_, 0)), Vector((0, 1, 0)), 0.03)]
+for sd_, L_ in ((-1, 'L'), (1, 'R')):
+    fd_breaks.append((f'upper wing {L_} centre end', 'wing_upper_C', Vector((sd_ * S.UP_CENTRE_X, 0, 0)), Vector((sd_, 0, 0)), 0.03))
+    fd_breaks.append((f'upper wing {L_} root end', f'wing_upper_{L_}', Vector((sd_ * S.UP_CENTRE_X, 0, 0)), Vector((-sd_, 0, 0)), 0.03))
+    xi_, xr_ = _paint_min(f'wing_lower_{L_}_root', 0), _paint_min(f'wing_lower_{L_}', 0)
+    fd_breaks.append((f'lower wing {L_} root', f'wing_lower_{L_}', Vector((sd_ * xi_, 0, 0)), Vector((-sd_, 0, 0)), xr_ + 0.02 - xi_))
+    xi_, xr_ = _paint_min(f'stab_{L_}_root', 0), _paint_min(f'stab_{L_}', 0)
+    fd_breaks.append((f'stab {L_} root', f'stab_{L_}', Vector((sd_ * xi_, 0, 0)), Vector((-sd_, 0, 0)), xr_ + 0.02 - xi_))
+fd_breaks.append(('fin root', 'fin', Vector((0, 0, _paint_min('fin', 2))), Vector((0, 0, -1)), 0.03))
+# round 2 (2026-11-27, review of round 1: the break-facing cockpit walls in interior paint read as one light full-section plate, 78-95 %
+# of the view, and passed C11 only by their 'cockpit' label): the cockpit wall is allowed only dark (metal_dark), over <= 85 % of the
+# view, with frames / longerons / stringers in front of it on >= 10 % of the rays (C12 cockpit_wall_relief)
+# round 3 (2026-11-27, review of round 2: the dark wall still covered 0.64 front / 0.80 aft (fuselage section) = the divider, darker; the
+# aft end had been measured on 1547 rays only, see breakface_r8o_checks._slice): max_cover 0.50, no exemption left for the cockpit walls
+COCKPIT_WALL_RULE = dict(max_cover=0.50, min_relief=0.10)
+FD_ALLOW = (('fus', ('metal_dark',), 0.20, "the cockpit's own wall, dark, structure in front (0.22 m from the break; the user: the cockpit is different)", COCKPIT_WALL_RULE),
+            ('upper wing', ('fabric_in', 'interior'), 0.24, 'bay-end wall of the lined wing cavity (liner paint, 0.40 m in)'),
+            ('lower wing', ('fabric_in', 'interior'), 0.24, 'bay-end wall of the lined root cavity (liner paint)'),
+            ('stab', ('fabric_in', 'interior'), 0.24, 'bay-end wall of the lined stab root cavity (liner paint)'),
+            ('fin', ('fabric_in', 'interior'), 0.24, 'bay-end wall of the lined fin root cavity (liner paint)'))
+bf_ = BF.run(put, fd_breaks, set(UNITY_PARTS) | {'prop'}, FD_ALLOW, label='2026-11-22 ')
+import nimrod_cockpit as NC_
+_ya = NC_.YA - FS.STRETCH_L if NC_.YA < FS.STRETCH_Y else NC_.YA           # the cockpit walls after the stretch: -1.68 / -0.22
+bf_['eye_bay'] = BF.eye_bay(put, S.EYE, _ya, NC_.YB, label='2026-11-27 ', skip=('chk_',))      # round 3: no bay structure in the cockpit
+bf_['poke_sky'] = BF.poke_sky(put, 'fus_center', 'fus_center_struct', 0, set(UNITY_PARTS) | {'prop'}, label='2026-11-27 ')   # round 1 baseline 0 (1.9.14: 2, x +-0.161 y -0.058)
+json.dump(bf_, open(os.path.join(os.path.dirname(os.path.abspath(OUTP)), 'fd32_breakfaces.json'), 'w'), indent=1, default=str)
 
 os.makedirs(os.path.dirname(os.path.abspath(OUTP)), exist_ok=True)
 json.dump(res, open(OUTP, 'w'), indent=1)

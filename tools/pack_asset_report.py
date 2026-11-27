@@ -23,7 +23,7 @@ stock one's (the build copies stock emitter settings; see SCOPE AND LIMITS in th
 --game-export (optional; needs your own export of your own game): flags any object of ours whose NAME equals a game asset's name, and any
 mesh that also has that game mesh's vertex count. Only names and counts are read and written.
 
-Exit code 1 when anything is UNKNOWN, when an AudioClip, non-Unity Shader, compute shader, video, or .cs / .dll / .il TextAsset is found,
+Exit code 1 when anything of an unreleased aircraft (SHIP_GATED; none since 1.9.15) is in the pack (ship gate; --allow-dev for a local dev report), when anything is UNKNOWN, when an AudioClip, non-Unity Shader, compute shader, video, or .cs / .dll / .il TextAsset is found,
 when a placeholder carries a real payload, or when a mesh of ours has a game mesh's name and vertex count.
 Use the study venv: C:\Users\User\nuclearoption-ref\study\venv.
 """
@@ -34,7 +34,8 @@ PAYLOAD = ('Mesh', 'Texture2D', 'Sprite', 'AudioClip', 'Shader', 'ComputeShader'
            'Cubemap', 'Texture3D', 'RenderTexture', 'AnimatorController', 'PhysicMaterial')
 FORBIDDEN = ('AudioClip', 'ComputeShader', 'VideoClip')
 UNITY_SHADERS = ('Universal Render Pipeline/', 'Hidden/Universal Render Pipeline/', 'Hidden/Core/', 'Hidden/InternalErrorShader', 'Sprites/', 'UI/')
-OURS = ('b25h', 'ga25x', 'nimrod', 'fd32', 'b17g', 'msb17', 'anm2')
+OURS = ('b25h', 'ga25x', 'nimrod', 'fd32', 'b17g', 'msb17', 'anm2', 'a6m2')   # a6m2: released in 1.9.15
+SHIP_GATED = ()     # pack-folder names of aircraft not released yet (ship gate, HOW_TO_RELEASE.md); the A6M2 ('a6m2') was here until 1.9.15
 PLACEHOLDER_MAX = 4096      # a placeholder stub is a name and a few fields
 VC = re.compile(r'm_VertexCount: (\d+)')
 
@@ -203,6 +204,12 @@ def main():
     L.append(f'Forbidden types (audio, non-Unity shaders, compute shaders, video, source or DLL text): {len(forbidden)}')
     for u in forbidden[:200]:
         L.append(f'  {u}')
+    # SHIP GATE (memory new-aircraft-ship-gate): an aircraft the user has not released yet stays out of a release. Any container path or object
+    # name with a SHIP_GATED name in a release pack fails the report (FamilyBuild.Pack refuses it too; this is the check on the built file).
+    gated = sorted({p_ for p_ in path_of.values() for g in SHIP_GATED if g in str(p_).lower()} | {r[1] for r in rows for g in SHIP_GATED if g in str(r[1]).lower()})
+    L.append(f'SHIP GATE: unreleased-aircraft assets in the pack (must be 0 for a release): {len(gated)} (gated: {", ".join(SHIP_GATED) or "none"})')
+    for u in gated[:50]:
+        L.append(f'  {u}')
     L.append(f'Placeholders with a real payload (> {PLACEHOLDER_MAX} bytes): {len(fat_placeholder)}')
     for u in fat_placeholder[:200]:
         L.append(f'  {u}')
@@ -223,7 +230,10 @@ def main():
     if '--json' in a:
         json.dump(summ, open(a[a.index('--json') + 1], 'w'), indent=1)
     print(json.dumps(summ)[:1800])
-    sys.exit(1 if (unknown or forbidden or fat_placeholder or same_mesh) else 0)
+    dev = '--allow-dev' in a or '--allow-a6m2-dev' in a       # the older flag name is still accepted
+    if gated and not dev:
+        print(f'SHIP GATE FAIL: {len(gated)} unreleased-aircraft assets in the pack (dev pack? pass --allow-dev for a local dev report only)')
+    sys.exit(1 if (unknown or forbidden or fat_placeholder or same_mesh or (gated and not dev)) else 0)
 
 
 if __name__ == '__main__':

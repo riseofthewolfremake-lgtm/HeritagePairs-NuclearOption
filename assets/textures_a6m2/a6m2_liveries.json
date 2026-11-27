@@ -1,0 +1,212 @@
+{
+ "ijn_greywhite": {
+  "texture": "a6m2_livery_ijn_greywhite.png",
+  "name": "IJN Grey-White (1941)",
+  "label": "IJN Grey-White (1941)",
+  "faction": "BDF",
+  "both": true,
+  "glossiness": 0.35,
+  "colors": [
+   {
+    "color": "#A0A080FF",
+    "count": 2229044
+   },
+   {
+    "color": "#202020FF",
+    "count": 144808
+   },
+   {
+    "color": "#A01020FF",
+    "count": 97819
+   },
+   {
+    "color": "#304080FF",
+    "count": 33277
+   },
+   {
+    "color": "#B01020FF",
+    "count": 15398
+   }
+  ]
+ },
+ "bdf_temperate": {
+  "texture": "a6m2_livery_bdf_temperate.png",
+  "name": "BDF Temperate Camo",
+  "label": "BDF Temperate Camo",
+  "faction": "BDF",
+  "both": false,
+  "glossiness": 0.0,
+  "colors": [
+   {
+    "color": "#707070FF",
+    "count": 1360309
+   },
+   {
+    "color": "#405040FF",
+    "count": 817493
+   },
+   {
+    "color": "#303020FF",
+    "count": 160199
+   },
+   {
+    "color": "#606060FF",
+    "count": 37403
+   },
+   {
+    "color": "#505040FF",
+    "count": 29406
+   }
+  ]
+ },
+ "bdf_mattegrey": {
+  "texture": "a6m2_livery_bdf_mattegrey.png",
+  "name": "BDF Matte Gray",
+  "label": "BDF Matte Gray",
+  "faction": "BDF",
+  "both": false,
+  "glossiness": 0.0,
+  "colors": [
+   {
+    "color": "#606060FF",
+    "count": 2298537
+   },
+   {
+    "color": "#404040FF",
+    "count": 155756
+   },
+   {
+    "color": "#000000FF",
+    "count": 24548
+   },
+   {
+    "color": "#306000FF",
+    "count": 18859
+   },
+   {
+    "color": "#003070FF",
+    "count": 12371
+   }
+  ]
+ },
+ "bdf_navy": {
+  "texture": "a6m2_livery_bdf_navy.png",
+  "name": "BDF Navy",
+  "label": "BDF Navy",
+  "faction": "BDF",
+  "both": false,
+  "glossiness": 0.0,
+  "colors": [
+   {
+    "color": "#506060FF",
+    "count": 1307563
+   },
+   {
+    "color": "#809090FF",
+    "count": 926984
+   },
+   {
+    "color": "#304050FF",
+    "count": 138737
+   },
+   {
+    "color": "#000000FF",
+    "count": 24543
+   },
+   {
+    "color": "#406060FF",
+    "count": 24409
+   }
+  ]
+ },
+ "pala_desert": {
+  "texture": "a6m2_livery_pala_desert.png",
+  "name": "PALA Desert Camo",
+  "label": "PALA Desert Camo",
+  "faction": "PALA",
+  "both": false,
+  "glossiness": 0.0,
+  "colors": [
+   {
+    "color": "#707070FF",
+    "count": 929028
+   },
+   {
+    "color": "#908070FF",
+    "count": 488798
+   },
+   {
+    "color": "#604030FF",
+    "count": 404965
+   },
+   {
+    "color": "#A09080FF",
+    "count": 387625
+   },
+   {
+    "color": "#506060FF",
+    "count": 136459
+   }
+  ]
+ },
+ "pala_matteblack": {
+  "texture": "a6m2_livery_pala_matteblack.png",
+  "name": "PALA Matte Black",
+  "label": "PALA Matte Black",
+  "faction": "PALA",
+  "both": false,
+  "glossiness": 0.0,
+  "colors": [
+   {
+    "color": "#303030FF",
+    "count": 2252891
+   },
+   {
+    "color": "#101010FF",
+    "count": 163093
+   },
+   {
+    "color": "#900000FF",
+    "count": 49277
+   },
+   {
+    "color": "#000000FF",
+    "count": 36165
+   },
+   {
+    "color": "#202020FF",
+    "count": 25024
+   }
+  ]
+ },
+ "pala_navy": {
+  "texture": "a6m2_livery_pala_navy.png",
+  "name": "PALA Navy Splinter",
+  "label": "PALA Navy Splinter",
+  "faction": "PALA",
+  "both": false,
+  "glossiness": 0.0,
+  "colors": [
+   {
+    "color": "#304040FF",
+    "count": 851435
+   },
+   {
+    "color": "#505050FF",
+    "count": 658237
+   },
+   {
+    "color": "#808080FF",
+    "count": 613974
+   },
+   {
+    "color": "#202020FF",
+    "count": 160599
+   },
+   {
+    "color": "#909090FF",
+    "count": 145736
+   }
+  ]
+ }
+}

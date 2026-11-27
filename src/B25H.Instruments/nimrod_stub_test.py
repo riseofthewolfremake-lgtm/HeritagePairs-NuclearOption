@@ -6,6 +6,7 @@ import json, math, os, re, sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, '..', '..'))
 cs = open(os.path.join(HERE, 'Nimrod.cs')).read()
+# 1.9.15: Nimrod.cs is read as it is (the A6M2 is released; until 1.9.15 its hooks were stripped through tools/a6m2_devstrip.py)
 con = json.load(open(os.path.join(ROOT, 'assets', 'model_nimrod', 'nimrod_contract.json')))
 
 
@@ -151,8 +152,8 @@ def hook_decision(dep, alt, spd, vy, gear):
     if not dep and 30 < alt < 120 and spd < 50 and vy < 0 and gear: return 1
     if dep and (spd > 60 or spd < 2 or not gear): return -1
     return 0
-T('hook logic C# == stub thresholds (deploy < 50 m/s, stow > 60 m/s, gear-down gate), NIMROD1 / FD32 only',
-  'HookDeployBelow = 50f, HookStowAbove = 60f' in cs and 'IsHookFixKey(string k) => k == NimrodKey || k == FD32Key;' in cs
+T('hook logic C# == stub thresholds (deploy < 50 m/s, stow > 60 m/s, gear-down gate), NIMROD1 / FD32 (1.9.15: + A6M2) only',
+  'HookDeployBelow = 50f, HookStowAbove = 60f' in cs and re.search(r'IsHookFixKey\(string k\) => k == NimrodKey \|\| k == FD32Key( \|\| k == "A6M2")?;', cs) is not None
   and 'if (!deployed && radarAlt > 30f && radarAlt < 120f && speed < HookDeployBelow && vy < 0f && gearDown) return 1;' in cs
   and 'if (deployed && (speed > HookStowAbove || speed < 2f || !gearDown)) return -1;' in cs)
 cases = [((False, 100, 85, -1, True), 0, 'Mk I cruise descent at 85 m/s, 100 m (stock: deploys and never stows): no deploy'),

@@ -34,10 +34,16 @@ import nimrod_structure as ST
 import nimrod_props as PR
 import nimrod_v140 as N4
 import internals_r183 as IN
+import break_r8o as BR
 
 TEAR_AMP_FUS, TEAR_AMP_WING = 0.0, 0.0         # 1.4.0: straight splits on natural lines (cowl / firewall joint y 0, metal-to-fabric joint
                                                # y -1.5 behind the cockpit, centre-section joint x +-0.80); 1.3.x: 22 mm jags (user: visible)
 FUS_SPLITS = (S.ENGINE_AFT_Y, S.CENTRE_AFT_Y)
+BREAK_R8O = True               # 2026-11-22: open break ends (no discs / full ribs / root caps), r8o pattern; the FD-32 shares it
+BREAK_SETBACK = 0.10           # open frame / rib cap strip this far inside every fuselage / upper-wing break (m)
+TAIL_SETBACK = 0.06            # stab / fin root cap strip (m)
+WING_CAVITY = 0.40             # lined wing break cavity ends in a bay-end wall this far in (m)
+TAIL_CAVITY = 0.25             # stab / fin root cavity (m, beyond the root; the stab fillet adds 30-110 mm)
 WING_SPLIT_X = S.UP_CENTRE_X
 SETBACK = 0.075
 
@@ -329,6 +335,152 @@ def tear_fuselage(fus):
     return rep
 
 
+STRINGER_DEG = (22, 70, 90, 112, 158, 180, 202, 248, 270, 292, 338)     # around the section (0 = top; the corner longerons at 45 / 135)
+STRINGER_W, STRINGER_H = 0.012, 0.016                                    # rectangular stringer, H standing off the liner
+
+
+def wall_frame_ring(mb, y, depth=0.060, thick=0.014, skip_trough=True):
+    """2026-11-27 round 3 (regression review of round 2): the 60 mm open frame in front of a cockpit wall. As ST.frame_ring, but no
+    segment across a gun trough: the skin there ramps down along y (TROUGH_Y starts at -0.22), so a 14 mm thick ring cut from the
+    section at one y stood 2-3.4 mm out through the trough floor (Mk I 49 struct vertices with a sky view, FD-32 12)."""
+    ring, centre = fus_inset_ring(y, 0.002)
+    n = len(ring)
+    inner = [p + (centre - p).normalized() * depth for p in ring]
+    off = V((0, thick / 2, 0))
+
+    def in_trough(q):
+        return skip_trough and q.z > centre.z and abs(abs(q.x) - S.GUN_X) < TROUGH_W + 0.012
+    for j in range(n):
+        j1 = (j + 1) % n
+        a, b, c, d = ring[j], ring[j1], inner[j1], inner[j]
+        if in_trough(a) or in_trough(b):
+            continue
+        oriented_quad(mb, [a + off, b + off, c + off, d + off], 'structure', V((0, 1, 0)))
+        oriented_quad(mb, [a - off, b - off, c - off, d - off], 'structure', V((0, -1, 0)))
+        oriented_quad(mb, [d + off, c + off, c - off, d - off], 'structure', centre - (c + d) / 2)
+        if in_trough(ring[(j - 1) % n]):              # the ring stops at a trough: close its end
+            oriented_quad(mb, [a + off, d + off, d - off, a - off], 'structure', a - b)
+        if in_trough(ring[(j1 + 1) % n]):
+            oriented_quad(mb, [b + off, c + off, c - off, b - off], 'structure', b - a)
+
+
+BAY_FIT = True                 # 2026-11-27 round 3: header tank ahead of the cockpit, radio / oxygen / battery behind it
+BAY_STYLE = 'period'           # FD-32 (fd32_parts.build_exterior): 'modern' - an avionics unit instead of the period radio set
+
+
+def bay_fittings(cen, NC_):
+    """2026-11-27 break faces round 3 (review of round 2: from both fus_center breaks one dark plane, the cockpit wall 0.22 m in, still
+    covered 0.64 (front) / 0.81 (aft) of the axial view - the 'divider', only darker). The bays between the breaks and the cockpit walls
+    get what the real aircraft carried there, as the accepted r8o pattern shows a fuselage tank body ahead of the cockpit:
+      front bay (y 0 .. YB): the main fuel (header) tank, a rounded body across the fuselage over the footwell box, 'tank' metal
+        (Unity <prefix>_tank, lit 0.55 grey) with dark straps, its front ~95 mm in (C6: tank >= 40 mm), clear of the longerons, the
+        wall-station truss and the footwell box;
+      aft bay (YA .. y -1.5): the radio set on a tube shelf (interior grey-green, dark panel plates and knobs), an oxygen bottle across
+        the floor (dark, straps) and the battery box, all >= 40 mm inside the break, behind the wall-station truss.
+    Built into fus_center_struct (in no collider; no mass / CoM change)."""
+    if not BAY_FIT:
+        return
+    dk = 'metal_dark'
+    # ---- front bay: header tank, axis along x; superellipse section n 3 (front face ~95 mm in, back 25 mm clear of the wall frame)
+    yc, hy = -0.142, 0.047
+    z0, z1, hx = -0.245, 0.345, 0.255
+    zc, hz = (z0 + z1) / 2, (z1 - z0) / 2
+    tank = lambda a_, b_, prof, mat, N=24: IN.body(cen, a_, b_, V((0, 0, 1)), prof, n=3.0, N=N, mat=mat)
+    # body(): axis w = +x, u = up x w = +y (half size hw -> y), v = +z (half size hh -> z)
+    tank((-hx, yc, zc), (hx, yc, zc), [(0.0, hy * 0.80, hz * 0.88), (0.035, hy, hz), (0.965, hy, hz), (1.0, hy * 0.80, hz * 0.88)], IN.TANK_MAT)
+    for xs in (-0.13, 0.13):                        # straps: dark bands round the tank
+        tank((xs - 0.011, yc, zc), (xs + 0.011, yc, zc), [(0.0, hy + 0.004, hz + 0.004), (1.0, hy + 0.004, hz + 0.004)], dk)
+    for xs in (-1, 1):                              # cradle: tubes from the tank's lower ends out to the bottom longeron line
+        IN.bar(cen, (xs * (hx - 0.03), yc, z0 + 0.06), (xs * (ST.fus_half_width(yc, -0.330) - 0.014), yc, -0.330), 0.008, mat='structure')
+    IN.bar(cen, (0.10, yc, z1 - 0.020), (0.10, yc, z1 + 0.026), 0.016, mat=dk)                  # filler neck
+    IN.bar(cen, (0.10, yc, z1 + 0.026), (0.10, yc, z1 + 0.036), 0.022, mat=dk)                  # cap
+    # ---- aft bay (YA .. -1.5): shelf, radio, oxygen bottle, battery; break-side faces >= 44 mm inside y -1.5
+    ya_ = S.CENTRE_AFT_Y
+    yf_, yb_ = ya_ + 0.048, ya_ + 0.150             # break-side face / back of the fittings: y -1.452 .. -1.350
+    ym = (yf_ + yb_) / 2
+    for yy in (yf_ + 0.014, yb_ - 0.014):           # shelf tubes, side to side under the radio
+        xe = ST.fus_half_width(yy, 0.040) - 0.0065    # to the side liner (2.5 mm inside the skin)
+        IN.bar(cen, (-xe, yy, 0.040), (xe, yy, 0.040), 0.008, mat='structure')
+    IN.rbox(cen, (0, ym, 0.205), (0.46, yb_ - yf_, 0.31), mat='interior', n=8.0)                # radio set
+    IN.rbox(cen, (-0.075, ym + 0.004, -0.060), (0.25, yb_ - yf_ - 0.008, 0.16), mat='interior', n=8.0)   # its power unit, under the shelf
+    for xs in (-0.17, 0.02):                        # power unit feet on the bottle straps' frame line
+        IN.bar(cen, (xs, ym, -0.110), (xs, ym, -0.188), 0.008, mat='structure')
+    if BAY_STYLE == 'modern':                       # FD-32: avionics unit - dark front with two pull handles and connectors
+        IN.rbox(cen, (0, yf_ - 0.003, 0.205), (0.40, 0.008, 0.26), mat=dk, n=6.0)
+        for xs in (-0.17, 0.17):
+            IN.bar(cen, (xs, yf_ - 0.007, 0.29), (xs, yf_ - 0.024, 0.29), 0.008, mat='structure')
+            IN.bar(cen, (xs, yf_ - 0.007, 0.12), (xs, yf_ - 0.024, 0.12), 0.008, mat='structure')
+            IN.bar(cen, (xs, yf_ - 0.024, 0.12), (xs, yf_ - 0.024, 0.29), 0.008, mat='structure')
+        for xs in (-0.06, 0.06):
+            IN.bar(cen, (xs, yf_ - 0.007, 0.15), (xs, yf_ - 0.020, 0.15), 0.018, mat='structure')
+    else:                                           # Mk I: period receiver / transmitter - round tuning dial, knobs, a name plate
+        IN.body(cen, (-0.10, yf_ + 0.002, 0.245), (-0.10, yf_ - 0.008, 0.245), V((0, 0, 1)), [(0.0, 0.058, 0.058), (1.0, 0.058, 0.058)],
+                n=2.0, N=20, mat=dk)
+        IN.body(cen, (-0.10, yf_ - 0.008, 0.245), (-0.10, yf_ - 0.024, 0.245), V((0, 0, 1)), [(0.0, 0.020, 0.020), (1.0, 0.016, 0.016)],
+                n=2.0, N=12, mat='structure')
+        for xs, zz in ((0.07, 0.29), (0.15, 0.29), (0.07, 0.19), (0.15, 0.19)):
+            IN.bar(cen, (xs, yf_ + 0.004, zz), (xs, yf_ - 0.016, zz), 0.012, mat=dk)
+        IN.rbox(cen, (-0.10, yf_ - 0.003, 0.115), (0.15, 0.008, 0.035), mat='structure', n=6.0)
+    for xs in (-0.19, 0.19):                        # rubber mounts on the shelf
+        IN.bar(cen, (xs, ym, 0.047), (xs, ym, 0.0515), 0.018, mat=dk)
+    # oxygen bottle across the floor (axis x), two straps, valve
+    IN.body(cen, (-0.250, ym, -0.255), (0.120, ym, -0.255), V((0, 0, 1)),
+            [(0.0, 0.020, 0.020), (0.05, 0.055, 0.055), (0.13, 0.066, 0.066), (0.94, 0.066, 0.066), (1.0, 0.058, 0.058)], n=2.0, N=20, mat=dk)
+    IN.bar(cen, (-0.248, ym, -0.255), (-0.282, ym, -0.255), 0.013, mat='structure')
+    for xs in (-0.17, 0.04):
+        IN.body(cen, (xs - 0.009, ym, -0.255), (xs + 0.009, ym, -0.255), V((0, 0, 1)), [(0.0, 0.070, 0.070), (1.0, 0.070, 0.070)],
+                n=2.0, N=20, mat='structure')
+    IN.rbox(cen, (0.205, ym, -0.235), (0.11, yb_ - yf_ - 0.010, 0.15), mat=dk, n=8.0)            # battery box
+    for xs in (0.175, 0.235):                       # terminals
+        IN.bar(cen, (xs, ym, -0.162), (xs, ym, -0.150), 0.010, mat='structure')
+
+
+def cen_stringers(cen, rr, NC_):
+    """2026-11-27 break faces round 2: the bays between the fus_center breaks (y 0 / -1.5) and the cockpit walls (YB / YA, 0.22 m in).
+    Longerons from the 0.10 m frame to the wall, an open frame 20 mm in front of the wall, stringers along the liner from 15-40 mm short
+    of the plane to that frame. Skipped: the gun troughs (front bay top) and the footwell box (front bay floor).
+    Round 3 (regression review of round 2): the wall-station truss stood on the PILOT side of the walls (yt = yw - d * 0.030 put the
+    cross tubes / verticals at y -0.23 / -1.27, inside the cockpit, seen from the eye); now yt = yw + d * 0.030 (break side, >= 30 mm
+    clear of the break-facing wall); the wall frame skips the gun troughs (wall_frame_ring); the bays get their fittings (bay_fittings)."""
+    yb_w, ya_w = NC_.YB + 0.020, NC_.YA - 0.020
+    for yp, yf, yw, d in ((S.ENGINE_AFT_Y, S.ENGINE_AFT_Y - BREAK_SETBACK, yb_w, 1), (S.CENTRE_AFT_Y, S.CENTRE_AFT_Y + BREAK_SETBACK, ya_w, -1)):
+        wall_frame_ring(cen, yw)                                                        # the cockpit wall's mounting frame
+        for side in (-1, 1):
+            for top in (True, False):
+                ST.tube(cen, corner(yf, side, top, 0.05), corner(yw - d * 0.003, side, top, 0.05), 0.013)
+        # Warren truss bay (the Mk I fuselage is a steel-tube truss, as fus_rear): cross tubes and verticals at the wall station, side
+        # diagonals from the 0.10 m frame down to it; no bottom cross tube over the footwell box (front bay)
+        yt = yw + d * 0.030
+        tl, tr, bl, br = (corner(yt, -1, True, 0.05), corner(yt, 1, True, 0.05), corner(yt, -1, False, 0.05), corner(yt, 1, False, 0.05))
+        ST.tube(cen, tl, tr, 0.010)
+        if d < 0:
+            ST.tube(cen, bl, br, 0.010)
+        ST.tube(cen, tl, bl, 0.010); ST.tube(cen, tr, br, 0.010)
+        for side in (-1, 1):
+            ST.tube(cen, corner(yf - d * 0.016, side, True, 0.05), corner(yt + d * 0.012, side, False, 0.05), 0.009)
+        # top (and, aft, bottom) bay diagonals: the truss's plan bracing (round 3: diagonals from 16 mm behind the frame, so their sides do
+        # not pass through the longerons' end caps at the frame - the cockpit z-fight row)
+        ST.tube(cen, corner(yf - d * 0.016, -1, True, 0.05), corner(yt + d * 0.012, 1, True, 0.05), 0.008)
+        if d < 0:
+            ST.tube(cen, corner(yf - d * 0.016, 1, False, 0.05), corner(yt + d * 0.012, -1, False, 0.05), 0.008)
+        inset = 0.0025 + 0.0015 + STRINGER_H / 2
+        ys = yp - d * rr.uniform(*BR.STUB_SHORT)
+        ra, ca = fus_inset_ring(ys, inset)
+        rb, cb = fus_inset_ring(yw - d * 0.003, inset)
+        for deg in STRINGER_DEG:
+            k = min(range(len(RING_ANG)), key=lambda i: abs(((RING_ANG[i] - deg + 180) % 360) - 180))
+            a, b = ra[k], rb[k]
+            mid = (a + b) / 2
+            if mid.z > ca.z and abs(abs(mid.x) - S.GUN_X) < TROUGH_W + 0.04:
+                continue                                    # gun trough (front bay)
+            if d > 0 and abs(mid.x) < NC_.FOOT_WX + 0.04 and mid.z < NC_.FOOT_Z + 0.03:
+                continue                                    # footwell box (front bay floor)
+            up = ((ca + cb) / 2 - mid)
+            up = up - V((0, 1, 0)) * up.y
+            ST.sec_tube(cen, a, b, STRINGER_W, STRINGER_H, up.normalized())
+    bay_fittings(cen, NC_)
+
+
 def fus_struct():
     """structure children of the three fuselage parts: inner skins are added by the caller; here bulkheads, formers, stubs, truss."""
     eng, cen, rear = MeshBuf(), MeshBuf(), MeshBuf()
@@ -336,14 +488,38 @@ def fus_struct():
     r, c = fus_inset_ring(0.065, 0.004)
     if IN.FIREWALL_ON_ENGINE:                   # 1.8.3: the firewall stays with the fuselage (fus_center tank bulkhead); the engine shows
         ST.disc(eng, r, c, 'structure', V((0, -1, 0)))
+    import random as _rnd
+    rr = _rnd.Random(1922)
     for side in (-1, 1):
         for top in (True, False):
             p = corner(0.065, side, top, 0.06)
-            ST.tube(eng, p, p + V((0, -0.095 - 0.012 * top, 0)), 0.016)     # ends 23-35 mm ahead of the fus_center tank bulkhead
+            if BREAK_R8O:                       # 2026-11-22: no stubs through the y 0 break (they crossed it by 30-42 mm); the engine
+                continue                        # body's own bearer A-frames (internals_r183, aft pick-ups y 0.035) end short of it
+            else:
+                ST.tube(eng, p, p + V((0, -0.095 - 0.012 * top, 0)), 0.016)     # ends 23-35 mm ahead of the fus_center tank bulkhead
     if ENGINE_BODY is not None:                 # 1.8.3 (user: "look at how stock aircraft use internal parts"): engine body + tank
         ENGINE_BODY(eng)
     # ---- fus_center: front tank bulkhead at -0.065 and rear bulkhead at -1.44 (closed), longeron stubs at both ends
-    for yb, d in ((-0.065, 1), (-1.44, -1)):
+    if BREAK_R8O:
+        # 2026-11-22 (user: "The Nimrod and FD-32 need to be changed as well"): no tank / rear bulkhead discs. Open frame ring 0.10 m in
+        # from each break (y 0 / -1.5) and four longeron stubs from it ending 15-40 mm short of the plane (r8o / B-25H v3 pattern).
+        # The fuel tank stays in fus_engine; the cockpit's own walls (YA / YB, nimrod_cockpit) close the cockpit, now on both faces.
+        for yb, d, yp in ((S.ENGINE_AFT_Y - BREAK_SETBACK, 1, S.ENGINE_AFT_Y), (S.CENTRE_AFT_Y + BREAK_SETBACK, -1, S.CENTRE_AFT_Y)):
+            r, c = fus_inset_ring(yb, 0.002)
+            ST.frame_ring(cen, r, c, depth=0.03, thick=0.014)
+            for side in (-1, 1):
+                for top in (True, False):
+                    p = corner(yb, side, top, 0.05)
+                    ST.tube(cen, p, V((p.x, yp - d * rr.uniform(*BR.STUB_SHORT), p.z)), 0.013)
+        import nimrod_cockpit as NC_
+        NC_.break_walls(cen, NC_.FOOT_WX, S.FLOOR_Z)     # the cockpit walls' break-facing sides (they faced the pilot only)
+        # 2026-11-27 round 2 (review of round 1: the break-facing cockpit walls read as one uniform full-section plate, the rejected
+        # 'divider'): the walls are dark now (nimrod_cockpit.BREAK_WALL_MAT) and the bay between the break and the wall gets the
+        # fuselage structure one sees on the B-25H v3 ends: the four longerons run on from the 0.10 m frame to the wall, a
+        # second open frame stands 20 mm in front of the wall, and stringers run along the liner from 15-40 mm short of the plane to
+        # that frame (none through the footwell box).
+        cen_stringers(cen, rr, NC_)
+    for yb, d in (() if BREAK_R8O else ((-0.065, 1), (-1.44, -1))):
         r, c = fus_inset_ring(yb, 0.004)
         ST.disc(cen, r, c, 'structure', V((0, d, 0)), both=False)
         # the cockpit side of the tank bulkhead keeps the dark cockpit lining look (1.2.3 footwell); the rear one is plain structure
@@ -360,7 +536,10 @@ def fus_struct():
     for side in (-1, 1):
         for top in (True, False):
             pts = [corner(y, side, top, 0.045) for y in st] + [corner(-4.40, side, top, 0.03)]
-            pts[0] = pts[0] + V((0, 0.10, 0))          # stub through the tear into fus_center (hidden while intact)
+            if BREAK_R8O:                              # 2026-11-22: the longeron stub ends 15-40 mm short of the -1.5 break
+                pts[0] = V((pts[0].x, S.CENTRE_AFT_Y - rr.uniform(*BR.STUB_SHORT), pts[0].z))
+            else:
+                pts[0] = pts[0] + V((0, 0.10, 0))      # stub through the tear into fus_center (hidden while intact)
             for a, b in zip(pts, pts[1:]):
                 ST.tube(rear, a, b, 0.012, caps=True)
     for k, y in enumerate(st[1:-1] + [-4.10]):
@@ -557,12 +736,12 @@ def aft_rib(mb, st, toward):
     section_cap(mb, [p - V(toward).normalized() * 0.003 for p in ring], 'structure', -V(toward))
 
 
-def spar_stubs(mb, st_a, st_b, toward_len, seed, s_list=(0.16, 0.62)):
-    """front and rear spar (I-section: two caps + web) from station st_a reaching `toward_len` beyond st_b's plane."""
+def spar_stubs(mb, st_a, st_b, toward_len, seed, s_list=(0.16, 0.62), jitter=0.04):
+    """front and rear spar (I-section: two caps + web) from station st_a, `toward_len` (+ up to `jitter`) long toward st_b."""
     import random
     r = random.Random(seed)
     for s in s_list:
-        L = toward_len + r.uniform(0.0, 0.04)
+        L = toward_len + r.uniform(0.0, jitter)
         ua, la = surf_pt(st_a, s, True, 0.012), surf_pt(st_a, s, False, 0.012)
         d = (st_b.le - st_a.le); d.y = 0; d.z = 0; d = d.normalized()
         ub, lb = ua + d * L, la + d * L
@@ -834,6 +1013,20 @@ def root_fillet(root_st, s_end, side, inner_fn, n_box=14, name_seed=1, ring=None
             f['idx'] = list(reversed(f['idx']))
             if f['uv']:
                 f['uv'] = list(reversed(f['uv']))
+    if BREAK_R8O:
+        # 2026-11-22: no root disc at the fuselage skin (it closed the whole root). The fillet is the first part of the lined root
+        # cavity: dark skin edge at the inner ring, liner (3 mm in) with its first 25 mm metal_dark, fabric_in on to 10 mm past the root
+        # ring (under the panel's own liner, lining_cavity).
+        inw = BR._inward(ring, V((1, 0, 0)))
+        off = [v * min(0.003, 0.3 * D) for v, D in inw]
+        L0 = [p + o for p, o in zip(inner, off)]
+        tb = [min(BR.BAND / max((r_ - i_).length, 1e-6), 0.9) for r_, i_ in zip(ring, inner)]
+        Lb = [i_ + (r_ - i_) * t_ + o for i_, r_, t_, o in zip(inner, ring, tb, off)]
+        L1 = [r_ + V((side * 0.010, 0, 0)) + o for r_, o in zip(ring, off)]
+        loft(mb, [L0, Lb], 'metal_dark', outward=False)
+        loft(mb, [Lb, L1], 'fabric_in', outward=False)
+        annulus(mb, inner, L0, 'metal_dark', V((-side, 0, 0)))
+        return mb
     ST.disc(mb, inner, c, 'structure', V((-side, 0, 0)), both=True)
     for s in (0.16, 0.62):                                              # spar root lugs on the inner rib
         k = int(round(s / s_end * n_box))
@@ -841,6 +1034,19 @@ def root_fillet(root_st, s_end, side, inner_fn, n_box=14, name_seed=1, ring=None
         pi = inner_fn(p)
         box(mb, pi + V((-side * 0.012, 0, 0)), (0.03, 0.03, 0.05), 'structure')
     return mb
+
+
+def lining_cavity(mb, panel, side, x0, close, setback, stub_seed, t=0.004, stub_st=None):
+    """2026-11-22: the open root cavity of a lifting surface whose root fillet (mb) carries the break: the panel's liner from its root
+    (|x| x0) to a bay-end wall `close` out (liner paint), an open cap strip `setback` out, spar stubs from it ending 15-40 mm short of
+    the root ring. All in the fillet child (not in the collider; the panel's paint mesh and the livery atlas are untouched)."""
+    p0, nn = V((side * x0, 0, 0)), V((-side, 0, 0))
+    mb.extend(BR.liner(panel, [(p0, nn)], t=t, close=close, band=0.0, mats=('paint', 'cove'), edge_mat='fabric_in'))
+    BR.cap_strip(mb, panel, p0, nn, setback)
+    BR.bay_wall(mb, panel, p0, nn, close, mat='fabric_in', both=False)
+    if stub_st is not None:
+        spar_stubs(mb, stub_st(x0 + setback), stub_st(max(x0 - 0.1, 0.05)), setback - BR.STUB_SHORT[1], stub_seed,
+                   jitter=BR.STUB_SHORT[1] - BR.STUB_SHORT[0])
 
 
 def lower_root_inner(side):
@@ -1137,7 +1343,17 @@ def build_exterior():
     tear = tear_fuselage(fus)
     eng_s, cen_s, rear_s = fus_struct()
     # inner skins (structure children): whole fus_engine / fus_rear, fus_center outside the cockpit box (the cockpit walls line it)
+    ye, yc = S.ENGINE_AFT_Y, S.CENTRE_AFT_Y
+    fus_ends = {'fus_engine': [(V((0, ye, 0)), V((0, -1, 0)))], 'NIMROD1': [(V((0, ye, 0)), V((0, 1, 0))), (V((0, yc, 0)), V((0, -1, 0)))],
+                'fus_rear': [(V((0, yc, 0)), V((0, 1, 0)))]}
     for nm, sm, sel in (('fus_engine', eng_s, None), ('NIMROD1', cen_s, lambda c: not (-1.40 < c.y < -0.36)), ('fus_rear', rear_s, None)):
+        if BREAK_R8O:
+            # 2026-11-22: the inner skin ends with a 25 mm metal_dark band at every break (seam backing, r8o); in fus_center it now
+            # reaches under the cockpit lining (the cockpit walls YA / YB are 0.22 m from the breaks: no bare skin back between them)
+            if nm == 'NIMROD1':
+                sel = lambda c: not (-1.20 < c.y < -0.30)
+            sm.extend(BR.liner(fus[nm], fus_ends[nm], t=0.0025, inner=_inner_mat_fus, select=sel, edge_mat='structure'))
+            continue
         tmp = MeshBuf(); tmp.verts = list(fus[nm].verts); tmp.faces = [dict(f) for f in fus[nm].faces]
         n0 = len(tmp.faces)
         ST.double_skin(tmp, t=0.0025, mats=('paint',), inner=_inner_mat_fus, select=sel)
@@ -1174,10 +1390,24 @@ def build_exterior():
             ST.tear_mesh(mb, (side * WING_SPLIT_X, 0, 0), nrm, lambda v: v.y + 7.0 * v.z, TEAR_AMP_WING, 31 + side, 0.09,
                          mats=('paint', 'structure'), uv_axis=0, u_scale=side)
     ucs_struct = MeshBuf()
-    tmp = MeshBuf(); tmp.verts = list(uc.verts); tmp.faces = [dict(f) for f in uc.faces]; n0 = len(tmp.faces)
-    ST.double_skin(tmp, mats=('paint',))
-    add = MeshBuf(); add.verts = tmp.verts; add.faces = tmp.faces[n0:]; ucs_struct.extend(add)
-    for side in (-1, 1):
+    if BREAK_R8O:
+        # 2026-11-22: no full rib 75 mm in (one 'structure' plane over 93 % of the section). Liner from each break to a bay-end wall
+        # WING_CAVITY in (|x| 0.40, liner paint), dark 25 mm band at the break, open cap-strip rib BREAK_SETBACK in, spar stubs from
+        # it ending 15-40 mm short of the plane (the 1.9.12 stubs crossed it by 50-90 mm).
+        ends = [(V((sd * WING_SPLIT_X, 0, 0)), V((sd, 0, 0))) for sd in (-1, 1)]
+        ucs_struct.extend(BR.liner(uc, ends, select=lambda c: abs(c.x) > WING_SPLIT_X - WING_CAVITY + 1e-4))
+        for side in (-1, 1):
+            p0, nn = ends[(side + 1) // 2]
+            BR.cap_strip(ucs_struct, uc, p0, nn, BREAK_SETBACK)
+            BR.bay_wall(ucs_struct, uc, p0, nn, WING_CAVITY, mat='fabric_in', both=False)
+            st_r = wing_station(side * (WING_SPLIT_X - BREAK_SETBACK), S.UP_LE, S.UP_TE, S.UP_Z)
+            spar_stubs(ucs_struct, st_r, up_station(WING_SPLIT_X + 0.1, side), BREAK_SETBACK - BR.STUB_SHORT[1], 70 + side,
+                       jitter=BR.STUB_SHORT[1] - BR.STUB_SHORT[0])
+    else:
+        tmp = MeshBuf(); tmp.verts = list(uc.verts); tmp.faces = [dict(f) for f in uc.faces]; n0 = len(tmp.faces)
+        ST.double_skin(tmp, mats=('paint',))
+        add = MeshBuf(); add.verts = tmp.verts; add.faces = tmp.faces[n0:]; ucs_struct.extend(add)
+    for side in ((-1, 1) if not BREAK_R8O else ()):
         xr = WING_SPLIT_X - SETBACK
         st_r = wing_station(side * xr, S.UP_LE, S.UP_TE, S.UP_Z)
         full_rib(ucs_struct, st_r, V((side, 0, 0)))
@@ -1193,14 +1423,26 @@ def build_exterior():
         wm, am, hin, hout = up_panels[side]
         # outer panel: inner skin near the root, set-back rib, spar stubs into the centre section
         ps = MeshBuf()
-        tmp = MeshBuf(); tmp.verts = list(wm.verts); tmp.faces = [dict(f) for f in wm.faces]; n0 = len(tmp.faces)
-        ST.double_skin(tmp, mats=('paint',), select=lambda c: abs(c.x) < WING_SPLIT_X + SETBACK + 0.006)
-        add = MeshBuf(); add.verts = tmp.verts; add.faces = tmp.faces[n0:]; ps.extend(add)
-        st_r = up_station(WING_SPLIT_X + SETBACK, side)
-        full_rib(ps, st_r, V((-side, 0, 0)))
-        spar_stubs(ps, st_r, wing_station(side * (WING_SPLIT_X - 0.1), S.UP_LE, S.UP_TE, S.UP_Z), SETBACK + 0.05, 80 + side)
+        if BREAK_R8O:                   # 2026-11-22: as the centre section (liner to |x| 1.20, cap strip at 0.90, stubs short of 0.80)
+            p0, nn = V((side * WING_SPLIT_X, 0, 0)), V((-side, 0, 0))
+            ps.extend(BR.liner(wm, [(p0, nn)], close=WING_CAVITY))
+            BR.cap_strip(ps, wm, p0, nn, BREAK_SETBACK)
+            BR.bay_wall(ps, wm, p0, nn, WING_CAVITY, mat='fabric_in', both=False)
+            st_r = up_station(WING_SPLIT_X + BREAK_SETBACK, side)
+            spar_stubs(ps, st_r, wing_station(side * (WING_SPLIT_X - 0.1), S.UP_LE, S.UP_TE, S.UP_Z), BREAK_SETBACK - BR.STUB_SHORT[1],
+                       80 + side, jitter=BR.STUB_SHORT[1] - BR.STUB_SHORT[0])
+        else:
+            tmp = MeshBuf(); tmp.verts = list(wm.verts); tmp.faces = [dict(f) for f in wm.faces]; n0 = len(tmp.faces)
+            ST.double_skin(tmp, mats=('paint',), select=lambda c: abs(c.x) < WING_SPLIT_X + SETBACK + 0.006)
+            add = MeshBuf(); add.verts = tmp.verts; add.faces = tmp.faces[n0:]; ps.extend(add)
+            st_r = up_station(WING_SPLIT_X + SETBACK, side)
+            full_rib(ps, st_r, V((-side, 0, 0)))
+            spar_stubs(ps, st_r, wing_station(side * (WING_SPLIT_X - 0.1), S.UP_LE, S.UP_TE, S.UP_Z), SETBACK + 0.05, 80 + side)
         lm, lroot = lower_panel(side)
         fil = root_fillet(lroot, 0.999, side, lower_root_inner(side), n_box=14)
+        if BREAK_R8O:                   # 2026-11-22: the root cavity: fillet liner (root_fillet) + panel liner to a bay-end wall 0.40 m out
+            lining_cavity(fil, lm, side, abs(lroot.span), WING_CAVITY, BREAK_SETBACK, 90 + side,
+                          stub_st=lambda x, sd=side: lo_station(x, sd))
         sm_ = MeshBuf(); rg = MeshBuf()
         fl, rl, fu, ru = interplane_struts(sm_, side)
         rigging(rg, side, fl, rl, fu, ru)
@@ -1221,6 +1463,8 @@ def build_exterior():
         so_ = N4.frac(sroot, N4.WALL_OUT)
         fr_ = __import__('b25h_geom').cos_space(0.0, so_, NB_) + [so_ + (N4.frac(sroot, N4.WALL_IN) - so_) * k / 2 for k in (1, 2)]
         sfil = root_fillet(sroot, N4.frac(sroot, N4.WALL_IN), side, stab_root_inner(side), ring=N4.ring_to(sroot, fr_))
+        if BREAK_R8O:                   # 2026-11-22: stab root cavity (liner, cap strip 0.06 m, bay-end wall 0.25 m beyond the root)
+            lining_cavity(sfil, sm, side, abs(sroot.span), TAIL_CAVITY, TAIL_SETBACK, None, t=0.003)
         ist = Station(side * 0.11, V((side * 0.11, sroot.le.y, sroot.le.z)), sroot.cdir, sroot.up, sroot.chord, sroot.t, m=0.0)   # inside the tail cone
         for up_ in (True, False):
             lip(sfil, [ist, sroot] if side > 0 else [sroot, ist], lambda st: N4.frac(st, N4.WALL_IN), lambda st: N4.frac(st, S.ELEV_HINGE + 0.012), up_)
@@ -1249,12 +1493,28 @@ def build_exterior():
     fm, rm, rbal, fsts = N4.fin_rudder_v140()
     fs = MeshBuf()
     from b25h_geom import box_ring
-    r0, _ = box_ring(fsts[0], 0.999, 9)
-    c = sum(r0, V()) / len(r0)
-    ST.disc(fs, r0, c, 'structure', V((0, 0, -1)), both=True)         # root rib (seen when shot off)
-    for s_ in (0.2, 0.75):                                              # fin post stubs into the fuselage
-        p = fsts[0].point(s_, True) * 0.5 + fsts[0].point(s_, False) * 0.5
-        ST.sec_tube(fs, p, p - V((0, 0, 0.07 + 0.02 * s_)), 0.02, 0.03, V((1, 0, 0)))
+    if BREAK_R8O:
+        # 2026-11-22: no root rib in the plane (98.8 % of the view). Liner from the root up TAIL_CAVITY with the dark 25 mm band, an open
+        # cap strip TAIL_SETBACK up, a bay-end wall (liner paint) at the top of the cavity; the post stubs end 15-30 mm above the root.
+        z0 = min(p.z for p in fm.verts)
+        p0, nn = V((0, 0, z0)), V((0, 0, -1))
+        fs.extend(BR.liner(fm, [(p0, nn)], t=0.003, close=TAIL_CAVITY, mats=('paint', 'cove')))
+        BR.cap_strip(fs, fm, p0, nn, TAIL_SETBACK)
+        BR.bay_wall(fs, fm, p0, nn, TAIL_CAVITY, mat='fabric_in', both=False)
+        import random as _rnd
+        rr = _rnd.Random(1255)
+        for s_ in (0.2, 0.75):
+            a_ = fsts[0].point(s_, True) * 0.5 + fsts[0].point(s_, False) * 0.5
+            b_ = fsts[1].point(s_, True) * 0.5 + fsts[1].point(s_, False) * 0.5
+            p = a_ + (b_ - a_) * ((z0 + TAIL_SETBACK - a_.z) / max(b_.z - a_.z, 1e-6))
+            ST.sec_tube(fs, p, V((p.x, p.y, z0 + rr.uniform(0.015, 0.030))), 0.02, 0.03, V((1, 0, 0)))
+    else:
+        r0, _ = box_ring(fsts[0], 0.999, 9)
+        c = sum(r0, V()) / len(r0)
+        ST.disc(fs, r0, c, 'structure', V((0, 0, -1)), both=True)         # root rib (seen when shot off)
+        for s_ in (0.2, 0.75):                                              # fin post stubs into the fuselage
+            p = fsts[0].point(s_, True) * 0.5 + fsts[0].point(s_, False) * 0.5
+            ST.sec_tube(fs, p, p - V((0, 0, 0.07 + 0.02 * s_)), 0.02, 0.03, V((1, 0, 0)))
     parts.append(Part('fin', 'fus_rear', (0, -4.0, 0.7), fm))
     parts.append(Part('fin_struct', 'fin', (0, -4.0, 0.2), fs, info=dict(kind='structure', note='root rib + post stubs; not in the fin collider')))
     parts.append(Part('rudder', 'fin', (0, S.FIN_HINGE, 0.45), rm, frame=frame_x(V((0, 0, 1)), V((0, -1, 0))), info=dict(kind='control', hinge_axis=(0, 0, 1))))
